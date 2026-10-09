@@ -30,15 +30,15 @@ export const Navbar: React.FC = () => {
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="glass-btn-ivory p-2 rounded-2xl border border-white/60 shadow-md group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
               {/* Gold Chess Knight Emblem */}
-              <svg className="w-7 h-7 text-[#E5A51B]" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-7 h-7 text-[#E99A00]" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 22H5c-1.1 0-2-.9-2-2v-2c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2zM17 14c0-2.2-1.8-4-4-4h-1c0-1.1-.9-2-2-2V7c0-1.1.9-2 2-2h1c.6 0 1-.4 1-1s-.4-1-1-1h-3c-2.2 0-4 1.8-4 4v3c0 1.1.9 2 2 2h1c1.1 0 2 .9 2 2v1h6v-1z" />
               </svg>
             </div>
             <div>
-              <span className="block font-serif font-extrabold text-lg tracking-wider text-[#10264A] leading-tight">
+              <span className="block font-serif font-extrabold text-lg tracking-wider text-[#10264B] leading-tight">
                 VELOCITY
               </span>
-              <span className="block text-[9px] font-sans font-bold tracking-[0.25em] text-[#E5A51B] uppercase leading-none">
+              <span className="block text-[9px] font-sans font-bold tracking-[0.25em] text-[#E99A00] uppercase leading-none">
                 CHESS ACADEMY
               </span>
             </div>
@@ -54,13 +54,13 @@ export const Navbar: React.FC = () => {
                   to={link.path}
                   className={({ isActive }) =>
                     `relative text-xs xl:text-sm font-medium transition-colors duration-200 py-1 ${
-                      isActive ? 'text-[#10264A] font-semibold' : 'text-[#25334A]/85 hover:text-[#10264A]'
+                      isActive ? 'text-[#10264B] font-semibold' : 'text-[#10264B]/80 hover:text-[#10264B]'
                     }`
                   }
                 >
                   {link.name}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#E5A51B] rounded-full" />
+                    <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#E99A00] rounded-full" />
                   )}
                 </NavLink>
               );
@@ -72,10 +72,10 @@ export const Navbar: React.FC = () => {
             {/* Translucent Glass Circular Search Icon Button */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="w-10 h-10 rounded-full glass-btn-ivory text-[#10264A] flex items-center justify-center"
+              className="w-10 h-10 rounded-full glass-btn-ivory text-[#10264B] flex items-center justify-center"
               aria-label="Search site"
             >
-              <Search className="w-4 h-4 text-[#10264A]" />
+              <Search className="w-4 h-4 text-[#10264B]" />
             </button>
 
             {/* Translucent Glass Navy Pill "Enroll Now →" Button */}
@@ -84,13 +84,13 @@ export const Navbar: React.FC = () => {
               className="hidden sm:inline-flex items-center space-x-2 px-5 py-2.5 glass-btn-navy text-white rounded-full text-xs font-semibold tracking-wide"
             >
               <span>Enroll Now</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#E5A51B]" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#E99A00]" />
             </button>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-[#10264A] glass-btn-ivory transition"
+              className="lg:hidden p-2 rounded-xl text-[#10264B] glass-btn-ivory transition"
               aria-label="Toggle navigation menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -111,7 +111,7 @@ export const Navbar: React.FC = () => {
                     `px-4 py-2.5 rounded-xl text-sm font-medium transition ${
                       isActive
                         ? 'glass-btn-navy text-white font-semibold'
-                        : 'glass-btn-ivory text-[#10264A]'
+                        : 'glass-btn-ivory text-[#10264B]'
                     }`
                   }
                 >
@@ -120,7 +120,7 @@ export const Navbar: React.FC = () => {
               ))}
             </div>
 
-            <div className="pt-2 border-t border-[#E5A51B]/20">
+            <div className="pt-2 border-t border-[#E99A00]/20">
               <button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
                 className="w-full py-3 glass-btn-navy text-white rounded-full font-semibold text-sm flex items-center justify-center space-x-2 shadow-md"
               >
                 <span>Enroll Now</span>
-                <ArrowRight className="w-4 h-4 text-[#E5A51B]" />
+                <ArrowRight className="w-4 h-4 text-[#E99A00]" />
               </button>
             </div>
           </div>

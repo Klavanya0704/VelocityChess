@@ -31,34 +31,34 @@ export const HeroSection: React.FC = () => {
         <div className="lg:col-span-7 space-y-4 sm:space-y-5">
           
           {/* Eyebrow Line */}
-          <div className="inline-flex items-center space-x-1.5 text-[10px] sm:text-xs font-sans font-extrabold uppercase tracking-[0.2em] text-[#E5A51B] glass-btn-ivory px-3 py-1 rounded-full border border-white/50 shadow-sm">
+          <div className="inline-flex items-center space-x-1.5 text-[10px] sm:text-xs font-sans font-extrabold uppercase tracking-[0.2em] text-[#E99A00] glass-btn-ivory px-3 py-1 rounded-full border border-white/50 shadow-sm">
             <span>STRATEGY</span>
-            <span className="text-[#10264A]/40 font-normal">·</span>
+            <span className="text-[#10264B]/40 font-normal">·</span>
             <span>DISCIPLINE</span>
-            <span className="text-[#10264A]/40 font-normal">·</span>
+            <span className="text-[#10264B]/40 font-normal">·</span>
             <span>CONFIDENCE</span>
-            <span className="text-[#10264A]/40 font-normal">·</span>
-            <span className="text-[#10264A]">A BRIGHTER TOMORROW</span>
+            <span className="text-[#10264B]/40 font-normal">·</span>
+            <span className="text-[#10264B]">A BRIGHTER TOMORROW</span>
           </div>
 
           {/* Editorial Headline */}
           <div className="space-y-0.5">
-            <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#10264A] tracking-tight leading-[1.05] drop-shadow-sm">
+            <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#10264B] tracking-tight leading-[1.05] drop-shadow-sm">
               Every Move Builds a
             </h1>
             <div className="relative inline-block">
-              <h2 className="font-serif italic font-normal text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#E5A51B] tracking-tight leading-[1.05] drop-shadow-sm">
+              <h2 className="font-serif italic font-normal text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#E99A00] tracking-tight leading-[1.05] drop-shadow-sm">
                 Brighter Tomorrow
               </h2>
               {/* Refined Gold Underline Stroke */}
-              <svg className="w-full h-2.5 text-[#E5A51B] -mt-1" viewBox="0 0 400 20" fill="none">
+              <svg className="w-full h-2.5 text-[#E99A00] -mt-1" viewBox="0 0 400 20" fill="none">
                 <path d="M5 12 C 120 4, 280 18, 395 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               </svg>
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-sm sm:text-base text-[#10264A] font-sans font-semibold max-w-md leading-relaxed drop-shadow-xs">
+          <p className="text-sm sm:text-base text-[#202A38] font-sans font-semibold max-w-md leading-relaxed drop-shadow-xs">
             Nurturing confident, creative and strategic thinkers through the power of chess.
           </p>
 
@@ -70,64 +70,64 @@ export const HeroSection: React.FC = () => {
               className="glass-btn-navy text-white px-6 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide inline-flex items-center space-x-2.5"
             >
               <span>Explore Our Programs</span>
-              <ArrowRight className="w-4 h-4 text-[#E5A51B]" />
+              <ArrowRight className="w-4 h-4 text-[#E99A00]" />
             </button>
 
             {/* Secondary CTA — Watch Our Story */}
             <button
               onClick={() => setIsVideoModalOpen(true)}
-              className="glass-btn-ivory text-[#10264A] px-5 py-3 rounded-full font-semibold text-xs sm:text-sm inline-flex items-center space-x-2"
+              className="glass-btn-ivory text-[#10264B] px-5 py-3 rounded-full font-semibold text-xs sm:text-sm inline-flex items-center space-x-2"
             >
-              <div className="w-5 h-5 rounded-full bg-[#10264A] text-white flex items-center justify-center">
+              <div className="w-5 h-5 rounded-full bg-[#10264B] text-white flex items-center justify-center">
                 <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
               </div>
               <span>Watch Our Story</span>
             </button>
           </div>
 
-          {/* 4 Feature Highlights (No rectangular card backgrounds — only circular glass icon backgrounds placed directly over photograph) */}
+          {/* 4 Feature Highlights */}
           <div className="pt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mt-4">
             {/* Feature 1 */}
             <div className="flex items-center space-x-2">
               <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <Crown className="w-3.5 h-3.5 text-[#E5A51B]" />
+                <Crown className="w-3.5 h-3.5 text-[#E99A00]" />
               </div>
               <div>
-                <h4 className="font-bold text-[11px] text-[#10264A] leading-tight drop-shadow-xs">Builds Focus</h4>
-                <p className="text-[10px] text-[#25334A]/85 leading-tight mt-0.5">Higher levels, better decisions.</p>
+                <h4 className="font-bold text-[11px] text-[#10264B] leading-tight drop-shadow-xs">Builds Focus</h4>
+                <p className="text-[10px] text-[#202A38] font-medium leading-tight mt-0.5">Higher levels, better decisions.</p>
               </div>
             </div>
 
             {/* Feature 2 */}
             <div className="flex items-center space-x-2">
               <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <TrendingUp className="w-3.5 h-3.5 text-[#E5A51B]" />
+                <TrendingUp className="w-3.5 h-3.5 text-[#E99A00]" />
               </div>
               <div>
-                <h4 className="font-bold text-[11px] text-[#10264A] leading-tight drop-shadow-xs">Enhances Decision Making</h4>
-                <p className="text-[10px] text-[#25334A]/85 leading-tight mt-0.5">Smarter choices in life.</p>
+                <h4 className="font-bold text-[11px] text-[#10264B] leading-tight drop-shadow-xs">Enhances Decision Making</h4>
+                <p className="text-[10px] text-[#202A38] font-medium leading-tight mt-0.5">Smarter choices in life.</p>
               </div>
             </div>
 
             {/* Feature 3 */}
             <div className="flex items-center space-x-2">
               <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <Users className="w-3.5 h-3.5 text-[#E5A51B]" />
+                <Users className="w-3.5 h-3.5 text-[#E99A00]" />
               </div>
               <div>
-                <h4 className="font-bold text-[11px] text-[#10264A] leading-tight drop-shadow-xs">Develops Confidence</h4>
-                <p className="text-[10px] text-[#25334A]/85 leading-tight mt-0.5">Stronger mind, brighter future.</p>
+                <h4 className="font-bold text-[11px] text-[#10264B] leading-tight drop-shadow-xs">Develops Confidence</h4>
+                <p className="text-[10px] text-[#202A38] font-medium leading-tight mt-0.5">Stronger mind, brighter future.</p>
               </div>
             </div>
 
             {/* Feature 4 */}
             <div className="flex items-center space-x-2">
               <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <BookOpen className="w-3.5 h-3.5 text-[#E5A51B]" />
+                <BookOpen className="w-3.5 h-3.5 text-[#E99A00]" />
               </div>
               <div>
-                <h4 className="font-bold text-[11px] text-[#10264A] leading-tight drop-shadow-xs">Prepares for Future</h4>
-                <p className="text-[10px] text-[#25334A]/85 leading-tight mt-0.5">Skills that last a lifetime.</p>
+                <h4 className="font-bold text-[11px] text-[#10264B] leading-tight drop-shadow-xs">Prepares for Future</h4>
+                <p className="text-[10px] text-[#202A38] font-medium leading-tight mt-0.5">Skills that last a lifetime.</p>
               </div>
             </div>
           </div>
