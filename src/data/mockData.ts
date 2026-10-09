@@ -1,4 +1,4 @@
-import { Achievement, Program, ChessEvent, GalleryItem, Testimonial, Resource, Statistic } from '../types';
+import { Achievement, Program, ChessEvent, GalleryItem, Testimonial, Resource, Statistic, Service } from '../types';
 
 export const achievementsData: Achievement[] = [
   {
@@ -287,5 +287,80 @@ This setup gives White harmonious piece placement and a durable positional found
 - **Direct Opposition**: Placing your King facing the enemy King with one square between them when it is your opponent's turn to move.`,
     pdfUrl: '#download-endgame-pdf',
     difficulty: 'Intermediate'
+  }
+];
+
+export const servicesData: Service[] = [
+  {
+    id: 'service-1',
+    title: 'Regular Chess Classes',
+    description: 'Structured online and offline classes for all age groups with expert coaches and a step-by-step curriculum.',
+    imageUrl: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=800',
+    iconName: 'Users',
+    benefits: [
+      'Beginner to advanced levels',
+      'Interactive learning methods',
+      'Small group & 1-on-1 options'
+    ],
+    fullDetails: {
+      overview: 'Our Regular Chess Classes offer systematic group instruction combining opening principles, middle-game tactics, and endgame fundamentals.',
+      schedule: '2 to 3 sessions per week (Offline & Online batches available)',
+      targetAudience: 'Kids (Ages 5+) and Adults aiming for structured progress',
+      coachingRatio: 'Max 6 students per batch'
+    }
+  },
+  {
+    id: 'service-2',
+    title: 'Personalized Coaching',
+    description: "One-on-one training tailored to each student's strengths, weaknesses, and learning goals.",
+    imageUrl: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?auto=format&fit=crop&q=80&w=800',
+    iconName: 'TrendingUp',
+    benefits: [
+      'Customized training plans',
+      'Regular progress tracking',
+      'Focused skill development'
+    ],
+    fullDetails: {
+      overview: 'Direct 1-on-1 mentorship with International Masters and Grandmasters focusing on personalized opening prep and deep game analysis.',
+      schedule: 'Flexible private schedules (Weekdays & Weekends)',
+      targetAudience: 'Competitive players & rating aspirants seeking rapid improvement',
+      coachingRatio: '1-on-1 Private Mentorship'
+    }
+  },
+  {
+    id: 'service-3',
+    title: 'Tournament Preparation',
+    description: 'Specialized training to help students perform confidently in state, national, and international tournaments.',
+    imageUrl: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?auto=format&fit=crop&q=80&w=800',
+    iconName: 'Trophy',
+    benefits: [
+      'Opening & endgame strategies',
+      'Time management practice',
+      'Mock tournaments & analysis'
+    ],
+    fullDetails: {
+      overview: 'Intensive pre-tournament bootcamps featuring opponent scouting, psychological prep, rapid blitz arenas, and engine analysis.',
+      schedule: '4-Week Pre-Tournament Camps & Weekend Arenas',
+      targetAudience: 'State, National, & FIDE Rated Tournament Participants',
+      coachingRatio: 'Simul & Masterclass Sessions'
+    }
+  },
+  {
+    id: 'service-4',
+    title: 'Online Chess Programs',
+    description: 'Live interactive classes from anywhere with flexible timings and personalized guidance.',
+    imageUrl: 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80&w=800',
+    iconName: 'Laptop',
+    benefits: [
+      'Live online classes (1-on-1 & group)',
+      'Recorded sessions & resources',
+      'Global access from anywhere'
+    ],
+    fullDetails: {
+      overview: 'State-of-the-art virtual classroom platform with interactive DGT digital boards, screen sharing, recorded video archives, and homework modules.',
+      schedule: '24/7 Global Timezone Batches',
+      targetAudience: 'International students & remote learners across all timezones',
+      coachingRatio: 'Interactive Virtual Batches & Private Rooms'
+    }
   }
 ];

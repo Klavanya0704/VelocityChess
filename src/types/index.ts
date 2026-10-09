@@ -71,3 +71,18 @@ export interface Statistic {
   label: string;
   iconName: string;
 }
+
+export interface Service {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  iconName: string;
+  benefits: string[];
+  fullDetails?: {
+    overview: string;
+    schedule: string;
+    targetAudience: string;
+    coachingRatio: string;
+  };
+}
