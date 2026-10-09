@@ -1,0 +1,58 @@
+import React from 'react';
+import { GraduationCap, Trophy, Award, TrendingUp } from 'lucide-react';
+import { statisticsData } from '../../data/mockData';
+
+export const StatisticsBar: React.FC = () => {
+  const getIcon = (name: string) => {
+    switch (name) {
+      case 'GraduationCap':
+        return <GraduationCap className="w-4 h-4 text-[#E5A51B]" />;
+      case 'Trophy':
+        return <Trophy className="w-4 h-4 text-[#E5A51B]" />;
+      case 'Award':
+        return <Award className="w-4 h-4 text-[#E5A51B]" />;
+      case 'TrendingUp':
+      default:
+        return <TrendingUp className="w-4 h-4 text-[#E5A51B]" />;
+    }
+  };
+
+  return (
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="bg-white/95 backdrop-blur-md rounded-full px-6 py-3 border border-[#E5A51B]/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        {/* Left 4 Statistics Blocks */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 md:gap-8 w-full md:w-auto divide-x-0 sm:divide-x divide-[#E5A51B]/20">
+          {statisticsData.map((stat, idx) => (
+            <div
+              key={stat.id}
+              className={`flex items-center space-x-2.5 ${idx > 0 ? 'sm:pl-6' : ''}`}
+            >
+              <div className="w-8 h-8 rounded-full bg-[#FFF9EF] border border-[#E5A51B]/30 flex items-center justify-center shrink-0 shadow-sm">
+                {getIcon(stat.iconName)}
+              </div>
+              <div>
+                <span className="block font-serif font-extrabold text-lg sm:text-xl text-[#10264A] leading-none">
+                  {stat.value}
+                </span>
+                <span className="block text-[11px] font-sans font-medium text-[#25334A]/80 leading-none mt-1">
+                  {stat.label}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Right Decorative Quote */}
+        <div className="hidden lg:flex items-center pl-6 border-l border-[#E5A51B]/30 max-w-xs">
+          <p className="font-serif italic text-xs md:text-sm text-[#10264A] leading-snug">
+            <span className="text-[#E5A51B] font-bold text-base leading-none mr-1">“</span>
+            Chess teaches you to think ahead in life.
+            <span className="text-[#E5A51B] font-bold text-base leading-none ml-0.5">”</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  );
+};
