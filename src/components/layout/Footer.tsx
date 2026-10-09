@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Globe, Share2 } from 'lucide-react';
+import { Logo } from '../common/Logo';
 
 export const Footer: React.FC = () => {
   return (
@@ -10,20 +11,8 @@ export const Footer: React.FC = () => {
           
           {/* Col 1: Brand Logo & Mission */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="flex items-center space-x-3 group">
-              <div className="bg-white p-2 rounded-2xl border border-[#E5A51B]/30 flex items-center justify-center">
-                <svg className="w-7 h-7 text-[#E5A51B]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 22H5c-1.1 0-2-.9-2-2v-2c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2zM17 14c0-2.2-1.8-4-4-4h-1c0-1.1-.9-2-2-2V7c0-1.1.9-2 2-2h1c.6 0 1-.4 1-1s-.4-1-1-1h-3c-2.2 0-4 1.8-4 4v3c0 1.1.9 2 2 2h1c1.1 0 2 .9 2 2v1h6v-1z" />
-                </svg>
-              </div>
-              <div>
-                <span className="block font-serif font-extrabold text-xl tracking-wider text-white">
-                  VELOCITY
-                </span>
-                <span className="block text-[9px] font-sans font-bold tracking-[0.25em] text-[#E5A51B] uppercase">
-                  CHESS ACADEMY
-                </span>
-              </div>
+            <Link to="/" className="flex items-center group">
+              <Logo size="lg" />
             </Link>
 
             <p className="text-xs text-gray-300 leading-relaxed max-w-sm">
