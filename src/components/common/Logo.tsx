@@ -3,16 +3,17 @@ import React from 'react';
 interface LogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
+  yellowBg?: boolean;
 }
 
-export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
+export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', yellowBg = false }) => {
   const heightClasses = {
     sm: 'h-8 sm:h-9',
     md: 'h-10 sm:h-11',
     lg: 'h-14 sm:h-16',
   };
 
-  return (
+  const logoContent = (
     <div className={`flex items-center select-none ${heightClasses[size]} ${className}`}>
       {/* 100% Precision Vector Logo matching reference image */}
       <svg
@@ -41,7 +42,7 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
           {/* O */}
           <path d="M 330 89 C 330 72 342 60 357 60 C 372 60 384 72 384 89 C 384 106 372 118 357 118 C 342 118 330 106 330 89 Z M 342 89 C 342 100 348 109 357 109 C 366 109 372 100 372 89 C 372 78 366 69 357 69 C 348 69 342 78 342 89 Z" />
           {/* C */}
-          <path d="M 416 72 L 406 79 C 401 73 396 69 389 69 C 378 69 371 78 371 89 C 371 100 378 109 389 109 C 396 109 402 105 407 98 L 416 106 C 409 114 399 118 388 118 C 370 118 359 105 359 89 C 359 73 370 60 389 60 C 400 60 410 65 416 72 Z" />
+          <path d="M 416 72 L 406 79 C 401 73 396 69 389 69 C 378 69 371 78 371 89 C 371 100 378 109 389 109 C 396 109 402 105 407 98 L 416 106 C 409 114 399 118 388 118 C 359 118 359 105 359 89 C 359 73 370 60 389 60 C 400 60 410 65 416 72 Z" />
           
           {/* Solid Red King Chess Piece (Replaces 'I') */}
           <g transform="translate(420, 56)">
@@ -61,11 +62,11 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
           <path d="M 479 60 L 493 90 L 507 60 H 519 L 499 98 V 118 H 487 V 98 L 467 60 H 479 Z" />
         </g>
 
-        {/* CHESS ACADEMY Subtitle (Golden Orange #D98B00) */}
+        {/* CHESS ACADEMY Subtitle */}
         <text
           x="215"
           y="152"
-          fill="#D98B00"
+          fill={yellowBg ? '#E53935' : '#D98B00'}
           fontSize="24"
           fontWeight="bold"
           fontFamily="system-ui, -apple-system, sans-serif"
@@ -76,4 +77,14 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
       </svg>
     </div>
   );
+
+  if (yellowBg) {
+    return (
+      <div className="bg-[#FFE600] border-2 border-white/90 shadow-lg rounded-2xl sm:rounded-3xl p-2 sm:p-2.5 inline-flex items-center hover:scale-102 transition-transform">
+        {logoContent}
+      </div>
+    );
+  }
+
+  return logoContent;
 };

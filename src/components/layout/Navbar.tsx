@@ -27,9 +27,9 @@ export const Navbar: React.FC = () => {
       <header className="absolute top-3 sm:top-4 left-0 right-0 z-40 w-full max-w-[1540px] mx-auto px-4 sm:px-8 xl:px-12 transition-all duration-300 pointer-events-none">
         <div className="glass-nav rounded-full px-4 sm:px-5 py-2 flex items-center justify-between shadow-lg pointer-events-auto">
           
-          {/* LEFT: Academy Brand Logo */}
+          {/* LEFT: Academy Brand Logo in Bright Yellow Rounded Badge */}
           <Link to="/" className="flex items-center group">
-            <Logo size="md" />
+            <Logo size="md" yellowBg={true} />
           </Link>
 
           {/* CENTER: Desktop Navigation Links (8 links in exact order) */}
