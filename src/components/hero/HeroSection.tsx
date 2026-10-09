@@ -10,7 +10,7 @@ export const HeroSection: React.FC = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   return (
-    <section className="relative min-h-[90vh] lg:h-[93vh] max-h-[960px] flex flex-col justify-between pt-24 sm:pt-28 pb-4 overflow-hidden">
+    <section className="relative min-h-[88vh] lg:h-[92vh] max-h-[960px] flex flex-col justify-between pt-20 sm:pt-24 pb-3 overflow-hidden">
       
       {/* 1. 100% Photographic Quality Background with Bottom Chessboard Visibility extending to top-0 */}
       <div className="absolute inset-0 z-0">
@@ -25,13 +25,13 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Main Hero Content Grid */}
-      <div className="relative z-10 w-full max-w-[1540px] mx-auto px-4 sm:px-8 xl:px-12 py-2 sm:py-4 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className="relative z-10 w-full max-w-[1540px] mx-auto px-4 sm:px-8 xl:px-12 py-1 sm:py-2 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
         {/* LEFT COLUMN: Eyebrow, Headline, Description, CTAs, 4 Highlights */}
-        <div className="lg:col-span-7 space-y-4 sm:space-y-5">
+        <div className="lg:col-span-7 space-y-3.5 sm:space-y-4">
           
           {/* Eyebrow Line */}
-          <div className="inline-flex items-center space-x-1.5 text-[10px] sm:text-xs font-sans font-extrabold uppercase tracking-[0.2em] text-[#F2A000] glass-btn-ivory px-3 py-1 rounded-full border border-white/50 shadow-sm">
+          <div className="inline-flex items-center space-x-1.5 text-[10px] sm:text-[11px] font-sans font-extrabold uppercase tracking-[0.2em] text-[#F2A000] glass-btn-ivory px-3 py-1 rounded-full border border-white/50 shadow-sm">
             <span>STRATEGY</span>
             <span className="text-[#10264B]/40 font-normal">·</span>
             <span>DISCIPLINE</span>
@@ -43,11 +43,11 @@ export const HeroSection: React.FC = () => {
 
           {/* Editorial Headline */}
           <div className="space-y-0.5">
-            <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#10264B] tracking-tight leading-[1.05] drop-shadow-sm">
+            <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-[48px] xl:text-[54px] text-[#10264B] tracking-tight leading-[1.05] drop-shadow-sm">
               Every Move Builds a
             </h1>
             <div className="relative inline-block">
-              <h2 className="font-serif italic font-normal text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#F2A000] tracking-tight leading-[1.05] drop-shadow-sm">
+              <h2 className="font-serif italic font-normal text-3xl sm:text-4xl lg:text-[48px] xl:text-[54px] text-[#F2A000] tracking-tight leading-[1.05] drop-shadow-sm">
                 Brighter Tomorrow
               </h2>
               {/* Refined Gold Underline Stroke */}
@@ -63,30 +63,30 @@ export const HeroSection: React.FC = () => {
           </p>
 
           {/* Glassmorphism CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-1">
+          <div className="flex flex-wrap items-center gap-3 pt-0.5">
             {/* Primary CTA — Explore Our Programs */}
             <button
               onClick={() => navigate('/programs')}
-              className="glass-btn-navy text-white px-6 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide inline-flex items-center space-x-2.5"
+              className="glass-btn-navy text-white px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm tracking-wide inline-flex items-center space-x-2"
             >
               <span>Explore Our Programs</span>
-              <ArrowRight className="w-4 h-4 text-[#F2A000]" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#F2A000]" />
             </button>
 
             {/* Secondary CTA — Watch Our Story */}
             <button
               onClick={() => setIsVideoModalOpen(true)}
-              className="glass-btn-ivory text-[#10264B] px-5 py-3 rounded-full font-semibold text-xs sm:text-sm inline-flex items-center space-x-2"
+              className="glass-btn-ivory text-[#10264B] px-4 py-2.5 rounded-full font-bold text-xs sm:text-sm inline-flex items-center space-x-2"
             >
-              <div className="w-5 h-5 rounded-full bg-[#10264B] text-white flex items-center justify-center">
-                <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
+              <div className="w-4.5 h-4.5 rounded-full bg-[#10264B] text-white flex items-center justify-center">
+                <Play className="w-2 h-2 fill-current ml-0.5" />
               </div>
               <span>Watch Our Story</span>
             </button>
           </div>
 
           {/* 4 Feature Highlights (White text with dark text shadow directly over photograph) */}
-          <div className="pt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mt-4">
+          <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-2xl mt-3">
             {/* Feature 1 */}
             <div className="flex items-center space-x-2">
               <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
@@ -135,7 +135,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* RIGHT COLUMN: Achievements Card */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end lg:pt-14 xl:pt-16">
+        <div className="lg:col-span-5 flex justify-center lg:justify-end lg:pt-8 xl:pt-10">
           <AchievementCard />
         </div>
 
