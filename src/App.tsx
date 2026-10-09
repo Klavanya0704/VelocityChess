@@ -24,11 +24,14 @@ const ScrollToTop: React.FC = () => {
 };
 
 export const App: React.FC = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#FFF9EF] font-sans antialiased text-[#25334A]">
+    <div className={`min-h-screen flex flex-col justify-between ${isHomePage ? 'bg-white' : 'bg-[#FFF9EF]'} font-sans antialiased text-[#25334A]`}>
       <ScrollToTop />
       <div>
-        <Navbar />
+        {!isHomePage && <Navbar />}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -41,7 +44,7 @@ export const App: React.FC = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
-      <Footer />
+      {!isHomePage && <Footer />}
     </div>
   );
 };
