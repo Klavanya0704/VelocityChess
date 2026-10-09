@@ -23,7 +23,7 @@ export const AchievementCard: React.FC = () => {
       {/* 1. Header Row */}
       <div className="flex items-center justify-between mb-2 border-b border-[#F8F0E3]/60 pb-1.5">
         <div className="flex items-center space-x-2">
-          <div className="w-5.5 h-5.5 rounded-full bg-[#FFF5E0] text-[#E99A00] flex items-center justify-center shrink-0 shadow-xs border border-[#E99A00]/20">
+          <div className="w-5.5 h-5.5 rounded-full bg-[#FFF3D6] text-[#754600] flex items-center justify-center shrink-0 shadow-xs border border-[#F2A000]/30">
             <Trophy className="w-3 h-3 fill-current" />
           </div>
           <h3 className="font-serif font-extrabold text-sm sm:text-base text-[#10264B]">
@@ -35,7 +35,7 @@ export const AchievementCard: React.FC = () => {
           className="inline-flex items-center space-x-1 text-[10px] font-semibold text-[#10264B] glass-btn-ivory px-2.5 py-0.5 rounded-full transition"
         >
           <span>View All</span>
-          <ArrowRight className="w-2.5 h-2.5 text-[#E99A00]" />
+          <ArrowRight className="w-2.5 h-2.5 text-[#F2A000]" />
         </button>
       </div>
 
@@ -54,14 +54,14 @@ export const AchievementCard: React.FC = () => {
               <h4 className="font-serif font-bold text-sm sm:text-base text-[#10264B] leading-tight">
                 {currentAchievement.title}
               </h4>
-              <p className="text-[11px] font-bold text-[#E99A00] mt-0.5">
-                {currentAchievement.winnerName} <span className="text-[#303846]/70 font-normal">| {currentAchievement.category}</span>
+              <p className="text-[11px] font-medium text-[#26354A] mt-0.5">
+                <span className="font-semibold text-[#26354A]">{currentAchievement.winnerName}</span> <span className="text-[#26354A]/70 font-normal">| {currentAchievement.category}</span>
               </p>
-              <p className="text-[10px] font-medium text-[#303846] mt-0.5 leading-tight">
+              <p className="text-[10px] font-medium text-[#26354A] mt-0.5 leading-tight">
                 {currentAchievement.tournament}
               </p>
             </div>
-            <span className="px-2 py-0.5 bg-[#FFF5E0] text-[#E99A00] border border-[#E99A00]/30 text-[9px] font-bold uppercase tracking-wider rounded-full shrink-0 shadow-xs">
+            <span className="px-2 py-0.5 bg-[#FFF3D6] text-[#754600] border border-[#F2A000]/30 text-[9px] font-bold uppercase tracking-wider rounded-full shrink-0 shadow-xs">
               {currentAchievement.badge}
             </span>
           </div>
@@ -111,7 +111,7 @@ export const AchievementCard: React.FC = () => {
               onClick={() => setCurrentIndex(idx)}
               className={`relative h-[52px] sm:h-[55px] w-full rounded-lg overflow-hidden border-2 transition ${
                 isSelected
-                  ? 'border-[#E99A00] scale-105 shadow-sm'
+                  ? 'border-[#F2A000] scale-105 shadow-sm'
                   : 'border-transparent opacity-70 hover:opacity-100'
               }`}
             >
@@ -128,7 +128,7 @@ export const AchievementCard: React.FC = () => {
             key={idx}
             onClick={() => setCurrentIndex(idx)}
             className={`h-1.5 rounded-full transition-all duration-300 ${
-              idx === currentIndex ? 'w-4 bg-[#E99A00]' : 'w-1.5 bg-[#E99A00]/30 hover:bg-[#E99A00]/60'
+              idx === currentIndex ? 'w-4 bg-[#F2A000]' : 'w-1.5 bg-[#F2A000]/30 hover:bg-[#F2A000]/60'
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />

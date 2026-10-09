@@ -31,7 +31,7 @@ export const HeroSection: React.FC = () => {
         <div className="lg:col-span-7 space-y-4 sm:space-y-5">
           
           {/* Eyebrow Line */}
-          <div className="inline-flex items-center space-x-1.5 text-[10px] sm:text-xs font-sans font-extrabold uppercase tracking-[0.2em] text-[#E99A00] glass-btn-ivory px-3 py-1 rounded-full border border-white/50 shadow-sm">
+          <div className="inline-flex items-center space-x-1.5 text-[10px] sm:text-xs font-sans font-extrabold uppercase tracking-[0.2em] text-[#F2A000] glass-btn-ivory px-3 py-1 rounded-full border border-white/50 shadow-sm">
             <span>STRATEGY</span>
             <span className="text-[#10264B]/40 font-normal">·</span>
             <span>DISCIPLINE</span>
@@ -47,18 +47,18 @@ export const HeroSection: React.FC = () => {
               Every Move Builds a
             </h1>
             <div className="relative inline-block">
-              <h2 className="font-serif italic font-normal text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#E99A00] tracking-tight leading-[1.05] drop-shadow-sm">
+              <h2 className="font-serif italic font-normal text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#F2A000] tracking-tight leading-[1.05] drop-shadow-sm">
                 Brighter Tomorrow
               </h2>
               {/* Refined Gold Underline Stroke */}
-              <svg className="w-full h-2.5 text-[#E99A00] -mt-1" viewBox="0 0 400 20" fill="none">
+              <svg className="w-full h-2.5 text-[#F2A000] -mt-1" viewBox="0 0 400 20" fill="none">
                 <path d="M5 12 C 120 4, 280 18, 395 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               </svg>
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-sm sm:text-base text-[#202A38] font-sans font-semibold max-w-md leading-relaxed drop-shadow-xs">
+          <p className="text-sm sm:text-base text-[#10264B] font-sans font-semibold max-w-md leading-relaxed drop-shadow-xs">
             Nurturing confident, creative and strategic thinkers through the power of chess.
           </p>
 
@@ -70,7 +70,7 @@ export const HeroSection: React.FC = () => {
               className="glass-btn-navy text-white px-6 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide inline-flex items-center space-x-2.5"
             >
               <span>Explore Our Programs</span>
-              <ArrowRight className="w-4 h-4 text-[#E99A00]" />
+              <ArrowRight className="w-4 h-4 text-[#F2A000]" />
             </button>
 
             {/* Secondary CTA — Watch Our Story */}
@@ -85,49 +85,49 @@ export const HeroSection: React.FC = () => {
             </button>
           </div>
 
-          {/* 4 Feature Highlights */}
+          {/* 4 Feature Highlights (White text with dark text shadow directly over photograph) */}
           <div className="pt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mt-4">
             {/* Feature 1 */}
             <div className="flex items-center space-x-2">
               <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <Crown className="w-3.5 h-3.5 text-[#E99A00]" />
+                <Crown className="w-3.5 h-3.5 text-[#F2A000]" />
               </div>
               <div>
-                <h4 className="font-bold text-[11px] text-[#10264B] leading-tight drop-shadow-xs">Builds Focus</h4>
-                <p className="text-[10px] text-[#202A38] font-medium leading-tight mt-0.5">Higher levels, better decisions.</p>
+                <h4 className="font-bold text-[11px] text-white leading-tight" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Builds Focus</h4>
+                <p className="font-medium text-[10px] text-white/95 leading-tight mt-0.5" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Higher levels, better decisions.</p>
               </div>
             </div>
 
             {/* Feature 2 */}
             <div className="flex items-center space-x-2">
               <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <TrendingUp className="w-3.5 h-3.5 text-[#E99A00]" />
+                <TrendingUp className="w-3.5 h-3.5 text-[#F2A000]" />
               </div>
               <div>
-                <h4 className="font-bold text-[11px] text-[#10264B] leading-tight drop-shadow-xs">Enhances Decision Making</h4>
-                <p className="text-[10px] text-[#202A38] font-medium leading-tight mt-0.5">Smarter choices in life.</p>
+                <h4 className="font-bold text-[11px] text-white leading-tight" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Enhances Decision Making</h4>
+                <p className="font-medium text-[10px] text-white/95 leading-tight mt-0.5" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Smarter choices in life.</p>
               </div>
             </div>
 
             {/* Feature 3 */}
             <div className="flex items-center space-x-2">
               <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <Users className="w-3.5 h-3.5 text-[#E99A00]" />
+                <Users className="w-3.5 h-3.5 text-[#F2A000]" />
               </div>
               <div>
-                <h4 className="font-bold text-[11px] text-[#10264B] leading-tight drop-shadow-xs">Develops Confidence</h4>
-                <p className="text-[10px] text-[#202A38] font-medium leading-tight mt-0.5">Stronger mind, brighter future.</p>
+                <h4 className="font-bold text-[11px] text-white leading-tight" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Develops Confidence</h4>
+                <p className="font-medium text-[10px] text-white/95 leading-tight mt-0.5" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Stronger mind, brighter future.</p>
               </div>
             </div>
 
             {/* Feature 4 */}
             <div className="flex items-center space-x-2">
               <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <BookOpen className="w-3.5 h-3.5 text-[#E99A00]" />
+                <BookOpen className="w-3.5 h-3.5 text-[#F2A000]" />
               </div>
               <div>
-                <h4 className="font-bold text-[11px] text-[#10264B] leading-tight drop-shadow-xs">Prepares for Future</h4>
-                <p className="text-[10px] text-[#202A38] font-medium leading-tight mt-0.5">Skills that last a lifetime.</p>
+                <h4 className="font-bold text-[11px] text-white leading-tight" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Prepares for Future</h4>
+                <p className="font-medium text-[10px] text-white/95 leading-tight mt-0.5" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Skills that last a lifetime.</p>
               </div>
             </div>
           </div>
