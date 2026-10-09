@@ -6,15 +6,15 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="relative w-full h-screen max-h-[960px] flex flex-col justify-between pt-20 sm:pt-22 lg:pt-24 pb-3 overflow-hidden select-none bg-[#FFF8EE]">
       
-      {/* 1. Photorealistic Hero Background with Seated Indian Player, Trophy Shelves & Yellow Logo */}
+      {/* 1. Clean Photorealistic Background with Seated Indian Player, Trophy Shelves & Yellow Logo */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/ref_hero_bg.jpg"
+          src="/assets/clean_player_hero_bg.jpg"
           alt="Velocity Chess Academy Environment"
-          className="w-full h-full object-cover object-center filter brightness-[1.02] contrast-[1.01]"
+          className="w-full h-full object-cover object-center filter brightness-[1.01] contrast-[1.01]"
         />
         
-        {/* Soft translucent warm ivory overlay keeping background details crisp & legible */}
+        {/* Soft translucent warm ivory overlay */}
         <div className="absolute inset-0 bg-[#FFF8EE]/10 pointer-events-none z-0" />
       </div>
 
