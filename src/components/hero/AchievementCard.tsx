@@ -106,8 +106,9 @@ export const AchievementCard: React.FC = () => {
                 {currentAchievement.tournament}
               </p>
             </div>
-            <span className="px-2.5 py-1 bg-[#F2A000] text-[#10264B] text-[9.5px] font-extrabold uppercase tracking-wider rounded-full shrink-0 shadow-sm">
-              {currentAchievement.badge}
+            <span className="px-2.5 py-1 bg-[#F2A000] text-[#10264B] text-[9.5px] font-extrabold uppercase tracking-wider rounded-full shrink-0 shadow-sm flex items-center gap-1">
+              <Trophy className="w-2.5 h-2.5 fill-current" />
+              <span>{currentAchievement.badge}</span>
             </span>
           </div>
         </motion.div>
