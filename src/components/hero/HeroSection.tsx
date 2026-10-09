@@ -33,9 +33,10 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Main Editorial Headline */}
-        <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] text-[#10294F] tracking-tight leading-[1.1] drop-shadow-sm">
-          Every Move Builds a{' '}
-          <span className="relative inline-block font-serif italic font-normal text-[#F2A000] drop-shadow-sm">
+        <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-[46px] xl:text-[52px] text-[#10294F] tracking-tight leading-[1.1] drop-shadow-sm">
+          <span>Every Move Builds a</span>
+          <br className="hidden sm:inline" />{' '}
+          <span className="relative inline-block font-serif italic font-normal text-[#F2A000] drop-shadow-sm mt-0.5">
             Brighter Tomorrow
             {/* Refined Gold Underline Stroke */}
             <svg className="w-full h-2.5 text-[#F2A000] -mt-1 absolute -bottom-2 left-0" viewBox="0 0 200 20" fill="none">
