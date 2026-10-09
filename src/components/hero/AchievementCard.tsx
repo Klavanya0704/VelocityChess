@@ -58,12 +58,12 @@ export const AchievementCard: React.FC = () => {
       onMouseLeave={() => setIsHovered(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className="glass-card rounded-3xl p-3.5 sm:p-4 w-full max-w-[365px] xl:max-w-[380px] shadow-2xl border border-white/60 relative z-20 transition-all duration-300"
+      className="glass-card rounded-3xl p-3 sm:p-3.5 w-full max-w-[350px] sm:max-w-[365px] xl:max-w-[380px] shadow-2xl border border-[#F2A000]/40 relative z-20 transition-all duration-300"
     >
       {/* 1. Header Row */}
-      <div className="flex items-center justify-between mb-2 border-b border-[#F8F0E3]/60 pb-1.5">
+      <div className="flex items-center justify-between mb-2 border-b border-[#F2A000]/20 pb-1.5">
         <div className="flex items-center space-x-2">
-          <div className="w-5.5 h-5.5 rounded-full bg-[#FFF3D6] text-[#754600] flex items-center justify-center shrink-0 shadow-xs border border-[#F2A000]/30">
+          <div className="w-5.5 h-5.5 rounded-full bg-[#FFF5E5] text-[#D98A00] flex items-center justify-center shrink-0 shadow-xs border border-[#F2A000]/40">
             <Trophy className="w-3 h-3 fill-current" />
           </div>
           <h3 className="font-serif font-extrabold text-sm sm:text-base text-[#10264B]">
@@ -76,7 +76,7 @@ export const AchievementCard: React.FC = () => {
             e.stopPropagation();
             navigate('/achievements');
           }}
-          className="inline-flex items-center space-x-1 text-[10px] font-semibold text-[#10264B] glass-btn-ivory px-2.5 py-0.5 rounded-full transition"
+          className="inline-flex items-center space-x-1 text-[10px] font-bold text-[#10264B] bg-white/80 hover:bg-white px-2.5 py-0.5 rounded-full border border-[#F2A000]/30 shadow-xs transition"
         >
           <span>View All</span>
           <ArrowRight className="w-2.5 h-2.5 text-[#F2A000]" />
@@ -98,22 +98,23 @@ export const AchievementCard: React.FC = () => {
               <h4 className="font-serif font-bold text-sm sm:text-base text-[#10264B] leading-tight">
                 {currentAchievement.title}
               </h4>
-              <p className="text-[11px] font-medium text-[#26354A] mt-0.5">
-                <span className="font-semibold text-[#26354A]">{currentAchievement.winnerName}</span> <span className="text-[#26354A]/70 font-normal">| {currentAchievement.category}</span>
+              <p className="text-xs font-semibold text-[#10264B] mt-0.5 flex items-center gap-1">
+                <span>{currentAchievement.winnerName}</span>
+                <span className="text-[#D98A00] font-bold">| {currentAchievement.category}</span>
               </p>
-              <p className="text-[10px] font-medium text-[#26354A] mt-0.5 leading-tight">
+              <p className="text-[10.5px] font-medium text-[#25334A]/80 mt-0.5 leading-tight">
                 {currentAchievement.tournament}
               </p>
             </div>
-            <span className="px-2 py-0.5 bg-[#FFF3D6] text-[#754600] border border-[#F2A000]/30 text-[9px] font-bold uppercase tracking-wider rounded-full shrink-0 shadow-xs">
+            <span className="px-2.5 py-1 bg-[#F2A000] text-[#10264B] text-[9.5px] font-extrabold uppercase tracking-wider rounded-full shrink-0 shadow-sm">
               {currentAchievement.badge}
             </span>
           </div>
         </motion.div>
       </AnimatePresence>
 
-      {/* 3. Main Featured Image (155–165px tall) */}
-      <div className="relative h-[158px] sm:h-[162px] w-full rounded-xl overflow-hidden mb-2 bg-black/10 border border-white/40">
+      {/* 3. Main Featured Image (Compact ~135-145px tall to avoid vertical clipping) */}
+      <div className="relative h-[135px] sm:h-[145px] w-full rounded-xl overflow-hidden mb-2 bg-slate-900 border border-white/60">
         <AnimatePresence mode="wait">
           <motion.img
             key={currentAchievement.imageUrl}
@@ -131,7 +132,7 @@ export const AchievementCard: React.FC = () => {
         <button
           type="button"
           onClick={handlePrev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 w-6.5 h-6.5 rounded-full glass-btn-icon text-[#10264B] flex items-center justify-center transition shadow-md z-10"
+          className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/90 text-[#10264B] hover:bg-[#10264B] hover:text-white flex items-center justify-center transition shadow-md z-10"
           aria-label="Previous achievement"
         >
           <ChevronLeft className="w-4 h-4" />
@@ -140,14 +141,14 @@ export const AchievementCard: React.FC = () => {
         <button
           type="button"
           onClick={handleNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-6.5 h-6.5 rounded-full glass-btn-icon text-[#10264B] flex items-center justify-center transition shadow-md z-10"
+          className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/90 text-[#10264B] hover:bg-[#10264B] hover:text-white flex items-center justify-center transition shadow-md z-10"
           aria-label="Next achievement"
         >
           <ChevronRight className="w-4 h-4" />
         </button>
       </div>
 
-      {/* 4. Four Small Thumbnails (52–56px tall) */}
+      {/* 4. Four Small Thumbnails (Compact ~42-46px tall) */}
       <div className="grid grid-cols-4 gap-1.5 mb-1.5">
         {achievementsData.map((item, idx) => {
           const isSelected = idx === currentIndex;
@@ -159,7 +160,7 @@ export const AchievementCard: React.FC = () => {
                 e.stopPropagation();
                 setCurrentIndex(idx);
               }}
-              className={`relative h-[52px] sm:h-[55px] w-full rounded-lg overflow-hidden border-2 transition ${
+              className={`relative h-[42px] sm:h-[46px] w-full rounded-lg overflow-hidden border-2 transition ${
                 isSelected
                   ? 'border-[#F2A000] scale-105 shadow-sm'
                   : 'border-transparent opacity-70 hover:opacity-100'
