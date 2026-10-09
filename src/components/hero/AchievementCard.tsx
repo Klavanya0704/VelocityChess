@@ -22,12 +22,12 @@ export const AchievementCard: React.FC = () => {
     setCurrentIndex((prev) => (prev === achievementsData.length - 1 ? 0 : prev + 1));
   };
 
-  // 5-Second Autoplay with Hover Pause & Cleanup
+  // 4-Second Autoplay with Hover Pause & Cleanup
   useEffect(() => {
     if (isHovered) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev === achievementsData.length - 1 ? 0 : prev + 1));
-    }, 5000);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [isHovered]);

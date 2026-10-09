@@ -1,159 +1,109 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Play, ArrowRight, Crown, TrendingUp, Users, BookOpen } from 'lucide-react';
+import React from 'react';
 import { AchievementCard } from './AchievementCard';
 import { StatisticsBar } from './StatisticsBar';
-import { VideoModal } from '../common/VideoModal';
 
 export const HeroSection: React.FC = () => {
-  const navigate = useNavigate();
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
   return (
-    <section className="relative min-h-[88vh] lg:h-[92vh] max-h-[960px] flex flex-col justify-between pt-20 sm:pt-24 pb-3 overflow-hidden">
+    <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 bg-[#FFF8EE] relative overflow-hidden select-none">
       
-      {/* 1. 100% Photographic Quality Background with Bottom Chessboard Visibility extending to top-0 */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/assets/ref_hero_bg.jpg"
-          alt="Velocity Chess Academy Environment"
-          className="w-full h-full object-cover object-[center_bottom] filter brightness-[1.02] contrast-[1.02]"
-        />
+      {/* Background Decorative Layer */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        
+        {/* Large Faded Chess Knight Silhouette on the Upper Left */}
+        <div className="absolute top-10 -left-16 w-[360px] sm:w-[500px] h-[360px] sm:h-[500px] text-[#F2A000]/[0.07] pointer-events-none select-none z-0">
+          <svg viewBox="0 0 500 500" fill="currentColor" className="w-full h-full">
+            <path d="M 140 440 L 380 440 L 370 410 C 360 380 340 360 330 330 C 320 300 325 270 335 240 C 345 210 355 180 350 150 C 342 100 310 65 260 50 C 210 35 160 45 125 80 C 95 110 85 150 95 190 C 100 210 110 230 120 245 C 105 250 90 250 80 240 C 70 230 68 215 70 200 C 60 215 55 235 60 255 C 68 280 90 295 115 300 C 100 320 90 350 95 385 L 140 440 Z M 210 110 C 220 110 230 118 230 128 C 230 138 220 146 210 146 C 200 146 190 138 190 128 C 190 118 200 110 210 110 Z" />
+          </svg>
+        </div>
 
-        {/* Smooth localized soft shadow gradient behind left hero text area */}
-        <div className="absolute inset-y-0 left-0 w-1/2 sm:w-[48%] bg-gradient-to-r from-black/40 via-black/20 to-transparent pointer-events-none z-0" />
+        {/* Subtle Checkerboard Grid Pattern in Lower-Left Corner */}
+        <div className="absolute bottom-10 left-0 w-64 h-64 sm:w-80 sm:h-80 pointer-events-none z-0 opacity-20">
+          <svg viewBox="0 0 200 200" fill="none" className="w-full h-full text-[#F2A000]">
+            <rect x="0" y="100" width="25" height="25" fill="currentColor" fillOpacity="0.2" />
+            <rect x="50" y="100" width="25" height="25" fill="currentColor" fillOpacity="0.2" />
+            <rect x="25" y="125" width="25" height="25" fill="currentColor" fillOpacity="0.2" />
+            <rect x="75" y="125" width="25" height="25" fill="currentColor" fillOpacity="0.2" />
+            <rect x="0" y="150" width="25" height="25" fill="currentColor" fillOpacity="0.2" />
+            <rect x="50" y="150" width="25" height="25" fill="currentColor" fillOpacity="0.2" />
+            <rect x="25" y="175" width="25" height="25" fill="currentColor" fillOpacity="0.2" />
+            <rect x="75" y="175" width="25" height="25" fill="currentColor" fillOpacity="0.2" />
+          </svg>
+        </div>
+
+        {/* Gold Circular Curves */}
+        <svg className="absolute top-0 left-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1200 600" fill="none" preserveAspectRatio="none">
+          <path d="M -100,100 Q 300,10 650,220 T 1300,450" stroke="#F2A000" strokeWidth="1.2" strokeOpacity="0.35" />
+          <path d="M -50,20 Q 350,20 700,280 T 1350,300" stroke="#F2A000" strokeWidth="1" strokeDasharray="6 6" strokeOpacity="0.25" />
+        </svg>
+
+        {/* Decorative Gold Dots */}
+        <div className="absolute top-28 left-10 w-3 h-3 rounded-full bg-[#F2A000] z-0 shadow-sm" />
+        <div className="absolute top-1/2 left-4 w-3.5 h-3.5 rounded-full bg-[#F2A000] z-0 shadow-sm" />
+        <div className="absolute bottom-20 right-12 w-3 h-3 rounded-full bg-[#F2A000] z-0 shadow-sm" />
       </div>
 
-      {/* Main Hero Content Grid */}
-      <div className="relative z-10 w-full max-w-[1540px] mx-auto px-4 sm:px-8 xl:px-12 py-1 sm:py-2 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* LEFT COLUMN: Eyebrow, Headline, Description, CTAs, 4 Highlights */}
-        <div className="lg:col-span-7 space-y-3.5 sm:space-y-4">
+        {/* TOP CENTER: Tagline, Headline, & Subtitle */}
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           
-          {/* Eyebrow Line */}
-          <div className="inline-flex items-center space-x-1.5 text-[10px] sm:text-[11px] font-sans font-extrabold uppercase tracking-[0.2em] text-[#F2A000] glass-btn-ivory px-3 py-1 rounded-full border border-white/50 shadow-sm">
-            <span>STRATEGY</span>
-            <span className="text-[#10264B]/40 font-normal">·</span>
+          {/* Eyebrow Tagline Pill */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-[#F2A000]/30 shadow-sm text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#10294F] mb-3">
             <span>DISCIPLINE</span>
-            <span className="text-[#10264B]/40 font-normal">·</span>
+            <span className="text-[#F2A000]">·</span>
+            <span>STRATEGY</span>
+            <span className="text-[#F2A000]">·</span>
             <span>CONFIDENCE</span>
-            <span className="text-[#10264B]/40 font-normal">·</span>
-            <span className="text-[#10264B]">A BRIGHTER TOMORROW</span>
+            <span className="text-[#F2A000]">·</span>
+            <span className="text-[#F2A000]">A BRIGHTER TOMORROW</span>
           </div>
 
-          {/* Editorial Headline */}
-          <div className="space-y-0.5">
-            <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-[48px] xl:text-[54px] text-[#10264B] tracking-tight leading-[1.05] drop-shadow-sm">
-              Every Move Builds a
-            </h1>
-            <div className="relative inline-block pr-3 overflow-visible">
-              <h2
-                className="font-serif italic font-medium text-3xl sm:text-4xl lg:text-[48px] xl:text-[54px] text-[#F2A000] tracking-tight leading-[1.08]"
-                style={{ textShadow: '0 2px 5px rgba(10, 25, 50, 0.55)' }}
-              >
-                Brighter Tomorrow
-              </h2>
-              {/* Refined Gold Underline Stroke */}
-              <svg className="w-full h-2.5 text-[#F2A000] -mt-1" viewBox="0 0 400 20" fill="none">
-                <path d="M5 12 C 120 4, 280 18, 395 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+          {/* Main Editorial Headline */}
+          <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#10294F] tracking-tight leading-tight mb-2">
+            Every Move Builds a{' '}
+            <span className="relative inline-block font-serif italic font-normal text-[#F2A000]">
+              Brighter Tomorrow
+              {/* Refined Gold Underline */}
+              <svg className="w-full h-2.5 text-[#F2A000] -mt-1 absolute -bottom-2 left-0" viewBox="0 0 200 20" fill="none">
+                <path d="M5 12 C 60 4, 140 18, 195 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               </svg>
-            </div>
-          </div>
+            </span>
+          </h1>
 
-          {/* Description */}
-          <p
-            className="text-base sm:text-[18px] text-[#10264B] font-sans font-semibold max-w-lg leading-[1.6]"
-            style={{ textShadow: '0 1px 3px rgba(255, 255, 255, 0.45)' }}
-          >
+          {/* Subtitle */}
+          <p className="text-sm sm:text-base text-[#25334A]/80 font-sans font-medium leading-relaxed max-w-xl mx-auto pt-1">
             Nurturing confident, creative and strategic thinkers through the power of chess.
           </p>
+        </div>
 
-          {/* Glassmorphism CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-0.5">
-            {/* Primary CTA — Explore Our Programs */}
-            <button
-              onClick={() => navigate('/programs')}
-              className="glass-btn-navy text-white px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm tracking-wide inline-flex items-center space-x-2"
-            >
-              <span>Explore Our Programs</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#F2A000]" />
-            </button>
-
-            {/* Secondary CTA — Watch Our Story */}
-            <button
-              onClick={() => setIsVideoModalOpen(true)}
-              className="glass-btn-ivory text-[#10264B] px-4 py-2.5 rounded-full font-bold text-xs sm:text-sm inline-flex items-center space-x-2"
-            >
-              <div className="w-4.5 h-4.5 rounded-full bg-[#10264B] text-white flex items-center justify-center">
-                <Play className="w-2 h-2 fill-current ml-0.5" />
-              </div>
-              <span>Watch Our Story</span>
-            </button>
+        {/* HERO MAIN BODY: Left Achievements Card & Right Student Photograph */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10 sm:mb-12">
+          
+          {/* LEFT SIDE: Our Achievements Card */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-start">
+            <AchievementCard />
           </div>
 
-          {/* 4 Feature Highlights (White text with dark text shadow directly over photograph) */}
-          <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-2xl mt-3">
-            {/* Feature 1 */}
-            <div className="flex items-center space-x-2">
-              <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <Crown className="w-3.5 h-3.5 text-[#F2A000]" />
-              </div>
-              <div>
-                <h4 className="font-bold text-[11px] text-white leading-tight" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Builds Focus</h4>
-                <p className="font-medium text-[10px] text-white/95 leading-tight mt-0.5" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Higher levels, better decisions.</p>
-              </div>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="flex items-center space-x-2">
-              <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <TrendingUp className="w-3.5 h-3.5 text-[#F2A000]" />
-              </div>
-              <div>
-                <h4 className="font-bold text-[11px] text-white leading-tight" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Enhances Decision Making</h4>
-                <p className="font-medium text-[10px] text-white/95 leading-tight mt-0.5" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Smarter choices in life.</p>
-              </div>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="flex items-center space-x-2">
-              <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <Users className="w-3.5 h-3.5 text-[#F2A000]" />
-              </div>
-              <div>
-                <h4 className="font-bold text-[11px] text-white leading-tight" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Develops Confidence</h4>
-                <p className="font-medium text-[10px] text-white/95 leading-tight mt-0.5" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Stronger mind, brighter future.</p>
-              </div>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="flex items-center space-x-2">
-              <div className="w-7 h-7 rounded-full glass-btn-icon flex items-center justify-center shrink-0">
-                <BookOpen className="w-3.5 h-3.5 text-[#F2A000]" />
-              </div>
-              <div>
-                <h4 className="font-bold text-[11px] text-white leading-tight" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Prepares for Future</h4>
-                <p className="font-medium text-[10px] text-white/95 leading-tight mt-0.5" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>Skills that last a lifetime.</p>
-              </div>
+          {/* RIGHT SIDE: Large Realistic Student Photograph */}
+          <div className="lg:col-span-7 flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-[#F2A000]/25 group bg-slate-900">
+              <img
+                src="/assets/ref_hero_bg.jpg"
+                alt="Focused young student playing chess at Velocity Chess Academy"
+                className="w-full h-[340px] sm:h-[420px] lg:h-[450px] object-cover object-center group-hover:scale-102 transition-transform duration-700 filter brightness-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
 
         </div>
 
-        {/* RIGHT COLUMN: Achievements Card */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end lg:pt-8 xl:pt-10">
-          <AchievementCard />
+        {/* BOTTOM: Floating Statistics Capsule */}
+        <div className="pt-2">
+          <StatisticsBar />
         </div>
 
       </div>
-
-      {/* BOTTOM: Floating Statistics Capsule */}
-      <div className="relative z-10 pt-1">
-        <StatisticsBar />
-      </div>
-
-      {/* Video Modal */}
-      <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} />
     </section>
   );
 };
