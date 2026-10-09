@@ -20,8 +20,8 @@ export const HeroSection: React.FC = () => {
           className="w-full h-full object-cover object-[center_bottom] filter brightness-[1.02] contrast-[1.02]"
         />
 
-        {/* Minimal localized soft shadow behind left headline text for contrast */}
-        <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black/15 via-black/5 to-transparent pointer-events-none" />
+        {/* Localized soft shadow gradient behind left headline text for enhanced contrast */}
+        <div className="absolute inset-y-0 left-0 w-1/2 sm:w-[45%] bg-gradient-to-r from-black/35 via-black/15 to-transparent pointer-events-none z-0" />
       </div>
 
       {/* Main Hero Content Grid */}
@@ -31,7 +31,7 @@ export const HeroSection: React.FC = () => {
         <div className="lg:col-span-7 space-y-3.5 sm:space-y-4">
           
           {/* Eyebrow Line */}
-          <div className="inline-flex items-center space-x-1.5 text-[10px] sm:text-[11px] font-sans font-extrabold uppercase tracking-[0.2em] text-[#F2A000] glass-btn-ivory px-3 py-1 rounded-full border border-white/50 shadow-sm">
+          <div className="inline-flex items-center space-x-1.5 text-[10px] sm:text-[11px] font-sans font-extrabold uppercase tracking-[0.2em] text-[#F5A000] glass-btn-ivory px-3 py-1 rounded-full border border-white/50 shadow-sm">
             <span>STRATEGY</span>
             <span className="text-[#10264B]/40 font-normal">·</span>
             <span>DISCIPLINE</span>
@@ -46,12 +46,15 @@ export const HeroSection: React.FC = () => {
             <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-[48px] xl:text-[54px] text-[#10264B] tracking-tight leading-[1.05] drop-shadow-sm">
               Every Move Builds a
             </h1>
-            <div className="relative inline-block">
-              <h2 className="font-serif italic font-normal text-3xl sm:text-4xl lg:text-[48px] xl:text-[54px] text-[#F2A000] tracking-tight leading-[1.05] drop-shadow-sm">
+            <div className="relative inline-block pr-3 overflow-visible">
+              <h2
+                className="font-serif italic font-medium text-3xl sm:text-4xl lg:text-[48px] xl:text-[54px] text-[#F5A000] tracking-tight leading-[1.08]"
+                style={{ textShadow: '0 2px 5px rgba(20, 30, 45, 0.45)' }}
+              >
                 Brighter Tomorrow
               </h2>
               {/* Refined Gold Underline Stroke */}
-              <svg className="w-full h-2.5 text-[#F2A000] -mt-1" viewBox="0 0 400 20" fill="none">
+              <svg className="w-full h-2.5 text-[#F5A000] -mt-1" viewBox="0 0 400 20" fill="none">
                 <path d="M5 12 C 120 4, 280 18, 395 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               </svg>
             </div>
