@@ -9,9 +9,9 @@ export const HeroSection: React.FC = () => {
       {/* 1. Photorealistic Hero Background with Seated Indian Player, Trophy Shelves & Yellow Logo */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/player_hero_bg.jpg"
+          src="/assets/ref_hero_bg.jpg"
           alt="Velocity Chess Academy Environment"
-          className="w-full h-full object-cover object-center filter brightness-[1.01] contrast-[1.01]"
+          className="w-full h-full object-cover object-center filter brightness-[1.02] contrast-[1.01]"
         />
         
         {/* Soft translucent warm ivory overlay keeping background details crisp & legible */}
