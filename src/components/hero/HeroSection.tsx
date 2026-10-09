@@ -4,24 +4,24 @@ import { StatisticsBar } from './StatisticsBar';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-[92vh] lg:h-[95vh] max-h-[960px] flex flex-col justify-between pt-22 sm:pt-24 lg:pt-26 pb-3 overflow-hidden select-none bg-[#FFF8EE]">
+    <section className="relative min-h-[92vh] lg:h-[95vh] max-h-[960px] flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-4 overflow-hidden select-none bg-[#FFF8EE]">
       
-      {/* 1. Full-Bleed Photorealistic Hero Background */}
+      {/* 1. Clean Luxury Chess Academy Interior Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/player_hero_bg.jpg"
+          src="/assets/ref_hero_bg.jpg"
           alt="Velocity Chess Academy Environment"
-          className="w-full h-full object-cover object-center filter brightness-[1.01] contrast-[1.01]"
+          className="w-full h-full object-cover object-center filter brightness-[1.02] contrast-[1.01]"
         />
         
-        {/* Soft translucent warm ivory overlay keeping background details 100% visible */}
-        <div className="absolute inset-0 bg-[#FFF8EE]/15 pointer-events-none z-0" />
+        {/* Soft translucent warm ivory overlay */}
+        <div className="absolute inset-0 bg-[#FFF8EE]/20 pointer-events-none z-0" />
       </div>
 
-      {/* 2. Top Center Main Headline & Tagline (Rendered directly without any card container) */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center pt-2 sm:pt-3 space-y-2.5">
+      {/* 2. Top Center Main Headline & Slogan Pill */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center pt-2 sm:pt-3 space-y-3">
         
-        {/* Eyebrow Tagline Pill */}
+        {/* Slogan Pill */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFEED4]/90 border border-[#F2A000]/30 shadow-xs text-[10px] sm:text-xs font-sans font-extrabold uppercase tracking-widest text-[#10294F]">
           <span>DISCIPLINE</span>
           <span className="text-[#F2A000]">·</span>
@@ -52,22 +52,22 @@ export const HeroSection: React.FC = () => {
 
       </div>
 
-      {/* 3. Hero Main Content Grid: Lower-Left Achievements Card & Seated Player Scene */}
+      {/* 3. Hero Main Content Grid: Lower-Left Achievements Card */}
       <div className="relative z-10 w-full max-w-[1540px] mx-auto px-4 sm:px-8 xl:px-12 my-auto py-2">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end">
           
-          {/* LOWER LEFT COLUMN: Our Achievements Glassmorphism Card */}
+          {/* LOWER LEFT COLUMN: Single Our Achievements Glassmorphism Card */}
           <div className="lg:col-span-5 flex justify-start items-center">
             <AchievementCard />
           </div>
 
-          {/* RIGHT COLUMN: Open space allowing clear view of the seated player, chessboard & books */}
+          {/* RIGHT COLUMN */}
           <div className="hidden lg:block lg:col-span-7" />
 
         </div>
       </div>
 
-      {/* 4. Bottom Section: Wide Floating Glassmorphism Statistics Capsule */}
+      {/* 4. Bottom Section: Single Wide Floating Glassmorphism Statistics Capsule */}
       <div className="relative z-10 pt-1 pb-1">
         <StatisticsBar />
       </div>
