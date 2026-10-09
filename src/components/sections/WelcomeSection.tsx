@@ -6,7 +6,7 @@ export const WelcomeSection: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 sm:py-24 bg-[#FFF9EF] relative overflow-hidden">
+    <section className="pt-12 sm:pt-16 pb-8 sm:pb-10 bg-[#FFF9EF] relative overflow-hidden">
       {/* Background Subtle Premium Decorations (No Chess-Piece Silhouettes) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Faint Ivory-to-Cream Radial Gradient Blurs */}

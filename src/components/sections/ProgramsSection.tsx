@@ -69,7 +69,7 @@ export const ProgramsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#FFF8EE] relative overflow-hidden">
+    <section className="pt-10 sm:pt-14 pb-16 sm:pb-20 bg-[#FFF8EE] relative overflow-hidden">
       {/* Subtle Chessboard & Gold Curved Background Decorations */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-[#F2A000]/[0.035] rounded-full blur-3xl" />
@@ -98,7 +98,7 @@ export const ProgramsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-3">
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-[#F2A000]/10 border border-[#F2A000]/30 rounded-full text-[10px] sm:text-xs font-sans font-extrabold uppercase tracking-[0.2em] text-[#10264B]">
             <span>TAILORED COACHING PROGRAMS</span>
           </div>
