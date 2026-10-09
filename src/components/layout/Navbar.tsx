@@ -3,6 +3,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Search, Menu, X, ArrowRight } from 'lucide-react';
 import { SearchModal } from '../common/SearchModal';
 import { EnrollmentModal } from '../common/EnrollmentModal';
+import { Logo } from '../common/Logo';
 
 export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,22 +27,9 @@ export const Navbar: React.FC = () => {
       <header className="absolute top-3 sm:top-4 left-0 right-0 z-40 w-full max-w-[1540px] mx-auto px-4 sm:px-8 xl:px-12 transition-all duration-300 pointer-events-none">
         <div className="glass-nav rounded-full px-4 sm:px-5 py-2 flex items-center justify-between shadow-lg pointer-events-auto">
           
-          {/* LEFT: Academy Translucent Glass Logo Container */}
-          <Link to="/" className="flex items-center space-x-2.5 group">
-            <div className="glass-btn-ivory p-1.5 rounded-2xl border border-white/60 shadow-md group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-              {/* Gold Chess Knight Emblem */}
-              <svg className="w-6 h-6 text-[#F2A000]" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 22H5c-1.1 0-2-.9-2-2v-2c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2zM17 14c0-2.2-1.8-4-4-4h-1c0-1.1-.9-2-2-2V7c0-1.1.9-2 2-2h1c.6 0 1-.4 1-1s-.4-1-1-1h-3c-2.2 0-4 1.8-4 4v3c0 1.1.9 2 2 2h1c1.1 0 2 .9 2 2v1h6v-1z" />
-              </svg>
-            </div>
-            <div>
-              <span className="block font-serif font-extrabold text-base sm:text-lg tracking-wider text-[#10264B] leading-tight">
-                VELOCITY
-              </span>
-              <span className="block text-[8.5px] font-sans font-bold tracking-[0.25em] text-[#D98B00] uppercase leading-none">
-                CHESS ACADEMY
-              </span>
-            </div>
+          {/* LEFT: Academy Brand Logo */}
+          <Link to="/" className="flex items-center group">
+            <Logo size="md" />
           </Link>
 
           {/* CENTER: Desktop Navigation Links (8 links in exact order) */}
