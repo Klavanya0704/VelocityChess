@@ -7,28 +7,49 @@ export const WelcomeSection: React.FC = () => {
 
   return (
     <section className="py-16 sm:py-24 bg-[#FFF9EF] relative overflow-hidden">
-      {/* Background Faint Chess Piece Watermarks */}
+      {/* Background Subtle Premium Decorations (No Chess-Piece Silhouettes) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Top-Left Faint Chess Knight Watermark */}
+        {/* Faint Ivory-to-Cream Radial Gradient Blurs */}
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-[#FFF3D6]/40 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[650px] h-[650px] bg-[#F2A000]/[0.04] rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 w-[550px] h-[550px] bg-[#FFF3D6]/40 rounded-full blur-3xl" />
+
+        {/* Thin Flowing Gold Curves & Sparkle Stars (Top Right) */}
         <svg
-          className="absolute -top-12 -left-12 w-72 h-72 sm:w-96 sm:h-96 text-[#10264B]/[0.03]"
-          viewBox="0 0 24 24"
-          fill="currentColor"
+          className="absolute -top-10 right-0 w-96 h-96 text-[#F2A000]/15"
+          viewBox="0 0 400 400"
+          fill="none"
         >
-          <path d="M19 22H5c-1.1 0-2-.9-2-2v-2c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2zM17 14c0-2.2-1.8-4-4-4h-1c0-1.1-.9-2-2-2V7c0-1.1.9-2 2-2h1c.6 0 1-.4 1-1s-.4-1-1-1h-3c-2.2 0-4 1.8-4 4v3c0 1.1.9 2 2 2h1c1.1 0 2 .9 2 2v1h6v-1z" />
+          {/* Concentric Flowing Circles */}
+          <circle cx="350" cy="50" r="180" stroke="currentColor" strokeWidth="1" strokeDasharray="4 6" />
+          <circle cx="350" cy="50" r="260" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.6" />
+          <circle cx="350" cy="50" r="340" stroke="currentColor" strokeWidth="1" />
+          {/* Floating Sparkle Stars */}
+          <path d="M 280 160 L 283 170 L 293 173 L 283 176 L 280 186 L 277 176 L 267 173 L 277 170 Z" fill="currentColor" fillOpacity="0.6" />
+          <path d="M 180 80 L 182 87 L 189 89 L 182 91 L 180 98 L 178 91 L 171 89 L 178 87 Z" fill="currentColor" fillOpacity="0.5" />
         </svg>
 
-        {/* Top-Right Faint Chess King Watermark */}
+        {/* Delicate Geometric Grid Accent & Sparkle Star (Bottom Left) */}
         <svg
-          className="absolute -top-16 -right-16 w-80 h-80 sm:w-[420px] sm:h-[420px] text-[#10264B]/[0.03]"
-          viewBox="0 0 24 24"
-          fill="currentColor"
+          className="absolute bottom-0 -left-10 w-96 h-96 text-[#F2A000]/15"
+          viewBox="0 0 400 400"
+          fill="none"
         >
-          <path d="M19 22H5c-1.1 0-2-.9-2-2v-2c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2zM12 2a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1v1.17c2.28.46 4 2.48 4 4.83v2h1a1 1 0 1 1 0 2h-1v2h2a1 1 0 1 1 0 2h-2.17c-.46 1.72-2 3-3.83 3s-3.37-1.28-3.83-3H4a1 1 0 1 1 0-2h2v-2H5a1 1 0 1 1 0-2h1v-2c0-2.35 1.72-4.37 4-4.83V6H9a1 1 0 0 1 0-2h1V3a1 1 0 0 1 1-1z" />
-        </svg>
+          <g stroke="currentColor" strokeWidth="0.75" strokeOpacity="0.6">
+            <line x1="20" y1="200" x2="220" y2="200" />
+            <line x1="20" y1="230" x2="220" y2="230" />
+            <line x1="20" y1="260" x2="220" y2="260" />
+            <line x1="20" y1="290" x2="220" y2="290" />
+            <line x1="20" y1="320" x2="220" y2="320" />
 
-        {/* Soft Radial Warm Gold Background Glow */}
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[#F2A000]/[0.06] rounded-full blur-3xl" />
+            <line x1="50" y1="170" x2="50" y2="350" />
+            <line x1="80" y1="170" x2="80" y2="350" />
+            <line x1="110" y1="170" x2="110" y2="350" />
+            <line x1="140" y1="170" x2="140" y2="350" />
+            <line x1="170" y1="170" x2="170" y2="350" />
+          </g>
+          <path d="M 120 140 L 123 150 L 133 153 L 123 156 L 120 166 L 117 156 L 107 153 L 117 150 Z" fill="currentColor" fillOpacity="0.6" />
+        </svg>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
