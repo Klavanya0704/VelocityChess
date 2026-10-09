@@ -1,77 +1,164 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShieldCheck, Award, Users, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Award, ArrowRight, Crown } from 'lucide-react';
 
 export const WelcomeSection: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 bg-[#FFF9EF] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section className="py-16 sm:py-24 bg-[#FFF9EF] relative overflow-hidden">
+      {/* Background Faint Chess Piece Watermarks */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Top-Left Faint Chess Knight Watermark */}
+        <svg
+          className="absolute -top-12 -left-12 w-72 h-72 sm:w-96 sm:h-96 text-[#10264B]/[0.03]"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M19 22H5c-1.1 0-2-.9-2-2v-2c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2zM17 14c0-2.2-1.8-4-4-4h-1c0-1.1-.9-2-2-2V7c0-1.1.9-2 2-2h1c.6 0 1-.4 1-1s-.4-1-1-1h-3c-2.2 0-4 1.8-4 4v3c0 1.1.9 2 2 2h1c1.1 0 2 .9 2 2v1h6v-1z" />
+        </svg>
+
+        {/* Top-Right Faint Chess King Watermark */}
+        <svg
+          className="absolute -top-16 -right-16 w-80 h-80 sm:w-[420px] sm:h-[420px] text-[#10264B]/[0.03]"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M19 22H5c-1.1 0-2-.9-2-2v-2c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2zM12 2a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1v1.17c2.28.46 4 2.48 4 4.83v2h1a1 1 0 1 1 0 2h-1v2h2a1 1 0 1 1 0 2h-2.17c-.46 1.72-2 3-3.83 3s-3.37-1.28-3.83-3H4a1 1 0 1 1 0-2h2v-2H5a1 1 0 1 1 0-2h1v-2c0-2.35 1.72-4.37 4-4.83V6H9a1 1 0 0 1 0-2h1V3a1 1 0 0 1 1-1z" />
+        </svg>
+
+        {/* Soft Radial Warm Gold Background Glow */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[#F2A000]/[0.06] rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Visual Image Stack */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-              <img
-                src="/assets/ref_hero_bg.jpg"
-                alt="Velocity Chess Academy Training Environment"
-                className="w-full aspect-[4/3] object-cover hover:scale-105 transition duration-700"
-              />
+          {/* LEFT COLUMN: Large Circular Chess Photograph with Layered Navy & Gold Rings */}
+          <div className="lg:col-span-6 relative flex items-center justify-center py-6 sm:py-8">
+            
+            {/* SVG Background Decorative Rings, Arc Curves & Orbital Beads */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <svg className="w-[125%] h-[125%] max-w-[660px] max-h-[660px] text-[#F2A000]" viewBox="0 0 500 500" fill="none">
+                {/* Outer Dashed Gold Ring */}
+                <circle cx="250" cy="250" r="235" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.3" strokeDasharray="6 6" />
+                {/* Curved Gold Accent Arc */}
+                <path d="M 40 250 A 210 210 0 0 1 460 250" stroke="currentColor" strokeWidth="2.5" strokeOpacity="0.45" strokeLinecap="round" />
+                {/* Orbital Gold Beads */}
+                <circle cx="250" cy="15" r="5.5" fill="currentColor" fillOpacity="0.8" />
+                <circle cx="485" cy="250" r="4.5" fill="currentColor" fillOpacity="0.8" />
+                <circle cx="250" cy="485" r="5.5" fill="currentColor" fillOpacity="0.8" />
+                <circle cx="15" cy="250" r="4.5" fill="currentColor" fillOpacity="0.8" />
+              </svg>
             </div>
-            {/* Floating Luxury Badge */}
-            <div className="absolute -bottom-6 -right-6 z-20 glass-card p-5 rounded-2xl border border-[#E5A51B]/40 max-w-xs shadow-xl hidden sm:flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-full bg-[#E5A51B] text-[#071A38] flex items-center justify-center font-serif font-extrabold text-xl shrink-0">
-                FIDE
+
+            {/* Matrix of Decorative Gold Dots (Left Side) */}
+            <div className="absolute left-2 sm:left-4 top-1/4 z-0 hidden sm:grid grid-cols-5 gap-2 opacity-40 pointer-events-none">
+              {Array.from({ length: 25 }).map((_, i) => (
+                <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#F2A000]" />
+              ))}
+            </div>
+
+            {/* Main Circular Container */}
+            <div className="relative w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] lg:w-[440px] lg:h-[440px] xl:w-[480px] xl:h-[480px]">
+              
+              {/* Outer Navy Ring Frame */}
+              <div className="absolute -inset-3 sm:-inset-4 rounded-full border-[3px] border-[#10264B] shadow-2xl pointer-events-none" />
+              
+              {/* Inner Gold Accent Ring */}
+              <div className="absolute -inset-1.5 sm:-inset-2 rounded-full border-2 border-[#F2A000]/70 pointer-events-none" />
+
+              {/* True Circular Masked Photograph */}
+              <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl relative z-10 bg-black/10">
+                <img
+                  src="/assets/ref_hero_bg.jpg"
+                  alt="Young Velocity Chess Academy Player Moving a Piece"
+                  className="w-full h-full object-cover object-[58%_center] scale-110 hover:scale-115 transition duration-700"
+                />
               </div>
-              <div>
-                <p className="font-bold text-xs text-[#10264A]">Certified FIDE Coaches</p>
-                <p className="text-[11px] text-[#25334A]/80">International Masters & Rated Mentors</p>
+
+              {/* Floating Crown Badge on Left Outer Ring Edge */}
+              <div className="absolute top-1/2 -left-3.5 sm:-left-5 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#10264B] border-2 border-[#F2A000] text-[#F2A000] flex items-center justify-center shadow-xl">
+                <Crown className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
               </div>
+
+              {/* Floating Translucent Cream FIDE Badge overlapping bottom-left */}
+              <div className="absolute -bottom-3 sm:-bottom-4 left-2 sm:left-6 z-20 glass-card px-4 sm:px-5 py-2.5 sm:py-3 rounded-full border border-white/80 max-w-[280px] sm:max-w-xs shadow-2xl flex items-center space-x-3">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#FFF3D6] to-[#FFE29A] border border-[#F2A000]/40 text-[#754600] flex items-center justify-center font-serif font-extrabold text-xs sm:text-sm tracking-wider shrink-0 shadow-xs">
+                  FIDE
+                </div>
+                <div>
+                  <p className="font-bold text-xs sm:text-sm text-[#10264B] leading-tight">Certified FIDE Coaches</p>
+                  <p className="text-[10px] sm:text-[11px] text-[#26354A]/80 font-medium leading-tight mt-0.5">International Masters & Rated Mentors</p>
+                </div>
+              </div>
+
             </div>
           </div>
 
-          {/* Right Text Content */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1 bg-[#E5A51B]/15 border border-[#E5A51B]/30 rounded-full text-xs font-bold uppercase tracking-wider text-[#10264A]">
-              <span>Welcome to Velocity Chess</span>
+          {/* RIGHT COLUMN: About Us Editorial Content */}
+          <div className="lg:col-span-6 space-y-5 sm:space-y-6">
+            
+            {/* Small Eyebrow Pill */}
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-[#F2A000]/10 border border-[#F2A000]/30 rounded-full text-[10px] sm:text-xs font-sans font-extrabold uppercase tracking-[0.2em] text-[#10264B]">
+              <span>WELCOME TO VELOCITY CHESS</span>
             </div>
 
-            <h2 className="font-serif font-extrabold text-3xl sm:text-4xl md:text-5xl text-[#10264A] leading-tight">
-              Where Young Minds Become Strategic Thinkers
-            </h2>
+            {/* Main Editorial Heading */}
+            <div className="space-y-1">
+              <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] text-[#10264B] leading-[1.12] tracking-tight">
+                Where Young Minds Become{' '}
+                <span className="relative inline-block font-serif italic font-normal text-[#F2A000] pt-1">
+                  Strategic Thinkers
+                  {/* Underline Gold Stroke */}
+                  <svg className="w-full h-2.5 text-[#F2A000] -mt-1 absolute -bottom-2 left-0" viewBox="0 0 300 20" fill="none">
+                    <path d="M5 12 C 90 4, 210 18, 295 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                  </svg>
+                </span>
+              </h2>
+            </div>
 
-            <p className="text-base text-[#25334A] leading-relaxed">
+            {/* Description */}
+            <p className="text-sm sm:text-base text-[#26354A] font-sans font-medium leading-relaxed max-w-xl">
               At Velocity Chess Academy, we believe chess is far more than a board game. It is a powerful catalyst for cognitive growth, logical decision-making, emotional resilience, and lifelong academic confidence.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-white border border-[#E5A51B]/20 shadow-sm flex items-start space-x-3">
-                <ShieldCheck className="w-6 h-6 text-[#E5A51B] shrink-0 mt-0.5" />
+            {/* Two Side-by-Side Feature Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+              {/* Card 1 */}
+              <div className="p-4 rounded-2xl bg-white/90 border border-white/80 shadow-xs hover:shadow-md transition duration-300 flex items-start space-x-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#FFF5E0] border border-[#F2A000]/25 flex items-center justify-center shrink-0 shadow-2xs">
+                  <ShieldCheck className="w-5 h-5 text-[#F2A000]" />
+                </div>
                 <div>
-                  <h4 className="font-bold text-sm text-[#10264A]">Structured Curriculum</h4>
-                  <p className="text-xs text-[#25334A]/70 mt-1">Progressive 4-stage learning path designed for all age groups.</p>
+                  <h4 className="font-serif font-bold text-sm text-[#10264B] leading-tight">Structured Curriculum</h4>
+                  <p className="text-xs text-[#26354A]/80 font-medium leading-snug mt-1">Progressive 4-stage learning path designed for all age groups.</p>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-[#E5A51B]/20 shadow-sm flex items-start space-x-3">
-                <Award className="w-6 h-6 text-[#E5A51B] shrink-0 mt-0.5" />
+              {/* Card 2 */}
+              <div className="p-4 rounded-2xl bg-white/90 border border-white/80 shadow-xs hover:shadow-md transition duration-300 flex items-start space-x-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#FFF5E0] border border-[#F2A000]/25 flex items-center justify-center shrink-0 shadow-2xs">
+                  <Award className="w-5 h-5 text-[#F2A000]" />
+                </div>
                 <div>
-                  <h4 className="font-bold text-sm text-[#10264A]">Proven Championship Record</h4>
-                  <p className="text-xs text-[#25334A]/70 mt-1">Over 50+ state, national, and FIDE rated medals won.</p>
+                  <h4 className="font-serif font-bold text-sm text-[#10264B] leading-tight">Proven Championship Record</h4>
+                  <p className="text-xs text-[#26354A]/80 font-medium leading-snug mt-1">Over 50+ state, national, and FIDE rated medals won.</p>
                 </div>
               </div>
             </div>
 
-            <div className="pt-4">
+            {/* Call-to-Action Button */}
+            <div className="pt-2">
               <button
                 onClick={() => navigate('/about')}
-                className="inline-flex items-center space-x-2 px-6 py-3 bg-[#10264A] hover:bg-[#071A38] text-white rounded-full font-semibold text-sm transition shadow-md"
+                className="glass-btn-navy px-6 py-3 rounded-full font-bold text-xs sm:text-sm text-white inline-flex items-center space-x-2 shadow-md hover:scale-105 transition-all duration-300"
               >
                 <span>Read Our Full Story</span>
-                <ArrowRight className="w-4 h-4 text-[#E5A51B]" />
+                <ArrowRight className="w-4 h-4 text-[#F2A000]" />
               </button>
             </div>
+
           </div>
 
         </div>
@@ -79,3 +166,4 @@ export const WelcomeSection: React.FC = () => {
     </section>
   );
 };
+
