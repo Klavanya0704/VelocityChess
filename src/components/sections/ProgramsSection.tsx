@@ -13,7 +13,7 @@ export const ProgramsSection: React.FC = () => {
       ageBadge: 'AGES 5–8',
       description: 'A fun and structured introduction to chess, building focus, patience, and problem-solving skills.',
       image: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=800',
-      icon: <Crown className="w-4 h-4 text-[#D98A00]" />,
+      icon: <Crown className="w-3.5 h-3.5 text-[#D98A00]" />,
       features: [
         'Interactive chessboard stories',
         'Basic piece value & captures',
@@ -28,7 +28,7 @@ export const ProgramsSection: React.FC = () => {
       ageBadge: 'AGES 8–14',
       description: 'Learn tactical patterns, middle-game plans, and opening principles with structured guidance.',
       image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?auto=format&fit=crop&q=80&w=800',
-      icon: <Zap className="w-4 h-4 text-[#D98A00]" />,
+      icon: <Zap className="w-3.5 h-3.5 text-[#D98A00]" />,
       features: [
         'Pin, fork & skewer tactics',
         'Basic opening principles',
@@ -43,7 +43,7 @@ export const ProgramsSection: React.FC = () => {
       ageBadge: 'AGES 10+',
       description: 'Intensive training for aspiring state, national, and FIDE-level players.',
       image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?auto=format&fit=crop&q=80&w=800',
-      icon: <Trophy className="w-4 h-4 text-[#D98A00]" />,
+      icon: <Trophy className="w-3.5 h-3.5 text-[#D98A00]" />,
       features: [
         'Deep engine opening analysis',
         'Positional & calculation training',
@@ -58,7 +58,7 @@ export const ProgramsSection: React.FC = () => {
       ageBadge: 'ALL AGES',
       description: 'Live interactive classes with expert coaches, flexible timings, and personalized learning paths.',
       image: 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80&w=800',
-      icon: <Laptop className="w-4 h-4 text-[#D98A00]" />,
+      icon: <Laptop className="w-3.5 h-3.5 text-[#D98A00]" />,
       features: [
         'Live online classes (1-on-1 & group)',
         'Personalized guidance',
@@ -69,20 +69,20 @@ export const ProgramsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-14 sm:py-18 bg-[#FFF8EE] relative overflow-hidden select-none">
+    <section className="py-10 sm:py-12 bg-[#FFF8EE] relative overflow-hidden select-none">
       
       {/* Background Decorative Layer */}
       <div className="absolute inset-0 pointer-events-none z-0">
         
         {/* Large Faded Chess Knight Silhouette on the Left */}
-        <div className="absolute top-1/2 -left-12 sm:left-0 -translate-y-1/2 w-[340px] sm:w-[480px] h-[340px] sm:h-[480px] text-[#F2A000]/[0.08] pointer-events-none select-none z-0">
+        <div className="absolute top-1/2 -left-12 sm:left-0 -translate-y-1/2 w-[320px] sm:w-[440px] h-[320px] sm:h-[440px] text-[#F2A000]/[0.08] pointer-events-none select-none z-0">
           <svg viewBox="0 0 500 500" fill="currentColor" className="w-full h-full">
             <path d="M 140 440 L 380 440 L 370 410 C 360 380 340 360 330 330 C 320 300 325 270 335 240 C 345 210 355 180 350 150 C 342 100 310 65 260 50 C 210 35 160 45 125 80 C 95 110 85 150 95 190 C 100 210 110 230 120 245 C 105 250 90 250 80 240 C 70 230 68 215 70 200 C 60 215 55 235 60 255 C 68 280 90 295 115 300 C 100 320 90 350 95 385 L 140 440 Z M 210 110 C 220 110 230 118 230 128 C 230 138 220 146 210 146 C 200 146 190 138 190 128 C 190 118 200 110 210 110 Z" />
           </svg>
         </div>
 
         {/* Subtle Checkerboard Grid Pattern in Upper-Right Corner */}
-        <div className="absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 pointer-events-none z-0 opacity-20">
+        <div className="absolute top-0 right-0 w-60 h-60 sm:w-72 sm:h-72 pointer-events-none z-0 opacity-20">
           <svg viewBox="0 0 200 200" fill="none" className="w-full h-full text-[#F2A000]">
             <rect x="100" y="0" width="25" height="25" fill="currentColor" fillOpacity="0.2" />
             <rect x="150" y="0" width="25" height="25" fill="currentColor" fillOpacity="0.2" />
@@ -104,40 +104,40 @@ export const ProgramsSection: React.FC = () => {
         </svg>
 
         {/* Gold Decorative Dots */}
-        <div className="absolute top-28 left-6 w-3 h-3 rounded-full bg-[#F2A000] z-0 shadow-sm" />
-        <div className="absolute top-1/2 right-24 w-3.5 h-3.5 rounded-full bg-[#F2A000] z-0 shadow-sm" />
+        <div className="absolute top-20 left-6 w-3 h-3 rounded-full bg-[#F2A000] z-0 shadow-sm" />
+        <div className="absolute top-1/2 right-20 w-3 h-3 rounded-full bg-[#F2A000] z-0 shadow-sm" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-[#FFEED4]/80 border border-[#F2A000]/30 rounded-full text-[10px] sm:text-xs font-sans font-extrabold uppercase tracking-wider text-[#10264B] shadow-sm mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-7 sm:mb-8">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 bg-[#FFEED4]/80 border border-[#F2A000]/30 rounded-full text-[10px] sm:text-xs font-sans font-extrabold uppercase tracking-wider text-[#10264B] shadow-sm mb-3">
             <span>TAILORED COACHING PROGRAMS</span>
           </div>
 
-          <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#10264B] leading-tight mb-3">
+          <h2 className="font-serif font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#10264B] leading-tight mb-2">
             Designed for Every{' '}
             <span className="italic font-serif text-[#F2A000] inline-block">
               Skill Level
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-[#25334A]/80 font-sans font-normal leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-[#25334A]/80 font-sans font-normal leading-relaxed max-w-2xl mx-auto">
             From first-time learners to tournament contenders, our structured programs help every student grow, improve, and <strong className="font-bold text-[#10264B]">achieve</strong> their <strong className="font-bold text-[#10264B]">chess goals.</strong>
           </p>
         </div>
 
         {/* 4 Program Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 items-stretch">
           {programs.map((prog) => (
             <div
               key={prog.id}
-              className="bg-white rounded-3xl overflow-hidden border border-[#F2A000]/25 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5 relative"
+              className="bg-white rounded-3xl overflow-hidden border border-[#F2A000]/25 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
             >
               <div>
-                {/* Image Header with Age Badge */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+                {/* Image Header with Age Badge (Reduced to ~150-160px height) */}
+                <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-slate-100">
                   <img
                     src={prog.image}
                     alt={prog.title}
@@ -145,35 +145,35 @@ export const ProgramsSection: React.FC = () => {
                   />
                   
                   {/* Age Badge Top Right */}
-                  <span className="absolute top-3 right-3 px-3 py-1 bg-[#10264B] text-white text-[10px] font-extrabold uppercase tracking-wider rounded-full shadow-md z-10">
+                  <span className="absolute top-2.5 right-2.5 px-2.5 py-0.5 bg-[#10264B] text-white text-[9px] font-extrabold uppercase tracking-wider rounded-full shadow-md z-10">
                     {prog.ageBadge}
                   </span>
 
                   {/* Overlapping Icon Badge */}
-                  <div className="absolute -bottom-4 left-5 w-9 h-9 rounded-full bg-[#FFF5E5] text-[#D98A00] flex items-center justify-center border-2 border-white shadow-md z-10 group-hover:scale-110 transition-transform duration-300">
+                  <div className="absolute -bottom-3.5 left-4 w-8 h-8 rounded-full bg-[#FFF5E5] text-[#D98A00] flex items-center justify-center border-2 border-white shadow-md z-10 group-hover:scale-105 transition-transform duration-300">
                     {prog.icon}
                   </div>
                 </div>
 
-                {/* Card Body */}
-                <div className="pt-6 p-5 space-y-3">
+                {/* Card Body (Compact padding & spacing) */}
+                <div className="pt-5 px-4.5 p-4 space-y-2">
                   <div>
-                    <h3 className="font-serif font-extrabold text-xl text-[#10264B] leading-tight mb-0.5">
+                    <h3 className="font-serif font-extrabold text-lg sm:text-[19px] text-[#10264B] leading-tight mb-0.5">
                       {prog.title}
                     </h3>
-                    <p className="text-xs font-bold text-[#F2A000]">
+                    <p className="text-[11px] sm:text-xs font-bold text-[#F2A000]">
                       {prog.subtitle}
                     </p>
                   </div>
 
-                  <p className="text-xs text-[#25334A]/75 font-medium leading-relaxed min-h-[3.25rem]">
+                  <p className="text-xs text-[#25334A]/75 font-medium leading-snug">
                     {prog.description}
                   </p>
 
-                  {/* Feature Checklist */}
-                  <div className="space-y-2 border-t border-slate-100 pt-3">
+                  {/* Feature Checklist (Tighter gaps) */}
+                  <div className="space-y-1.5 border-t border-slate-100 pt-2 mt-2">
                     {prog.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-center space-x-2 text-xs text-[#25334A] font-medium leading-tight">
+                      <div key={idx} className="flex items-center space-x-1.5 text-xs text-[#25334A] font-medium leading-tight">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#F2A000] shrink-0" />
                         <span>{feat}</span>
                       </div>
@@ -182,11 +182,11 @@ export const ProgramsSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* View Details Button */}
-              <div className="p-5 pt-2">
+              {/* View Details Button (38px-40px high) */}
+              <div className="px-4.5 p-4 pt-1 pb-4">
                 <button
                   onClick={() => navigate('/programs')}
-                  className="w-full py-2.5 bg-[#10264B] hover:bg-[#071A38] text-white rounded-full font-bold text-xs flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 group/btn"
+                  className="w-full h-9 bg-[#10264B] hover:bg-[#071A38] text-white rounded-full font-bold text-xs flex items-center justify-center space-x-1.5 shadow-md hover:shadow-lg transition-all duration-300 group/btn"
                 >
                   <span>View Details</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#F2A000] group-hover/btn:translate-x-0.5 transition-transform" />
