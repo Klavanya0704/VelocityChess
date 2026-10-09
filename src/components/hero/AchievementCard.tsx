@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Trophy, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { achievementsData } from '../../data/mockData';
@@ -6,20 +6,60 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const AchievementCard: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const navigate = useNavigate();
 
   const currentAchievement = achievementsData[currentIndex];
 
-  const handlePrev = () => {
+  const handlePrev = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     setCurrentIndex((prev) => (prev === 0 ? achievementsData.length - 1 : prev - 1));
   };
 
-  const handleNext = () => {
+  const handleNext = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     setCurrentIndex((prev) => (prev === achievementsData.length - 1 ? 0 : prev + 1));
   };
 
+  // 5-Second Autoplay with Hover Pause & Cleanup
+  useEffect(() => {
+    if (isHovered) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev === achievementsData.length - 1 ? 0 : prev + 1));
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [isHovered]);
+
+  // Touch Swipe Handlers for Mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diffX = touchStartX - touchEndX;
+
+    if (Math.abs(diffX) > 35) {
+      if (diffX > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    setTouchStartX(null);
+  };
+
   return (
-    <div className="glass-card rounded-3xl p-3.5 sm:p-4 w-full max-w-[365px] xl:max-w-[380px] shadow-2xl border border-white/60 relative z-20 transition-all duration-300">
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      className="glass-card rounded-3xl p-3.5 sm:p-4 w-full max-w-[365px] xl:max-w-[380px] shadow-2xl border border-white/60 relative z-20 transition-all duration-300"
+    >
       {/* 1. Header Row */}
       <div className="flex items-center justify-between mb-2 border-b border-[#F8F0E3]/60 pb-1.5">
         <div className="flex items-center space-x-2">
@@ -31,7 +71,11 @@ export const AchievementCard: React.FC = () => {
           </h3>
         </div>
         <button
-          onClick={() => navigate('/achievements')}
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate('/achievements');
+          }}
           className="inline-flex items-center space-x-1 text-[10px] font-semibold text-[#10264B] glass-btn-ivory px-2.5 py-0.5 rounded-full transition"
         >
           <span>View All</span>
@@ -39,14 +83,14 @@ export const AchievementCard: React.FC = () => {
         </button>
       </div>
 
-      {/* 2. Achievement Info */}
+      {/* 2. Achievement Info (Title, Student Name, Category, Event, Badge) */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentAchievement.id}
           initial={{ opacity: 0, y: 3 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -3 }}
-          transition={{ duration: 0.15 }}
+          transition={{ duration: 0.2 }}
           className="mb-2"
         >
           <div className="flex items-start justify-between gap-1.5">
@@ -78,26 +122,28 @@ export const AchievementCard: React.FC = () => {
             initial={{ opacity: 0, scale: 1.02 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.25 }}
             className="w-full h-full object-cover"
           />
         </AnimatePresence>
 
         {/* Glassmorphism Navigation Arrow Buttons */}
         <button
+          type="button"
           onClick={handlePrev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full glass-btn-icon text-[#10264B] flex items-center justify-center transition"
+          className="absolute left-2 top-1/2 -translate-y-1/2 w-6.5 h-6.5 rounded-full glass-btn-icon text-[#10264B] flex items-center justify-center transition shadow-md z-10"
           aria-label="Previous achievement"
         >
-          <ChevronLeft className="w-3.5 h-3.5" />
+          <ChevronLeft className="w-4 h-4" />
         </button>
 
         <button
+          type="button"
           onClick={handleNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full glass-btn-icon text-[#10264B] flex items-center justify-center transition"
+          className="absolute right-2 top-1/2 -translate-y-1/2 w-6.5 h-6.5 rounded-full glass-btn-icon text-[#10264B] flex items-center justify-center transition shadow-md z-10"
           aria-label="Next achievement"
         >
-          <ChevronRight className="w-3.5 h-3.5" />
+          <ChevronRight className="w-4 h-4" />
         </button>
       </div>
 
@@ -108,12 +154,17 @@ export const AchievementCard: React.FC = () => {
           return (
             <button
               key={item.id}
-              onClick={() => setCurrentIndex(idx)}
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentIndex(idx);
+              }}
               className={`relative h-[52px] sm:h-[55px] w-full rounded-lg overflow-hidden border-2 transition ${
                 isSelected
                   ? 'border-[#F2A000] scale-105 shadow-sm'
                   : 'border-transparent opacity-70 hover:opacity-100'
               }`}
+              aria-label={`Select achievement ${idx + 1}: ${item.title}`}
             >
               <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover" />
             </button>
@@ -126,7 +177,11 @@ export const AchievementCard: React.FC = () => {
         {achievementsData.map((_, idx) => (
           <button
             key={idx}
-            onClick={() => setCurrentIndex(idx)}
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setCurrentIndex(idx);
+            }}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               idx === currentIndex ? 'w-4 bg-[#F2A000]' : 'w-1.5 bg-[#F2A000]/30 hover:bg-[#F2A000]/60'
             }`}
