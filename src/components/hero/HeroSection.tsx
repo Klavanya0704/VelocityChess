@@ -61,8 +61,9 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Description */}
-          <p className="text-sm sm:text-base text-[#10264B] font-sans font-semibold max-w-md leading-relaxed drop-shadow-xs">
-            Nurturing confident, creative and strategic thinkers through the power of chess.
+          <p className="text-base sm:text-[18px] text-[#10264B] font-sans font-medium max-w-lg leading-[1.6]">
+            Nurturing confident, creative and strategic thinkers<br className="hidden sm:block" />
+            through the power of chess.
           </p>
 
           {/* Glassmorphism CTA Buttons */}
