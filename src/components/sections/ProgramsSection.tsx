@@ -8,7 +8,7 @@ export const ProgramsSection: React.FC = () => {
   const programCards = [
     {
       id: 'online',
-      title: 'Online\nChess Classes',
+      title: 'Online Chess Classes',
       description: 'Interactive online classes with expert coaching from the comfort of your home.',
       image: '/assets/classroom_hero_bg.jpg',
       isNavy: true,
@@ -21,7 +21,7 @@ export const ProgramsSection: React.FC = () => {
     },
     {
       id: 'group',
-      title: 'Group\nChess Classes',
+      title: 'Group Chess Classes',
       description: 'Learn and grow with friends in small group batches with a structured learning path.',
       image: '/assets/ref_hero_bg.jpg',
       isNavy: false,
@@ -34,7 +34,7 @@ export const ProgramsSection: React.FC = () => {
     },
     {
       id: 'private',
-      title: 'Private\nCoaching',
+      title: 'Private Coaching',
       description: 'Personalized one-on-one training tailored to individual strengths and goals.',
       image: '/assets/hero_bg_seated_player.jpg',
       isNavy: true,
@@ -47,7 +47,7 @@ export const ProgramsSection: React.FC = () => {
     },
     {
       id: 'academy',
-      title: 'Academy /\nOffline Classes',
+      title: 'Academy / Offline Classes',
       description: 'In-person classes at our academy with a professional and inspiring learning environment.',
       image: '/assets/player_hero_bg.jpg',
       isNavy: false,
@@ -61,17 +61,17 @@ export const ProgramsSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-12 sm:py-16 lg:py-24 bg-[#FFF9EF] overflow-hidden select-none border-t border-[#F2A000]/25">
+    <section className="relative py-12 sm:py-16 lg:py-20 bg-[#FFF9EF] overflow-hidden select-none border-t border-[#F2A000]/25">
       
-      {/* 1. DEDICATED CHESS-THEMED BACKGROUND IMAGE ASSET WITH CHESSBOARD & PIECE SILHOUETTES */}
+      {/* 1. DEDICATED CHESS-THEMED BACKGROUND IMAGE ASSET */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden bg-[#FFF9EF]">
         <img
           src="/assets/programs_bg.png"
           alt="Velocity Chess Academy Programs Background"
-          className="w-full h-full object-cover object-center opacity-40 filter brightness-105"
+          className="w-full h-full object-cover object-center opacity-35"
         />
         {/* Soft translucent warm cream overlay */}
-        <div className="absolute inset-0 bg-[#FFF9EF]/45 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#FFF9EF]/55 pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -108,188 +108,158 @@ export const ProgramsSection: React.FC = () => {
 
         </div>
 
-        {/* 3. FOUR CHESS ROOK (CASTLE PIECE) SILHOUETTE CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 items-center">
+        {/* 3. FOUR SCULPTED CHESS CARDS WITH CHESS KING CROSS CROWN SILHOUETTES */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {programCards.map((card) => (
             <div
               key={card.id}
-              className="relative w-full max-w-[330px] sm:max-w-none mx-auto aspect-[320/540] transition-all duration-300 hover:-translate-y-2 group"
+              className="relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 group min-h-[500px] sm:min-h-[520px]"
             >
-              {/* VECTOR SVG CHESS ROOK (CASTLE PIECE) SILHOUETTE & BORDER FRAME */}
+              
+              {/* INTEGRATED CHESS KING SVG LAYER (Background Fill, Cross Crown Finial, Clipped Photo & Metallic Gold Borders) */}
               <svg
-                viewBox="0 0 320 540"
-                className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
+                className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
+                viewBox="0 0 300 520"
                 preserveAspectRatio="none"
                 fill="none"
               >
                 <defs>
-                  {/* Soft 3D Drop Shadow */}
-                  <filter id={`rook-shadow-${card.id}`} x="-15%" y="-10%" width="130%" height="125%">
-                    <feDropShadow dx="0" dy="10" stdDeviation="12" floodColor="#071A38" floodOpacity="0.22" />
+                  {/* Dedicated ClipPath matching the upper King Crown Arch (cross crown top at y=6..24, shoulders down to y=210) */}
+                  <clipPath id={`king-photo-clip-${card.id}`}>
+                    <path d="M 145 24 C 185 28, 245 52, 286 115 L 286 210 C 200 220, 100 220, 14 210 L 14 115 C 55 52, 115 28, 145 24 Z" />
+                  </clipPath>
+                  
+                  {/* 3D Soft Shadow Filter */}
+                  <filter id={`king-shadow-${card.id}`} x="-10%" y="-5%" width="120%" height="115%">
+                    <feDropShadow dx="0" dy="10" stdDeviation="12" floodColor="#071A38" floodOpacity="0.2" />
                   </filter>
                 </defs>
 
-                {/* MAIN ROOK SILHOUETTE FILL */}
+                {/* 1. Main Sculpted King Card Background Fill with Cross Crown Finial */}
                 <path
-                  d="M 30 22 
-                     L 65 22 L 65 42 L 95 42 L 95 22 
-                     L 225 22 L 225 42 L 255 42 L 255 22 
-                     L 290 22 
-                     L 290 75 
-                     C 290 92, 272 100, 262 108 
-                     L 266 280 
-                     C 272 300, 296 312, 296 325 
-                     L 296 462 
-                     C 296 470, 308 472, 308 478 
-                     L 308 520 
-                     Q 308 534, 294 534 
-                     L 26 534 
-                     Q 12 534, 12 520 
-                     L 12 478 
-                     C 12 472, 24 470, 24 462 
-                     L 24 325 
-                     C 24 312, 48 300, 54 280 
-                     L 58 108 
-                     C 48 100, 30 92, 30 75 
-                     Z"
-                  fill={card.isNavy ? '#0A1D37' : '#FFFDF8'}
-                  filter={`url(#rook-shadow-${card.id})`}
+                  d="M 150 6 
+                     L 155 6 L 155 12 L 161 12 L 161 18 L 155 18 L 155 24 
+                     C 185 28, 245 52, 286 115 
+                     L 286 480 
+                     C 286 502, 268 514, 240 514 
+                     L 60 514 
+                     C 32 514, 14 502, 14 480 
+                     L 14 115 
+                     C 55 52, 115 28, 145 24 
+                     L 145 18 L 139 18 L 139 12 L 145 12 L 145 6 Z"
+                  fill={card.isNavy ? '#10264B' : '#FFFDF8'}
+                  filter={`url(#king-shadow-${card.id})`}
                 />
 
-                {/* OUTER METALLIC GOLD BORDER STROKE */}
+                {/* 2. Program Image Clipped Directly to Upper King Arch Silhouette */}
+                <g clipPath={`url(#king-photo-clip-${card.id})`}>
+                  <image
+                    href={card.image}
+                    x="0"
+                    y="0"
+                    width="300"
+                    height="225"
+                    preserveAspectRatio="xMidYMid slice"
+                  />
+                </g>
+
+                {/* 3. Gold Sculpted Divider Line at Photo Bottom */}
                 <path
-                  d="M 30 22 
-                     L 65 22 L 65 42 L 95 42 L 95 22 
-                     L 225 22 L 225 42 L 255 42 L 255 22 
-                     L 290 22 
-                     L 290 75 
-                     C 290 92, 272 100, 262 108 
-                     L 266 280 
-                     C 272 300, 296 312, 296 325 
-                     L 296 462 
-                     C 296 470, 308 472, 308 478 
-                     L 308 520 
-                     Q 308 534, 294 534 
-                     L 26 534 
-                     Q 12 534, 12 520 
-                     L 12 478 
-                     C 12 472, 24 470, 24 462 
-                     L 24 325 
-                     C 24 312, 48 300, 54 280 
-                     L 58 108 
-                     C 48 100, 30 92, 30 75 
-                     Z"
+                  d="M 14 210 C 100 222, 200 222, 286 210"
+                  stroke="#F2A000"
+                  strokeWidth="3"
+                  fill="none"
+                />
+
+                {/* 4. Outer Metallic Gold Border tracing entire King Silhouette & Cross Crown */}
+                <path
+                  d="M 150 6 
+                     L 155 6 L 155 12 L 161 12 L 161 18 L 155 18 L 155 24 
+                     C 185 28, 245 52, 286 115 
+                     L 286 480 
+                     C 286 502, 268 514, 240 514 
+                     L 60 514 
+                     C 32 514, 14 502, 14 480 
+                     L 14 115 
+                     C 55 52, 115 28, 145 24 
+                     L 145 18 L 139 18 L 139 12 L 145 12 L 145 6 Z"
                   fill="none"
                   stroke="#F2A000"
-                  strokeWidth="4.5"
+                  strokeWidth="4"
                   strokeLinejoin="round"
                 />
 
-                {/* INNER HIGHLIGHT GOLD STROKE */}
+                {/* 5. Inner Highlight Gold Stroke */}
                 <path
-                  d="M 32 24 
-                     L 63 24 L 63 40 L 97 40 L 97 24 
-                     L 223 24 L 223 40 L 257 40 L 257 24 
-                     L 288 24 
-                     L 288 74 
-                     C 288 89, 270 98, 260 106 
-                     L 264 278 
-                     C 270 298, 294 310, 294 323 
-                     L 294 460 
-                     C 294 468, 306 470, 306 476 
-                     L 306 518 
-                     Q 306 532, 292 532 
-                     L 28 532 
-                     Q 14 532, 14 518 
-                     L 14 476 
-                     C 14 470, 26 468, 26 460 
-                     L 26 323 
-                     C 26 310, 50 298, 56 278 
-                     L 60 106 
-                     C 50 98, 32 89, 32 74 
-                     Z"
+                  d="M 150 8 
+                     L 153 8 L 153 14 L 159 14 L 159 16 L 153 16 L 153 22 
+                     C 183 26, 243 50, 282 113 
+                     L 282 478 
+                     C 282 498, 266 508, 238 508 
+                     L 62 508 
+                     C 34 508, 18 498, 18 478 
+                     L 18 113 
+                     C 57 50, 117 26, 147 22 
+                     L 147 16 L 141 16 L 141 14 L 147 14 L 147 8 Z"
                   fill="none"
                   stroke="#FFE29A"
                   strokeWidth="1.5"
                   strokeOpacity="0.85"
                   strokeLinejoin="round"
                 />
-
-                {/* DECORATIVE GOLD MOLDING LINES */}
-                {/* Neck Molding Line at y=105 */}
-                <path d="M 46 105 Q 160 112, 274 105" fill="none" stroke="#F2A000" strokeWidth="2.5" />
-                
-                {/* Waist-to-Base Molding Line at y=285 */}
-                <path d="M 44 285 Q 160 292, 276 285" fill="none" stroke="#F2A000" strokeWidth="2.5" />
-
-                {/* Pedestal Step Line at y=464 */}
-                <path d="M 22 464 Q 160 470, 298 464" fill="none" stroke="#F2A000" strokeWidth="1.5" strokeDasharray="5 3" />
               </svg>
 
-              {/* CARD CONTENT LAYER (LOCK POSITIONED EXACTLY INSIDE ROOK REGIONS) */}
-              <div className="absolute inset-0 z-10 flex flex-col justify-between p-3 select-none">
-                
-                {/* 1. BATTLEMENTS TITLE HEADER (y = 22 to y = 105) */}
-                <div className="h-[21%] flex flex-col justify-center items-center px-4 pt-3.5 text-center">
-                  <h3
-                    className={`font-serif font-extrabold text-sm sm:text-base lg:text-[18px] leading-tight tracking-tight whitespace-pre-line ${
-                      card.isNavy ? 'text-[#FFE8AB]' : 'text-[#10264B]'
-                    }`}
-                  >
-                    {card.title}
-                  </h3>
-                </div>
-
-                {/* 2. MIDDLE PHOTO FRAME IN ROOK WAIST (y = 108 to y = 280) */}
-                <div className="h-[33%] px-5 py-0.5 flex items-center justify-center">
-                  <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-[#F2A000] shadow-md">
-                    <img
-                      src={card.image}
-                      alt={card.title.replace('\n', ' ')}
-                      className="w-full h-full object-cover object-center filter brightness-[1.02] group-hover:scale-105 transition-transform duration-500"
-                    />
+              {/* CARD HTML CONTENT LAYER (Positioned safely below y=210 image boundary) */}
+              <div
+                className={`relative flex flex-col justify-between h-full pt-[68%] px-4 sm:px-5 pb-5 z-20 ${
+                  card.isNavy ? 'text-white' : 'text-[#10264B]'
+                }`}
+              >
+                <div>
+                  {/* Card Title & Description */}
+                  <div className="text-center pt-2 mb-3">
+                    <h3
+                      className={`font-serif font-extrabold text-lg sm:text-xl lg:text-[22px] leading-tight mb-2 ${
+                        card.isNavy ? 'text-[#FFE8AB]' : 'text-[#10264B]'
+                      }`}
+                    >
+                      {card.title}
+                    </h3>
+                    <p
+                      className={`text-xs sm:text-sm text-center font-medium leading-relaxed mb-4 min-h-[40px] ${
+                        card.isNavy ? 'text-gray-200' : 'text-[#25334A]/85'
+                      }`}
+                    >
+                      {card.description}
+                    </p>
                   </div>
-                </div>
 
-                {/* 3. LOWER BODY DESCRIPTION & FEATURES (y = 285 to y = 460) */}
-                <div className="h-[34%] px-4 pt-1 flex flex-col justify-start text-center">
-                  
-                  {/* Description */}
-                  <p
-                    className={`text-[11px] sm:text-xs font-medium leading-tight mb-2 min-h-[32px] flex items-center justify-center ${
-                      card.isNavy ? 'text-gray-200' : 'text-[#25334A]/90'
-                    }`}
-                  >
-                    {card.description}
-                  </p>
-
-                  {/* Features Checklist */}
-                  <div className="space-y-1.5 text-left pt-1 border-t border-current/15">
+                  {/* Benefits Checklist */}
+                  <div className="space-y-2 border-t border-current/15 pt-3 mb-5">
                     {card.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-center space-x-2 text-[10px] sm:text-[11px] font-semibold leading-none">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#F2A000] shrink-0 fill-[#F2A000]/20" />
-                        <span className={card.isNavy ? 'text-gray-100' : 'text-[#10264B]'}>
+                      <div key={idx} className="flex items-center space-x-2.5 text-xs sm:text-sm font-semibold leading-tight">
+                        <CheckCircle2 className="w-4 h-4 text-[#F2A000] shrink-0 fill-[#F2A000]/20" />
+                        <span className={card.isNavy ? 'text-gray-200' : 'text-[#10264B]'}>
                           {benefit}
                         </span>
                       </div>
                     ))}
                   </div>
-
                 </div>
 
-                {/* 4. PEDESTAL FOOT CTA BUTTON (y = 464 to y = 534) */}
-                <div className="h-[12%] px-3 flex items-center justify-center pb-2">
+                {/* Bottom CTA Button */}
+                <div className="pt-2">
                   <button
                     onClick={() => navigate('/programs')}
-                    className={`w-full py-2 sm:py-2.5 rounded-full font-extrabold text-xs flex items-center justify-center space-x-1.5 shadow-md hover:shadow-lg transition-all duration-300 ${
+                    className={`w-full py-3 rounded-full font-extrabold text-xs sm:text-sm flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 ${
                       card.isNavy
                         ? 'bg-gradient-to-r from-[#FFE8AB] via-[#F2A000] to-[#E59400] text-[#10264B] hover:scale-[1.02]'
-                        : 'bg-[#0A1D37] hover:bg-[#071A38] text-white hover:scale-[1.02]'
+                        : 'bg-[#10264B] hover:bg-[#071A38] text-white hover:scale-[1.02]'
                     }`}
                   >
                     <span>Learn More</span>
                     <ArrowRight
-                      className={`w-3.5 h-3.5 ${
+                      className={`w-4 h-4 ${
                         card.isNavy ? 'text-[#10264B]' : 'text-[#F2A000]'
                       }`}
                     />
