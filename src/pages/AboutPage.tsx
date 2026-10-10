@@ -18,9 +18,19 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-/* PROMINENT 3D METALLIC GOLD CHESS PIECE SCULPTURE SVG COMPONENT */
+/* PROMINENT 3D METALLIC GOLD CHESS PIECE SCULPTURE SVG / IMAGE COMPONENT */
 const GoldChessPiece3D: React.FC<{ piece: string; className?: string }> = ({ piece, className = "w-16 h-24" }) => {
   const p = piece.toLowerCase();
+
+  if (p === 'knight') {
+    return (
+      <img
+        src="/assets/3d_gold_knight.png"
+        alt="3D Gold Knight Piece"
+        className={`${className} object-contain filter drop-shadow-md`}
+      />
+    );
+  }
 
   return (
     <svg viewBox="0 0 80 120" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
