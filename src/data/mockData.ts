@@ -133,7 +133,7 @@ export const eventsData: ChessEvent[] = [
     id: 'evt-1',
     title: 'Velocity Annual State Rapid Championship 2026',
     date: 'November 15, 2026',
-    time: '09:00 AM - 05:00 PM IST',
+    time: '09:00 AM – 05:00 PM IST',
     location: 'Velocity Grand Hall, Hyderabad',
     type: 'Tournament',
     description: 'FIDE recognized 7-round Swiss system rapid tournament with total cash prize of ₹1,50,000 + trophies.',
@@ -143,27 +143,27 @@ export const eventsData: ChessEvent[] = [
   },
   {
     id: 'evt-2',
-    title: 'GM Masterclass: Positional Sacrifices & Endgame Mastery',
-    date: 'November 22, 2026',
-    time: '02:00 PM - 06:00 PM IST',
-    location: 'Interactive Online Studio & On-site',
+    title: 'Grandmaster Strategy Masterclass',
+    date: 'December 10, 2026',
+    time: '10:00 AM – 01:00 PM IST',
+    location: 'Online (Live Interactive Session)',
     type: 'Masterclass',
-    description: 'Exclusive 4-hour workshop conducted by International Master Srikanth V. focusing on modern endgame play.',
+    description: 'Learn advanced middlegame techniques, endgame strategies, and practical game analysis from a FIDE Grandmaster.',
     status: 'Upcoming',
     entryFee: '₹500',
     maxParticipants: 50
   },
   {
     id: 'evt-3',
-    title: 'Saturday Junior Blitz Arena (U-12 & U-16)',
+    title: 'Weekly Blitz Arena',
     date: 'Every Saturday',
-    time: '04:00 PM - 06:30 PM IST',
-    location: 'Velocity Chess Academy Arena',
+    time: '07:00 PM – 09:00 PM IST',
+    location: 'Online (Lichess Arena)',
     type: 'Workshop',
-    description: 'Weekly competitive blitz matches with live time controls, electronic boards, and Instant analysis.',
-    status: 'Ongoing',
-    entryFee: 'Free for Academy Students',
-    maxParticipants: 40
+    description: 'Fast-paced online blitz tournament to improve calculation speed and practical skills. Open to all skill levels.',
+    status: 'Upcoming',
+    entryFee: '₹300',
+    maxParticipants: 100
   }
 ];
 
