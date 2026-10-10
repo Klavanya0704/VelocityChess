@@ -196,30 +196,30 @@ export const ResourcesSection: React.FC = () => {
               </svg>
 
               {/* WARM CREAM PANEL CONTENT AREA (LIGHT THEME) */}
-              <div className="relative z-20 flex flex-col justify-end h-full pt-[50%] px-5 pb-5 text-center text-[#10264B]">
-                <div className="space-y-1.5 mb-3">
+              <div className="relative z-20 flex flex-col justify-between h-full pt-[58%] px-5 pb-5 text-center text-[#10264B]">
+                <div className="flex-1 flex flex-col justify-center space-y-2 mb-3">
                   
                   {/* Title in Dark Navy Serif */}
-                  <h3 className="font-serif font-extrabold text-lg sm:text-xl text-[#10264B] leading-snug">
+                  <h3 className="font-serif font-extrabold text-base sm:text-lg lg:text-xl text-[#10264B] leading-tight">
                     {card.title}
                   </h3>
 
                   {/* Diamond Line Flourish */}
                   <div className="flex items-center justify-center py-0.5">
-                    <div className="w-6 h-[1.5px] bg-[#F2A000]" />
+                    <div className="w-5 h-[1.5px] bg-[#F2A000]" />
                     <div className="w-1.5 h-1.5 rotate-45 bg-[#F2A000] mx-1.5" />
-                    <div className="w-6 h-[1.5px] bg-[#F2A000]" />
+                    <div className="w-5 h-[1.5px] bg-[#F2A000]" />
                   </div>
 
-                  {/* Description in Dark Slate Navy */}
-                  <p className="text-xs sm:text-sm font-medium text-[#25334A]/85 leading-relaxed px-1">
+                  {/* Description in Dark Slate Navy (14px desktop, 1.5 line-height) */}
+                  <p className="text-xs sm:text-[14px] font-medium text-[#25334A]/85 leading-[1.5] px-1">
                     {card.description}
                   </p>
 
                 </div>
 
                 {/* Gold Gradient Pill Button */}
-                <div>
+                <div className="pt-1">
                   <button
                     onClick={() => navigate('/resources')}
                     className="w-full py-2.5 px-4 rounded-full bg-gradient-to-r from-[#FFE8AB] via-[#F2A000] to-[#E59400] text-[#10264B] font-extrabold text-xs sm:text-sm flex items-center justify-center space-x-2 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300 border border-white/60"
