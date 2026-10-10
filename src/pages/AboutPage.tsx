@@ -604,37 +604,47 @@ export const AboutPage: React.FC = () => {
                     {/* Inner Gold Bevel Accent */}
                     <div className="absolute inset-0 rounded-[22px] border border-[#FFE29A] pointer-events-none z-20 opacity-80" />
 
-                    {/* UPPER VISUAL AREA WITH INTEGRATED CHECKERBOARD & PROMINENT 3D GOLD PIECE */}
+                    {/* UPPER VISUAL AREA WITH REALISTIC 3D PERSPECTIVE CHESSBOARD & STANDING PIECE */}
                     <div className="relative h-48 sm:h-52 overflow-hidden rounded-t-[22px] bg-gradient-to-br from-[#FFFDF5] via-[#FFF8EB] to-[#FFEECB]">
                       
-                      {/* Top-Right Glossy Dark Gold & Espresso Checkerboard Pattern Surface */}
+                      {/* 1. 3D PERSPECTIVE CHESSBOARD SURFACE (RIGHT SIDE SCENE) */}
+                      <div className="absolute right-[-20px] top-[-10px] bottom-[-10px] w-[70%] z-10 pointer-events-none [perspective:600px] flex items-center justify-center">
+                        
+                        <div className="relative w-[230px] h-[190px] origin-center transform [transform-style:preserve-3d] rotate-x-[52deg] rotate-z-[-20deg] scale-110 shadow-2xl rounded-sm border-2 border-[#6E480E]/70 overflow-hidden">
+                          {/* 4x4 Polished Wood & Antique Gold Board Tiles */}
+                          <div className="grid grid-cols-4 grid-rows-4 w-full h-full">
+                            {[...Array(16)].map((_, i) => {
+                              const isDark = i % 2 === Math.floor(i / 4) % 2;
+                              return (
+                                <div
+                                  key={i}
+                                  className={`relative ${
+                                    isDark
+                                      ? 'bg-gradient-to-br from-[#291B0C] via-[#1A1108] to-[#120B05]'
+                                      : 'bg-gradient-to-br from-[#C48E24] via-[#9E6E12] to-[#734E09]'
+                                  } border-[0.5px] border-[#593C0A]/40`}
+                                >
+                                  {/* Tile Surface Bevel Reflection */}
+                                  <div className="absolute inset-0 bg-gradient-to-b from-white/15 to-transparent opacity-60 pointer-events-none" />
+                                </div>
+                              );
+                            })}
+                          </div>
+
+                          {/* Studio Light Glare across Board */}
+                          <div className="absolute inset-0 bg-gradient-to-tr from-[#1A1108]/60 via-transparent to-white/20 pointer-events-none" />
+                        </div>
+
+                      </div>
+
+                      {/* 2. S-CURVE GOLD RIBBON BOUNDARY & CURVED BOTTOM DIVIDER SVG */}
                       <svg
-                        className="absolute inset-0 w-full h-full pointer-events-none z-10"
+                        className="absolute inset-0 w-full h-full pointer-events-none z-15"
                         viewBox="0 0 280 200"
                         preserveAspectRatio="none"
                       >
                         <defs>
-                          {/* S-Curve Wave ClipPath for Top Right Dark Gold Checkerboard Area */}
-                          <clipPath id={`checker-wave-clip-${card.id}`}>
-                            <path d="M 75 0 C 105 55, 135 110, 280 142 L 280 0 Z" />
-                          </clipPath>
-
-                          {/* Muted Antique Gold & Deep Espresso Checkerboard Pattern */}
-                          <pattern id={`gold-dark-checker-${card.id}`} width="22" height="22" patternUnits="userSpaceOnUse">
-                            <rect width="11" height="11" fill="#1C1309" />
-                            <rect x="11" y="0" width="11" height="11" fill="#6E5122" />
-                            <rect x="0" y="11" width="11" height="11" fill="#6E5122" />
-                            <rect x="11" y="11" width="11" height="11" fill="#1C1309" />
-                          </pattern>
-
-                          {/* Warm Studio Radial Lighting Overlay */}
-                          <radialGradient id={`studio-light-${card.id}`} cx="80%" cy="20%" r="90%">
-                            <stop offset="0%" stopColor="#FFF8E0" stopOpacity="0.45" />
-                            <stop offset="50%" stopColor="#8A6427" stopOpacity="0.2" />
-                            <stop offset="100%" stopColor="#1C1309" stopOpacity="0.6" />
-                          </radialGradient>
-
-                          {/* Refined Metallic Gold Ribbon Gradient */}
+                          {/* Gold Ribbon Gradient */}
                           <linearGradient id={`gold-ribbon-grad-${card.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stopColor="#FFECA8" />
                             <stop offset="30%" stopColor="#E5A41A" />
@@ -643,22 +653,15 @@ export const AboutPage: React.FC = () => {
                           </linearGradient>
                         </defs>
 
-                        {/* 1. Muted Deep Bronze/Gold Checkerboard Fill inside S-Curve Top Right */}
-                        <g clipPath={`url(#checker-wave-clip-${card.id})`}>
-                          <rect width="280" height="200" fill={`url(#gold-dark-checker-${card.id})`} />
-                          {/* Warm Studio Lighting Overlay */}
-                          <rect width="280" height="200" fill={`url(#studio-light-${card.id})`} />
-                        </g>
-
-                        {/* 2. Flowing S-Curve Gold Metallic Ribbon Divider Stroke */}
+                        {/* S-Curve Boundary Line between Left Cream & Right 3D Board */}
                         <path
-                          d="M 75 0 C 105 55, 135 110, 280 142"
+                          d="M 80 0 C 105 52, 135 108, 280 138"
                           stroke={`url(#gold-ribbon-grad-${card.id})`}
-                          strokeWidth="4"
+                          strokeWidth="4.5"
                           fill="none"
                         />
 
-                        {/* 3. Smooth Curved Bottom Boundary Line */}
+                        {/* Smooth Flowing Bottom Boundary Line */}
                         <path
                           d="M 0 172 C 95 158, 185 192, 280 176"
                           stroke={`url(#gold-ribbon-grad-${card.id})`}
@@ -667,16 +670,16 @@ export const AboutPage: React.FC = () => {
                         />
                       </svg>
 
-                      {/* Top-Left Circular Gold Icon Badge */}
+                      {/* 3. CIRCULAR GOLD ICON BADGE IN TOP-LEFT */}
                       <div className="absolute top-4 left-4 w-11 h-11 rounded-full bg-gradient-to-br from-[#FFFDF5] via-[#FFF5E5] to-[#FFE8AB] border-2 border-[#E5A41A] shadow-md flex items-center justify-center text-[#D98A00] z-30 group-hover:scale-110 transition-transform duration-300">
                         <IconComp className="w-5 h-5 text-[#D98A00]" />
                       </div>
 
-                      {/* Prominent Large 3D Gold Chess Piece Standing Tall */}
-                      <div className="absolute right-3 bottom-1 z-20 flex items-end justify-center pointer-events-none">
+                      {/* 4. PROMINENT LARGE 3D GOLD CHESS PIECE STANDING ON BOARD */}
+                      <div className="absolute right-4 bottom-1 z-20 flex items-end justify-center pointer-events-none">
                         <GoldChessPiece3D
                           piece={card.pieceType}
-                          className="w-20 h-32 sm:w-24 sm:h-38 object-contain filter drop-shadow-[0_12px_16px_rgba(30,15,0,0.5)] group-hover:scale-105 transition-transform duration-300"
+                          className="w-20 h-32 sm:w-24 sm:h-38 object-contain filter drop-shadow-[0_16px_14px_rgba(15,8,0,0.6)] group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
 
