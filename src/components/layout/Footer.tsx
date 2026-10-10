@@ -1,42 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Globe, Share2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { Logo } from '../common/Logo';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#071A38] text-[#FFF9EF] pt-16 pb-8 border-t border-[#E5A51B]/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+    <footer className="relative bg-[#FFF8EC] text-[#25334A] pt-16 pb-8 border-t-2 border-[#F2A000]/30 select-none z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Main Footer Links & Information Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#F2A000]/25">
           
           {/* Col 1: Brand Logo & Mission */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="flex items-center group">
+            <Link to="/" className="inline-flex items-center group">
               <Logo size="lg" />
             </Link>
 
-            <p className="text-xs text-gray-300 leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-[#25334A]/85 font-medium leading-relaxed max-w-sm">
               Nurturing strategic, confident, and resilient thinkers through master-level chess instruction, FIDE tournament prep, and holistic youth growth.
             </p>
 
-            {/* Social Links with SVGs */}
+            {/* Social Links on Warm Cream Circular Badges */}
             <div className="flex items-center space-x-3 pt-2">
-              <a href="#instagram" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#E5A51B] hover:text-[#071A38] text-[#E5A51B] flex items-center justify-center transition" aria-label="Instagram">
+              <a
+                href="#instagram"
+                className="w-9 h-9 rounded-full bg-[#FFF5E5] border border-[#F2A000]/40 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
+                aria-label="Instagram"
+              >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
               </a>
-              <a href="#facebook" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#E5A51B] hover:text-[#071A38] text-[#E5A51B] flex items-center justify-center transition" aria-label="Facebook">
+
+              <a
+                href="#facebook"
+                className="w-9 h-9 rounded-full bg-[#FFF5E5] border border-[#F2A000]/40 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
+                aria-label="Facebook"
+              >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
               </a>
-              <a href="#youtube" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#E5A51B] hover:text-[#071A38] text-[#E5A51B] flex items-center justify-center transition" aria-label="YouTube">
+
+              <a
+                href="#youtube"
+                className="w-9 h-9 rounded-full bg-[#FFF5E5] border border-[#F2A000]/40 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
+                aria-label="YouTube"
+              >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
               </a>
-              <a href="#website" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#E5A51B] hover:text-[#071A38] text-[#E5A51B] flex items-center justify-center transition" aria-label="Website">
+
+              <a
+                href="#website"
+                className="w-9 h-9 rounded-full bg-[#FFF5E5] border border-[#F2A000]/40 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
+                aria-label="Website"
+              >
                 <Globe className="w-4 h-4" />
               </a>
             </div>
@@ -44,47 +65,47 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Navigation Links */}
           <div>
-            <h4 className="font-serif font-bold text-sm uppercase tracking-wider text-[#E5A51B] mb-4">
+            <h4 className="font-serif font-extrabold text-sm uppercase tracking-wider text-[#D98A00] mb-4">
               Explore Pages
             </h4>
-            <ul className="space-y-2.5 text-xs text-gray-300">
-              <li><Link to="/" className="hover:text-[#E5A51B] transition">Home</Link></li>
-              <li><Link to="/about" className="hover:text-[#E5A51B] transition">About Us</Link></li>
-              <li><Link to="/programs" className="hover:text-[#E5A51B] transition">Coaching Programs</Link></li>
-              <li><Link to="/achievements" className="hover:text-[#E5A51B] transition">Student Achievements</Link></li>
-              <li><Link to="/events" className="hover:text-[#E5A51B] transition">Tournaments & Events</Link></li>
+            <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-[#25334A]/85">
+              <li><Link to="/" className="hover:text-[#D98A00] transition-colors duration-200">Home</Link></li>
+              <li><Link to="/about" className="hover:text-[#D98A00] transition-colors duration-200">About Us</Link></li>
+              <li><Link to="/programs" className="hover:text-[#D98A00] transition-colors duration-200">Coaching Programs</Link></li>
+              <li><Link to="/achievements" className="hover:text-[#D98A00] transition-colors duration-200">Student Achievements</Link></li>
+              <li><Link to="/events" className="hover:text-[#D98A00] transition-colors duration-200">Tournaments & Events</Link></li>
             </ul>
           </div>
 
           {/* Col 3: Resources & Media */}
           <div>
-            <h4 className="font-serif font-bold text-sm uppercase tracking-wider text-[#E5A51B] mb-4">
+            <h4 className="font-serif font-extrabold text-sm uppercase tracking-wider text-[#D98A00] mb-4">
               Resources & Media
             </h4>
-            <ul className="space-y-2.5 text-xs text-gray-300">
-              <li><Link to="/gallery" className="hover:text-[#E5A51B] transition">Academy Gallery</Link></li>
-              <li><Link to="/resources" className="hover:text-[#E5A51B] transition">Chess Guides & Tactics</Link></li>
-              <li><Link to="/contact" className="hover:text-[#E5A51B] transition">Enrollment & Contact</Link></li>
-              <li><Link to="/resources" className="hover:text-[#E5A51B] transition">FIDE Opening Repertoire</Link></li>
+            <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-[#25334A]/85">
+              <li><Link to="/gallery" className="hover:text-[#D98A00] transition-colors duration-200">Academy Gallery</Link></li>
+              <li><Link to="/resources" className="hover:text-[#D98A00] transition-colors duration-200">Chess Guides & Tactics</Link></li>
+              <li><Link to="/contact" className="hover:text-[#D98A00] transition-colors duration-200">Enrollment & Contact</Link></li>
+              <li><Link to="/resources" className="hover:text-[#D98A00] transition-colors duration-200">FIDE Opening Repertoire</Link></li>
             </ul>
           </div>
 
-          {/* Col 4: Contact Information Placeholders */}
+          {/* Col 4: Contact Information */}
           <div>
-            <h4 className="font-serif font-bold text-sm uppercase tracking-wider text-[#E5A51B] mb-4">
+            <h4 className="font-serif font-extrabold text-sm uppercase tracking-wider text-[#D98A00] mb-4">
               Academy Contact
             </h4>
-            <ul className="space-y-3 text-xs text-gray-300">
-              <li className="flex items-start space-x-2">
-                <MapPin className="w-4 h-4 text-[#E5A51B] shrink-0 mt-0.5" />
+            <ul className="space-y-3 text-xs sm:text-sm font-medium text-[#25334A]/85">
+              <li className="flex items-start space-x-2.5">
+                <MapPin className="w-4 h-4 text-[#D98A00] shrink-0 mt-0.5" />
                 <span>Velocity Campus, Premier Education District, City Center</span>
               </li>
-              <li className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-[#E5A51B] shrink-0" />
+              <li className="flex items-center space-x-2.5">
+                <Phone className="w-4 h-4 text-[#D98A00] shrink-0" />
                 <span>+91 98765 43210 (Admissions Office)</span>
               </li>
-              <li className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-[#E5A51B] shrink-0" />
+              <li className="flex items-center space-x-2.5">
+                <Mail className="w-4 h-4 text-[#D98A00] shrink-0" />
                 <span>admissions@velocitychess.edu</span>
               </li>
             </ul>
@@ -92,16 +113,19 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        {/* Bottom Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 space-y-3 sm:space-y-0">
+        {/* Bottom Copyright & Terms Row */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm font-medium text-[#25334A]/75 space-y-3 sm:space-y-0">
           <p>© {new Date().getFullYear()} Velocity Chess Academy. All rights reserved.</p>
-          <div className="flex space-x-6">
-            <a href="#privacy" className="hover:text-[#E5A51B] transition">Privacy Policy</a>
-            <a href="#terms" className="hover:text-[#E5A51B] transition">Terms of Service</a>
-            <a href="#code" className="hover:text-[#E5A51B] transition">Code of Conduct</a>
+          <div className="flex items-center space-x-6">
+            <a href="#privacy" className="hover:text-[#D98A00] transition-colors duration-200">Privacy Policy</a>
+            <a href="#terms" className="hover:text-[#D98A00] transition-colors duration-200">Terms of Service</a>
+            <a href="#code" className="hover:text-[#D98A00] transition-colors duration-200">Code of Conduct</a>
           </div>
         </div>
+
       </div>
     </footer>
   );
 };
+
+export default Footer;
