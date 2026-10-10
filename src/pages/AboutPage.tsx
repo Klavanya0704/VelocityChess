@@ -67,50 +67,52 @@ const GoldChessPiece3D: React.FC<{ piece: string; className?: string }> = ({ pie
       <g filter={`url(#gold-drop-shadow-${p})`}>
 
         {/* ------------------------------------------------------------- */}
-        {/* 1. KING (♔) */}
+        {/* 1. KING (MATCHING USER'S REFINED 3D GOLD KING IMAGE) */}
         {/* ------------------------------------------------------------- */}
         {p === 'king' && (
           <g>
-            {/* Formée Cross Finial */}
+            {/* Formée Cross Finial Top */}
             <path
-              d="M 40 4 L 43 9 L 49 9 L 45 13 L 47 19 L 40 15 L 33 19 L 35 13 L 31 9 L 37 9 Z"
+              d="M 36 3 H 44 V 7 L 48 4 L 48 10 L 44 9 V 15 H 36 V 9 L 32 10 L 32 4 L 36 7 Z"
               fill={`url(#gold-metal-main-${p})`}
               stroke={`url(#gold-stroke-${p})`}
               strokeWidth="0.8"
             />
-            <circle cx="40" cy="11.5" r="1.8" fill="#FFFFFF" />
+            {/* Cross Mount Sphere */}
+            <circle cx="40" cy="16.5" r="2.5" fill={`url(#gold-sphere-${p})`} stroke="#FFF7D1" strokeWidth="0.8" />
 
-            {/* King Crown Dome */}
+            {/* Inverted Cone Crown Flare Top Rim */}
+            <ellipse cx="40" cy="20" rx="19" ry="4" fill={`url(#gold-metal-main-${p})`} stroke="#FFF7D1" strokeWidth="1" />
             <path
-              d="M 22 36 C 22 20, 58 20, 58 36 C 58 44, 52 50, 40 50 C 28 50, 22 44, 22 36 Z"
+              d="M 21 20 L 59 20 L 47 34 L 33 34 Z"
               fill={`url(#gold-metal-main-${p})`}
               stroke={`url(#gold-stroke-${p})`}
               strokeWidth="0.8"
             />
-            {/* Crown Rib Arches */}
-            <path d="M 24 36 Q 40 23, 56 36" fill="none" stroke="#FFF7D1" strokeWidth="1.8" strokeLinecap="round" />
-            <path d="M 30 36 Q 40 28, 50 36" fill="none" stroke="#FFF7D1" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M 40 22 V 50" fill="none" stroke="#FFE485" strokeWidth="1.5" opacity="0.7" />
+            {/* Specular Highlight on Crown Flare */}
+            <path d="M 23 20 C 28 25, 33 30, 34 34 H 40 C 37 30, 32 25, 27 20 Z" fill={`url(#gold-specular-${p})`} />
 
-            {/* Crown Base Beaded Ring */}
-            <ellipse cx="40" cy="50" rx="18" ry="4" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
-            <ellipse cx="40" cy="54" rx="16" ry="3.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+            {/* Upper Collar Ring (Double Torus) */}
+            <ellipse cx="40" cy="34" rx="14" ry="3.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <ellipse cx="40" cy="38" rx="16" ry="4" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <ellipse cx="40" cy="43" rx="17.5" ry="4.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1.2" />
 
-            {/* Waist Stem */}
+            {/* Main Hourglass Column Stem */}
             <path
-              d="M 26 54 C 26 54, 29 74, 23 84 H 57 C 51 74, 54 54, 54 54 Z"
+              d="M 30 43 C 33 60, 24 74, 20 84 H 60 C 56 74, 47 60, 50 43 Z"
               fill={`url(#gold-metal-main-${p})`}
               stroke={`url(#gold-stroke-${p})`}
               strokeWidth="0.8"
             />
-            {/* Specular Shine Overlay */}
-            <path d="M 27 55 Q 32 70, 26 83 H 32 Q 36 70, 31 55 Z" fill={`url(#gold-specular-${p})`} />
+            {/* Stem Gloss Reflection */}
+            <path d="M 31 44 Q 38 62, 23 83 H 32 Q 44 62, 38 44 Z" fill={`url(#gold-specular-${p})`} />
 
-            {/* Pedestal Base Ring & Tiered Stand */}
-            <ellipse cx="40" cy="84" rx="18" ry="4.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
-            <path d="M 18 88 L 62 88 L 67 100 C 67 104, 13 104, 13 100 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
-            <rect x="10" y="100" width="60" height="12" rx="3" fill={`url(#gold-metal-main-${p})`} stroke="#FFF3D6" strokeWidth="1" />
-            <rect x="10" y="100" width="60" height="4" rx="1" fill={`url(#gold-specular-${p})`} opacity="0.6" />
+            {/* Pedestal Base (Double Heavy Torus Base) */}
+            <ellipse cx="40" cy="84" rx="20" ry="5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1.2" />
+            <path d="M 18 86 C 16 90, 14 94, 12 98 L 68 98 C 66 94, 64 90, 62 86 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+            <ellipse cx="40" cy="98" rx="28" ry="6.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFF7D1" strokeWidth="1.2" />
+            <rect x="11" y="98" width="58" height="12" rx="3" fill={`url(#gold-metal-main-${p})`} stroke="#FFF3D6" strokeWidth="1" />
+            <rect x="11" y="98" width="58" height="4" rx="1" fill={`url(#gold-specular-${p})`} opacity="0.6" />
           </g>
         )}
 
