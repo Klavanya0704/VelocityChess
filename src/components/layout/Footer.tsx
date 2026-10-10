@@ -2,83 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Globe, ChevronRight, Crown, Image, BookOpen, Video, FileText } from 'lucide-react';
 
-/* 3D Metallic Gold Chess Pieces for Left & Right Edges */
-const GoldKingEdge: React.FC = () => (
-  <svg viewBox="0 0 90 180" className="w-24 h-48 sm:w-28 sm:h-56 filter drop-shadow-xl opacity-90" fill="none">
-    <defs>
-      <linearGradient id="edge-gold-king" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#FFF4DB" />
-        <stop offset="30%" stopColor="#FFE08A" />
-        <stop offset="65%" stopColor="#D98A00" />
-        <stop offset="100%" stopColor="#7A4D00" />
-      </linearGradient>
-    </defs>
-    {/* Cross Top */}
-    <path d="M 40 10 L 50 10 L 50 18 L 58 18 L 58 26 L 50 26 L 50 34 L 40 34 L 40 26 L 32 26 L 32 18 L 40 18 Z" fill="url(#edge-gold-king)" stroke="#FFE29A" strokeWidth="1" />
-    {/* Crown Dome */}
-    <path d="M 26 55 C 26 35, 64 35, 64 55 L 60 115 H 30 Z" fill="url(#edge-gold-king)" stroke="#FFE29A" strokeWidth="1" />
-    <ellipse cx="45" cy="115" rx="22" ry="7" fill="url(#edge-gold-king)" stroke="#FFFDF8" strokeWidth="1.5" />
-    {/* Pedestal Stand */}
-    <path d="M 28 120 L 62 120 L 68 150 C 68 156, 22 156, 22 150 Z" fill="url(#edge-gold-king)" />
-    <rect x="14" y="150" width="62" height="14" rx="3" fill="url(#edge-gold-king)" stroke="#FFE29A" strokeWidth="1.5" />
-  </svg>
-);
-
-const GoldKnightEdge: React.FC = () => (
-  <svg viewBox="0 0 90 180" className="w-24 h-48 sm:w-28 sm:h-56 filter drop-shadow-xl opacity-90" fill="none">
-    <defs>
-      <linearGradient id="edge-gold-knight" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#FFF4DB" />
-        <stop offset="30%" stopColor="#FFE08A" />
-        <stop offset="65%" stopColor="#D98A00" />
-        <stop offset="100%" stopColor="#7A4D00" />
-      </linearGradient>
-    </defs>
-    {/* Knight Horse Head */}
-    <path d="M 26 115 C 20 75, 28 35, 55 20 C 72 26, 68 45, 60 55 C 70 55, 74 65, 66 75 C 56 75, 46 70, 38 82 L 32 115 Z" fill="url(#edge-gold-knight)" stroke="#FFE29A" strokeWidth="1" />
-    <ellipse cx="45" cy="115" rx="22" ry="7" fill="url(#edge-gold-knight)" stroke="#FFFDF8" strokeWidth="1.5" />
-    {/* Pedestal Stand */}
-    <path d="M 28 120 L 62 120 L 68 150 C 68 156, 22 156, 22 150 Z" fill="url(#edge-gold-knight)" />
-    <rect x="14" y="150" width="62" height="14" rx="3" fill="url(#edge-gold-knight)" stroke="#FFE29A" strokeWidth="1.5" />
-  </svg>
-);
-
 export const Footer: React.FC = () => {
   return (
-    <footer className="relative bg-[#FFF9EF] text-[#25334A] pt-14 pb-8 select-none z-10 overflow-hidden border-t-2 border-[#F2A000]/40">
-      
-      {/* 1. DECORATIVE BACKGROUND LIGHTING, GOLD RIBBONS & CHESS PIECES AT EDGES */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Soft Background Warm Glow */}
-        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#FFEED4]/60 via-[#FFF9EF]/40 to-transparent" />
-
-        {/* Top Gold Sweeping Curve */}
-        <svg className="absolute top-0 left-0 right-0 w-full h-16 text-[#F2A000]/30 overflow-visible" preserveAspectRatio="none" viewBox="0 0 1200 60" fill="none">
-          <path d="M 0 35 Q 300 -10, 600 30 T 1200 15 L 1200 0 L 0 0 Z" fill="url(#gold-wave-top)" opacity="0.3" />
-          <path d="M 0 35 Q 300 -10, 600 30 T 1200 15" stroke="#F2A000" strokeWidth="2.5" />
-          <defs>
-            <linearGradient id="gold-wave-top" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFE8AB" />
-              <stop offset="50%" stopColor="#F2A000" />
-              <stop offset="100%" stopColor="#FFF9EF" />
-            </linearGradient>
-          </defs>
-        </svg>
-
-        {/* Far Left Edge 3D Gold King Piece */}
-        <div className="absolute bottom-4 left-0 sm:left-2 lg:left-6 z-0 hidden md:block pointer-events-none">
-          <GoldKingEdge />
-        </div>
-
-        {/* Far Right Edge 3D Gold Knight Piece */}
-        <div className="absolute bottom-4 right-0 sm:right-2 lg:right-6 z-0 hidden md:block pointer-events-none">
-          <GoldKnightEdge />
-        </div>
-      </div>
-
+    <footer
+      className="relative text-[#25334A] pt-14 pb-8 select-none z-10 overflow-hidden border-t-2 border-[#F2A000]/40 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/assets/footer_bg.png')" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* 2. MAIN FOOTER FOUR COLUMNS */}
+        {/* 1. MAIN FOOTER FOUR COLUMNS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-10">
           
           {/* COL 1: OFFICIAL LOGO, ACADEMY DESCRIPTION & SOCIAL BADGES (4 cols on lg) */}
@@ -91,7 +23,7 @@ export const Footer: React.FC = () => {
               />
             </Link>
 
-            <p className="text-xs sm:text-sm text-[#25334A]/85 font-medium leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-[#25334A]/90 font-medium leading-relaxed max-w-sm">
               Nurturing strategic, confident, and resilient thinkers through master-level chess instruction, FIDE tournament prep, and holistic youth growth.
             </p>
 
@@ -99,7 +31,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center space-x-3 pt-2">
               <a
                 href="#instagram"
-                className="w-9 h-9 rounded-full bg-[#FFEED4] border border-[#F2A000]/50 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
+                className="w-9 h-9 rounded-full bg-[#FFEED4]/90 border border-[#F2A000]/50 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -109,7 +41,7 @@ export const Footer: React.FC = () => {
 
               <a
                 href="#facebook"
-                className="w-9 h-9 rounded-full bg-[#FFEED4] border border-[#F2A000]/50 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
+                className="w-9 h-9 rounded-full bg-[#FFEED4]/90 border border-[#F2A000]/50 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -119,7 +51,7 @@ export const Footer: React.FC = () => {
 
               <a
                 href="#youtube"
-                className="w-9 h-9 rounded-full bg-[#FFEED4] border border-[#F2A000]/50 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
+                className="w-9 h-9 rounded-full bg-[#FFEED4]/90 border border-[#F2A000]/50 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
                 aria-label="YouTube"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -129,7 +61,7 @@ export const Footer: React.FC = () => {
 
               <a
                 href="#website"
-                className="w-9 h-9 rounded-full bg-[#FFEED4] border border-[#F2A000]/50 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
+                className="w-9 h-9 rounded-full bg-[#FFEED4]/90 border border-[#F2A000]/50 text-[#D98A00] hover:bg-[#F2A000] hover:text-[#10264B] flex items-center justify-center transition-all duration-300 shadow-xs hover:scale-105"
                 aria-label="Website"
               >
                 <Globe className="w-4 h-4" />
@@ -153,35 +85,35 @@ export const Footer: React.FC = () => {
                 <Link to="/" className="inline-flex items-center space-x-2.5 group hover:text-[#D98A00] transition-colors">
                   <span className="text-[#F2A000] text-sm">♞</span>
                   <span>Home</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-70 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-80 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="inline-flex items-center space-x-2.5 group hover:text-[#D98A00] transition-colors">
                   <span className="text-[#F2A000] text-sm">♞</span>
                   <span>About Us</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-70 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-80 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </li>
               <li>
                 <Link to="/programs" className="inline-flex items-center space-x-2.5 group hover:text-[#D98A00] transition-colors">
                   <span className="text-[#F2A000] text-sm">♞</span>
                   <span>Coaching Programs</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-70 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-80 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </li>
               <li>
                 <Link to="/achievements" className="inline-flex items-center space-x-2.5 group hover:text-[#D98A00] transition-colors">
                   <span className="text-[#F2A000] text-sm">♞</span>
                   <span>Student Achievements</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-70 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-80 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </li>
               <li>
                 <Link to="/events" className="inline-flex items-center space-x-2.5 group hover:text-[#D98A00] transition-colors">
                   <span className="text-[#F2A000] text-sm">♞</span>
                   <span>Tournaments & Events</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-70 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-80 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </li>
             </ul>
@@ -203,28 +135,28 @@ export const Footer: React.FC = () => {
                 <Link to="/gallery" className="inline-flex items-center space-x-2.5 group hover:text-[#D98A00] transition-colors">
                   <Image className="w-4 h-4 text-[#F2A000] shrink-0" />
                   <span>Academy Gallery</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-70 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-80 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </li>
               <li>
                 <Link to="/resources" className="inline-flex items-center space-x-2.5 group hover:text-[#D98A00] transition-colors">
                   <BookOpen className="w-4 h-4 text-[#F2A000] shrink-0" />
                   <span>Chess Guides & Tactics</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-70 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-80 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="inline-flex items-center space-x-2.5 group hover:text-[#D98A00] transition-colors">
                   <Video className="w-4 h-4 text-[#F2A000] shrink-0" />
                   <span>Enrollment & Contact</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-70 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-80 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </li>
               <li>
                 <Link to="/resources" className="inline-flex items-center space-x-2.5 group hover:text-[#D98A00] transition-colors">
                   <FileText className="w-4 h-4 text-[#F2A000] shrink-0" />
                   <span>FIDE Opening Repertoire</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-70 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#F2A000] opacity-80 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </li>
             </ul>
@@ -243,7 +175,7 @@ export const Footer: React.FC = () => {
 
             <ul className="space-y-3.5 text-xs sm:text-sm font-semibold text-[#10264B]">
               <li className="flex items-start space-x-3">
-                <div className="w-7 h-7 rounded-full bg-[#FFEED4] border border-[#F2A000]/50 flex items-center justify-center text-[#D98A00] shrink-0 mt-0.5 shadow-xs">
+                <div className="w-7 h-7 rounded-full bg-[#FFEED4]/90 border border-[#F2A000]/50 flex items-center justify-center text-[#D98A00] shrink-0 mt-0.5 shadow-xs">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-[11px] sm:text-xs font-semibold leading-snug">
@@ -251,7 +183,7 @@ export const Footer: React.FC = () => {
                 </span>
               </li>
               <li className="flex items-center space-x-3">
-                <div className="w-7 h-7 rounded-full bg-[#FFEED4] border border-[#F2A000]/50 flex items-center justify-center text-[#D98A00] shrink-0 shadow-xs">
+                <div className="w-7 h-7 rounded-full bg-[#FFEED4]/90 border border-[#F2A000]/50 flex items-center justify-center text-[#D98A00] shrink-0 shadow-xs">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-[11px] sm:text-xs font-semibold">
@@ -259,7 +191,7 @@ export const Footer: React.FC = () => {
                 </span>
               </li>
               <li className="flex items-center space-x-3">
-                <div className="w-7 h-7 rounded-full bg-[#FFEED4] border border-[#F2A000]/50 flex items-center justify-center text-[#D98A00] shrink-0 shadow-xs">
+                <div className="w-7 h-7 rounded-full bg-[#FFEED4]/90 border border-[#F2A000]/50 flex items-center justify-center text-[#D98A00] shrink-0 shadow-xs">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-[11px] sm:text-xs font-semibold">
@@ -271,7 +203,7 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        {/* 3. DECORATIVE CENTER GOLD CROWN EMBLEM & CHECKERBOARD STRIP DIVIDER */}
+        {/* 2. DECORATIVE CENTER GOLD CROWN EMBLEM & CHECKERBOARD STRIP DIVIDER */}
         <div className="relative flex items-center justify-center my-6">
           {/* Left Gold Line with Checkerboard Tiles */}
           <div className="flex-1 flex items-center justify-end">
@@ -299,14 +231,14 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* 4. BOTTOM COPYRIGHT & LEGAL TERMS ROW */}
-        <div className="flex flex-col sm:flex-row items-center justify-between text-xs font-semibold text-[#10264B]/80 space-y-3 sm:space-y-0 pt-2">
+        {/* 3. BOTTOM COPYRIGHT & LEGAL TERMS ROW */}
+        <div className="flex flex-col sm:flex-row items-center justify-between text-xs font-semibold text-[#10264B] space-y-3 sm:space-y-0 pt-2">
           <p>© {new Date().getFullYear()} Velocity Chess Academy. All rights reserved.</p>
           <div className="flex items-center space-x-6">
             <a href="#privacy" className="hover:text-[#D98A00] transition-colors">Privacy Policy</a>
-            <span className="text-[#F2A000]/50">|</span>
+            <span className="text-[#F2A000]/60">|</span>
             <a href="#terms" className="hover:text-[#D98A00] transition-colors">Terms of Service</a>
-            <span className="text-[#F2A000]/50">|</span>
+            <span className="text-[#F2A000]/60">|</span>
             <a href="#code" className="hover:text-[#D98A00] transition-colors">Code of Conduct</a>
           </div>
         </div>
