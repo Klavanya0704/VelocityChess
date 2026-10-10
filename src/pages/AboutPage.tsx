@@ -570,32 +570,27 @@ export const AboutPage: React.FC = () => {
                   id: 'phil-1',
                   title: 'Opening Preparation',
                   description: 'Structured opening repertoire aligned with student playing style and pawn structure understanding.',
-                  icon: BookOpen,
-                  pieceType: 'pawn',
+                  headerImage: '/assets/coaching_card_1.png',
                 },
                 {
                   id: 'phil-2',
                   title: 'Middlegame Strategy',
                   description: 'Calculation trees, piece activity, tactical motif recognition, and plan formulation under pressure.',
-                  icon: Brain,
-                  pieceType: 'knight',
+                  headerImage: '/assets/coaching_card_2.png',
                 },
                 {
                   id: 'phil-3',
                   title: 'Endgame Theory',
                   description: 'Essential theoretical endgames, king activity, pawn promotion techniques, and precise technique.',
-                  icon: Target,
-                  pieceType: 'rook',
+                  headerImage: '/assets/coaching_card_3.png',
                 },
                 {
                   id: 'phil-4',
                   title: 'Game Analysis',
                   description: 'In-depth post-tournament game review, blunder identification, and personalized homework assignments.',
-                  icon: Compass,
-                  pieceType: 'king',
+                  headerImage: '/assets/coaching_card_4.png',
                 }
               ].map((card) => {
-                const IconComp = card.icon;
                 return (
                   <div
                     key={card.id}
@@ -604,85 +599,13 @@ export const AboutPage: React.FC = () => {
                     {/* Inner Gold Bevel Accent */}
                     <div className="absolute inset-0 rounded-[22px] border border-[#FFE29A] pointer-events-none z-20 opacity-80" />
 
-                    {/* UPPER VISUAL AREA WITH REALISTIC 3D PERSPECTIVE CHESSBOARD & STANDING PIECE */}
-                    <div className="relative h-48 sm:h-52 overflow-hidden rounded-t-[22px] bg-gradient-to-br from-[#FFFDF5] via-[#FFF8EB] to-[#FFEECB]">
-                      
-                      {/* 1. 3D PERSPECTIVE CHESSBOARD SURFACE (RIGHT SIDE SCENE) */}
-                      <div className="absolute right-[-20px] top-[-10px] bottom-[-10px] w-[70%] z-10 pointer-events-none [perspective:600px] flex items-center justify-center">
-                        
-                        <div className="relative w-[230px] h-[190px] origin-center transform [transform-style:preserve-3d] rotate-x-[52deg] rotate-z-[-20deg] scale-110 shadow-2xl rounded-sm border-2 border-[#6E480E]/70 overflow-hidden">
-                          {/* 4x4 Polished Wood & Antique Gold Board Tiles */}
-                          <div className="grid grid-cols-4 grid-rows-4 w-full h-full">
-                            {[...Array(16)].map((_, i) => {
-                              const isDark = i % 2 === Math.floor(i / 4) % 2;
-                              return (
-                                <div
-                                  key={i}
-                                  className={`relative ${
-                                    isDark
-                                      ? 'bg-gradient-to-br from-[#291B0C] via-[#1A1108] to-[#120B05]'
-                                      : 'bg-gradient-to-br from-[#C48E24] via-[#9E6E12] to-[#734E09]'
-                                  } border-[0.5px] border-[#593C0A]/40`}
-                                >
-                                  {/* Tile Surface Bevel Reflection */}
-                                  <div className="absolute inset-0 bg-gradient-to-b from-white/15 to-transparent opacity-60 pointer-events-none" />
-                                </div>
-                              );
-                            })}
-                          </div>
-
-                          {/* Studio Light Glare across Board */}
-                          <div className="absolute inset-0 bg-gradient-to-tr from-[#1A1108]/60 via-transparent to-white/20 pointer-events-none" />
-                        </div>
-
-                      </div>
-
-                      {/* 2. S-CURVE GOLD RIBBON BOUNDARY & CURVED BOTTOM DIVIDER SVG */}
-                      <svg
-                        className="absolute inset-0 w-full h-full pointer-events-none z-15"
-                        viewBox="0 0 280 200"
-                        preserveAspectRatio="none"
-                      >
-                        <defs>
-                          {/* Gold Ribbon Gradient */}
-                          <linearGradient id={`gold-ribbon-grad-${card.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#FFECA8" />
-                            <stop offset="30%" stopColor="#E5A41A" />
-                            <stop offset="70%" stopColor="#B87B00" />
-                            <stop offset="100%" stopColor="#6E4400" />
-                          </linearGradient>
-                        </defs>
-
-                        {/* S-Curve Boundary Line between Left Cream & Right 3D Board */}
-                        <path
-                          d="M 80 0 C 105 52, 135 108, 280 138"
-                          stroke={`url(#gold-ribbon-grad-${card.id})`}
-                          strokeWidth="4.5"
-                          fill="none"
-                        />
-
-                        {/* Smooth Flowing Bottom Boundary Line */}
-                        <path
-                          d="M 0 172 C 95 158, 185 192, 280 176"
-                          stroke={`url(#gold-ribbon-grad-${card.id})`}
-                          strokeWidth="3.2"
-                          fill="none"
-                        />
-                      </svg>
-
-                      {/* 3. CIRCULAR GOLD ICON BADGE IN TOP-LEFT */}
-                      <div className="absolute top-4 left-4 w-11 h-11 rounded-full bg-gradient-to-br from-[#FFFDF5] via-[#FFF5E5] to-[#FFE8AB] border-2 border-[#E5A41A] shadow-md flex items-center justify-center text-[#D98A00] z-30 group-hover:scale-110 transition-transform duration-300">
-                        <IconComp className="w-5 h-5 text-[#D98A00]" />
-                      </div>
-
-                      {/* 4. PROMINENT LARGE 3D GOLD CHESS PIECE STANDING ON BOARD */}
-                      <div className="absolute right-4 bottom-1 z-20 flex items-end justify-center pointer-events-none">
-                        <GoldChessPiece3D
-                          piece={card.pieceType}
-                          className="w-20 h-32 sm:w-24 sm:h-38 object-contain filter drop-shadow-[0_16px_14px_rgba(15,8,0,0.6)] group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-
+                    {/* UPPER VISUAL AREA WITH EXACT REFERENCE ARTWORK HEADER */}
+                    <div className="relative h-44 sm:h-48 overflow-hidden rounded-t-[22px]">
+                      <img
+                        src={card.headerImage}
+                        alt={card.title}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
 
                     {/* LOWER CONTENT AREA */}
