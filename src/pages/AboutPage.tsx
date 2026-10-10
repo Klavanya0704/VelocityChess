@@ -20,104 +20,298 @@ import {
 
 /* PROMINENT 3D METALLIC GOLD CHESS PIECE SCULPTURE SVG COMPONENT */
 const GoldChessPiece3D: React.FC<{ piece: string; className?: string }> = ({ piece, className = "w-16 h-24" }) => {
+  const p = piece.toLowerCase();
+
   return (
-    <svg viewBox="0 0 80 120" className={className} fill="none">
+    <svg viewBox="0 0 80 120" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        {/* Rich 3D Gold Metallic Linear Gradients */}
-        <linearGradient id={`gold-3d-main-${piece}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FFF7E0" />
-          <stop offset="25%" stopColor="#FFE08A" />
-          <stop offset="55%" stopColor="#E59C00" />
-          <stop offset="85%" stopColor="#996300" />
-          <stop offset="100%" stopColor="#5E3B00" />
+        {/* Rich 3D Gold Metallic Linear Gradient */}
+        <linearGradient id={`gold-metal-main-${p}`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFFDF0" />
+          <stop offset="15%" stopColor="#FFE585" />
+          <stop offset="40%" stopColor="#F0A300" />
+          <stop offset="68%" stopColor="#AD7000" />
+          <stop offset="88%" stopColor="#6E4400" />
+          <stop offset="100%" stopColor="#422700" />
         </linearGradient>
 
-        {/* 3D Drop Shadow */}
-        <filter id={`gold-shadow-${piece}`} x="-20%" y="-10%" width="140%" height="130%">
-          <feDropShadow dx="2" dy="5" stdDeviation="4" floodColor="#3D2600" floodOpacity="0.35" />
+        {/* Specular Highlight Overlay Gradient */}
+        <linearGradient id={`gold-specular-${p}`} x1="20%" y1="0%" x2="80%" y2="100%">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.8" />
+          <stop offset="30%" stopColor="#FFF2B8" stopOpacity="0.5" />
+          <stop offset="70%" stopColor="#F0A300" stopOpacity="0" />
+        </linearGradient>
+
+        {/* Deep Bevel Gold Stroke */}
+        <linearGradient id={`gold-stroke-${p}`} x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#FFFDF5" />
+          <stop offset="50%" stopColor="#FFE080" />
+          <stop offset="100%" stopColor="#8A5600" />
+        </linearGradient>
+
+        {/* Radial Gold Sphere Highlight */}
+        <radialGradient id={`gold-sphere-${p}`} cx="35%" cy="30%" r="65%">
+          <stop offset="0%" stopColor="#FFFFFF" />
+          <stop offset="25%" stopColor="#FFF1B0" />
+          <stop offset="55%" stopColor="#EA9C00" />
+          <stop offset="85%" stopColor="#965D00" />
+          <stop offset="100%" stopColor="#4A2D00" />
+        </radialGradient>
+
+        {/* Realistic Drop Shadow */}
+        <filter id={`gold-drop-shadow-${p}`} x="-20%" y="-15%" width="140%" height="135%">
+          <feDropShadow dx="2" dy="5" stdDeviation="3.5" floodColor="#241400" floodOpacity="0.45" />
         </filter>
       </defs>
 
-      <g filter={`url(#gold-shadow-${piece})`}>
-        
-        {/* PEDESTAL STAND (COMMON FOR ALL PIECES) */}
-        <path d="M 15 95 L 65 95 L 70 106 C 70 110, 10 110, 10 106 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF3D6" strokeWidth="0.8" />
-        <rect x="8" y="106" width="64" height="10" rx="3" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+      <g filter={`url(#gold-drop-shadow-${p})`}>
 
-        {/* INDIVIDUAL 3D SCULPTURES */}
-        {piece === 'king' && (
+        {/* ------------------------------------------------------------- */}
+        {/* 1. KING (♔) */}
+        {/* ------------------------------------------------------------- */}
+        {p === 'king' && (
           <g>
-            {/* Cross Finial */}
-            <path d="M 36 6 H 44 V 14 H 52 V 22 H 44 V 30 H 36 V 22 H 28 V 14 H 36 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF5E0" strokeWidth="1" />
+            {/* Formée Cross Finial */}
+            <path
+              d="M 40 4 L 43 9 L 49 9 L 45 13 L 47 19 L 40 15 L 33 19 L 35 13 L 31 9 L 37 9 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="0.8"
+            />
+            <circle cx="40" cy="11.5" r="1.8" fill="#FFFFFF" />
+
             {/* King Crown Dome */}
-            <path d="M 22 46 C 22 30, 58 30, 58 46 L 54 75 H 26 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
-            {/* Crown Ridges & Details */}
-            <path d="M 30 36 Q 40 30, 50 36" stroke="#FFF7E0" strokeWidth="2" strokeLinecap="round" fill="none" />
-            <ellipse cx="40" cy="75" rx="16" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
-            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+            <path
+              d="M 22 36 C 22 20, 58 20, 58 36 C 58 44, 52 50, 40 50 C 28 50, 22 44, 22 36 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="0.8"
+            />
+            {/* Crown Rib Arches */}
+            <path d="M 24 36 Q 40 23, 56 36" fill="none" stroke="#FFF7D1" strokeWidth="1.8" strokeLinecap="round" />
+            <path d="M 30 36 Q 40 28, 50 36" fill="none" stroke="#FFF7D1" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 40 22 V 50" fill="none" stroke="#FFE485" strokeWidth="1.5" opacity="0.7" />
+
+            {/* Crown Base Beaded Ring */}
+            <ellipse cx="40" cy="50" rx="18" ry="4" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <ellipse cx="40" cy="54" rx="16" ry="3.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+
+            {/* Waist Stem */}
+            <path
+              d="M 26 54 C 26 54, 29 74, 23 84 H 57 C 51 74, 54 54, 54 54 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="0.8"
+            />
+            {/* Specular Shine Overlay */}
+            <path d="M 27 55 Q 32 70, 26 83 H 32 Q 36 70, 31 55 Z" fill={`url(#gold-specular-${p})`} />
+
+            {/* Pedestal Base Ring & Tiered Stand */}
+            <ellipse cx="40" cy="84" rx="18" ry="4.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 18 88 L 62 88 L 67 100 C 67 104, 13 104, 13 100 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+            <rect x="10" y="100" width="60" height="12" rx="3" fill={`url(#gold-metal-main-${p})`} stroke="#FFF3D6" strokeWidth="1" />
+            <rect x="10" y="100" width="60" height="4" rx="1" fill={`url(#gold-specular-${p})`} opacity="0.6" />
           </g>
         )}
 
-        {piece === 'knight' && (
+        {/* ------------------------------------------------------------- */}
+        {/* 2. QUEEN (♕) */}
+        {/* ------------------------------------------------------------- */}
+        {p === 'queen' && (
           <g>
-            {/* Knight Head & Mane */}
-            <path d="M 22 75 C 16 50, 24 24, 48 14 C 62 20, 60 36, 54 44 C 62 44, 66 52, 60 60 C 52 60, 44 56, 38 64 L 32 75 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF5E0" strokeWidth="1" />
-            {/* Eye & Snout Details */}
-            <circle cx="48" cy="28" r="2.5" fill="#3D2600" />
-            <path d="M 44 24 C 48 22, 54 24, 56 28" stroke="#FFF7E0" strokeWidth="1.5" fill="none" />
-            <ellipse cx="40" cy="75" rx="16" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
-            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+            {/* Top Orb Finial */}
+            <circle cx="40" cy="7" r="4" fill={`url(#gold-sphere-${p})`} stroke="#FFF7D1" strokeWidth="0.8" />
+
+            {/* Coronet Pearls (7 Jewels) */}
+            <circle cx="21" cy="20" r="2.2" fill={`url(#gold-sphere-${p})`} />
+            <circle cx="27" cy="15" r="2.2" fill={`url(#gold-sphere-${p})`} />
+            <circle cx="33" cy="12" r="2.2" fill={`url(#gold-sphere-${p})`} />
+            <circle cx="40" cy="11" r="2.5" fill={`url(#gold-sphere-${p})`} />
+            <circle cx="47" cy="12" r="2.2" fill={`url(#gold-sphere-${p})`} />
+            <circle cx="53" cy="15" r="2.2" fill={`url(#gold-sphere-${p})`} />
+            <circle cx="59" cy="20" r="2.2" fill={`url(#gold-sphere-${p})`} />
+
+            {/* Coronet Body Flared Petals */}
+            <path
+              d="M 19 25 L 25 46 L 33 22 L 40 46 L 47 22 L 55 46 L 61 25 L 56 48 C 56 52, 24 52, 24 48 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="0.8"
+            />
+            {/* Coronet Inner Curve Shadow */}
+            <path d="M 23 27 Q 40 42, 57 27 Q 40 50, 23 27 Z" fill="#6E4400" opacity="0.3" />
+
+            {/* Beaded Collar */}
+            <ellipse cx="40" cy="48" rx="17" ry="4" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <ellipse cx="40" cy="52" rx="15" ry="3.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+
+            {/* Slender Waist Stem */}
+            <path
+              d="M 27 52 C 27 52, 30 74, 23 84 H 57 C 50 74, 53 52, 53 52 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="0.8"
+            />
+            <path d="M 28 53 Q 33 68, 27 83 H 33 Q 37 68, 32 53 Z" fill={`url(#gold-specular-${p})`} />
+
+            {/* Pedestal Stand */}
+            <ellipse cx="40" cy="84" rx="18" ry="4.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 18 88 L 62 88 L 67 100 C 67 104, 13 104, 13 100 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+            <rect x="10" y="100" width="60" height="12" rx="3" fill={`url(#gold-metal-main-${p})`} stroke="#FFF3D6" strokeWidth="1" />
+            <rect x="10" y="100" width="60" height="4" rx="1" fill={`url(#gold-specular-${p})`} opacity="0.6" />
           </g>
         )}
 
-        {piece === 'bishop' && (
+        {/* ------------------------------------------------------------- */}
+        {/* 3. BISHOP (♗) */}
+        {/* ------------------------------------------------------------- */}
+        {p === 'bishop' && (
           <g>
-            {/* Orb Top */}
-            <circle cx="40" cy="14" r="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF7E0" strokeWidth="1" />
-            {/* Mitre Head */}
-            <path d="M 40 22 C 24 34, 24 60, 40 68 C 56 60, 56 34, 40 22 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
-            {/* Slit Cut */}
-            <path d="M 32 38 L 48 48" stroke="#FFF7E0" strokeWidth="3.5" strokeLinecap="round" />
-            <ellipse cx="40" cy="75" rx="16" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
-            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+            {/* Top Orb Finial */}
+            <circle cx="40" cy="10" r="4.5" fill={`url(#gold-sphere-${p})`} stroke="#FFF7D1" strokeWidth="0.8" />
+
+            {/* Oval Mitre Head */}
+            <path
+              d="M 40 16 C 23 28, 23 52, 40 58 C 57 52, 57 28, 40 16 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="1"
+            />
+            {/* Mitre Specular Highlight */}
+            <path d="M 29 28 C 26 36, 28 48, 33 54 C 28 48, 27 34, 31 27 Z" fill={`url(#gold-specular-${p})`} />
+
+            {/* Traditional Staunton Cut-Out Slit */}
+            <path d="M 31 30 L 46 42" stroke="#3D2400" strokeWidth="3.5" strokeLinecap="round" />
+            <path d="M 31 30 L 46 42" stroke="#FFF7D1" strokeWidth="1" strokeLinecap="round" opacity="0.8" />
+
+            {/* Mitre Collar Rings */}
+            <ellipse cx="40" cy="58" rx="16" ry="4" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <ellipse cx="40" cy="62" rx="14" ry="3.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+
+            {/* Stem */}
+            <path
+              d="M 27 62 C 27 62, 30 75, 23 84 H 57 C 50 75, 53 62, 53 62 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="0.8"
+            />
+            <path d="M 28 63 Q 33 74, 27 83 H 33 Q 37 74, 32 63 Z" fill={`url(#gold-specular-${p})`} />
+
+            {/* Pedestal Stand */}
+            <ellipse cx="40" cy="84" rx="18" ry="4.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 18 88 L 62 88 L 67 100 C 67 104, 13 104, 13 100 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+            <rect x="10" y="100" width="60" height="12" rx="3" fill={`url(#gold-metal-main-${p})`} stroke="#FFF3D6" strokeWidth="1" />
+            <rect x="10" y="100" width="60" height="4" rx="1" fill={`url(#gold-specular-${p})`} opacity="0.6" />
           </g>
         )}
 
-        {piece === 'rook' && (
+        {/* ------------------------------------------------------------- */}
+        {/* 4. KNIGHT (♘) */}
+        {/* ------------------------------------------------------------- */}
+        {p === 'knight' && (
           <g>
-            {/* Castle Battlements Top */}
-            <path d="M 22 20 H 30 V 28 H 38 V 20 H 46 V 28 H 54 V 20 H 58 V 34 H 22 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF7E0" strokeWidth="1" />
-            {/* Rook Body */}
-            <path d="M 26 36 H 54 L 50 72 H 30 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
-            <ellipse cx="40" cy="75" rx="16" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
-            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+            {/* Detailed Staunton Horse Head & Mane Silhouette */}
+            <path
+              d="M 34 14 C 28 14, 22 22, 22 30 C 22 36, 18 48, 16 58 C 14 68, 18 78, 24 84 H 56 C 54 74, 52 64, 56 54 C 60 44, 65 38, 59 28 C 55 21, 48 18, 44 24 C 40 20, 38 14, 34 14 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="1"
+            />
+            {/* Mane Carved Fur Ridges */}
+            <path d="M 23 26 C 18 36, 17 50, 19 64" fill="none" stroke="#FFF7D1" strokeWidth="2" strokeLinecap="round" />
+            <path d="M 28 20 C 24 30, 23 44, 24 58" fill="none" stroke="#FFF7D1" strokeWidth="1.5" strokeLinecap="round" />
+
+            {/* Ear */}
+            <path d="M 33 15 L 37 26 L 41 20 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFF7D1" strokeWidth="0.8" />
+
+            {/* Muzzle / Snout Details */}
+            <path d="M 59 28 C 63 32, 58 40, 50 40 C 44 40, 42 34, 46 32 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+            {/* Nostril */}
+            <circle cx="56" cy="33" r="1.5" fill="#3D2400" />
+            {/* Eye Socket */}
+            <ellipse cx="46" cy="26" rx="2.5" ry="3.5" fill="#3D2400" />
+            <circle cx="45.5" cy="25" r="1" fill="#FFFFFF" />
+
+            {/* Chest & Neck Specular Highlight */}
+            <path d="M 44 42 C 50 46, 52 62, 50 82 H 55 C 57 66, 55 48, 48 40 Z" fill={`url(#gold-specular-${p})`} />
+
+            {/* Pedestal Stand */}
+            <ellipse cx="40" cy="84" rx="18" ry="4.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 18 88 L 62 88 L 67 100 C 67 104, 13 104, 13 100 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+            <rect x="10" y="100" width="60" height="12" rx="3" fill={`url(#gold-metal-main-${p})`} stroke="#FFF3D6" strokeWidth="1" />
+            <rect x="10" y="100" width="60" height="4" rx="1" fill={`url(#gold-specular-${p})`} opacity="0.6" />
           </g>
         )}
 
-        {piece === 'pawn' && (
+        {/* ------------------------------------------------------------- */}
+        {/* 5. ROOK (♖) */}
+        {/* ------------------------------------------------------------- */}
+        {p === 'rook' && (
           <g>
-            {/* Pawn Head Orb */}
-            <circle cx="40" cy="30" r="14" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF7E0" strokeWidth="1.5" />
-            <ellipse cx="40" cy="50" rx="18" ry="4.5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
-            {/* Pawn Body */}
-            <path d="M 28 54 C 28 54, 25 72, 22 76 H 58 C 55 72, 52 54, 52 54 Z" fill={`url(#gold-3d-main-${piece})`} />
-            <ellipse cx="40" cy="76" rx="18" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
-            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+            {/* Castle Battlements (4 Crenellations) */}
+            <path
+              d="M 20 16 H 29 V 24 H 35 V 16 H 45 V 24 H 51 V 16 H 60 V 34 H 20 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="1"
+            />
+            {/* Inner Dark Chamber Gap Top */}
+            <rect x="22" y="18" width="36" height="4" fill="#422700" opacity="0.4" />
+            {/* Battlements Highlight Line */}
+            <path d="M 21 17 H 59" stroke="#FFF7D1" strokeWidth="1.2" />
+
+            {/* Castle Rampart Rim Collar */}
+            <rect x="18" y="34" width="44" height="6" rx="2" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+
+            {/* Solid Flared Castle Tower Column */}
+            <path
+              d="M 24 40 L 56 40 L 52 84 L 28 84 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="0.8"
+            />
+            {/* Tower Masonry Texture Lines */}
+            <path d="M 25 54 H 55" stroke="#FFE08A" strokeWidth="1" opacity="0.6" />
+            <path d="M 27 68 H 53" stroke="#FFE08A" strokeWidth="1" opacity="0.6" />
+            {/* Tower Specular Shine */}
+            <path d="M 25 41 L 33 41 L 31 83 L 29 83 Z" fill={`url(#gold-specular-${p})`} />
+
+            {/* Pedestal Stand */}
+            <ellipse cx="40" cy="84" rx="18" ry="4.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 18 88 L 62 88 L 67 100 C 67 104, 13 104, 13 100 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+            <rect x="10" y="100" width="60" height="12" rx="3" fill={`url(#gold-metal-main-${p})`} stroke="#FFF3D6" strokeWidth="1" />
+            <rect x="10" y="100" width="60" height="4" rx="1" fill={`url(#gold-specular-${p})`} opacity="0.6" />
           </g>
         )}
 
-        {piece === 'queen' && (
+        {/* ------------------------------------------------------------- */}
+        {/* 6. PAWN (♙) */}
+        {/* ------------------------------------------------------------- */}
+        {p === 'pawn' && (
           <g>
-            {/* Queen Coronet Points */}
-            <circle cx="22" cy="22" r="3" fill={`url(#gold-3d-main-${piece})`} />
-            <circle cx="31" cy="16" r="3" fill={`url(#gold-3d-main-${piece})`} />
-            <circle cx="40" cy="14" r="3.5" fill={`url(#gold-3d-main-${piece})`} />
-            <circle cx="49" cy="16" r="3" fill={`url(#gold-3d-main-${piece})`} />
-            <circle cx="58" cy="22" r="3" fill={`url(#gold-3d-main-${piece})`} />
-            {/* Coronet Body */}
-            <path d="M 20 28 L 26 44 L 40 24 L 54 44 L 60 28 L 56 65 H 24 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF7E0" strokeWidth="1" />
-            <ellipse cx="40" cy="75" rx="16" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
-            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+            {/* Pawn Top Head Sphere */}
+            <circle cx="40" cy="24" r="14" fill={`url(#gold-sphere-${p})`} stroke="#FFF7D1" strokeWidth="1" />
+            <circle cx="35" cy="19" r="3.5" fill="#FFFFFF" opacity="0.8" />
+
+            {/* Neck Ring Collar */}
+            <ellipse cx="40" cy="42" rx="16" ry="4" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <ellipse cx="40" cy="46" rx="14" ry="3.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+
+            {/* Graceful Swooping Pawn Body Stem */}
+            <path
+              d="M 27 46 C 27 46, 30 72, 22 84 H 58 C 50 72, 53 46, 53 46 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="0.8"
+            />
+            {/* Specular Highlight */}
+            <path d="M 28 47 Q 33 66, 26 83 H 32 Q 37 66, 32 47 Z" fill={`url(#gold-specular-${p})`} />
+
+            {/* Pedestal Stand */}
+            <ellipse cx="40" cy="84" rx="18" ry="4.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 18 88 L 62 88 L 67 100 C 67 104, 13 104, 13 100 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+            <rect x="10" y="100" width="60" height="12" rx="3" fill={`url(#gold-metal-main-${p})`} stroke="#FFF3D6" strokeWidth="1" />
+            <rect x="10" y="100" width="60" height="4" rx="1" fill={`url(#gold-specular-${p})`} opacity="0.6" />
           </g>
         )}
 
