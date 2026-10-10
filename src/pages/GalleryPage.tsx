@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, X, ChevronLeft, ChevronRight, Filter } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { galleryData } from '../data/mockData';
 import { GalleryItem } from '../types';
 
@@ -30,72 +30,86 @@ export const GalleryPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#FFF9EF] pt-24 sm:pt-28 pb-16">
-      {/* Page Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 text-center">
-        <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-white border border-[#E5A51B]/30 rounded-full text-xs font-bold uppercase tracking-wider text-[#10264A] shadow-sm mb-4">
-          <Camera className="w-3.5 h-3.5 text-[#E5A51B]" />
-          <span>Academy Photo Gallery</span>
-        </div>
-        <h1 className="font-serif font-extrabold text-4xl sm:text-5xl md:text-6xl text-[#10264A] mb-4">
-          Life at Velocity Chess
-        </h1>
-        <p className="text-base sm:text-lg text-[#25334A]/80 max-w-3xl mx-auto leading-relaxed">
-          Explore our state-of-the-art academy environment, tournament galas, simultaneous exhibitions, and student training sessions.
-        </p>
+    <div className="relative min-h-screen text-[#25334A] select-none bg-[#FFF9EF] pt-24 sm:pt-28 pb-16">
+      
+      {/* 1. FULL-WIDTH PAGE BACKGROUND IMAGE LAYER */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/assets/gallery_full_bg.jpg"
+          alt="Velocity Chess Academy Gallery Background"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Subtle cream translucent overlay for text & card contrast */}
+        <div className="absolute inset-0 bg-[#FFF9EF]/20 pointer-events-none" />
+      </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap justify-center gap-2 mt-8">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-xs font-semibold transition-all ${
-                activeCategory === cat
-                  ? 'bg-[#10264A] text-white shadow-md'
-                  : 'bg-white border border-[#E5A51B]/20 text-[#10264A] hover:bg-[#F8F0E3]'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </section>
+      {/* 2. FOREGROUND CONTENT */}
+      <div className="relative z-10 space-y-6">
+        
+        {/* Page Header */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 py-6 text-center">
+          <h1 className="font-serif font-extrabold text-4xl sm:text-5xl md:text-6xl text-[#10264A] mb-4 drop-shadow-xs">
+            Life at <span className="text-[#E5A51B]">Velocity Chess</span>
+          </h1>
+          <p className="text-base sm:text-lg text-[#25334A]/85 max-w-3xl mx-auto leading-relaxed font-medium">
+            Explore our state-of-the-art academy environment, tournament galas, simultaneous exhibitions, and student training sessions.
+          </p>
 
-      {/* Responsive Gallery Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item, index) => (
-            <div
-              key={item.id}
-              onClick={() => setActiveLightboxIndex(index)}
-              className="bg-white rounded-3xl overflow-hidden border border-[#E5A51B]/20 shadow-md hover:shadow-2xl transition-all duration-300 group cursor-pointer"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden bg-black/10">
-                <img
-                  src={item.imageUrl}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold uppercase tracking-wider">
-                  View Full Image
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap justify-center gap-2.5 mt-8">
+            {categories.map((cat) => {
+              const isActive = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-5 py-2 rounded-full text-xs font-bold transition-all duration-200 ${
+                    isActive
+                      ? 'bg-[#0B1B3D] text-white shadow-md'
+                      : 'bg-white/95 backdrop-blur-md border border-[#E5A51B]/35 text-[#10264A] hover:bg-[#F8F0E3] hover:border-[#E5A51B] shadow-xs'
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Responsive Gallery 3-Column Grid */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredItems.map((item, index) => (
+              <div
+                key={item.id}
+                onClick={() => setActiveLightboxIndex(index)}
+                className="bg-white/90 backdrop-blur-md rounded-2xl overflow-hidden border border-[#E5A51B]/40 shadow-lg hover:shadow-xl hover:border-[#E5A51B] transition-all duration-300 group cursor-pointer flex flex-col"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-black/5">
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
+                <div className="p-5 bg-[#FFFDF9]/95 flex flex-col justify-between flex-1 space-y-1.5">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#E5A51B] block">
+                    {item.category}
+                  </span>
+                  <h3 className="font-serif font-bold text-lg text-[#10264A] leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-[#25334A]/75 leading-relaxed font-normal">
+                    {item.caption}
+                  </p>
                 </div>
               </div>
-              <div className="p-5">
-                <span className="text-[10px] font-bold text-[#E5A51B] uppercase tracking-wider block mb-1">
-                  {item.category}
-                </span>
-                <h3 className="font-serif font-bold text-lg text-[#10264A] mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-[#25334A]/70">
-                  {item.caption}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+
+      </div>
 
       {/* Lightbox Modal */}
       {currentItem && (

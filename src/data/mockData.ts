@@ -173,63 +173,42 @@ export const galleryData: GalleryItem[] = [
     title: 'Czech Chess Open International',
     category: 'Tournaments',
     imageUrl: '/assets/student-achievement-06.jpg',
-    caption: 'WCM Modipalli Deekshitha competing against international titleholders on the world stage.'
+    caption: 'WCM Modipalli Deekshitha competing against international players.'
   },
   {
     id: 'gal-2',
     title: 'Velocity Academy Training Classroom',
     category: 'Academy',
     imageUrl: '/assets/academy-classroom.jpg',
-    caption: 'State-of-the-art academy classroom in Kukatpally equipped with tournament chessboards and clocks.'
+    caption: 'State-of-the-art academy classroom in Kukatpally equipped with modern facilities.'
   },
   {
     id: 'gal-3',
     title: 'Competitive Focus & Calculation',
     category: 'Training',
     imageUrl: '/assets/student-achievement-02.jpg',
-    caption: 'Student deeply immersed in positional calculation during match play.'
+    caption: 'Student deeply immersed in positional calculation during training session.'
   },
   {
     id: 'gal-4',
-    title: 'All India Championship Podium',
+    title: 'Grandmaster Masterclass Session',
     category: 'Events',
     imageUrl: '/assets/student-achievement-07.jpg',
-    caption: 'Academy students sweeping 1st, 2nd, and 3rd place podium finishes at the All India Tournament.'
+    caption: 'Interactive session with FIDE Grandmaster on advanced strategies.'
   },
   {
     id: 'gal-5',
-    title: 'National Schools Championship Runner Up',
-    category: 'Events',
-    imageUrl: '/assets/student-achievement-05.jpg',
-    caption: 'Celebrating our U-17 Girls Runner Up at the 13th National Schools Chess Championship 2024.'
+    title: 'State Level Championship',
+    category: 'Tournaments',
+    imageUrl: '/assets/student-achievement-03.jpg',
+    caption: 'Top players competing in an intense championship match.'
   },
   {
     id: 'gal-6',
-    title: 'Youth Championship Cup Triumph',
-    category: 'Tournaments',
-    imageUrl: '/assets/student-achievement-03.jpg',
-    caption: 'Young academy player proudly holding a grand championship trophy cup.'
-  },
-  {
-    id: 'gal-7',
-    title: 'National Tournament Match Play',
-    category: 'Training',
-    imageUrl: '/assets/student-achievement-08.jpg',
-    caption: 'Students competing in intense tournament match play with digital DGT boards and tournament clocks.'
-  },
-  {
-    id: 'gal-8',
-    title: '38th National U-13 Champion (₹80,000 Prize)',
-    category: 'Tournaments',
-    imageUrl: '/assets/student-achievement-09.jpg',
-    caption: '1st Place winner holding the grand trophy and ₹80,000 cheque at the 38th National Under-13 Chess Championship 2025 in Goa.'
-  },
-  {
-    id: 'gal-9',
-    title: '38th National Championship Podium Ceremony',
-    category: 'Events',
-    imageUrl: '/assets/student-achievement-10.jpg',
-    caption: 'Championship presentation ceremony with top students, 1st place trophies, and AICF dignitaries at Margao, Goa.'
+    title: 'Our Learning Environment',
+    category: 'Academy',
+    imageUrl: '/assets/student-achievement-05.jpg',
+    caption: 'A glimpse of our modern and inspiring academy infrastructure.'
   }
 ];
 
