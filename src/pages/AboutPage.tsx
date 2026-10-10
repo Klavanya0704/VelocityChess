@@ -22,6 +22,16 @@ import {
 const GoldChessPiece3D: React.FC<{ piece: string; className?: string }> = ({ piece, className = "w-16 h-24" }) => {
   const p = piece.toLowerCase();
 
+  if (p === 'king') {
+    return (
+      <img
+        src="/assets/3d_gold_king.png"
+        alt="3D Gold King Piece"
+        className={`${className} object-contain filter drop-shadow-md`}
+      />
+    );
+  }
+
   if (p === 'knight') {
     return (
       <img
