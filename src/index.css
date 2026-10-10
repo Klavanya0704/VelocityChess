@@ -53,15 +53,13 @@
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 8px 24px rgba(7, 26, 56, 0.12);
 }
 
-
-
 /* 3. Translucent Frosted Achievement Card */
 .glass-card {
-  background: rgba(255, 253, 248, 0.85);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.88);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.95), 0 20px 40px -10px rgba(7, 26, 56, 0.18);
+  background: rgba(255, 253, 248, 0.48);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.95), 0 20px 40px -10px rgba(7, 26, 56, 0.22);
   border-radius: 26px;
 }
 
@@ -73,8 +71,6 @@
   border: 1px solid rgba(255, 255, 255, 0.88);
   box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.95), 0 12px 32px rgba(7, 26, 56, 0.14);
 }
-
-/* 4. Frosted Glass Buttons System */
 
 /* Primary Navy Glass Button (#10264B) */
 .glass-btn-navy {
@@ -122,6 +118,105 @@
 .glass-btn-icon:hover {
   background: rgba(255, 255, 255, 0.8);
   transform: translateY(-1px);
+}
+
+/* Custom Floating & Scroll Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-3deg);
+  }
+}
+
+@keyframes fadeInScroll {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Side-to-Side Leaning / Tilting Animations for Upper-Left & Lower-Right 3D Kings */
+@keyframes kingTiltLeft {
+  0% {
+    transform: translateY(0px) rotate(-10deg) scale(0.98);
+    filter: drop-shadow(0 18px 28px rgba(233, 154, 0, 0.50));
+  }
+  50% {
+    transform: translateY(-14px) rotate(8deg) scale(1.04);
+    filter: drop-shadow(0 25px 38px rgba(242, 160, 0, 0.72));
+  }
+  100% {
+    transform: translateY(0px) rotate(-10deg) scale(0.98);
+    filter: drop-shadow(0 18px 28px rgba(233, 154, 0, 0.50));
+  }
+}
+
+@keyframes kingTiltRight {
+  0% {
+    transform: translateY(0px) rotate(8deg) scale(1.02);
+    filter: drop-shadow(0 18px 28px rgba(233, 154, 0, 0.50));
+  }
+  50% {
+    transform: translateY(14px) rotate(-10deg) scale(0.96);
+    filter: drop-shadow(0 25px 38px rgba(242, 160, 0, 0.72));
+  }
+  100% {
+    transform: translateY(0px) rotate(8deg) scale(1.02);
+    filter: drop-shadow(0 18px 28px rgba(233, 154, 0, 0.50));
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInScroll 0.8s ease-out forwards;
+}
+
+.animate-king-tilt-left {
+  animation: kingTiltLeft 4.8s ease-in-out infinite;
+}
+
+.animate-king-tilt-right {
+  animation: kingTiltRight 5.8s ease-in-out infinite;
+}
+
+.gold-glow-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.gold-glow-hover:hover {
+  box-shadow: 0 12px 30px -5px rgba(242, 160, 0, 0.32);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-fade-in-up,
+  .animate-king-tilt-left,
+  .animate-king-tilt-right {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 /* Custom Scrollbar */
