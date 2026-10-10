@@ -54,7 +54,7 @@ export const ResourcesSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-10 sm:py-12 lg:py-16 bg-[#FFF9EF] overflow-hidden select-none border-t border-[#F2A000]/25">
+    <section id="resources" className="relative py-10 sm:py-12 lg:py-16 bg-[#FFF9EF] overflow-hidden select-none border-t border-[#F2A000]/25 scroll-mt-24">
       
       {/* 1. PRESERVED BACKGROUND IMAGE LAYER */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden bg-[#FFF9EF]">

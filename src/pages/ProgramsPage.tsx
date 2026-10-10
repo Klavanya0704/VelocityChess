@@ -27,7 +27,7 @@ export const ProgramsPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#FFF9EF] pt-8 pb-16">
+    <div className="bg-[#FFF9EF] pt-24 sm:pt-28 pb-16">
       {/* Page Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 text-center">
         <span className="text-xs font-extrabold uppercase tracking-widest text-[#E5A51B] bg-white px-4 py-1.5 rounded-full border border-[#E5A51B]/30 shadow-sm inline-block mb-3">

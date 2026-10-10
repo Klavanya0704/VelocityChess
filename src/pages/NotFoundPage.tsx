@@ -4,7 +4,7 @@ import { Home, ArrowLeft } from 'lucide-react';
 
 export const NotFoundPage: React.FC = () => {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center bg-[#FFF9EF] px-4 py-16 text-center">
+    <div className="min-h-[70vh] flex items-center justify-center bg-[#FFF9EF] px-4 pt-28 pb-16 text-center">
       <div className="max-w-md bg-white p-8 sm:p-10 rounded-3xl border border-[#E5A51B]/30 shadow-2xl space-y-6">
         <div className="w-20 h-20 rounded-full bg-[#E5A51B]/15 border border-[#E5A51B]/40 text-[#E5A51B] flex items-center justify-center mx-auto">
           <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">

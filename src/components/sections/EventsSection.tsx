@@ -54,7 +54,7 @@ export const EventsSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-10 sm:py-12 lg:py-14 bg-[#FFF9EF] overflow-hidden select-none border-t border-[#F2A000]/25">
+    <section id="events" className="relative py-10 sm:py-12 lg:py-14 bg-[#FFF9EF] overflow-hidden select-none border-t border-[#F2A000]/25 scroll-mt-24">
       
       {/* 1. PRESERVED EVENTS CHESS-THEMED BACKGROUND IMAGE */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden bg-[#FFF9EF]">

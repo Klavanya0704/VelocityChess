@@ -9,6 +9,7 @@ export interface Achievement {
   description: string;
   year: number;
   featured?: boolean;
+  objectPosition?: string;
 }
 
 export interface Program {

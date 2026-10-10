@@ -37,7 +37,7 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#FFF9EF] pt-8 pb-16">
+    <div className="bg-[#FFF9EF] pt-24 sm:pt-28 pb-16">
       {/* Page Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 text-center">
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-white border border-[#E5A51B]/30 rounded-full text-xs font-bold uppercase tracking-wider text-[#10264A] shadow-sm mb-4">

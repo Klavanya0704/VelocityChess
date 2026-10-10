@@ -6,7 +6,7 @@ export const AboutUsSection: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative py-12 sm:py-16 lg:py-20 bg-transparent overflow-hidden select-none border-t border-[#F2A000]/25">
+    <section id="about" className="relative py-12 sm:py-16 lg:py-20 bg-transparent overflow-hidden select-none border-t border-[#F2A000]/25 scroll-mt-24">
       
       {/* 1. DEDICATED FULL CHESS BACKGROUND LAYER */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -138,13 +138,13 @@ export const AboutUsSection: React.FC = () => {
 
           </div>
 
-          {/* RIGHT COLUMN: Single Coach Photo in Exact King Crown Gold Frame */}
+          {/* RIGHT COLUMN: Coach Photo in Official Crown-Shaped Composition */}
           <div className="lg:col-span-6 relative flex justify-center items-center py-2 lg:py-4">
-            <div className="relative w-full max-w-[580px] aspect-[874/751] mx-auto group transition-transform duration-500 hover:scale-[1.02]">
+            <div className="relative w-full max-w-[580px] lg:max-w-[620px] mx-auto group transition-transform duration-500 hover:scale-[1.02]">
               <img
-                src="/assets/perfect_king_crown_frame.png"
-                alt="Velocity Chess Academy - International Master Krishna Teja in King Crown Frame"
-                className="w-full h-full object-contain filter drop-shadow-[0_12px_32px_rgba(242,160,0,0.45)]"
+                src="/assets/about-coach-crown.png"
+                alt="Velocity Chess Academy - International Master Krishna Teja in King Crown Composition"
+                className="w-full h-auto object-contain filter drop-shadow-[0_12px_32px_rgba(242,160,0,0.35)]"
               />
             </div>
           </div>
