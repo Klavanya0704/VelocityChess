@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, FileText, Play, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const ResourcesSection: React.FC = () => {
   const navigate = useNavigate();
@@ -12,7 +12,6 @@ export const ResourcesSection: React.FC = () => {
       title: 'Chess Guides & Tactics',
       description: 'Opening strategies, tactical puzzles, endgame guides, and expert chess tips to improve your game.',
       image: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=800',
-      icon: <BookOpen className="w-5 h-5 text-[#D98A00]" />,
       rotationClass: 'rotate-[-2deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10',
       // Card 1 SVG Silhouette: Top edge slopes up right, wave divider dips in center
       outerPath: "M 15 45 C 15 25, 35 20, 60 15 L 280 5 C 300 2, 325 8, 325 28 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
@@ -20,7 +19,6 @@ export const ResourcesSection: React.FC = () => {
       imageClipPath: "M 15 45 C 15 25, 35 20, 60 15 L 280 5 C 300 2, 325 8, 325 28 L 325 180 C 265 205, 215 210, 170 210 C 125 210, 75 195, 15 175 Z",
       creamPanelPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
       dividerPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180",
-      badgeTop: "top-[48%]",
       badgeLeft: "top-[2px] left-[6px]"
     },
     {
@@ -29,7 +27,6 @@ export const ResourcesSection: React.FC = () => {
       title: 'Study Materials',
       description: 'Practice worksheets, chess notation, downloadable notes, and structured learning resources.',
       image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?auto=format&fit=crop&q=80&w=800',
-      icon: <FileText className="w-5 h-5 text-[#D98A00]" />,
       rotationClass: 'rotate-0 md:scale-[1.02] hover:scale-[1.04] transition-all duration-300 z-20',
       // Card 2 SVG Silhouette: Arch top crown, symmetrical center U-dip wave
       outerPath: "M 15 30 C 15 15, 45 8, 170 4 C 295 8, 325 15, 325 30 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
@@ -37,7 +34,6 @@ export const ResourcesSection: React.FC = () => {
       imageClipPath: "M 15 30 C 15 15, 45 8, 170 4 C 295 8, 325 15, 325 30 L 325 170 C 265 175, 220 210, 170 210 C 120 210, 75 175, 15 170 Z",
       creamPanelPath: "M 15 170 C 75 175, 120 210, 170 210 C 220 210, 265 175, 325 170 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
       dividerPath: "M 15 170 C 75 175, 120 210, 170 210 C 220 210, 265 175, 325 170",
-      badgeTop: "top-[48%]",
       badgeLeft: "top-[0px] left-[6px]"
     },
     {
@@ -46,7 +42,6 @@ export const ResourcesSection: React.FC = () => {
       title: 'Videos & Game Analysis',
       description: 'Chess lessons, recorded games, strategy explanations, and in-depth analysis from experts.',
       image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?auto=format&fit=crop&q=80&w=800',
-      icon: <Play className="w-5 h-5 text-[#D98A00] ml-0.5 fill-[#D98A00]" />,
       rotationClass: 'rotate-[2deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10',
       // Card 3 SVG Silhouette: Top edge slopes down right, wave divider slopes up right
       outerPath: "M 15 10 C 15 2, 40 2, 60 5 L 280 22 C 300 26, 325 32, 325 48 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
@@ -54,7 +49,6 @@ export const ResourcesSection: React.FC = () => {
       imageClipPath: "M 15 10 C 15 2, 40 2, 60 5 L 280 22 C 300 26, 325 32, 325 48 L 325 180 C 265 205, 215 210, 170 210 C 125 210, 75 195, 15 175 Z",
       creamPanelPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
       dividerPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180",
-      badgeTop: "top-[48%]",
       badgeLeft: "top-[4px] left-[6px]"
     }
   ];
@@ -201,13 +195,8 @@ export const ResourcesSection: React.FC = () => {
                 />
               </svg>
 
-              {/* GOLD CIRCULAR ICON BADGE MOUNTED AT WAVE BOUNDARY CENTER */}
-              <div className={`absolute ${card.badgeTop} left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#FFF5E5] border-2 border-[#F2A000] shadow-md flex items-center justify-center z-30 group-hover:scale-110 transition-transform duration-300`}>
-                {card.icon}
-              </div>
-
               {/* WARM CREAM PANEL CONTENT AREA (LIGHT THEME) */}
-              <div className="relative z-20 flex flex-col justify-end h-full pt-[52%] px-5 pb-5 text-center text-[#10264B]">
+              <div className="relative z-20 flex flex-col justify-end h-full pt-[50%] px-5 pb-5 text-center text-[#10264B]">
                 <div className="space-y-1.5 mb-3">
                   
                   {/* Title in Dark Navy Serif */}
