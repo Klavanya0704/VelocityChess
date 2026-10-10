@@ -256,7 +256,7 @@ export const ProgramsSection: React.FC = () => {
                   
                   {/* Description */}
                   <p
-                    className={`text-[11px] sm:text-xs font-medium leading-tight mb-2 min-h-[32px] flex items-center justify-center ${
+                    className={`text-[10px] sm:text-[11px] font-medium leading-snug max-w-[210px] mx-auto px-1 mb-2 flex items-center justify-center ${
                       card.isNavy ? 'text-gray-200' : 'text-[#25334A]/90'
                     }`}
                   >
