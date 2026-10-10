@@ -62,6 +62,16 @@ const GoldChessPiece3D: React.FC<{ piece: string; className?: string }> = ({ pie
     );
   }
 
+  if (p === 'pawn') {
+    return (
+      <img
+        src="/assets/3d_gold_pawn.png"
+        alt="3D Gold Pawn Piece"
+        className={`${className} object-contain filter drop-shadow-md`}
+      />
+    );
+  }
+
   return (
     <svg viewBox="0 0 80 120" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
