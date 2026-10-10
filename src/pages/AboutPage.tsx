@@ -542,72 +542,169 @@ export const AboutPage: React.FC = () => {
           </div>
         </section>
 
-        {/* SECTION 3: COACHING PHILOSOPHY (LIGHT WARM THEME) */}
-        <section className="relative py-12 sm:py-16 border-t border-[#F2A000]/20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* SECTION 3: COACHING PHILOSOPHY (EXACT MATCH REFERENCE DESIGN media_1791650260358_ce594179.jpg) */}
+        <section className="relative py-12 sm:py-16 border-t border-[#F2A000]/20 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
+            {/* SECTION HEADING */}
             <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
               <div className="inline-flex items-center space-x-2">
-                <span className="w-6 h-[2px] bg-[#F2A000]" />
+                <span className="w-8 h-[2px] bg-[#F2A000]" />
                 <span className="text-[#D98A00] font-sans font-extrabold text-xs uppercase tracking-[0.2em]">
                   METHODOLOGY & CURRICULUM
                 </span>
-                <span className="w-6 h-[2px] bg-[#F2A000]" />
+                <span className="w-8 h-[2px] bg-[#F2A000]" />
               </div>
               <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-[#10264B]">
-                Our Coaching Philosophy
+                Our Coaching <span className="text-[#E99A00]">Philosophy</span>
               </h2>
-              <p className="text-xs sm:text-sm text-[#25334A]/85 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#25334A]/85 max-w-2xl mx-auto leading-relaxed pt-1">
                 We move beyond simple rote memorization. Our holistic approach builds deep positional understanding, tactical instincts, and psychological toughness.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              
-              {/* Pillar 1 */}
-              <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-[#F2A000]/30 shadow-sm gold-glow-hover hover:-translate-y-1.5 transition-all duration-300 group">
-                <div className="w-10 h-10 rounded-xl bg-[#FFF5E5] border border-[#F2A000]/40 text-[#D98A00] flex items-center justify-center mb-4 font-bold shadow-xs group-hover:scale-110 transition-transform">
-                  <BookOpen className="w-5 h-5" />
-                </div>
-                <h4 className="font-serif font-bold text-base text-[#10264B] mb-1.5">Opening Preparation</h4>
-                <p className="text-xs text-[#25334A]/80 leading-relaxed">
-                  Structured opening repertoire aligned with student playing style and pawn structure understanding.
-                </p>
-              </div>
+            {/* FOUR COACHING CARDS IN ONE HORIZONTAL ROW ON DESKTOP */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+              {[
+                {
+                  id: 'phil-1',
+                  title: 'Opening Preparation',
+                  description: 'Structured opening repertoire aligned with student playing style and pawn structure understanding.',
+                  icon: BookOpen,
+                  pieceType: 'pawn',
+                },
+                {
+                  id: 'phil-2',
+                  title: 'Middlegame Strategy',
+                  description: 'Calculation trees, piece activity, tactical motif recognition, and plan formulation under pressure.',
+                  icon: Brain,
+                  pieceType: 'knight',
+                },
+                {
+                  id: 'phil-3',
+                  title: 'Endgame Theory',
+                  description: 'Essential theoretical endgames, king activity, pawn promotion techniques, and precise technique.',
+                  icon: Target,
+                  pieceType: 'rook',
+                },
+                {
+                  id: 'phil-4',
+                  title: 'Game Analysis',
+                  description: 'In-depth post-tournament game review, blunder identification, and personalized homework assignments.',
+                  icon: Compass,
+                  pieceType: 'king',
+                }
+              ].map((card) => {
+                const IconComp = card.icon;
+                return (
+                  <div
+                    key={card.id}
+                    className="relative flex flex-col justify-between rounded-3xl border-[2.5px] border-[#F2A000]/80 bg-gradient-to-b from-[#FFFFFF] via-[#FFFDF8] to-[#FFF9EF] shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group overflow-hidden"
+                  >
+                    {/* Inner Gold Bevel Accent */}
+                    <div className="absolute inset-0 rounded-[22px] border border-[#FFE29A] pointer-events-none z-20 opacity-80" />
 
-              {/* Pillar 2 */}
-              <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-[#F2A000]/30 shadow-sm gold-glow-hover hover:-translate-y-1.5 transition-all duration-300 group">
-                <div className="w-10 h-10 rounded-xl bg-[#FFF5E5] border border-[#F2A000]/40 text-[#D98A00] flex items-center justify-center mb-4 font-bold shadow-xs group-hover:scale-110 transition-transform">
-                  <Brain className="w-5 h-5" />
-                </div>
-                <h4 className="font-serif font-bold text-base text-[#10264B] mb-1.5">Middlegame Strategy</h4>
-                <p className="text-xs text-[#25334A]/80 leading-relaxed">
-                  Calculation trees, piece activity, tactical motif recognition, and plan formulation under pressure.
-                </p>
-              </div>
+                    {/* UPPER VISUAL AREA WITH PERSPECTIVE CHESSBOARD & 3D GOLD PIECE */}
+                    <div className="relative h-44 sm:h-48 overflow-hidden bg-gradient-to-b from-[#FFEED4]/70 via-[#FFF9EF]/80 to-[#FFFDF8]">
+                      
+                      {/* Top-Left Circular Gold Icon Badge */}
+                      <div className="absolute top-4 left-4 w-11 h-11 rounded-full bg-gradient-to-br from-[#FFFDF5] via-[#FFF5E5] to-[#FFE8AB] border-2 border-[#F2A000] shadow-md flex items-center justify-center text-[#D98A00] z-30 group-hover:scale-110 transition-transform duration-300">
+                        <IconComp className="w-5 h-5 text-[#D98A00]" />
+                      </div>
 
-              {/* Pillar 3 */}
-              <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-[#F2A000]/30 shadow-sm gold-glow-hover hover:-translate-y-1.5 transition-all duration-300 group">
-                <div className="w-10 h-10 rounded-xl bg-[#FFF5E5] border border-[#F2A000]/40 text-[#D98A00] flex items-center justify-center mb-4 font-bold shadow-xs group-hover:scale-110 transition-transform">
-                  <Target className="w-5 h-5" />
-                </div>
-                <h4 className="font-serif font-bold text-base text-[#10264B] mb-1.5">Endgame Theory</h4>
-                <p className="text-xs text-[#25334A]/80 leading-relaxed">
-                  Essential theoretical endgames, king activity, pawn promotion techniques, and precise technique.
-                </p>
-              </div>
+                      {/* Sparkle Decoration Accent */}
+                      <div className="absolute top-3 right-3 text-[#F2A000] opacity-80 z-20">
+                        <Sparkles className="w-4 h-4" />
+                      </div>
 
-              {/* Pillar 4 */}
-              <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-[#F2A000]/30 shadow-sm gold-glow-hover hover:-translate-y-1.5 transition-all duration-300 group">
-                <div className="w-10 h-10 rounded-xl bg-[#FFF5E5] border border-[#F2A000]/40 text-[#D98A00] flex items-center justify-center mb-4 font-bold shadow-xs group-hover:scale-110 transition-transform">
-                  <Compass className="w-5 h-5" />
-                </div>
-                <h4 className="font-serif font-bold text-base text-[#10264B] mb-1.5">Game Analysis</h4>
-                <p className="text-xs text-[#25334A]/80 leading-relaxed">
-                  In-depth post-tournament game review, blunder identification, and personalized homework assignments.
-                </p>
-              </div>
+                      {/* Organic Curved Wave Background Mask & Gold Stroke */}
+                      <svg
+                        className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
+                        viewBox="0 0 280 180"
+                        preserveAspectRatio="none"
+                        fill="none"
+                      >
+                        <defs>
+                          <linearGradient id={`card-gold-wave-${card.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#FFE8AB" />
+                            <stop offset="50%" stopColor="#F2A000" />
+                            <stop offset="100%" stopColor="#A66B00" />
+                          </linearGradient>
+                        </defs>
+                        {/* Sculpted Gold Wave Line */}
+                        <path
+                          d="M 0 110 C 90 90, 180 160, 280 120"
+                          stroke={`url(#card-gold-wave-${card.id})`}
+                          strokeWidth="3.5"
+                          fill="none"
+                        />
+                      </svg>
 
+                      {/* 3D Perspective Chessboard Floor Area (Right-Side Background) */}
+                      <div className="absolute right-[-10px] bottom-[-5px] w-48 h-36 origin-bottom-right transform rotate-[-8deg] skew-x-[-12deg] opacity-90 pointer-events-none z-10">
+                        <div className="grid grid-cols-4 grid-rows-4 w-full h-full border-2 border-[#F2A000]/60 rounded-lg overflow-hidden shadow-inner">
+                          {[...Array(16)].map((_, i) => (
+                            <div
+                              key={i}
+                              className={`${
+                                i % 2 === Math.floor(i / 4) % 2
+                                  ? 'bg-gradient-to-br from-[#FFE8AB] via-[#F2A000]/70 to-[#B87B00]/80'
+                                  : 'bg-gradient-to-br from-[#FFFFFF] to-[#FFF9EF]'
+                              } border-[0.5px] border-[#F2A000]/30`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Prominent 3D Metallic Gold Chess Piece standing on Chessboard */}
+                      <div className="absolute right-3 bottom-1 z-20 flex items-end justify-center pointer-events-none">
+                        <GoldChessPiece3D
+                          piece={card.pieceType}
+                          className="w-16 h-26 sm:w-20 sm:h-30 drop-shadow-xl group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+
+                    </div>
+
+                    {/* LOWER CONTENT AREA */}
+                    <div className="relative z-20 p-5 flex flex-col justify-between flex-1 text-center text-[#10264B] bg-[#FFFDF8]">
+                      
+                      <div>
+                        {/* Title in Dark Navy Serif */}
+                        <h3 className="font-serif font-extrabold text-lg sm:text-xl text-[#10264B] leading-tight mb-2">
+                          {card.title}
+                        </h3>
+
+                        {/* Gold Diamond Line Flourish Divider */}
+                        <div className="flex items-center justify-center py-1 mb-2.5">
+                          <div className="w-5 h-[1.5px] bg-[#F2A000]" />
+                          <div className="w-1.5 h-1.5 rotate-45 bg-[#F2A000] mx-1.5" />
+                          <div className="w-5 h-[1.5px] bg-[#F2A000]" />
+                        </div>
+
+                        {/* Description in Dark Slate Navy */}
+                        <p className="text-xs sm:text-[13.5px] font-medium text-[#25334A]/85 leading-relaxed px-1">
+                          {card.description}
+                        </p>
+                      </div>
+
+                      {/* Subtle Checkerboard Corner Accent Overlay */}
+                      <div className="absolute right-0 bottom-0 w-14 h-14 pointer-events-none opacity-15 overflow-hidden rounded-br-[20px]">
+                        <div className="grid grid-cols-3 grid-rows-3 w-full h-full">
+                          {[...Array(9)].map((_, idx) => (
+                            <div
+                              key={idx}
+                              className={idx % 2 === 0 ? 'bg-[#F2A000]' : 'transparent'}
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                );
+              })}
             </div>
 
           </div>
