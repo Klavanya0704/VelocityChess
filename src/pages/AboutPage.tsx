@@ -208,40 +208,64 @@ const GoldChessPiece3D: React.FC<{ piece: string; className?: string }> = ({ pie
         )}
 
         {/* ------------------------------------------------------------- */}
-        {/* 4. KNIGHT (♘) */}
+        {/* 2. KNIGHT (MATCHING USER'S REFINED 3D GOLD KNIGHT IMAGE) */}
         {/* ------------------------------------------------------------- */}
         {p === 'knight' && (
           <g>
-            {/* Detailed Staunton Horse Head & Mane Silhouette */}
+            {/* Mane Pleated Ridges (Back of Neck Spine) */}
             <path
-              d="M 34 14 C 28 14, 22 22, 22 30 C 22 36, 18 48, 16 58 C 14 68, 18 78, 24 84 H 56 C 54 74, 52 64, 56 54 C 60 44, 65 38, 59 28 C 55 21, 48 18, 44 24 C 40 20, 38 14, 34 14 Z"
+              d="M 48 10 C 58 16, 68 34, 66 68 L 56 68 C 58 38, 52 20, 44 14 Z"
               fill={`url(#gold-metal-main-${p})`}
               stroke={`url(#gold-stroke-${p})`}
-              strokeWidth="1"
+              strokeWidth="0.8"
             />
-            {/* Mane Carved Fur Ridges */}
-            <path d="M 23 26 C 18 36, 17 50, 19 64" fill="none" stroke="#FFF7D1" strokeWidth="2" strokeLinecap="round" />
-            <path d="M 28 20 C 24 30, 23 44, 24 58" fill="none" stroke="#FFF7D1" strokeWidth="1.5" strokeLinecap="round" />
+            {/* Individual Mane Segment Ridges */}
+            <path d="M 49 14 L 62 18" stroke="#FFE08A" strokeWidth="1.2" />
+            <path d="M 52 22 L 65 27" stroke="#FFE08A" strokeWidth="1.2" />
+            <path d="M 54 30 L 67 36" stroke="#FFE08A" strokeWidth="1.2" />
+            <path d="M 55 38 L 67 45" stroke="#FFE08A" strokeWidth="1.2" />
+            <path d="M 55 46 L 66 53" stroke="#FFE08A" strokeWidth="1.2" />
+            <path d="M 54 54 L 65 61" stroke="#FFE08A" strokeWidth="1.2" />
 
-            {/* Ear */}
-            <path d="M 33 15 L 37 26 L 41 20 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFF7D1" strokeWidth="0.8" />
+            {/* Pointed Ears Top */}
+            <path
+              d="M 42 16 L 45 4 L 49 18 L 51 6 L 56 20 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="0.8"
+            />
+            {/* Inner Ear Highlights */}
+            <path d="M 45 7 L 47 16" stroke="#FFF7D1" strokeWidth="1" />
+            <path d="M 52 9 L 53 18" stroke="#FFF7D1" strokeWidth="1" />
 
-            {/* Muzzle / Snout Details */}
-            <path d="M 59 28 C 63 32, 58 40, 50 40 C 44 40, 42 34, 46 32 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
-            {/* Nostril */}
-            <circle cx="56" cy="33" r="1.5" fill="#3D2400" />
-            {/* Eye Socket */}
-            <ellipse cx="46" cy="26" rx="2.5" ry="3.5" fill="#3D2400" />
-            <circle cx="45.5" cy="25" r="1" fill="#FFFFFF" />
+            {/* Main Horse Head, Neck & Chest Contour Facing Left */}
+            <path
+              d="M 44 15 C 38 15, 30 22, 25 32 C 21 38, 20 42, 27 42 C 34 42, 38 36, 42 36 C 46 36, 48 40, 44 48 C 36 52, 28 60, 24 78 H 58 C 58 64, 56 46, 52 30 C 50 22, 48 16, 44 15 Z"
+              fill={`url(#gold-metal-main-${p})`}
+              stroke={`url(#gold-stroke-${p})`}
+              strokeWidth="0.8"
+            />
 
-            {/* Chest & Neck Specular Highlight */}
-            <path d="M 44 42 C 50 46, 52 62, 50 82 H 55 C 57 66, 55 48, 48 40 Z" fill={`url(#gold-specular-${p})`} />
+            {/* Eye Socket & Almond Pupil */}
+            <ellipse cx="36" cy="27" rx="3.5" ry="2.2" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <circle cx="35" cy="27" r="1.5" fill="#3D2400" />
+            <circle cx="34.5" cy="26.3" r="0.6" fill="#FFFFFF" />
 
-            {/* Pedestal Stand */}
-            <ellipse cx="40" cy="84" rx="18" ry="4.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
-            <path d="M 18 88 L 62 88 L 67 100 C 67 104, 13 104, 13 100 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
-            <rect x="10" y="100" width="60" height="12" rx="3" fill={`url(#gold-metal-main-${p})`} stroke="#FFF3D6" strokeWidth="1" />
-            <rect x="10" y="100" width="60" height="4" rx="1" fill={`url(#gold-specular-${p})`} opacity="0.6" />
+            {/* Muzzle & Nostril Details */}
+            <circle cx="25" cy="36" r="1.3" fill="#3D2400" />
+            <path d="M 21 38 C 24 40, 28 40, 31 38" stroke="#3D2400" strokeWidth="1" fill="none" />
+
+            {/* Muscle Contour Curves & Gloss Highlights */}
+            <path d="M 42 32 C 48 40, 48 56, 42 74" fill="none" stroke="#FFF7D1" strokeWidth="2" opacity="0.8" strokeLinecap="round" />
+            <path d="M 28 62 Q 38 68, 46 76" fill="none" stroke={`url(#gold-specular-${p})`} strokeWidth="3" opacity="0.6" />
+
+            {/* Pedestal Base (Double Torus & Cylinder Base) */}
+            <ellipse cx="40" cy="78" rx="18" ry="4.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1" />
+            <ellipse cx="40" cy="83" rx="20" ry="5" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="1.2" />
+            <path d="M 18 85 C 16 89, 14 93, 12 97 L 68 97 C 66 93, 64 89, 62 85 Z" fill={`url(#gold-metal-main-${p})`} stroke="#FFE08A" strokeWidth="0.8" />
+            <ellipse cx="40" cy="97" rx="28" ry="6.5" fill={`url(#gold-metal-main-${p})`} stroke="#FFF7D1" strokeWidth="1.2" />
+            <rect x="11" y="97" width="58" height="12" rx="3" fill={`url(#gold-metal-main-${p})`} stroke="#FFF3D6" strokeWidth="1" />
+            <rect x="11" y="97" width="58" height="4" rx="1" fill={`url(#gold-specular-${p})`} opacity="0.6" />
           </g>
         )}
 
