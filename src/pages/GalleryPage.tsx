@@ -37,10 +37,10 @@ export const GalleryPage: React.FC = () => {
         <img
           src="/assets/gallery_full_bg.jpg"
           alt="Velocity Chess Academy Gallery Background"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center opacity-30 blur-[1px]"
         />
-        {/* Subtle cream translucent overlay for text & card contrast */}
-        <div className="absolute inset-0 bg-[#FFF9EF]/20 pointer-events-none" />
+        {/* Soft cream translucent overlay for elegant contrast & subtle background */}
+        <div className="absolute inset-0 bg-[#FFF9EF]/65 pointer-events-none" />
       </div>
 
       {/* 2. FOREGROUND CONTENT */}
@@ -83,7 +83,7 @@ export const GalleryPage: React.FC = () => {
               <div
                 key={item.id}
                 onClick={() => setActiveLightboxIndex(index)}
-                className="bg-white/90 backdrop-blur-md rounded-2xl overflow-hidden border border-[#E5A51B]/40 shadow-lg hover:shadow-xl hover:border-[#E5A51B] transition-all duration-300 group cursor-pointer flex flex-col"
+                className="bg-white rounded-2xl overflow-hidden border border-[#E5A51B]/35 shadow-lg hover:shadow-xl hover:border-[#E5A51B] transition-all duration-300 group cursor-pointer flex flex-col"
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-black/5">
                   <img
