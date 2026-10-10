@@ -457,7 +457,7 @@ export const AboutPage: React.FC = () => {
       </div>
 
       {/* FOREGROUND MAIN CONTENT WRAPPER */}
-      <div className="relative z-10 space-y-0">
+      <div className="relative z-10 space-y-0 pt-16 sm:pt-20 lg:pt-24">
 
         {/* SECTION 1: ABOUT US HERO / STORY SECTION */}
         <AboutUsSection />
@@ -674,7 +674,60 @@ export const AboutPage: React.FC = () => {
           </div>
         </section>
 
-        {/* SECTION 5: MEET OUR COACH (LIGHT ELEGANT CREAM CONTAINER) */}
+        {/* SECTION 5: ACADEMY FACILITIES & TRAINING ENVIRONMENT */}
+        <section id="facilities" className="relative py-12 sm:py-16 border-t border-[#F2A000]/20 scroll-mt-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
+              <div className="inline-flex items-center space-x-2">
+                <span className="w-6 h-[2px] bg-[#F2A000]" />
+                <span className="text-[#D98A00] font-sans font-extrabold text-xs uppercase tracking-[0.2em]">
+                  ACADEMY FACILITIES & ENVIRONMENT
+                </span>
+                <span className="w-6 h-[2px] bg-[#F2A000]" />
+              </div>
+              <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-[#10264B]">
+                World-Class Chess Training Environment
+              </h2>
+              <p className="text-xs sm:text-sm text-[#25334A]/85 max-w-2xl mx-auto leading-relaxed">
+                Step inside our dedicated chess academy classroom in Kukatpally, Hyderabad — designed to foster deep tactical focus, calm composure, and championship-caliber practice.
+              </p>
+            </div>
+
+            {/* WIDE LANDSCAPE-ORIENTED FRAME PRESERVING THE ROOM, STUDENTS, TABLES & WALL MOTTO */}
+            <div className="relative rounded-3xl overflow-hidden border-2 border-[#F2A000]/40 shadow-2xl bg-[#10264B] group max-w-5xl mx-auto">
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden bg-black/10">
+                <img
+                  src="/assets/academy-classroom.jpg"
+                  alt="Velocity Chess Academy Training Classroom with Students and Coaches"
+                  className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
+                />
+                {/* Subtle vignette gradient overlay at bottom for readable badges */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#10264B]/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-8 right-4 sm:right-8 flex flex-col sm:flex-row sm:items-end justify-between gap-3 text-white">
+                  <div className="space-y-1 max-w-xl text-left">
+                    <span className="px-3 py-1 rounded-full bg-[#F2A000] text-[#10264B] font-extrabold text-[10px] sm:text-xs uppercase tracking-wider inline-block shadow-sm">
+                      Velocity Chess Academy · Kukatpally Campus
+                    </span>
+                    <h3 className="font-serif font-extrabold text-lg sm:text-2xl text-[#FFF9EF] drop-shadow-md">
+                      "Chess teaches you to think ahead in life."
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-200 font-medium">
+                      Equipped with tournament boards, digital DGT clocks, analysis boards, and comfortable study seating.
+                    </p>
+                  </div>
+                  <div className="shrink-0 hidden sm:block">
+                    <div className="bg-white/15 backdrop-blur-md px-4 py-2 rounded-xl border border-white/25 text-center">
+                      <div className="text-sm sm:text-base font-extrabold text-[#FFE8AB]">In-Person Batches</div>
+                      <div className="text-[10px] text-gray-300">Mon - Sat Coaching</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 6: MEET OUR COACH (LIGHT ELEGANT CREAM CONTAINER) */}
         <section id="meet-coach" className="relative py-14 sm:py-18 border-t border-[#F2A000]/20 scroll-mt-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             

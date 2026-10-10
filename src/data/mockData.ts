@@ -3,48 +3,52 @@ import { Achievement, Program, ChessEvent, GalleryItem, Testimonial, Resource, S
 export const achievementsData: Achievement[] = [
   {
     id: 'ach-1',
-    title: 'State Champion 2025',
-    winnerName: 'Aditya Varma',
-    category: 'U-12 Category',
-    tournament: 'Andhra Pradesh State Chess Championship',
-    badge: 'WINNER',
-    imageUrl: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=1200',
-    description: 'Secured 1st position with an undefeated 8.5/9 score in the state championship.',
+    title: 'Championship Victory',
+    winnerName: 'Student Champion',
+    category: 'Tournament Excellence',
+    tournament: 'State & National Championships',
+    badge: 'TROPHY WINNER',
+    imageUrl: '/assets/student-achievement-01.jpg',
+    description: 'Celebrating tournament triumph, strategic discipline, and championship honors on the competitive stage.',
     year: 2025,
-    featured: true
+    featured: true,
+    objectPosition: 'object-[center_18%]'
   },
   {
     id: 'ach-2',
-    title: 'National Blitz Gold',
-    winnerName: 'Sreya Kolluri',
-    category: 'U-14 Girls Category',
-    tournament: 'All India National Junior Blitz Championship',
-    badge: 'GOLD MEDAL',
-    imageUrl: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?auto=format&fit=crop&q=80&w=1200',
-    description: 'Demonstrated exceptional speed and tactical accuracy across 11 rounds.',
-    year: 2025
+    title: 'Focus in Competition',
+    winnerName: 'Student Competitor',
+    category: 'Tactical Mastery',
+    tournament: 'Competitive Match Play',
+    badge: 'MATCH PLAY',
+    imageUrl: '/assets/student-achievement-02.jpg',
+    description: 'Deep positional calculation and unwavering mental stamina in high-stakes tournament conditions.',
+    year: 2025,
+    objectPosition: 'object-[center_22%]'
   },
   {
     id: 'ach-3',
-    title: 'National Junior Silver',
-    winnerName: 'Rohan Mehta',
-    category: 'U-10 Open Category',
-    tournament: 'National School Chess Championship',
-    badge: 'SILVER MEDAL',
-    imageUrl: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?auto=format&fit=crop&q=80&w=1200',
-    description: 'Outstanding performance securing 2nd rank in a field of 300+ prodigies.',
-    year: 2025
+    title: 'Youth Championship Triumph',
+    winnerName: 'Junior Champion',
+    category: 'Junior Champions',
+    tournament: 'Youth Chess Arena',
+    badge: 'GOLD CUP',
+    imageUrl: '/assets/student-achievement-03.jpg',
+    description: 'Recognizing outstanding young talent, dedication, and championship victories in youth competitions.',
+    year: 2025,
+    objectPosition: 'object-[center_18%]'
   },
   {
     id: 'ach-4',
-    title: 'FIDE Rated Top Junior',
-    winnerName: 'Kavya Reddy',
-    category: 'U-16 Category',
-    tournament: 'International FIDE Open Tournament',
-    badge: 'BRONZE MEDAL',
-    imageUrl: 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80&w=1200',
-    description: 'Gained +140 FIDE ELO rating points competing against rated masters.',
-    year: 2024
+    title: 'A Moment of Achievement',
+    winnerName: 'Academy Honors',
+    category: 'Tournament Success',
+    tournament: 'Championship Presentation',
+    badge: 'ACADEMY HONORS',
+    imageUrl: '/assets/student-achievement-04.jpg',
+    description: 'Honoring steadfast commitment to chess excellence, tactical prowess, and tournament success.',
+    year: 2025,
+    objectPosition: 'object-[center_18%]'
   }
 ];
 
@@ -166,45 +170,66 @@ export const eventsData: ChessEvent[] = [
 export const galleryData: GalleryItem[] = [
   {
     id: 'gal-1',
-    title: 'State Championship Finals 2025',
+    title: 'Czech Chess Open International',
     category: 'Tournaments',
-    imageUrl: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=1200',
-    caption: 'Aditya Varma focusing during the final round of AP State Championship.'
+    imageUrl: '/assets/student-achievement-06.jpg',
+    caption: 'WCM Modipalli Deekshitha competing against international titleholders on the world stage.'
   },
   {
     id: 'gal-2',
-    title: 'Luxury Academy Training Studio',
+    title: 'Velocity Academy Training Classroom',
     category: 'Academy',
-    imageUrl: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?auto=format&fit=crop&q=80&w=1200',
-    caption: 'Sunlit training environment equipped with DGT electronic boards and wooden chess sets.'
+    imageUrl: '/assets/academy-classroom.jpg',
+    caption: 'State-of-the-art academy classroom in Kukatpally equipped with tournament chessboards and clocks.'
   },
   {
     id: 'gal-3',
-    title: 'Junior Tactics Masterclass',
+    title: 'Competitive Focus & Calculation',
     category: 'Training',
-    imageUrl: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?auto=format&fit=crop&q=80&w=1200',
-    caption: 'Young prodigies analyzing tactical combinations on interactive demonstration boards.'
+    imageUrl: '/assets/student-achievement-02.jpg',
+    caption: 'Student deeply immersed in positional calculation during match play.'
   },
   {
     id: 'gal-4',
-    title: 'Annual Awards & Trophy Ceremony',
+    title: 'All India Championship Podium',
     category: 'Events',
-    imageUrl: 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80&w=1200',
-    caption: 'Celebrating our gold and silver medalists at the annual Velocity gala.'
+    imageUrl: '/assets/student-achievement-07.jpg',
+    caption: 'Academy students sweeping 1st, 2nd, and 3rd place podium finishes at the All India Tournament.'
   },
   {
     id: 'gal-5',
-    title: 'Simultaneous Exhibition (Simul)',
+    title: 'National Schools Championship Runner Up',
     category: 'Events',
-    imageUrl: 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80&w=1200',
-    caption: 'Grandmaster playing against 20 top academy students simultaneously.'
+    imageUrl: '/assets/student-achievement-05.jpg',
+    caption: 'Celebrating our U-17 Girls Runner Up at the 13th National Schools Chess Championship 2024.'
   },
   {
     id: 'gal-6',
-    title: 'One-on-One Mentorship',
+    title: 'Youth Championship Cup Triumph',
+    category: 'Tournaments',
+    imageUrl: '/assets/student-achievement-03.jpg',
+    caption: 'Young academy player proudly holding a grand championship trophy cup.'
+  },
+  {
+    id: 'gal-7',
+    title: 'National Tournament Match Play',
     category: 'Training',
-    imageUrl: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?auto=format&fit=crop&q=80&w=1200',
-    caption: 'Personalized opening preparation and computer analysis with senior coaches.'
+    imageUrl: '/assets/student-achievement-08.jpg',
+    caption: 'Students competing in intense tournament match play with digital DGT boards and tournament clocks.'
+  },
+  {
+    id: 'gal-8',
+    title: '38th National U-13 Champion (₹80,000 Prize)',
+    category: 'Tournaments',
+    imageUrl: '/assets/student-achievement-09.jpg',
+    caption: '1st Place winner holding the grand trophy and ₹80,000 cheque at the 38th National Under-13 Chess Championship 2025 in Goa.'
+  },
+  {
+    id: 'gal-9',
+    title: '38th National Championship Podium Ceremony',
+    category: 'Events',
+    imageUrl: '/assets/student-achievement-10.jpg',
+    caption: 'Championship presentation ceremony with top students, 1st place trophies, and AICF dignitaries at Margao, Goa.'
   }
 ];
 

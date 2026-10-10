@@ -5,6 +5,7 @@ import { ProgramsSection } from '../components/sections/ProgramsSection';
 import { AchievementsSection } from '../components/sections/AchievementsSection';
 import { EventsSection } from '../components/sections/EventsSection';
 import { ResourcesSection } from '../components/sections/ResourcesSection';
+import { ContactSection } from '../components/sections/ContactSection';
 
 export const HomePage: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ export const HomePage: React.FC = () => {
       <AchievementsSection />
       <EventsSection />
       <ResourcesSection />
+      <ContactSection />
     </main>
   );
 };

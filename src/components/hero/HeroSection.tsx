@@ -4,7 +4,7 @@ import { StatisticsBar } from './StatisticsBar';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative w-full h-auto min-h-screen lg:min-h-0 lg:h-[100svh] lg:max-h-[100vh] flex flex-col justify-between pt-16 sm:pt-20 lg:pt-22 xl:pt-24 pb-2 sm:pb-3 overflow-hidden select-none bg-[#FFF8EE]">
+    <section className="relative w-full h-auto min-h-screen lg:min-h-0 lg:h-[100svh] lg:max-h-[100vh] flex flex-col justify-between pt-18 sm:pt-20 lg:pt-22 xl:pt-24 pb-2 sm:pb-3 overflow-hidden select-none bg-[#FFF8EE]">
       
       {/* 1. Velocity Chess Academy Hero Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -50,7 +50,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* 3. Hero Main Content Grid: Upper-Left Achievement Card */}
-      <div className="relative z-10 w-full max-w-[1540px] mx-auto px-4 sm:px-8 xl:px-12 mt-1 sm:mt-2 lg:-mt-5 xl:-mt-8 mb-auto py-1">
+      <div className="relative z-10 w-full max-w-[1540px] mx-auto px-4 sm:px-8 xl:px-12 mt-2 sm:mt-3 lg:mt-0 xl:mt-1 mb-auto py-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
           
           {/* LOWER LEFT COLUMN: Single Our Achievements Card */}

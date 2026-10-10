@@ -49,7 +49,7 @@ export const ProgramsSection: React.FC = () => {
       id: 'academy',
       title: 'Academy /\nOffline Classes',
       description: 'In-person classes at our academy with a professional and inspiring learning environment.',
-      image: '/assets/player_hero_bg.jpg',
+      image: '/assets/academy-classroom.jpg',
       isNavy: false,
       benefits: [
         'Expert guidance',
@@ -61,7 +61,7 @@ export const ProgramsSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-12 sm:py-16 lg:py-24 bg-[#FFF9EF] overflow-hidden select-none border-t border-[#F2A000]/25">
+    <section id="programs" className="relative py-12 sm:py-16 lg:py-24 bg-[#FFF9EF] overflow-hidden select-none border-t border-[#F2A000]/25 scroll-mt-24">
       
       {/* 1. DEDICATED CHESS-THEMED BACKGROUND IMAGE ASSET WITH CHESSBOARD & PIECE SILHOUETTES */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden bg-[#FFF9EF]">
