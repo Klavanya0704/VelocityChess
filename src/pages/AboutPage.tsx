@@ -18,85 +18,110 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-/* 3D Gold Metallic Chess Piece SVG Component */
-const ChessPieceIcon: React.FC<{ type: string; className?: string }> = ({ type, className = "w-10 h-16" }) => {
+/* PROMINENT 3D METALLIC GOLD CHESS PIECE SCULPTURE SVG COMPONENT */
+const GoldChessPiece3D: React.FC<{ piece: string; className?: string }> = ({ piece, className = "w-16 h-24" }) => {
   return (
-    <svg viewBox="0 0 60 90" className={className} fill="none">
+    <svg viewBox="0 0 80 120" className={className} fill="none">
       <defs>
-        <linearGradient id={`gold-3d-${type}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FFF4DB" />
-          <stop offset="30%" stopColor="#FFE08A" />
-          <stop offset="65%" stopColor="#D98A00" />
-          <stop offset="100%" stopColor="#7A4D00" />
+        {/* Rich 3D Gold Metallic Linear Gradients */}
+        <linearGradient id={`gold-3d-main-${piece}`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFF7E0" />
+          <stop offset="25%" stopColor="#FFE08A" />
+          <stop offset="55%" stopColor="#E59C00" />
+          <stop offset="85%" stopColor="#996300" />
+          <stop offset="100%" stopColor="#5E3B00" />
         </linearGradient>
-        <filter id={`gold-glow-${type}`} x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#D98A00" floodOpacity="0.3" />
+
+        {/* 3D Drop Shadow */}
+        <filter id={`gold-shadow-${piece}`} x="-20%" y="-10%" width="140%" height="130%">
+          <feDropShadow dx="2" dy="5" stdDeviation="4" floodColor="#3D2600" floodOpacity="0.35" />
         </filter>
       </defs>
 
-      {type === 'king' && (
-        <g filter={`url(#gold-glow-${type})`}>
-          <path d="M 27 6 L 33 6 L 33 11 L 38 11 L 38 17 L 33 17 L 33 22 L 27 22 L 27 17 L 22 17 L 22 11 L 27 11 Z" fill={`url(#gold-3d-${type})`} />
-          <path d="M 18 34 C 18 22, 42 22, 42 34 L 40 48 H 20 Z" fill={`url(#gold-3d-${type})`} />
-          <ellipse cx="30" cy="52" rx="14" ry="4" fill={`url(#gold-3d-${type})`} stroke="#FFFDF8" strokeWidth="1" />
-          <path d="M 20 54 L 40 54 L 44 74 C 44 78, 16 78, 16 74 Z" fill={`url(#gold-3d-${type})`} />
-          <rect x="12" y="74" width="36" height="8" rx="2" fill={`url(#gold-3d-${type})`} stroke="#FFE08A" strokeWidth="1" />
-        </g>
-      )}
+      <g filter={`url(#gold-shadow-${piece})`}>
+        
+        {/* PEDESTAL STAND (COMMON FOR ALL PIECES) */}
+        <path d="M 15 95 L 65 95 L 70 106 C 70 110, 10 110, 10 106 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF3D6" strokeWidth="0.8" />
+        <rect x="8" y="106" width="64" height="10" rx="3" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
 
-      {type === 'knight' && (
-        <g filter={`url(#gold-glow-${type})`}>
-          <path d="M 18 52 C 14 34, 20 16, 36 10 C 46 14, 44 24, 40 30 C 46 30, 48 36, 44 40 C 38 40, 32 38, 28 44 L 24 52 Z" fill={`url(#gold-3d-${type})`} />
-          <ellipse cx="30" cy="54" rx="14" ry="4" fill={`url(#gold-3d-${type})`} stroke="#FFFDF8" strokeWidth="1" />
-          <path d="M 20 56 L 40 56 L 44 74 C 44 78, 16 78, 16 74 Z" fill={`url(#gold-3d-${type})`} />
-          <rect x="12" y="74" width="36" height="8" rx="2" fill={`url(#gold-3d-${type})`} stroke="#FFE08A" strokeWidth="1" />
-        </g>
-      )}
+        {/* INDIVIDUAL 3D SCULPTURES */}
+        {piece === 'king' && (
+          <g>
+            {/* Cross Finial */}
+            <path d="M 36 6 H 44 V 14 H 52 V 22 H 44 V 30 H 36 V 22 H 28 V 14 H 36 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF5E0" strokeWidth="1" />
+            {/* King Crown Dome */}
+            <path d="M 22 46 C 22 30, 58 30, 58 46 L 54 75 H 26 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+            {/* Crown Ridges & Details */}
+            <path d="M 30 36 Q 40 30, 50 36" stroke="#FFF7E0" strokeWidth="2" strokeLinecap="round" fill="none" />
+            <ellipse cx="40" cy="75" rx="16" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+          </g>
+        )}
 
-      {type === 'bishop' && (
-        <g filter={`url(#gold-glow-${type})`}>
-          <circle cx="30" cy="12" r="4" fill={`url(#gold-3d-${type})`} />
-          <path d="M 30 18 C 18 26, 18 44, 30 50 C 42 44, 42 26, 30 18 Z" fill={`url(#gold-3d-${type})`} />
-          <path d="M 24 30 L 36 38" stroke="#FFFDF8" strokeWidth="2.5" strokeLinecap="round" />
-          <ellipse cx="30" cy="52" rx="14" ry="4" fill={`url(#gold-3d-${type})`} stroke="#FFFDF8" strokeWidth="1" />
-          <path d="M 20 54 L 40 54 L 44 74 C 44 78, 16 78, 16 74 Z" fill={`url(#gold-3d-${type})`} />
-          <rect x="12" y="74" width="36" height="8" rx="2" fill={`url(#gold-3d-${type})`} stroke="#FFE08A" strokeWidth="1" />
-        </g>
-      )}
+        {piece === 'knight' && (
+          <g>
+            {/* Knight Head & Mane */}
+            <path d="M 22 75 C 16 50, 24 24, 48 14 C 62 20, 60 36, 54 44 C 62 44, 66 52, 60 60 C 52 60, 44 56, 38 64 L 32 75 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF5E0" strokeWidth="1" />
+            {/* Eye & Snout Details */}
+            <circle cx="48" cy="28" r="2.5" fill="#3D2600" />
+            <path d="M 44 24 C 48 22, 54 24, 56 28" stroke="#FFF7E0" strokeWidth="1.5" fill="none" />
+            <ellipse cx="40" cy="75" rx="16" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+          </g>
+        )}
 
-      {type === 'rook' && (
-        <g filter={`url(#gold-glow-${type})`}>
-          <path d="M 18 14 L 24 14 L 24 20 L 30 20 L 30 14 L 36 14 L 36 20 L 42 20 L 42 14 L 42 24 L 18 24 Z" fill={`url(#gold-3d-${type})`} />
-          <path d="M 20 26 L 40 26 L 38 50 L 22 50 Z" fill={`url(#gold-3d-${type})`} />
-          <ellipse cx="30" cy="52" rx="14" ry="4" fill={`url(#gold-3d-${type})`} stroke="#FFFDF8" strokeWidth="1" />
-          <path d="M 20 54 L 40 54 L 44 74 C 44 78, 16 78, 16 74 Z" fill={`url(#gold-3d-${type})`} />
-          <rect x="12" y="74" width="36" height="8" rx="2" fill={`url(#gold-3d-${type})`} stroke="#FFE08A" strokeWidth="1" />
-        </g>
-      )}
+        {piece === 'bishop' && (
+          <g>
+            {/* Orb Top */}
+            <circle cx="40" cy="14" r="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF7E0" strokeWidth="1" />
+            {/* Mitre Head */}
+            <path d="M 40 22 C 24 34, 24 60, 40 68 C 56 60, 56 34, 40 22 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+            {/* Slit Cut */}
+            <path d="M 32 38 L 48 48" stroke="#FFF7E0" strokeWidth="3.5" strokeLinecap="round" />
+            <ellipse cx="40" cy="75" rx="16" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+          </g>
+        )}
 
-      {type === 'pawn' && (
-        <g filter={`url(#gold-glow-${type})`}>
-          <circle cx="30" cy="22" r="10" fill={`url(#gold-3d-${type})`} stroke="#FFE08A" strokeWidth="1" />
-          <ellipse cx="30" cy="36" rx="12" ry="3.5" fill={`url(#gold-3d-${type})`} stroke="#FFFDF8" strokeWidth="1" />
-          <path d="M 22 38 C 22 38, 20 52, 18 56 L 42 56 C 40 52, 38 38, 38 38 Z" fill={`url(#gold-3d-${type})`} />
-          <rect x="14" y="58" width="32" height="6" rx="1.5" fill={`url(#gold-3d-${type})`} />
-          <rect x="10" y="66" width="40" height="8" rx="2" fill={`url(#gold-3d-${type})`} stroke="#FFE08A" strokeWidth="1" />
-        </g>
-      )}
+        {piece === 'rook' && (
+          <g>
+            {/* Castle Battlements Top */}
+            <path d="M 22 20 H 30 V 28 H 38 V 20 H 46 V 28 H 54 V 20 H 58 V 34 H 22 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF7E0" strokeWidth="1" />
+            {/* Rook Body */}
+            <path d="M 26 36 H 54 L 50 72 H 30 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+            <ellipse cx="40" cy="75" rx="16" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+          </g>
+        )}
 
-      {type === 'queen' && (
-        <g filter={`url(#gold-glow-${type})`}>
-          <circle cx="18" cy="16" r="2.5" fill={`url(#gold-3d-${type})`} />
-          <circle cx="24" cy="12" r="2.5" fill={`url(#gold-3d-${type})`} />
-          <circle cx="30" cy="10" r="3" fill={`url(#gold-3d-${type})`} />
-          <circle cx="36" cy="12" r="2.5" fill={`url(#gold-3d-${type})`} />
-          <circle cx="42" cy="16" r="2.5" fill={`url(#gold-3d-${type})`} />
-          <path d="M 16 20 L 20 34 L 30 18 L 40 34 L 44 20 L 42 48 L 18 48 Z" fill={`url(#gold-3d-${type})`} />
-          <ellipse cx="30" cy="52" rx="14" ry="4" fill={`url(#gold-3d-${type})`} stroke="#FFFDF8" strokeWidth="1" />
-          <path d="M 20 54 L 40 54 L 44 74 C 44 78, 16 78, 16 74 Z" fill={`url(#gold-3d-${type})`} />
-          <rect x="12" y="74" width="36" height="8" rx="2" fill={`url(#gold-3d-${type})`} stroke="#FFE08A" strokeWidth="1" />
-        </g>
-      )}
+        {piece === 'pawn' && (
+          <g>
+            {/* Pawn Head Orb */}
+            <circle cx="40" cy="30" r="14" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF7E0" strokeWidth="1.5" />
+            <ellipse cx="40" cy="50" rx="18" ry="4.5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+            {/* Pawn Body */}
+            <path d="M 28 54 C 28 54, 25 72, 22 76 H 58 C 55 72, 52 54, 52 54 Z" fill={`url(#gold-3d-main-${piece})`} />
+            <ellipse cx="40" cy="76" rx="18" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+          </g>
+        )}
+
+        {piece === 'queen' && (
+          <g>
+            {/* Queen Coronet Points */}
+            <circle cx="22" cy="22" r="3" fill={`url(#gold-3d-main-${piece})`} />
+            <circle cx="31" cy="16" r="3" fill={`url(#gold-3d-main-${piece})`} />
+            <circle cx="40" cy="14" r="3.5" fill={`url(#gold-3d-main-${piece})`} />
+            <circle cx="49" cy="16" r="3" fill={`url(#gold-3d-main-${piece})`} />
+            <circle cx="58" cy="22" r="3" fill={`url(#gold-3d-main-${piece})`} />
+            {/* Coronet Body */}
+            <path d="M 20 28 L 26 44 L 40 24 L 54 44 L 60 28 L 56 65 H 24 Z" fill={`url(#gold-3d-main-${piece})`} stroke="#FFF7E0" strokeWidth="1" />
+            <ellipse cx="40" cy="75" rx="16" ry="5" fill={`url(#gold-3d-main-${piece})`} stroke="#FFE08A" strokeWidth="1" />
+            <path d="M 24 80 L 56 80 L 60 95 L 20 95 Z" fill={`url(#gold-3d-main-${piece})`} />
+          </g>
+        )}
+
+      </g>
     </svg>
   );
 };
@@ -123,6 +148,7 @@ export const AboutPage: React.FC = () => {
       description: 'Direct mentorship from International Master Krishna Teja, ensuring grandmaster-level insights and battle-tested strategies.',
       icon: ShieldCheck,
       pieceType: 'king',
+      isLightGold: false,
     },
     {
       id: 2,
@@ -130,6 +156,7 @@ export const AboutPage: React.FC = () => {
       description: 'Intimate group sizes to guarantee individual attention, continuous Q&A, and customized progress tracking for every child.',
       icon: Users,
       pieceType: 'knight',
+      isLightGold: true,
     },
     {
       id: 3,
@@ -137,6 +164,7 @@ export const AboutPage: React.FC = () => {
       description: 'Mock tournament games, clock management, psychological preparation, and pre-round opponent preparation.',
       icon: Zap,
       pieceType: 'bishop',
+      isLightGold: false,
     },
     {
       id: 4,
@@ -144,6 +172,7 @@ export const AboutPage: React.FC = () => {
       description: "Targeted tactics puzzles, position studies, and weekly assignments matched to each student's weaknesses.",
       icon: CheckCircle2,
       pieceType: 'rook',
+      isLightGold: true,
     },
     {
       id: 5,
@@ -151,6 +180,7 @@ export const AboutPage: React.FC = () => {
       description: 'Clear pathways to achieving official FIDE ratings and competing in state, national, and international events.',
       icon: Trophy,
       pieceType: 'pawn',
+      isLightGold: false,
     },
     {
       id: 6,
@@ -158,6 +188,7 @@ export const AboutPage: React.FC = () => {
       description: 'Detailed quarterly evaluations and parent updates documenting tactical accuracy, rating milestones, and key areas for growth.',
       icon: TrendingUp,
       pieceType: 'queen',
+      isLightGold: true,
     },
   ];
 
@@ -302,7 +333,7 @@ export const AboutPage: React.FC = () => {
           </div>
         </section>
 
-        {/* SECTION 4: WHY CHOOSE VELOCITY (EXACT MATCHING 6 CONTENT CARDS REFERENCE media_1791627364299_be23807d.jpg) */}
+        {/* SECTION 4: WHY CHOOSE VELOCITY (EXACT 3D TROPHY PLAQUE DISPLAY CARDS REFERENCE media_1791627912683_5876cfd8.jpg) */}
         <section className="relative py-12 sm:py-16 border-t border-[#F2A000]/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -322,38 +353,48 @@ export const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            {/* SIX CONTENT CARDS IN 3 COLUMNS MATCHING REFERENCE */}
+            {/* SIX 3D GOLD DISPLAY PLAQUE CARDS IN 3 COLUMNS MATCHING REFERENCE */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
               {whyChooseCards.map((card) => {
                 const IconComp = card.icon;
                 return (
                   <div
                     key={card.id}
-                    className="bg-[#FFFDF8] backdrop-blur-md rounded-2xl border-2 border-[#F2A000]/40 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group border-t-white"
+                    className={`relative flex flex-col justify-between rounded-3xl border-[3.5px] border-[#F2A000] shadow-2xl transition-all duration-300 hover:-translate-y-2 group overflow-hidden ${
+                      card.isLightGold
+                        ? 'bg-gradient-to-b from-[#FFFDF8] via-[#FFEED4]/80 to-[#FFF7E5]'
+                        : 'bg-gradient-to-b from-[#FFFFFF] via-[#FFFDF8] to-[#FFF9EF]'
+                    }`}
                   >
+                    {/* Inner Gold Bevel Accent */}
+                    <div className="absolute inset-0 rounded-[21px] border border-[#FFE29A] pointer-events-none z-20 opacity-80" />
+
                     {/* Main Card Content */}
-                    <div className="flex items-start flex-1 p-5 gap-4">
+                    <div className="flex items-center flex-1 p-5 sm:p-6 gap-4 sm:gap-5 relative z-10">
                       
-                      {/* Left Column: 3D Metallic Gold Chess Piece */}
-                      <div className="w-16 sm:w-20 shrink-0 self-stretch flex flex-col items-center justify-center p-2 rounded-xl bg-gradient-to-b from-[#FFF7EA] via-[#FFEED4]/80 to-[#FFF7EA] border border-[#F2A000]/30 shadow-xs group-hover:scale-105 transition-transform duration-300">
-                        <ChessPieceIcon type={card.pieceType} className="w-10 h-16 text-[#D98A00]" />
+                      {/* Left Column: Prominent 3D Metallic Gold Chess Piece Sculpture */}
+                      <div className="w-20 sm:w-24 shrink-0 flex flex-col items-center justify-center p-2 rounded-2xl bg-gradient-to-b from-[#FFEED4]/90 via-[#FFF9EF] to-[#FFE8AB]/90 border-2 border-[#F2A000]/40 shadow-md group-hover:scale-105 transition-transform duration-300">
+                        <GoldChessPiece3D piece={card.pieceType} className="w-14 h-22 sm:w-16 sm:h-24 drop-shadow-md" />
                       </div>
 
+                      {/* Vertical Gold Molded Separator Line */}
+                      <div className="w-[2px] self-stretch bg-gradient-to-b from-transparent via-[#F2A000]/50 to-transparent shrink-0" />
+
                       {/* Right Column: Icon Badge, Heading, and Description */}
-                      <div className="flex-1 flex flex-col justify-start text-left space-y-2">
+                      <div className="flex-1 flex flex-col justify-center text-left space-y-2 py-1">
                         
-                        {/* Icon Badge */}
-                        <div className="w-8 h-8 rounded-lg bg-[#FFEED4] border border-[#F2A000]/40 flex items-center justify-center text-[#D98A00] shadow-xs">
-                          <IconComp className="w-4 h-4" />
+                        {/* Small Gold Icon Badge */}
+                        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FFE8AB] to-[#F2A000]/40 border border-[#F2A000]/60 flex items-center justify-center text-[#10264B] shadow-sm">
+                          <IconComp className="w-4 h-4 text-[#0A1D37]" />
                         </div>
 
                         {/* Heading */}
-                        <h3 className="font-serif font-extrabold text-base sm:text-lg text-[#10264B] leading-snug">
+                        <h3 className="font-serif font-extrabold text-lg sm:text-xl text-[#10264B] leading-tight tracking-tight pt-0.5">
                           {card.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-xs sm:text-sm text-[#25334A]/85 font-medium leading-relaxed">
+                        <p className="text-xs sm:text-sm text-[#25334A]/90 font-medium leading-relaxed">
                           {card.description}
                         </p>
 
@@ -361,12 +402,16 @@ export const AboutPage: React.FC = () => {
 
                     </div>
 
-                    {/* Bottom Base: Checkerboard Strip matching reference image */}
-                    <div className="grid grid-cols-8 h-3.5 w-full border-t border-[#F2A000]/30 bg-[#FFF5E5] shrink-0">
+                    {/* Bottom Base: 3D Bevelled Gold Checkerboard Tile Strip */}
+                    <div className="grid grid-cols-8 h-4 w-full border-t-2 border-[#F2A000] bg-[#FFF5E5] shrink-0 relative z-10">
                       {[...Array(8)].map((_, i) => (
                         <div
                           key={i}
-                          className={i % 2 === 0 ? 'bg-[#FFE29A]/70' : 'bg-[#FFFDF8]'}
+                          className={`h-full border-r border-[#F2A000]/20 ${
+                            i % 2 === 0
+                              ? 'bg-gradient-to-b from-[#FFE8AB] to-[#F2A000]/60'
+                              : 'bg-gradient-to-b from-[#FFFFFF] to-[#FFFDF8]'
+                          }`}
                         />
                       ))}
                     </div>
