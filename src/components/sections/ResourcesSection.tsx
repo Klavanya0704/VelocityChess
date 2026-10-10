@@ -12,13 +12,13 @@ export const ResourcesSection: React.FC = () => {
       title: 'Chess Guides & Tactics',
       description: 'Opening strategies, tactical puzzles, endgame guides, and expert chess tips to improve your game.',
       image: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=800',
-      icon: <BookOpen className="w-5 h-5 text-[#FFE29A]" />,
+      icon: <BookOpen className="w-5 h-5 text-[#D98A00]" />,
       rotationClass: 'rotate-[-2deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10',
       // Card 1 SVG Silhouette: Top edge slopes up right, wave divider dips in center
       outerPath: "M 15 45 C 15 25, 35 20, 60 15 L 280 5 C 300 2, 325 8, 325 28 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
       innerBorderPath: "M 18 47 C 18 29, 36 23, 61 18 L 278 8 C 297 5, 321 11, 321 29 L 321 347 C 321 362, 305 372, 288 372 L 52 372 C 35 372, 18 362, 18 347 Z",
       imageClipPath: "M 15 45 C 15 25, 35 20, 60 15 L 280 5 C 300 2, 325 8, 325 28 L 325 180 C 265 205, 215 210, 170 210 C 125 210, 75 195, 15 175 Z",
-      navyPanelPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
+      creamPanelPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
       dividerPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180",
       badgeTop: "top-[48%]",
       badgeLeft: "top-[2px] left-[6px]"
@@ -29,13 +29,13 @@ export const ResourcesSection: React.FC = () => {
       title: 'Study Materials',
       description: 'Practice worksheets, chess notation, downloadable notes, and structured learning resources.',
       image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?auto=format&fit=crop&q=80&w=800',
-      icon: <FileText className="w-5 h-5 text-[#FFE29A]" />,
+      icon: <FileText className="w-5 h-5 text-[#D98A00]" />,
       rotationClass: 'rotate-0 md:scale-[1.02] hover:scale-[1.04] transition-all duration-300 z-20',
       // Card 2 SVG Silhouette: Arch top crown, symmetrical center U-dip wave
       outerPath: "M 15 30 C 15 15, 45 8, 170 4 C 295 8, 325 15, 325 30 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
       innerBorderPath: "M 18 32 C 18 18, 47 11, 170 7 C 292 11, 321 18, 321 32 L 321 347 C 321 362, 305 372, 288 372 L 52 372 C 35 372, 18 362, 18 347 Z",
       imageClipPath: "M 15 30 C 15 15, 45 8, 170 4 C 295 8, 325 15, 325 30 L 325 170 C 265 175, 220 210, 170 210 C 120 210, 75 175, 15 170 Z",
-      navyPanelPath: "M 15 170 C 75 175, 120 210, 170 210 C 220 210, 265 175, 325 170 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
+      creamPanelPath: "M 15 170 C 75 175, 120 210, 170 210 C 220 210, 265 175, 325 170 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
       dividerPath: "M 15 170 C 75 175, 120 210, 170 210 C 220 210, 265 175, 325 170",
       badgeTop: "top-[48%]",
       badgeLeft: "top-[0px] left-[6px]"
@@ -46,13 +46,13 @@ export const ResourcesSection: React.FC = () => {
       title: 'Videos & Game Analysis',
       description: 'Chess lessons, recorded games, strategy explanations, and in-depth analysis from experts.',
       image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?auto=format&fit=crop&q=80&w=800',
-      icon: <Play className="w-5 h-5 text-[#FFE29A] ml-0.5 fill-[#FFE29A]" />,
+      icon: <Play className="w-5 h-5 text-[#D98A00] ml-0.5 fill-[#D98A00]" />,
       rotationClass: 'rotate-[2deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10',
       // Card 3 SVG Silhouette: Top edge slopes down right, wave divider slopes up right
       outerPath: "M 15 10 C 15 2, 40 2, 60 5 L 280 22 C 300 26, 325 32, 325 48 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
       innerBorderPath: "M 18 12 C 18 5, 41 4, 61 7 L 278 24 C 297 28, 321 34, 321 49 L 321 347 C 321 362, 305 372, 288 372 L 52 372 C 35 372, 18 362, 18 347 Z",
       imageClipPath: "M 15 10 C 15 2, 40 2, 60 5 L 280 22 C 300 26, 325 32, 325 48 L 325 180 C 265 205, 215 210, 170 210 C 125 210, 75 195, 15 175 Z",
-      navyPanelPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
+      creamPanelPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
       dividerPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180",
       badgeTop: "top-[48%]",
       badgeLeft: "top-[4px] left-[6px]"
@@ -100,7 +100,7 @@ export const ResourcesSection: React.FC = () => {
 
         </div>
 
-        {/* 3. THREE ASYMMETRICAL ORGANIC SILHOUETTE CARDS */}
+        {/* 3. THREE ASYMMETRICAL LIGHT CREAM & GOLD CHESS CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto py-2 px-2 items-stretch">
           {resourceCards.map((card) => (
             <div
@@ -109,7 +109,7 @@ export const ResourcesSection: React.FC = () => {
             >
               
               {/* GOLD CIRCULAR NUMBER BADGE (01, 02, 03) MOUNTED TOP-LEFT OVERLAY */}
-              <div className={`absolute ${card.badgeLeft} w-8.5 h-8.5 rounded-full bg-gradient-to-br from-[#FFF5DC] via-[#FFE29A] to-[#D48F00] text-[#10264B] font-serif font-extrabold text-xs sm:text-sm flex items-center justify-center border-2 border-white shadow-lg z-30`}>
+              <div className={`absolute ${card.badgeLeft} w-8.5 h-8.5 rounded-full bg-gradient-to-br from-[#FFEED4] via-[#FFE29A] to-[#F2A000] text-[#10264B] font-serif font-extrabold text-xs sm:text-sm flex items-center justify-center border-2 border-white shadow-md z-30`}>
                 {card.number}
               </div>
 
@@ -132,7 +132,7 @@ export const ResourcesSection: React.FC = () => {
                   {/* Inner Light Gold Accent Line */}
                   <linearGradient id={`gold-inner-${card.id}`} x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" stopColor="#FFF2D4" stopOpacity="0.9" />
-                    <stop offset="100%" stopColor="#FFE29A" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#FFE29A" stopOpacity="0.6" />
                   </linearGradient>
 
                   {/* Upper Image ClipPath */}
@@ -142,8 +142,8 @@ export const ResourcesSection: React.FC = () => {
 
                   {/* Checkerboard Pattern for Bottom-Right Corner Accent */}
                   <pattern id={`checker-${card.id}`} width="12" height="12" patternUnits="userSpaceOnUse">
-                    <rect width="6" height="6" fill="#F2A000" fillOpacity="0.12" />
-                    <rect x="6" y="6" width="6" height="6" fill="#F2A000" fillOpacity="0.12" />
+                    <rect width="6" height="6" fill="#F2A000" fillOpacity="0.16" />
+                    <rect x="6" y="6" width="6" height="6" fill="#F2A000" fillOpacity="0.16" />
                   </pattern>
                 </defs>
 
@@ -157,26 +157,26 @@ export const ResourcesSection: React.FC = () => {
                     height="220"
                     preserveAspectRatio="xMidYMid slice"
                   />
-                  {/* Subtle darkening gradient at image bottom for contrast */}
-                  <rect x="0" y="140" width="340" height="80" fill="url(#image-fade)" fillOpacity="0.3" />
+                  {/* Subtle soft gradient over image bottom */}
+                  <rect x="0" y="140" width="340" height="80" fill="url(#image-fade)" fillOpacity="0.15" />
                 </g>
 
-                {/* 2. Deep Navy Lower Content Panel */}
+                {/* 2. Warm Ivory/Cream Lower Content Panel (No dark navy fill) */}
                 <path
-                  d={card.navyPanelPath}
-                  fill="#10264B"
-                  className="drop-shadow-2xl"
+                  d={card.creamPanelPath}
+                  fill="#FFFDF8"
+                  className="drop-shadow-xl"
                 />
 
-                {/* Bottom Right Chess Checkered Accent overlay inside Navy panel */}
-                <g clipPath={`url(#upper-navy-clip-${card.id})`}>
+                {/* Bottom Right Chess Checkered Accent overlay inside Cream panel */}
+                <g>
                   <rect x="230" y="300" width="95" height="76" fill={`url(#checker-${card.id})`} />
                 </g>
 
                 {/* 3. Gold Sculpted Wave Divider Line */}
                 <path
                   d={card.dividerPath}
-                  stroke="url(#gold-stroke-${card.id})"
+                  stroke={`url(#gold-stroke-${card.id})`}
                   strokeWidth="3.5"
                   fill="none"
                 />
@@ -202,15 +202,16 @@ export const ResourcesSection: React.FC = () => {
               </svg>
 
               {/* GOLD CIRCULAR ICON BADGE MOUNTED AT WAVE BOUNDARY CENTER */}
-              <div className={`absolute ${card.badgeTop} left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#10264B] border-2 border-[#FFE29A] shadow-xl flex items-center justify-center z-30 group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`absolute ${card.badgeTop} left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#FFF5E5] border-2 border-[#F2A000] shadow-md flex items-center justify-center z-30 group-hover:scale-110 transition-transform duration-300`}>
                 {card.icon}
               </div>
 
-              {/* NAVY PANEL CONTENT AREA */}
-              <div className="relative z-20 flex flex-col justify-end h-full pt-[52%] px-5 pb-5 text-center text-white">
+              {/* WARM CREAM PANEL CONTENT AREA (LIGHT THEME) */}
+              <div className="relative z-20 flex flex-col justify-end h-full pt-[52%] px-5 pb-5 text-center text-[#10264B]">
                 <div className="space-y-1.5 mb-3">
-                  {/* Title */}
-                  <h3 className="font-serif font-extrabold text-lg sm:text-xl text-[#FFE29A] leading-snug">
+                  
+                  {/* Title in Dark Navy Serif */}
+                  <h3 className="font-serif font-extrabold text-lg sm:text-xl text-[#10264B] leading-snug">
                     {card.title}
                   </h3>
 
@@ -221,22 +222,24 @@ export const ResourcesSection: React.FC = () => {
                     <div className="w-6 h-[1.5px] bg-[#F2A000]" />
                   </div>
 
-                  {/* Description */}
-                  <p className="text-[11px] sm:text-xs font-medium text-gray-200 leading-relaxed px-1">
+                  {/* Description in Dark Slate Navy */}
+                  <p className="text-xs sm:text-sm font-medium text-[#25334A]/85 leading-relaxed px-1">
                     {card.description}
                   </p>
+
                 </div>
 
-                {/* Cream / Gold Pill Button */}
+                {/* Gold Gradient Pill Button */}
                 <div>
                   <button
                     onClick={() => navigate('/resources')}
-                    className="w-full py-2.5 px-4 rounded-full bg-[#FFE29A] hover:bg-white text-[#10264B] font-extrabold text-xs sm:text-sm flex items-center justify-center space-x-2 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+                    className="w-full py-2.5 px-4 rounded-full bg-gradient-to-r from-[#FFE8AB] via-[#F2A000] to-[#E59400] text-[#10264B] font-extrabold text-xs sm:text-sm flex items-center justify-center space-x-2 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300 border border-white/60"
                   >
                     <span>Explore Resources</span>
                     <ArrowRight className="w-4 h-4 text-[#10264B]" />
                   </button>
                 </div>
+
               </div>
 
             </div>
