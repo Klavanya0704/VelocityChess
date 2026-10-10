@@ -108,134 +108,84 @@ export const ProgramsSection: React.FC = () => {
 
         </div>
 
-        {/* 3. FOUR SCULPTED CHESS CARDS WITH CHESS KING CROSS CROWN SILHOUETTES */}
+        {/* 3. FOUR SCULPTED CHESS CARDS WITH ZERO OVERLAP */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {programCards.map((card) => (
             <div
               key={card.id}
-              className="relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 group min-h-[500px] sm:min-h-[520px]"
+              className={`relative flex flex-col justify-between h-full rounded-[28px] overflow-hidden border-2 border-[#F2A000] shadow-xl transition-all duration-300 hover:-translate-y-2 group ${
+                card.isNavy ? 'bg-[#10264B] text-white' : 'bg-[#FFFDF8] text-[#10264B]'
+              }`}
             >
               
-              {/* INTEGRATED CHESS KING SVG LAYER (Background Fill, Cross Crown Finial, Clipped Photo & Metallic Gold Borders) */}
-              <svg
-                className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
-                viewBox="0 0 300 520"
-                preserveAspectRatio="none"
-                fill="none"
-              >
-                <defs>
-                  {/* Dedicated ClipPath matching the upper King Crown Arch (cross crown top at y=6..24, shoulders down to y=210) */}
-                  <clipPath id={`king-photo-clip-${card.id}`}>
-                    <path d="M 145 24 C 185 28, 245 52, 286 115 L 286 210 C 200 220, 100 220, 14 210 L 14 115 C 55 52, 115 28, 145 24 Z" />
-                  </clipPath>
-                  
-                  {/* 3D Soft Shadow Filter */}
-                  <filter id={`king-shadow-${card.id}`} x="-10%" y="-5%" width="120%" height="115%">
-                    <feDropShadow dx="0" dy="10" stdDeviation="12" floodColor="#071A38" floodOpacity="0.2" />
-                  </filter>
-                </defs>
+              {/* DEDICATED UPPER IMAGE HEADER CONTAINER (h-[200px] sm:h-[210px]) */}
+              <div className="relative w-full h-[200px] sm:h-[210px] shrink-0 bg-transparent overflow-hidden">
+                <svg
+                  viewBox="0 0 300 210"
+                  className="w-full h-full pointer-events-none absolute inset-0 z-10"
+                  preserveAspectRatio="none"
+                  fill="none"
+                >
+                  <defs>
+                    <clipPath id={`card-photo-clip-${card.id}`}>
+                      <path d="M 150 8 C 185 14, 245 32, 286 85 L 286 202 C 200 212, 100 212, 14 202 L 14 85 C 55 32, 115 14, 150 8 Z" />
+                    </clipPath>
+                  </defs>
 
-                {/* 1. Main Sculpted King Card Background Fill with Cross Crown Finial */}
-                <path
-                  d="M 150 6 
-                     L 155 6 L 155 12 L 161 12 L 161 18 L 155 18 L 155 24 
-                     C 185 28, 245 52, 286 115 
-                     L 286 480 
-                     C 286 502, 268 514, 240 514 
-                     L 60 514 
-                     C 32 514, 14 502, 14 480 
-                     L 14 115 
-                     C 55 52, 115 28, 145 24 
-                     L 145 18 L 139 18 L 139 12 L 145 12 L 145 6 Z"
-                  fill={card.isNavy ? '#10264B' : '#FFFDF8'}
-                  filter={`url(#king-shadow-${card.id})`}
-                />
+                  {/* Program Photo Clipped inside Upper Arch Silhouette */}
+                  <g clipPath={`url(#card-photo-clip-${card.id})`}>
+                    <image
+                      href={card.image}
+                      x="0"
+                      y="0"
+                      width="300"
+                      height="210"
+                      preserveAspectRatio="xMidYMid slice"
+                    />
+                  </g>
 
-                {/* 2. Program Image Clipped Directly to Upper King Arch Silhouette */}
-                <g clipPath={`url(#king-photo-clip-${card.id})`}>
-                  <image
-                    href={card.image}
-                    x="0"
-                    y="0"
-                    width="300"
-                    height="225"
-                    preserveAspectRatio="xMidYMid slice"
+                  {/* Upper Gold Arch Outline Accent */}
+                  <path
+                    d="M 150 8 C 185 14, 245 32, 286 85 L 286 202 L 14 202 L 14 85 C 55 32, 115 14, 150 8 Z"
+                    fill="none"
+                    stroke="#F2A000"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
                   />
-                </g>
 
-                {/* 3. Gold Sculpted Divider Line at Photo Bottom */}
-                <path
-                  d="M 14 210 C 100 222, 200 222, 286 210"
-                  stroke="#F2A000"
-                  strokeWidth="3"
-                  fill="none"
-                />
+                  {/* Gold Bottom Curved Divider Line */}
+                  <path
+                    d="M 14 202 C 100 212, 200 212, 286 202"
+                    fill="none"
+                    stroke="#F2A000"
+                    strokeWidth="3"
+                  />
+                </svg>
+              </div>
 
-                {/* 4. Outer Metallic Gold Border tracing entire King Silhouette & Cross Crown */}
-                <path
-                  d="M 150 6 
-                     L 155 6 L 155 12 L 161 12 L 161 18 L 155 18 L 155 24 
-                     C 185 28, 245 52, 286 115 
-                     L 286 480 
-                     C 286 502, 268 514, 240 514 
-                     L 60 514 
-                     C 32 514, 14 502, 14 480 
-                     L 14 115 
-                     C 55 52, 115 28, 145 24 
-                     L 145 18 L 139 18 L 139 12 L 145 12 L 145 6 Z"
-                  fill="none"
-                  stroke="#F2A000"
-                  strokeWidth="4"
-                  strokeLinejoin="round"
-                />
-
-                {/* 5. Inner Highlight Gold Stroke */}
-                <path
-                  d="M 150 8 
-                     L 153 8 L 153 14 L 159 14 L 159 16 L 153 16 L 153 22 
-                     C 183 26, 243 50, 282 113 
-                     L 282 478 
-                     C 282 498, 266 508, 238 508 
-                     L 62 508 
-                     C 34 508, 18 498, 18 478 
-                     L 18 113 
-                     C 57 50, 117 26, 147 22 
-                     L 147 16 L 141 16 L 141 14 L 147 14 L 147 8 Z"
-                  fill="none"
-                  stroke="#FFE29A"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.85"
-                  strokeLinejoin="round"
-                />
-              </svg>
-
-              {/* CARD HTML CONTENT LAYER (Positioned safely below y=210 image boundary) */}
-              <div
-                className={`relative flex flex-col justify-between h-full pt-[68%] px-4 sm:px-5 pb-5 z-20 ${
-                  card.isNavy ? 'text-white' : 'text-[#10264B]'
-                }`}
-              >
+              {/* DEDICATED LOWER CARD BODY (POSITIONED STRICTLY BELOW THE 210px IMAGE HEADER IN NORMAL FLEX FLOW) */}
+              <div className="relative z-20 flex flex-col justify-between flex-1 p-5 pt-3">
+                
+                {/* Title & Description Block */}
                 <div>
-                  {/* Card Title & Description */}
-                  <div className="text-center pt-2 mb-3">
-                    <h3
-                      className={`font-serif font-extrabold text-lg sm:text-xl lg:text-[22px] leading-tight mb-2 ${
-                        card.isNavy ? 'text-[#FFE8AB]' : 'text-[#10264B]'
-                      }`}
-                    >
-                      {card.title}
-                    </h3>
-                    <p
-                      className={`text-xs sm:text-sm text-center font-medium leading-relaxed mb-4 min-h-[40px] ${
-                        card.isNavy ? 'text-gray-200' : 'text-[#25334A]/85'
-                      }`}
-                    >
-                      {card.description}
-                    </p>
-                  </div>
+                  <h3
+                    className={`font-serif font-extrabold text-lg sm:text-xl lg:text-[22px] text-center leading-tight mb-2 ${
+                      card.isNavy ? 'text-[#FFE8AB]' : 'text-[#10264B]'
+                    }`}
+                  >
+                    {card.title}
+                  </h3>
+                  
+                  <p
+                    className={`text-xs sm:text-sm text-center font-medium leading-relaxed mb-4 min-h-[40px] flex items-center justify-center ${
+                      card.isNavy ? 'text-gray-200' : 'text-[#25334A]/85'
+                    }`}
+                  >
+                    {card.description}
+                  </p>
 
                   {/* Benefits Checklist */}
-                  <div className="space-y-2 border-t border-current/15 pt-3 mb-5">
+                  <div className="space-y-2 border-t border-current/15 pt-3.5 mb-5">
                     {card.benefits.map((benefit, idx) => (
                       <div key={idx} className="flex items-center space-x-2.5 text-xs sm:text-sm font-semibold leading-tight">
                         <CheckCircle2 className="w-4 h-4 text-[#F2A000] shrink-0 fill-[#F2A000]/20" />
