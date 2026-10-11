@@ -317,7 +317,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Right Sub-Column: Real Academy Student Photograph (Full Height, Matching Reference) */}
-            <div className="sm:col-span-5 relative min-h-[220px] sm:min-h-full overflow-hidden bg-slate-900">
+            <div className="sm:col-span-5 relative min-h-[160px] sm:min-h-full overflow-hidden bg-slate-900">
               <img
                 src="/assets/contact_student_learning.jpg"
                 alt="Velocity Chess Academy Student in Training"
@@ -624,7 +624,7 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Column 3 — Academy Highlights (Convenient Access, Meet Our Team, Experience Facilities) */}
-          <div className="lg:col-span-5 grid grid-cols-3 gap-2 text-left border-t lg:border-t-0 lg:border-l border-[#EBD7B2]/40 pt-2 lg:pt-0 lg:pl-4">
+          <div className="lg:col-span-5 grid grid-cols-1 xs:grid-cols-3 gap-2 text-left border-t lg:border-t-0 lg:border-l border-[#EBD7B2]/40 pt-2 lg:pt-0 lg:pl-4">
             
             {/* Highlight 1: Convenient Access */}
             <div className="space-y-0.5">

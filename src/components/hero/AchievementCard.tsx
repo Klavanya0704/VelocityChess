@@ -59,7 +59,7 @@ export const AchievementCard: React.FC = () => {
       onMouseLeave={() => setIsHovered(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className="glass-card rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 xl:p-4.5 w-full max-w-[340px] sm:max-w-[370px] lg:max-w-[395px] xl:max-w-[420px] relative z-20 transition-all duration-300 hover:shadow-2xl border border-white/90 shadow-xl"
+      className="glass-card rounded-2xl sm:rounded-3xl p-2.5 xs:p-3 sm:p-3.5 lg:p-4 xl:p-4.5 w-full max-w-[320px] xs:max-w-[340px] sm:max-w-[370px] lg:max-w-[395px] xl:max-w-[420px] relative z-20 transition-all duration-300 hover:shadow-2xl border border-white/90 shadow-xl"
     >
       {/* 1. Header Row */}
       <div className="flex items-center justify-between mb-1.5 sm:mb-2 border-b border-[#F2A000]/25 pb-1.5 sm:pb-2">
@@ -116,7 +116,7 @@ export const AchievementCard: React.FC = () => {
       </AnimatePresence>
 
       {/* 3. Main Featured Carousel Image */}
-      <div className="relative h-[140px] sm:h-[155px] lg:h-[165px] xl:h-[175px] w-full rounded-2xl overflow-hidden mb-1.5 sm:mb-2 bg-[#FFEED4] border border-white/70 shadow-sm group/img">
+      <div className="relative h-[125px] xs:h-[140px] sm:h-[155px] lg:h-[165px] xl:h-[175px] w-full rounded-2xl overflow-hidden mb-1.5 sm:mb-2 bg-[#FFEED4] border border-white/70 shadow-sm group/img">
         <AnimatePresence mode="wait" initial={false}>
           <motion.img
             key={currentAchievement.imageUrl}
@@ -162,7 +162,7 @@ export const AchievementCard: React.FC = () => {
                 e.stopPropagation();
                 setCurrentIndex(idx);
               }}
-              className={`relative h-[40px] sm:h-[44px] lg:h-[48px] xl:h-[52px] w-full rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
+              className={`relative h-[36px] xs:h-[40px] sm:h-[44px] lg:h-[48px] xl:h-[52px] w-full rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
                 isSelected
                   ? 'border-[#F2A000] ring-2 ring-[#F2A000]/40 scale-[1.03] shadow-md opacity-100'
                   : 'border-white/60 opacity-70 hover:opacity-100 hover:scale-[1.01]'

@@ -155,7 +155,7 @@ export const AchievementsPage: React.FC = () => {
             <span>VELOCITY HALL OF FAME</span>
           </div>
 
-          <h1 className="font-serif font-extrabold text-4xl sm:text-5xl md:text-6xl text-[#10264A] drop-shadow-xs">
+          <h1 className="font-serif font-extrabold text-3xl sm:text-5xl md:text-6xl text-[#10264A] drop-shadow-xs">
             Our <span className="text-[#E5A51B]">Achievements</span>
           </h1>
 
@@ -171,7 +171,7 @@ export const AchievementsPage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[280px]">
               
               {/* LEFT CONTENT AREA */}
-              <div className="p-8 sm:p-10 lg:col-span-7 flex flex-col justify-center space-y-4 order-2 lg:order-1">
+              <div className="p-5 sm:p-10 lg:col-span-7 flex flex-col justify-center space-y-3 sm:space-y-4 order-2 lg:order-1">
                 <div>
                   <span className="px-3.5 py-1.5 bg-[#E5A51B] text-[#071A38] text-[11px] font-extrabold uppercase tracking-wider rounded-full shadow-xs inline-block">
                     {spotlightAchievement.badge}
@@ -198,7 +198,7 @@ export const AchievementsPage: React.FC = () => {
               </div>
 
               {/* RIGHT PHOTO VISUAL AREA */}
-              <div className="relative p-6 sm:p-8 lg:col-span-5 flex items-center justify-center order-1 lg:order-2 bg-gradient-to-br from-[#FFF8EE]/60 to-[#FFF4E0]/60">
+              <div className="relative p-4 sm:p-8 lg:col-span-5 flex items-center justify-center order-1 lg:order-2 bg-gradient-to-br from-[#FFF8EE]/60 to-[#FFF4E0]/60">
                 
                 {/* Photo frame with gold border */}
                 <div
@@ -258,10 +258,10 @@ export const AchievementsPage: React.FC = () => {
               <div
                 key={item.id}
                 onClick={() => setActivePhotoIndex(idx)}
-                className="bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden border-2 border-[#E5A51B]/35 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer text-left"
+                className="bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden border-2 border-[#E5A51B]/35 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer text-left w-full max-w-[320px] xs:max-w-[340px] sm:max-w-none mx-auto"
               >
                 {/* Photo Container */}
-                <div className="relative aspect-[4/3] w-full bg-[#10264B]/5 z-10">
+                <div className="relative aspect-[16/11] sm:aspect-[4/3] w-full bg-[#10264B]/5 z-10">
                   <div className="w-full h-full overflow-hidden relative">
                     <img
                       src={item.imageUrl}

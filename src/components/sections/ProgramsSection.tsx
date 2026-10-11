@@ -89,7 +89,7 @@ export const ProgramsSection: React.FC = () => {
           </div>
 
           {/* Main Heading matching reference exactly */}
-          <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-[48px] leading-[1.1] tracking-tight">
+          <h2 className="font-serif font-extrabold text-2xl sm:text-4xl lg:text-[48px] leading-[1.1] tracking-tight">
             <span className="text-[#10264B]">Learn. Practice. Compete. </span>
             <span className="relative inline-block font-serif text-[#E99A00]">
               Grow.
@@ -113,7 +113,7 @@ export const ProgramsSection: React.FC = () => {
           {programCards.map((card) => (
             <div
               key={card.id}
-              className="relative w-full max-w-[320px] sm:max-w-none mx-auto aspect-[310/530] transition-all duration-300 hover:-translate-y-2 group"
+              className="relative w-full max-w-[280px] xs:max-w-[310px] sm:max-w-none mx-auto aspect-[310/530] transition-all duration-300 hover:-translate-y-2 group"
             >
               {/* VECTOR SVG CHESS ROOK (CASTLE PIECE) SILHOUETTE & BORDER FRAME */}
               <svg

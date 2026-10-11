@@ -197,63 +197,63 @@ export const AchievementsSection: React.FC = () => {
         </div>
 
         {/* 3. ACHIEVEMENT STATISTICS ROW */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 lg:gap-5 mb-10 sm:mb-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5 mb-10 sm:mb-12 max-w-5xl mx-auto">
           
           {/* Stat 1 */}
-          <div className="bg-[#FFF8EE]/90 backdrop-blur-md rounded-2xl border border-[#F2A000]/30 p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] flex items-center justify-center text-[#10264B] shadow-sm shrink-0 border border-white">
-              <Trophy className="w-5 h-5 text-[#10264B]" />
+          <div className="bg-[#FFF8EE]/90 backdrop-blur-md rounded-2xl border border-[#F2A000]/30 p-2.5 xs:p-3 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2 xs:space-x-3">
+            <div className="w-8 xs:w-9 sm:w-10 h-8 xs:h-9 sm:h-10 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] flex items-center justify-center text-[#10264B] shadow-sm shrink-0 border border-white">
+              <Trophy className="w-4 xs:w-4.5 sm:w-5 h-4 xs:h-4.5 sm:h-5 text-[#10264B]" />
             </div>
-            <div>
-              <div className="font-serif font-extrabold text-xl sm:text-2xl text-[#10264B] leading-none mb-1">
+            <div className="min-w-0">
+              <div className="font-serif font-extrabold text-lg xs:text-xl sm:text-2xl text-[#10264B] leading-none mb-1">
                 500+
               </div>
-              <div className="text-[10.5px] sm:text-xs font-semibold text-[#25334A]/80 uppercase tracking-wider leading-tight">
+              <div className="text-[9.5px] xs:text-[10.5px] sm:text-xs font-semibold text-[#25334A]/80 uppercase tracking-wider leading-tight truncate">
                 Students Trained
               </div>
             </div>
           </div>
 
           {/* Stat 2 */}
-          <div className="bg-[#FFF8EE]/90 backdrop-blur-md rounded-2xl border border-[#F2A000]/30 p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] flex items-center justify-center text-[#10264B] shadow-sm shrink-0 border border-white">
-              <Medal className="w-5 h-5 text-[#10264B]" />
+          <div className="bg-[#FFF8EE]/90 backdrop-blur-md rounded-2xl border border-[#F2A000]/30 p-2.5 xs:p-3 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2 xs:space-x-3">
+            <div className="w-8 xs:w-9 sm:w-10 h-8 xs:h-9 sm:h-10 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] flex items-center justify-center text-[#10264B] shadow-sm shrink-0 border border-white">
+              <Medal className="w-4 xs:w-4.5 sm:w-5 h-4 xs:h-4.5 sm:h-5 text-[#10264B]" />
             </div>
-            <div>
-              <div className="font-serif font-extrabold text-xl sm:text-2xl text-[#10264B] leading-none mb-1">
+            <div className="min-w-0">
+              <div className="font-serif font-extrabold text-lg xs:text-xl sm:text-2xl text-[#10264B] leading-none mb-1">
                 150+
               </div>
-              <div className="text-[10.5px] sm:text-xs font-semibold text-[#25334A]/80 uppercase tracking-wider leading-tight">
+              <div className="text-[9.5px] xs:text-[10.5px] sm:text-xs font-semibold text-[#25334A]/80 uppercase tracking-wider leading-tight truncate">
                 Tournament Wins
               </div>
             </div>
           </div>
 
           {/* Stat 3 */}
-          <div className="bg-[#FFF8EE]/90 backdrop-blur-md rounded-2xl border border-[#F2A000]/30 p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] flex items-center justify-center text-[#10264B] shadow-sm shrink-0 border border-white">
-              <Users className="w-5 h-5 text-[#10264B]" />
+          <div className="bg-[#FFF8EE]/90 backdrop-blur-md rounded-2xl border border-[#F2A000]/30 p-2.5 xs:p-3 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2 xs:space-x-3">
+            <div className="w-8 xs:w-9 sm:w-10 h-8 xs:h-9 sm:h-10 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] flex items-center justify-center text-[#10264B] shadow-sm shrink-0 border border-white">
+              <Users className="w-4 xs:w-4.5 sm:w-5 h-4 xs:h-4.5 sm:h-5 text-[#10264B]" />
             </div>
-            <div>
-              <div className="font-serif font-extrabold text-xl sm:text-2xl text-[#10264B] leading-none mb-1">
+            <div className="min-w-0">
+              <div className="font-serif font-extrabold text-lg xs:text-xl sm:text-2xl text-[#10264B] leading-none mb-1">
                 50+
               </div>
-              <div className="text-[10.5px] sm:text-xs font-semibold text-[#25334A]/80 uppercase tracking-wider leading-tight">
+              <div className="text-[9.5px] xs:text-[10.5px] sm:text-xs font-semibold text-[#25334A]/80 uppercase tracking-wider leading-tight truncate">
                 Champions
               </div>
             </div>
           </div>
 
           {/* Stat 4 */}
-          <div className="bg-[#FFF8EE]/90 backdrop-blur-md rounded-2xl border border-[#F2A000]/30 p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] flex items-center justify-center text-[#10264B] shadow-sm shrink-0 border border-white">
-              <Award className="w-5 h-5 text-[#10264B]" />
+          <div className="bg-[#FFF8EE]/90 backdrop-blur-md rounded-2xl border border-[#F2A000]/30 p-2.5 xs:p-3 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2 xs:space-x-3">
+            <div className="w-8 xs:w-9 sm:w-10 h-8 xs:h-9 sm:h-10 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] flex items-center justify-center text-[#10264B] shadow-sm shrink-0 border border-white">
+              <Award className="w-4 xs:w-4.5 sm:w-5 h-4 xs:h-4.5 sm:h-5 text-[#10264B]" />
             </div>
-            <div>
-              <div className="font-serif font-extrabold text-xl sm:text-2xl text-[#10264B] leading-none mb-1">
+            <div className="min-w-0">
+              <div className="font-serif font-extrabold text-lg xs:text-xl sm:text-2xl text-[#10264B] leading-none mb-1">
                 20+
               </div>
-              <div className="text-[10.5px] sm:text-xs font-semibold text-[#25334A]/80 uppercase tracking-wider leading-tight">
+              <div className="text-[9.5px] xs:text-[10.5px] sm:text-xs font-semibold text-[#25334A]/80 uppercase tracking-wider leading-tight truncate">
                 State & National Reps
               </div>
             </div>
@@ -296,10 +296,10 @@ export const AchievementsSection: React.FC = () => {
                 <div
                   key={`${card.id}-${idx}`}
                   onClick={() => setActiveModalIndex(originalIndex)}
-                  className="bg-white/95 rounded-3xl overflow-hidden border-2 border-[#F2A000]/35 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group text-left cursor-pointer"
+                  className="bg-white/95 rounded-3xl overflow-hidden border-2 border-[#F2A000]/35 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group text-left cursor-pointer w-full max-w-[320px] xs:max-w-[340px] sm:max-w-none mx-auto"
                 >
                   {/* Photo Section with Object-Cover and Precise Focal Point Positioning */}
-                  <div className="relative aspect-[4/3] w-full bg-[#10264B]/10 z-10">
+                  <div className="relative aspect-[16/11] sm:aspect-[4/3] w-full bg-[#10264B]/10 z-10">
                     <div className="w-full h-full overflow-hidden relative">
                       <img
                         src={card.imageUrl}

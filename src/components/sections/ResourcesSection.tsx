@@ -13,7 +13,7 @@ export const ResourcesSection: React.FC = () => {
       description: 'Opening strategies, tactical puzzles, endgame guides, and expert chess tips to improve your game.',
       image: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=800',
       path: '/resources/guides',
-      rotationClass: 'rotate-[-2deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10',
+      rotationClass: 'md:rotate-[-2deg] md:hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10',
       // Card 1: Wave divider dips gently in center
       waveStrokePath: 'M 0 10 C 75 14, 125 24, 170 24 C 215 24, 265 14, 340 10',
       waveFillPath: 'M 0 10 C 75 14, 125 24, 170 24 C 215 24, 265 14, 340 10 L 340 32 L 0 32 Z'
@@ -37,7 +37,7 @@ export const ResourcesSection: React.FC = () => {
       description: 'Chess lessons, recorded games, strategy explanations, and in-depth analysis from experts.',
       image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?auto=format&fit=crop&q=80&w=800',
       path: '/resources/videos',
-      rotationClass: 'rotate-[2deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10',
+      rotationClass: 'md:rotate-[2deg] md:hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10',
       // Card 3: Dynamic sloping wave
       waveStrokePath: 'M 0 12 C 85 18, 130 25, 170 25 C 210 25, 265 16, 340 8',
       waveFillPath: 'M 0 12 C 85 18, 130 25, 170 25 C 210 25, 265 16, 340 8 L 340 32 L 0 32 Z'
@@ -73,7 +73,7 @@ export const ResourcesSection: React.FC = () => {
           </div>
 
           {/* Main Heading: Learn. Practice. Master. */}
-          <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-[42px] leading-[1.1] tracking-tight">
+          <h2 className="font-serif font-extrabold text-2xl sm:text-4xl lg:text-[42px] leading-[1.1] tracking-tight">
             <span className="text-[#10264B]">Learn. Practice. </span>
             <span className="text-[#E99A00] font-serif">Master.</span>
           </h2>
@@ -90,7 +90,7 @@ export const ResourcesSection: React.FC = () => {
           {resourceCards.map((card) => (
             <div
               key={card.id}
-              className={`relative flex flex-col justify-between w-full max-w-[340px] mx-auto h-[420px] bg-[#FFFDF8] rounded-[28px] border-2 border-[#F2A000]/70 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group ${card.rotationClass}`}
+              className={`relative flex flex-col justify-between w-full max-w-[300px] xs:max-w-[320px] sm:max-w-[340px] mx-auto min-h-[390px] sm:h-[420px] bg-[#FFFDF8] rounded-[28px] border-2 border-[#F2A000]/70 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group ${card.rotationClass}`}
               style={{
                 boxShadow: '0 12px 30px -6px rgba(242, 160, 0, 0.16), 0 8px 16px -4px rgba(16, 38, 75, 0.08)'
               }}
@@ -99,7 +99,7 @@ export const ResourcesSection: React.FC = () => {
               <div className="absolute inset-0 rounded-[26px] border border-[#FFE8AB]/60 pointer-events-none z-30" />
 
               {/* 1. UPPER REGION: IMAGE WITH SCULPTED GOLD WAVE BOTTOM */}
-              <div className="relative w-full h-[175px] shrink-0 overflow-hidden bg-[#10264B]">
+              <div className="relative w-full h-[150px] sm:h-[175px] shrink-0 overflow-hidden bg-[#10264B]">
                 {/* Photographic Asset */}
                 <img
                   src={card.image}

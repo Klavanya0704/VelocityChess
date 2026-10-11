@@ -504,7 +504,7 @@ export const AboutPage: React.FC = () => {
                 </span>
                 <span className="w-6 h-[2px] bg-[#F2A000]" />
               </div>
-              <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-[#10264B]">
+              <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#10264B]">
                 Our Mission & Vision
               </h2>
             </div>
@@ -555,7 +555,7 @@ export const AboutPage: React.FC = () => {
                 </span>
                 <span className="w-8 h-[2px] bg-[#F2A000]" />
               </div>
-              <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-[#10264B]">
+              <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#10264B]">
                 Our Coaching <span className="text-[#E99A00]">Philosophy</span>
               </h2>
               <p className="text-xs sm:text-sm text-[#25334A]/85 max-w-2xl mx-auto leading-relaxed pt-1">
@@ -664,7 +664,7 @@ export const AboutPage: React.FC = () => {
                 </span>
                 <span className="w-6 h-[2px] bg-[#F2A000]" />
               </div>
-              <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-[#10264B]">
+              <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#10264B]">
                 Why Choose Velocity Chess <span className="text-[#E99A00]">Academy</span>
               </h2>
               <p className="text-xs sm:text-sm text-[#25334A]/85 max-w-2xl mx-auto leading-relaxed">
@@ -689,11 +689,11 @@ export const AboutPage: React.FC = () => {
                     <div className="absolute inset-0 rounded-[21px] border border-[#FFE29A] pointer-events-none z-20 opacity-80" />
 
                     {/* Main Card Content */}
-                    <div className="flex items-center flex-1 p-5 sm:p-6 gap-4 sm:gap-5 relative z-10">
+                    <div className="flex items-center flex-1 p-3.5 xs:p-5 sm:p-6 gap-3 xs:gap-4 sm:gap-5 relative z-10">
                       
                       {/* Left Column: Prominent 3D Metallic Gold Chess Piece Sculpture */}
-                      <div className="w-20 sm:w-24 shrink-0 flex flex-col items-center justify-center p-2 rounded-2xl bg-gradient-to-b from-[#FFEED4]/90 via-[#FFF9EF] to-[#FFE8AB]/90 border-2 border-[#F2A000]/40 shadow-md group-hover:scale-105 transition-transform duration-300">
-                        <GoldChessPiece3D piece={card.pieceType} className="w-14 h-22 sm:w-16 sm:h-24 drop-shadow-md" />
+                      <div className="w-16 xs:w-20 sm:w-24 shrink-0 flex flex-col items-center justify-center p-1.5 xs:p-2 rounded-2xl bg-gradient-to-b from-[#FFEED4]/90 via-[#FFF9EF] to-[#FFE8AB]/90 border-2 border-[#F2A000]/40 shadow-md group-hover:scale-105 transition-transform duration-300">
+                        <GoldChessPiece3D piece={card.pieceType} className="w-12 h-18 xs:w-14 xs:h-22 sm:w-16 sm:h-24 drop-shadow-md" />
                       </div>
 
                       {/* Vertical Gold Molded Separator Line */}
@@ -754,7 +754,7 @@ export const AboutPage: React.FC = () => {
                 </span>
                 <span className="w-6 h-[2px] bg-[#F2A000]" />
               </div>
-              <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-[#10264B]">
+              <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#10264B]">
                 World-Class Chess Training Environment
               </h2>
               <p className="text-xs sm:text-sm text-[#25334A]/85 max-w-2xl mx-auto leading-relaxed">
