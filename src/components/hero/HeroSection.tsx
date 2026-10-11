@@ -4,7 +4,7 @@ import { StatisticsBar } from './StatisticsBar';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative w-full h-auto min-h-screen lg:min-h-0 lg:h-[100svh] lg:max-h-[100vh] flex flex-col justify-between pt-18 sm:pt-20 lg:pt-22 xl:pt-24 pb-2 sm:pb-3 overflow-hidden select-none bg-[#FFF8EE]">
+    <section className="relative w-full min-h-screen flex flex-col justify-between pt-16 sm:pt-18 lg:pt-20 xl:pt-22 pb-4 sm:pb-6 lg:pb-8 overflow-hidden select-none bg-[#FFF8EE]">
       
       {/* 1. Velocity Chess Academy Hero Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -16,7 +16,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* 2. Top Center Main Editorial Headline & Tagline Slogan Pill (Viewport Centered) */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center space-y-1.5 sm:space-y-2 pt-1 sm:pt-2">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center space-y-1 sm:space-y-1.5 pt-1">
         
         {/* Eyebrow Tagline Pill */}
         <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-0.5 sm:px-4 sm:py-1 rounded-full bg-[#FFEED4]/95 border border-[#F2A000]/40 shadow-sm text-[9px] sm:text-[11px] lg:text-xs font-sans font-extrabold uppercase tracking-widest text-[#10294F]">
@@ -30,7 +30,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Main Editorial Headline */}
-        <h1 className="font-serif font-extrabold text-2xl sm:text-3xl lg:text-4xl xl:text-[46px] text-[#10294F] tracking-tight leading-[1.1]">
+        <h1 className="font-serif font-extrabold text-2xl sm:text-3xl lg:text-4xl xl:text-[44px] text-[#10294F] tracking-tight leading-[1.1]">
           <span>Every Move Builds a</span>
           <br className="hidden sm:inline" />{' '}
           <span className="relative inline-block font-serif italic font-normal text-[#F2A000] mt-0.5">
@@ -50,7 +50,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* 3. Hero Main Content Grid: Upper-Left Achievement Card */}
-      <div className="relative z-10 w-full max-w-[1540px] mx-auto px-4 sm:px-8 xl:px-12 mt-2 sm:mt-3 lg:mt-0 xl:mt-1 mb-auto py-1">
+      <div className="relative z-10 w-full max-w-[1540px] mx-auto px-4 sm:px-8 xl:px-12 mt-1 sm:mt-2 lg:mt-0 xl:mt-1 mb-auto py-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
           
           {/* LOWER LEFT COLUMN: Single Our Achievements Card */}
@@ -65,7 +65,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* 4. Bottom Section: Single Wide Floating Glassmorphism Statistics Capsule */}
-      <div className="relative z-10 pt-0.5 pb-2 sm:pb-3">
+      <div className="relative z-10 pt-2 pb-1 sm:pb-2">
         <StatisticsBar />
       </div>
 
