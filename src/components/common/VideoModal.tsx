@@ -23,7 +23,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
         {/* Video Banner Header */}
         <div className="relative aspect-video bg-black/80 flex flex-col items-center justify-center overflow-hidden">
           <img
-            src="/assets/ref_hero_bg.jpg"
+            src="/assets/program_group_coaching.jpg"
             alt="Velocity Chess Academy Story"
             className="absolute inset-0 w-full h-full object-cover opacity-50 filter brightness-75 scale-105 transition hover:scale-100 duration-700"
           />

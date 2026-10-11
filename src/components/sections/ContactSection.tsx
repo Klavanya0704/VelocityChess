@@ -3,39 +3,32 @@ import {
   MapPin,
   Phone,
   Mail,
+  Clock,
   Send,
   MessageCircle,
-  ExternalLink,
-  Clock,
   CheckCircle2,
   AlertCircle,
-  Crown,
-  Sparkles,
-  ShieldCheck,
   User,
-  HelpCircle
+  HelpCircle,
+  ChevronDown,
+  ArrowRight,
+  Car,
+  Users,
+  Trophy,
+  Compass,
+  Edit3
 } from 'lucide-react';
 
 // =============================================================================
 // VERIFIED ACADEMY CONTACT DATA & INTEGRATION POINT
 // =============================================================================
-// Reusing official Velocity Chess Academy contact information:
-// - Founder & Head Coach: IM Krishna Teja (FIDE Master & Senior Instructor)
-// - Address: GP Info Tech Building, Plot No. 262, 2nd Floor, KPHB Phase 6, Kukatpally, Hyderabad, Telangana 500085
-// - Branch: Bhanu Nilayam, LIG 258, 2nd Floor, Road No. 2, KPHB Colony, Kukatpally, Hyderabad 500072
-// - WhatsApp & Admissions: +91 8500564155 (IM Krishna Teja)
-// - Coaching Office: +91 8074710673 (WFM V. Chaitanya)
-// - Academy Desk: +91 98765 43210
-// - Emails: admissions@velocitychess.edu / chesskrish64@gmail.com
-// =============================================================================
-
-// Clearly documented backend integration endpoint.
-// Set to your Formspree, EmailJS, or custom API URL when ready.
-const FORM_ENDPOINT = ''; // e.g., 'https://formspree.io/f/your_form_id'
+const FORM_ENDPOINT = ''; // Set to Formspree, EmailJS, or backend endpoint when ready
 
 const ACADEMY_WHATSAPP_NUMBER = '918500564155';
 const ACADEMY_PRIMARY_EMAIL = 'admissions@velocitychess.edu';
 const ACADEMY_COACH_EMAIL = 'chesskrish64@gmail.com';
+const ACADEMY_PRIMARY_PHONE = '+91 98765 43210';
+
 const ACADEMY_MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Velocity+Chess+Academy+KPHB+Phase+6+Kukatpally+Hyderabad';
 const ACADEMY_MAPS_EMBED_URL =
@@ -45,7 +38,7 @@ interface FormState {
   name: string;
   email: string;
   phone: string;
-  enquiryType: string;
+  inquiryType: string;
   message: string;
 }
 
@@ -61,7 +54,7 @@ export const ContactSection: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-    enquiryType: 'Admissions',
+    inquiryType: 'General Inquiry',
     message: ''
   });
 
@@ -76,26 +69,26 @@ export const ContactSection: React.FC = () => {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Full name is required';
+      newErrors.name = 'Please enter your name';
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email address is required';
+      newErrors.email = 'Please enter your email address';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       newErrors.email = 'Please enter a valid email address';
     }
 
     const cleanedPhone = formData.phone.replace(/[\s\-\(\)\+]/g, '');
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
+      newErrors.phone = 'Please enter your phone number';
     } else if (cleanedPhone.length < 10) {
-      newErrors.phone = 'Please enter a valid phone number (at least 10 digits)';
+      newErrors.phone = 'Phone number must have at least 10 digits';
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Please provide details for your enquiry';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message should be at least 10 characters';
+      newErrors.message = 'Please share your questions or requirements';
+    } else if (formData.message.trim().length < 8) {
+      newErrors.message = 'Message should be at least 8 characters';
     }
 
     setErrors(newErrors);
@@ -109,7 +102,6 @@ export const ContactSection: React.FC = () => {
     setIsSubmitting(true);
     setSubmissionStatus('idle');
 
-    // 1. If backend API endpoint is configured, submit via fetch
     if (FORM_ENDPOINT) {
       try {
         const response = await fetch(FORM_ENDPOINT, {
@@ -124,13 +116,13 @@ export const ContactSection: React.FC = () => {
         if (response.ok) {
           setSubmissionStatus('success_api');
           setStatusMessage(
-            `Thank you, ${formData.name}! Your enquiry has been received. Our admissions coordinator will get in touch within 24 hours.`
+            `Thank you, ${formData.name}! Your message has been received. Our admissions team will get back to you shortly.`
           );
           setFormData({
             name: '',
             email: '',
             phone: '',
-            enquiryType: 'Admissions',
+            inquiryType: 'General Inquiry',
             message: ''
           });
           setIsSubmitting(false);
@@ -142,429 +134,242 @@ export const ContactSection: React.FC = () => {
         console.error('Form submission error:', err);
         setSubmissionStatus('error');
         setStatusMessage(
-          'Unable to send via automated endpoint. Opening your email app directly...'
+          'Automated endpoint unavailable. Opening your email app directly...'
         );
       }
     }
 
-    // 2. If no backend endpoint configured: launch prefilled email directly
-    // and provide transparent status feedback (no fake success message)
+    // Fallback: Dispatch prefilled email client
     const emailSubject = encodeURIComponent(
-      `[${formData.enquiryType}] Velocity Chess Academy Enquiry from ${formData.name}`
+      `[${formData.inquiryType}] Velocity Chess Academy Inquiry from ${formData.name}`
     );
     const emailBody = encodeURIComponent(
       `Hello Velocity Chess Academy Admissions Team,\n\n` +
-        `Enquiry Details:\n` +
+        `Inquiry Details:\n` +
         `-----------------------------------------\n` +
         `Name: ${formData.name}\n` +
         `Email: ${formData.email}\n` +
         `Phone: ${formData.phone}\n` +
-        `Enquiry Type: ${formData.enquiryType}\n\n` +
+        `Inquiry Type: ${formData.inquiryType}\n\n` +
         `Message:\n${formData.message}\n` +
         `-----------------------------------------\n\n` +
-        `Sent via Velocity Chess Academy Website`
+        `Sent via Velocity Chess Academy Contact Form`
     );
 
     const mailtoUrl = `mailto:${ACADEMY_PRIMARY_EMAIL}?cc=${ACADEMY_COACH_EMAIL}&subject=${emailSubject}&body=${emailBody}`;
-
-    // Trigger user's default email client
     window.location.href = mailtoUrl;
 
     setSubmissionStatus('opened_client');
     setStatusMessage(
-      `Enquiry prepared for ${formData.name}! Your default email client has been opened to dispatch this message. You can also send this inquiry directly via WhatsApp below.`
+      `Inquiry prepared for ${formData.name}! Your email application has been opened with your details prefilled.`
     );
     setIsSubmitting(false);
   };
 
-  const defaultWhatsAppText = encodeURIComponent(
-    'Hello Velocity Chess Academy, I would like to know more about your chess coaching programs.'
-  );
-  const whatsappUrl = `https://wa.me/${ACADEMY_WHATSAPP_NUMBER}?text=${defaultWhatsAppText}`;
-
-  const defaultEmailUrl = `mailto:${ACADEMY_PRIMARY_EMAIL}?subject=${encodeURIComponent(
-    'Enquiry — Velocity Chess Academy'
-  )}&body=${encodeURIComponent(
-    'Hello Velocity Chess Academy,\n\nI would like to know more about your chess coaching programs.\n\nThank you.'
+  const whatsappUrl = `https://wa.me/${ACADEMY_WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    'Hello Velocity Chess Academy, I would like to enquire about your chess coaching programs and admissions.'
   )}`;
 
   return (
     <section
       id="contact"
-      className="relative py-14 sm:py-20 lg:py-24 bg-[#FFF9EF] overflow-hidden select-none border-t-2 border-[#F2A000]/30 scroll-mt-24"
+      className="relative pt-12 sm:pt-16 pb-8 sm:pb-10 overflow-hidden select-none border-t border-[#EBD7B2]/40 scroll-mt-20"
     >
-      {/* Background Decorative Gold & Cream Glow Layers */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-[#FFF3D6]/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#F2A000]/[0.05] rounded-full blur-3xl" />
-        {/* Subtle geometric pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'radial-gradient(#10264B 1px, transparent 1px), radial-gradient(#F2A000 1px, transparent 1px)',
-            backgroundSize: '24px 24px',
-            backgroundPosition: '0 0, 12px 12px'
-          }}
+      {/* =====================================================================
+          1. REAL ACADEMY INTERIOR BACKGROUND (IMAGE 1)
+             Preserves original golden lighting, dark wood, marble desk, illuminated logo,
+             plants, and chess tables without heavy washouts or global filters.
+         ===================================================================== */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src="/assets/contact_full_bg.jpg"
+          alt="Velocity Chess Academy Reception and Training Interior"
+          className="w-full h-full object-cover object-[15%_center] sm:object-center select-none"
         />
+        {/* Localized subtle warm gradient glow strictly behind the heading area on the right */}
+        <div className="hidden md:block absolute top-0 right-0 w-3/5 h-64 bg-gradient-to-b from-[#FFFDF8]/30 via-[#FFFDF8]/10 to-transparent pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* SECTION HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
-          
-          {/* Eyebrow Label with Ornamental Lines */}
-          <div className="inline-flex items-center space-x-2.5">
-            <span className="w-8 h-[2px] bg-[#F2A000] rounded-full" />
-            <span className="text-[#D98A00] font-sans font-extrabold text-xs uppercase tracking-[0.25em]">
-              CONTACT & ADMISSIONS
-            </span>
-            <span className="w-8 h-[2px] bg-[#F2A000] rounded-full" />
-          </div>
 
-          {/* Main Editorial Heading */}
-          <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#10264B] leading-tight tracking-tight">
-            Let's Make Your{' '}
-            <span className="relative inline-block font-serif italic font-normal text-[#F2A000]">
-              Next Move
-              {/* Refined Gold Underline SVG */}
-              <svg
-                className="w-full h-2.5 text-[#F2A000] absolute -bottom-1.5 left-0"
-                viewBox="0 0 220 20"
-                fill="none"
+        {/* =====================================================================
+            2. HEADING AREA (POSITIONED IN UPPER-RIGHT / CENTER COMPOSITION)
+               Keeps the left side unobstructed so the illuminated academy wall
+               and reception desk remain visible, matching the reference.
+           ===================================================================== */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-end mb-4 sm:mb-5 pt-2">
+          
+          {/* Empty left spacer on desktop (columns 1 to 6) leaving academy logo, desk & glass doors clear */}
+          <div className="hidden lg:block lg:col-span-6 pointer-events-none" />
+
+          {/* Heading content positioned in the right 6 columns (columns 7 to 12) directly above the Send Us a Message card */}
+          <div className="lg:col-span-6 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 text-left">
+            
+            {/* Main Heading Group */}
+            <div className="space-y-1 max-w-sm">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D98A00] inline-block font-sans">
+                GET IN TOUCH
+              </span>
+              <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-[32px] xl:text-[34px] text-[#10264B] leading-[1.14] tracking-tight">
+                Contact &amp;<br />
+                Academy Admissions
+              </h2>
+              <p className="text-xs sm:text-[13px] text-[#25334A]/85 leading-normal font-sans pt-1">
+                Have questions about our coaching programs, tournament registration, or free
+                evaluation session? Reach out to our admissions team.
+              </p>
+            </div>
+
+            {/* Handwritten Decorative Script Message aligned on the far right */}
+            <div className="hidden sm:flex flex-col items-end text-right shrink-0 pb-1 select-none pl-2">
+              <p
+                className="text-2xl sm:text-[26px] lg:text-[28px] text-[#10264B] font-normal leading-tight drop-shadow-xs"
+                style={{ fontFamily: "'Alex Brush', cursive" }}
               >
-                <path
-                  d="M5 12 C 60 4, 150 18, 215 10"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-          </h2>
-
-          {/* Supporting Text */}
-          <p className="text-sm sm:text-base text-[#25334A]/85 font-sans leading-relaxed max-w-2xl mx-auto pt-1 font-medium">
-            Have questions about our chess coaching, admissions, tournaments, or training
-            programs? Get in touch with our team, and we'll be happy to help.
-          </p>
-
-        </div>
-
-        {/* PROMINENT QUICK-ACTION CONTACT BUTTONS (WHATSAPP & EMAIL) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto mb-8 sm:mb-10">
-          
-          {/* WhatsApp Direct Action */}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#25D366]/10 via-white to-white border-2 border-[#25D366]/50 shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
-          >
-            <div className="flex items-center space-x-3.5">
-              <div className="w-12 h-12 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform shrink-0">
-                <MessageCircle className="w-6 h-6 fill-current" />
-              </div>
-              <div className="text-left min-w-0">
-                <div className="text-[11px] font-sans font-extrabold uppercase tracking-wider text-[#128C7E]">
-                  FASTEST RESPONSE
-                </div>
-                <div className="font-serif font-extrabold text-base sm:text-lg text-[#10264B] leading-tight truncate">
-                  Send WhatsApp Message
-                </div>
-                <div className="text-xs text-[#25334A]/75 font-medium">
-                  Chat directly: +91 85005 64155
-                </div>
-              </div>
+                Have Questions?<br />
+                <span className="text-[#D98A00]">Let&apos;s Plan</span><br />
+                <span className="text-[#D98A00]">Your Next Move</span>
+              </p>
+              <div className="w-20 h-[1.5px] bg-[#D98A00] mt-1 rounded-full" />
             </div>
-            <ExternalLink className="w-5 h-5 text-[#25D366] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
-          </a>
 
-          {/* Email Direct Action */}
-          <a
-            href={defaultEmailUrl}
-            className="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#10264B]/10 via-white to-white border-2 border-[#F2A000]/40 shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
-          >
-            <div className="flex items-center space-x-3.5">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#10264B] to-[#0A1A33] text-[#FFE8AB] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform border border-[#F2A000]/40 shrink-0">
-                <Mail className="w-6 h-6 text-[#F2A000]" />
-              </div>
-              <div className="text-left min-w-0">
-                <div className="text-[11px] font-sans font-extrabold uppercase tracking-wider text-[#D98A00]">
-                  OFFICIAL CORRESPONDENCE
-                </div>
-                <div className="font-serif font-extrabold text-base sm:text-lg text-[#10264B] leading-tight truncate">
-                  Send Email
-                </div>
-                <div className="text-xs text-[#25334A]/75 font-medium truncate">
-                  admissions@velocitychess.edu
-                </div>
-              </div>
-            </div>
-            <ExternalLink className="w-5 h-5 text-[#10264B] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
-          </a>
+          </div>
 
         </div>
 
         {/* =====================================================================
-            EXACT 50/50 TWO-COLUMN CSS GRID LAYOUT
-            - repeat(2, minmax(0, 1fr)) on desktop & tablet
-            - Both columns have min-width: 0 and exactly 50% available width
-            - Aligned outer margins and consistent 24-32px column gap
+            3. MAIN TWO-COLUMN CONTACT CARDS (BALANCED DESKTOP HEIGHT & PROPORTIONS)
            ===================================================================== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 md:[grid-template-columns:repeat(2,minmax(0,1fr))] gap-6 lg:gap-8 items-start max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch mb-4 sm:mb-5">
           
           {/* ===================================================================
-              LEFT COLUMN (EXACTLY 50% WIDTH): ACADEMY LOCATION & INFORMATION
+              LEFT CARD: ACADEMY CONTACT INFORMATION + STUDENT PHOTOGRAPH
              =================================================================== */}
-          <div className="min-w-0 w-full space-y-5 sm:space-y-6">
+          <div className="lg:col-span-6 xl:col-span-6 bg-[#FFFDF9] rounded-[24px] border border-[#EBD7B2] shadow-xl overflow-hidden grid grid-cols-1 sm:grid-cols-12 items-stretch">
             
-            {/* Main Academy Info Card */}
-            <div className="relative rounded-3xl bg-white/95 backdrop-blur-md border-2 border-[#F2A000]/35 shadow-xl p-5 sm:p-6 lg:p-7 space-y-4 sm:space-y-5 overflow-hidden">
+            {/* Left Sub-Column: 4 Contact Information Details */}
+            <div className="sm:col-span-7 p-4 sm:p-5 flex flex-col justify-between space-y-2.5 text-left">
               
-              {/* Inner subtle top gold hairline */}
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#FFE8AB] via-[#F2A000] to-[#E59400]" />
-
-              {/* Academy Badge */}
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFE8AB] to-[#F2A000]/40 border border-[#F2A000]/60 flex items-center justify-center text-[#10264B] shadow-xs shrink-0">
-                  <Crown className="w-5 h-5 text-[#10264B]" />
+              {/* Detail 1: Academy Campus */}
+              <div className="flex items-start space-x-3 group/item">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0D9] text-[#D98A00] flex items-center justify-center border border-[#EBD7B2] shrink-0 shadow-2xs group-hover/item:scale-105 transition-transform mt-0.5">
+                  <MapPin className="w-4 h-4 text-[#D98A00]" />
                 </div>
-                <div className="min-w-0">
-                  <h3 className="font-serif font-extrabold text-xl sm:text-2xl text-[#10264B] leading-tight truncate">
-                    Academy Headquarters
-                  </h3>
-                  <p className="text-xs font-semibold text-[#D98A00] truncate">
-                    Hyderabad, Telangana · Founded by IM Krishna Teja
+                <div className="space-y-0.5 min-w-0">
+                  <h4 className="font-serif font-bold text-xs sm:text-[13px] text-[#10264B]">Academy Campus</h4>
+                  <p className="text-[11px] font-semibold text-[#10264B]">Velocity Chess Academy</p>
+                  <p className="text-[10px] text-[#4A5568] leading-tight">
+                    Premiere Educational District, City Center, Hyderabad, Telangana, India
                   </p>
                 </div>
               </div>
 
-              {/* Verified Contact Details List */}
-              <div className="space-y-3 sm:space-y-3.5 text-left font-sans">
-                
-                {/* 1. Address with Clickable Google Maps Link */}
-                <div className="flex items-start space-x-3 p-3 rounded-2xl bg-[#FFF9EF] border border-[#F2A000]/25 hover:border-[#F2A000]/60 transition-colors">
-                  <div className="w-8.5 h-8.5 rounded-xl bg-[#FFEED4] border border-[#F2A000]/50 flex items-center justify-center text-[#D98A00] shrink-0 mt-0.5 shadow-2xs">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <span className="block text-[11px] font-extrabold uppercase tracking-wider text-[#D98A00]">
-                      ACADEMY ADDRESS
-                    </span>
-                    <a
-                      href={ACADEMY_MAPS_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-block text-xs sm:text-sm font-semibold text-[#10264B] leading-snug hover:text-[#D98A00] transition-colors mt-0.5"
-                    >
-                      <span>
-                        GP Info Tech Building, Plot No. 262, 2nd Floor, KPHB Phase 6, Kukatpally,
-                        Hyderabad, Telangana 500085
-                      </span>
-                      <span className="inline-flex items-center text-[11px] text-[#F2A000] font-bold ml-1.5 underline decoration-[#F2A000]/60 underline-offset-2">
-                        Open in Google Maps <ExternalLink className="w-3 h-3 ml-0.5 inline" />
-                      </span>
-                    </a>
-                    <div className="mt-1 pt-1 border-t border-[#F2A000]/15 text-[11px] text-[#25334A]/70">
-                      Branch: Bhanu Nilayam, LIG 258, 2nd Floor, Road No. 2, KPHB Colony (500072)
-                    </div>
-                  </div>
+              {/* Detail 2: Admissions Helpline */}
+              <div className="flex items-start space-x-3 group/item">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0D9] text-[#D98A00] flex items-center justify-center border border-[#EBD7B2] shrink-0 shadow-2xs group-hover/item:scale-105 transition-transform mt-0.5">
+                  <Phone className="w-4 h-4 text-[#D98A00]" />
                 </div>
-
-                {/* 2. Direct Helplines */}
-                <div className="flex items-start space-x-3 p-3 rounded-2xl bg-[#FFF9EF] border border-[#F2A000]/25">
-                  <div className="w-8.5 h-8.5 rounded-xl bg-[#FFEED4] border border-[#F2A000]/50 flex items-center justify-center text-[#D98A00] shrink-0 mt-0.5 shadow-2xs">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1 min-w-0 space-y-1">
-                    <span className="block text-[11px] font-extrabold uppercase tracking-wider text-[#D98A00]">
-                      DIRECT HELPLINES
-                    </span>
-                    <div className="space-y-0.5 text-xs sm:text-sm font-semibold text-[#10264B]">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[#25334A]/75 text-[11px]">Admissions / IM Teja:</span>
-                        <a
-                          href="tel:+918500564155"
-                          className="hover:text-[#D98A00] font-bold transition-colors"
-                        >
-                          +91 85005 64155
-                        </a>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-[#25334A]/75 text-[11px]">Coaching Office:</span>
-                        <a
-                          href="tel:+918074710673"
-                          className="hover:text-[#D98A00] font-bold transition-colors"
-                        >
-                          +91 80747 10673
-                        </a>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-[#25334A]/75 text-[11px]">General Desk:</span>
-                        <a
-                          href="tel:+919876543210"
-                          className="hover:text-[#D98A00] font-bold transition-colors"
-                        >
-                          +91 98765 43210
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                <div className="space-y-0.5 min-w-0">
+                  <h4 className="font-serif font-bold text-xs sm:text-[13px] text-[#10264B]">Admissions Helpline</h4>
+                  <a
+                    href={`tel:${ACADEMY_PRIMARY_PHONE.replace(/\s+/g, '')}`}
+                    className="block text-xs font-bold text-[#10264B] hover:text-[#D98A00] transition-colors"
+                  >
+                    {ACADEMY_PRIMARY_PHONE}
+                  </a>
+                  <p className="text-[10px] text-[#4A5568]">Mon – Sat, 9:00 AM – 7:00 PM IST</p>
                 </div>
-
-                {/* 3. Email Enquiries */}
-                <div className="flex items-start space-x-3 p-3 rounded-2xl bg-[#FFF9EF] border border-[#F2A000]/25">
-                  <div className="w-8.5 h-8.5 rounded-xl bg-[#FFEED4] border border-[#F2A000]/50 flex items-center justify-center text-[#D98A00] shrink-0 mt-0.5 shadow-2xs">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1 min-w-0 space-y-0.5">
-                    <span className="block text-[11px] font-extrabold uppercase tracking-wider text-[#D98A00]">
-                      EMAIL ENQUIRIES
-                    </span>
-                    <div className="text-xs sm:text-sm font-semibold text-[#10264B]">
-                      <a
-                        href={`mailto:${ACADEMY_PRIMARY_EMAIL}`}
-                        className="block hover:text-[#D98A00] transition-colors truncate"
-                      >
-                        {ACADEMY_PRIMARY_EMAIL}
-                      </a>
-                      <a
-                        href={`mailto:${ACADEMY_COACH_EMAIL}`}
-                        className="block text-[#25334A]/70 text-[11px] hover:text-[#D98A00] transition-colors truncate"
-                      >
-                        {ACADEMY_COACH_EMAIL} (Coach Direct)
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 4. Campus & Admission Hours */}
-                <div className="flex items-start space-x-3 p-3 rounded-2xl bg-[#FFF9EF] border border-[#F2A000]/25">
-                  <div className="w-8.5 h-8.5 rounded-xl bg-[#FFEED4] border border-[#F2A000]/50 flex items-center justify-center text-[#D98A00] shrink-0 mt-0.5 shadow-2xs">
-                    <Clock className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1 min-w-0 text-[11px] sm:text-xs text-[#25334A]/85">
-                    <span className="block text-[11px] font-extrabold uppercase tracking-wider text-[#D98A00] mb-0.5">
-                      CAMPUS & ADMISSION HOURS
-                    </span>
-                    <p className="font-semibold text-[#10264B]">
-                      Monday – Saturday: 09:00 AM – 07:00 PM IST
-                    </p>
-                    <p className="text-[#25334A]/75">
-                      Sunday: 10:00 AM – 04:00 PM IST (Tournament & Practice Days)
-                    </p>
-                  </div>
-                </div>
-
               </div>
 
-              {/* Bottom Decorative Chess Checkerboard Base Strip */}
-              <div className="grid grid-cols-8 h-3.5 w-full border-t border-[#F2A000]/30 rounded-b-xl overflow-hidden -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 lg:-mx-7 lg:-mb-7 mt-3">
-                {[...Array(8)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={i % 2 === 0 ? 'bg-[#FFE8AB]' : 'bg-[#FFFDF8]'}
-                  />
-                ))}
+              {/* Detail 3: Email Address */}
+              <div className="flex items-start space-x-3 group/item">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0D9] text-[#D98A00] flex items-center justify-center border border-[#EBD7B2] shrink-0 shadow-2xs group-hover/item:scale-105 transition-transform mt-0.5">
+                  <Mail className="w-4 h-4 text-[#D98A00]" />
+                </div>
+                <div className="space-y-0.5 min-w-0">
+                  <h4 className="font-serif font-bold text-xs sm:text-[13px] text-[#10264B]">Email Address</h4>
+                  <a
+                    href={`mailto:${ACADEMY_PRIMARY_EMAIL}`}
+                    className="block text-xs font-bold text-[#10264B] hover:text-[#D98A00] transition-colors truncate"
+                  >
+                    {ACADEMY_PRIMARY_EMAIL}
+                  </a>
+                  <p className="text-[10px] text-[#4A5568]">We usually respond within one business day.</p>
+                </div>
+              </div>
+
+              {/* Detail 4: Campus Timings */}
+              <div className="flex items-start space-x-3 group/item">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0D9] text-[#D98A00] flex items-center justify-center border border-[#EBD7B2] shrink-0 shadow-2xs group-hover/item:scale-105 transition-transform mt-0.5">
+                  <Clock className="w-4 h-4 text-[#D98A00]" />
+                </div>
+                <div className="space-y-0.5 min-w-0">
+                  <h4 className="font-serif font-bold text-xs sm:text-[13px] text-[#10264B]">Campus Timings</h4>
+                  <p className="text-[10px] text-[#4A5568] leading-tight">
+                    Monday – Saturday: 09:00 AM – 07:00 PM IST
+                  </p>
+                  <p className="text-[10px] text-[#4A5568] leading-tight">
+                    Sunday: 10:00 AM – 04:00 PM IST (Tournament Days)
+                  </p>
+                </div>
               </div>
 
             </div>
 
-            {/* EMBEDDED GOOGLE MAP CARD */}
-            <div className="rounded-3xl bg-white/95 backdrop-blur-md border-2 border-[#F2A000]/35 shadow-xl p-4 sm:p-5 space-y-3 overflow-hidden text-left">
-              <div className="flex items-center justify-between px-1">
-                <div className="flex items-center space-x-2">
-                  <MapPin className="w-4 h-4 text-[#F2A000]" />
-                  <span className="font-serif font-extrabold text-sm sm:text-base text-[#10264B]">
-                    Interactive Academy Location
-                  </span>
-                </div>
-                <a
-                  href={ACADEMY_MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[11px] font-bold text-[#D98A00] hover:underline flex items-center space-x-1"
-                >
-                  <span>View Larger</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-
-              {/* Responsive Iframe Map Container fitting neatly inside 50% column */}
-              <div className="relative w-full h-[200px] sm:h-[220px] rounded-2xl overflow-hidden border border-[#F2A000]/30 shadow-inner bg-[#F8F0E3]">
-                <iframe
-                  title="Velocity Chess Academy Kukatpally Location"
-                  src={ACADEMY_MAPS_EMBED_URL}
-                  className="w-full h-full border-0"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-
-              <p className="text-[11px] text-[#25334A]/70 px-1 font-medium leading-relaxed">
-                Conveniently situated in KPHB Colony near metro connectivity with dedicated student
-                parking and air-conditioned tournament halls.
-              </p>
+            {/* Right Sub-Column: Real Academy Student Photograph (Full Height, Matching Reference) */}
+            <div className="sm:col-span-5 relative min-h-[220px] sm:min-h-full overflow-hidden bg-slate-900">
+              <img
+                src="/assets/contact_student_learning.jpg"
+                alt="Velocity Chess Academy Student in Training"
+                className="w-full h-full object-cover object-center"
+              />
             </div>
 
           </div>
 
           {/* ===================================================================
-              RIGHT COLUMN (EXACTLY 50% WIDTH): MODERN VALIDATED CONTACT FORM
+              RIGHT CARD: SEND US A MESSAGE FORM
              =================================================================== */}
-          <div className="min-w-0 w-full">
-            <div className="relative rounded-3xl bg-white/95 backdrop-blur-md border-2 border-[#F2A000]/35 shadow-xl p-5 sm:p-6 lg:p-7 text-left overflow-hidden">
-              
-              {/* Inner subtle top gold hairline */}
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#F2A000] via-[#FFE8AB] to-[#F2A000]" />
+          <div className="lg:col-span-6 xl:col-span-6 bg-[#FFFDF9] rounded-[24px] p-4 sm:p-5 border border-[#EBD7B2] shadow-xl flex flex-col justify-between text-left">
+            
+            <div>
+              <h3 className="font-serif font-bold text-lg sm:text-xl text-[#10264B] leading-tight mb-0.5">
+                Send Us a Message
+              </h3>
+              <p className="text-[11px] text-[#4A5568] mb-3">
+                Fill out the form below and our admissions team will get back to you shortly.
+              </p>
 
-              <div className="flex items-center space-x-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFE8AB] to-[#F2A000]/40 border border-[#F2A000]/60 flex items-center justify-center text-[#10264B] shadow-xs shrink-0">
-                  <Sparkles className="w-5 h-5 text-[#10264B]" />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-serif font-extrabold text-xl sm:text-2xl text-[#10264B] leading-tight truncate">
-                    Send Us a Message
-                  </h3>
-                  <p className="text-xs text-[#25334A]/80 font-medium">
-                    Fill out the form below and we will respond within 24 hours.
-                  </p>
-                </div>
-              </div>
-
-              {/* Status Feedback Notification Banner */}
+              {/* Status Notifications */}
               {submissionStatus === 'success_api' && (
-                <div className="mb-5 p-4 rounded-2xl bg-[#E8F8F0] border-2 border-[#25D366] text-[#0A5D36] flex items-start space-x-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
-                  <div className="text-xs sm:text-sm font-semibold">{statusMessage}</div>
+                <div className="mb-3 p-2.5 rounded-xl bg-[#E8F8F0] border border-[#25D366] text-[#0A5D36] flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
+                  <div className="text-xs font-semibold">{statusMessage}</div>
                 </div>
               )}
 
               {submissionStatus === 'opened_client' && (
-                <div className="mb-5 p-4 rounded-2xl bg-[#FFF5E5] border-2 border-[#F2A000] text-[#7A4D00] space-y-2">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#F2A000] shrink-0 mt-0.5" />
-                    <div className="text-xs sm:text-sm font-semibold leading-relaxed">
+                <div className="mb-3 p-2.5 rounded-xl bg-[#FFF5E5] border border-[#D98A00] text-[#7A4D00] space-y-1.5">
+                  <div className="flex items-start space-x-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#D98A00] shrink-0 mt-0.5" />
+                    <div className="text-xs font-semibold leading-relaxed">
                       {statusMessage}
                     </div>
                   </div>
-                  <div className="flex flex-wrap gap-2 pt-2 border-t border-[#F2A000]/20">
+                  <div className="flex items-center space-x-3 pt-1 border-t border-[#D98A00]/20">
                     <a
                       href={whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-[#25D366] text-white font-bold text-xs shadow-xs hover:bg-[#1EBE5D] transition"
+                      className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-[#25D366] text-white font-bold text-[10px] shadow-2xs hover:bg-[#1EBE5D] transition"
                     >
-                      <MessageCircle className="w-3.5 h-3.5 fill-current" />
-                      <span>Send via WhatsApp Instead</span>
+                      <MessageCircle className="w-3 h-3 fill-current" />
+                      <span>Chat on WhatsApp</span>
                     </a>
                     <button
                       type="button"
                       onClick={() => setSubmissionStatus('idle')}
-                      className="text-xs font-semibold underline text-[#10264B] hover:text-[#D98A00] ml-2"
+                      className="text-[10px] font-semibold text-[#10264B] hover:text-[#D98A00] underline"
                     >
                       Dismiss
                     </button>
@@ -573,61 +378,60 @@ export const ContactSection: React.FC = () => {
               )}
 
               {submissionStatus === 'error' && (
-                <div className="mb-5 p-4 rounded-2xl bg-[#FDE8E8] border-2 border-[#E02424] text-[#9B1C1C] flex items-start space-x-3">
-                  <AlertCircle className="w-5 h-5 text-[#E02424] shrink-0 mt-0.5" />
-                  <div className="text-xs sm:text-sm font-semibold">{statusMessage}</div>
+                <div className="mb-3 p-2.5 rounded-xl bg-[#FDE8E8] border border-[#E02424] text-[#9B1C1C] flex items-start space-x-2">
+                  <AlertCircle className="w-4 h-4 text-[#E02424] shrink-0 mt-0.5" />
+                  <div className="text-xs font-semibold">{statusMessage}</div>
                 </div>
               )}
 
-              {/* The Interactive Form (100% width within 50% right column) */}
-              <form onSubmit={handleSubmit} noValidate className="space-y-4">
+              <form onSubmit={handleSubmit} noValidate className="space-y-2.5 font-sans">
                 
-                {/* Field 1: Full Name */}
-                <div>
-                  <label
-                    htmlFor="contact-name"
-                    className="block text-xs font-extrabold uppercase tracking-wider text-[#10264B] mb-1.5"
-                  >
-                    Full Name <span className="text-[#E02424]">*</span>
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="contact-name"
-                      type="text"
-                      placeholder="e.g. Ramesh Varma"
-                      value={formData.name}
-                      onChange={(e) => {
-                        setFormData({ ...formData, name: e.target.value });
-                        if (errors.name) setErrors({ ...errors, name: undefined });
-                      }}
-                      className={`w-full px-4 py-2.5 sm:py-3 bg-[#FFFDF8] rounded-2xl text-xs sm:text-sm text-[#10264B] placeholder-[#25334A]/40 border transition-all duration-200 outline-none ${
-                        errors.name
-                          ? 'border-[#E02424] ring-2 ring-[#E02424]/20'
-                          : 'border-[#F2A000]/30 focus:border-[#F2A000] focus:ring-3 focus:ring-[#F2A000]/20'
-                      }`}
-                    />
-                    <User className="w-4 h-4 text-[#F2A000]/60 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                  </div>
-                  {errors.name && (
-                    <p className="text-[11px] font-semibold text-[#E02424] mt-1 flex items-center space-x-1">
-                      <AlertCircle className="w-3 h-3" />
-                      <span>{errors.name}</span>
-                    </p>
-                  )}
-                </div>
-
-                {/* Row: Email Address & Phone Number */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {/* Row 1: Your Name & Email Address */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   
+                  {/* Field 1: Your Name */}
+                  <div>
+                    <label
+                      htmlFor="contact-name"
+                      className="block text-[11px] font-bold text-[#10264B] mb-0.5"
+                    >
+                      Your Name <span className="text-[#E02424]">*</span>
+                    </label>
+                    <div className="relative">
+                      <User className="w-3.5 h-3.5 text-[#D98A00] absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      <input
+                        id="contact-name"
+                        type="text"
+                        placeholder="e.g. Ramesh Varma"
+                        value={formData.name}
+                        onChange={(e) => {
+                          setFormData({ ...formData, name: e.target.value });
+                          if (errors.name) setErrors({ ...errors, name: undefined });
+                        }}
+                        className={`w-full pl-8 pr-2.5 py-1.5 bg-[#FAF6EE] border rounded-lg text-xs text-[#10264B] placeholder-[#9CA3AF] focus:outline-none transition-colors ${
+                          errors.name
+                            ? 'border-[#E02424] ring-1 ring-[#E02424]'
+                            : 'border-[#E5D7BE] focus:border-[#D98A00]'
+                        }`}
+                      />
+                    </div>
+                    {errors.name && (
+                      <p className="text-[10px] font-semibold text-[#E02424] mt-0.5">
+                        {errors.name}
+                      </p>
+                    )}
+                  </div>
+
                   {/* Field 2: Email Address */}
                   <div>
                     <label
                       htmlFor="contact-email"
-                      className="block text-xs font-extrabold uppercase tracking-wider text-[#10264B] mb-1.5"
+                      className="block text-[11px] font-bold text-[#10264B] mb-0.5"
                     >
                       Email Address <span className="text-[#E02424]">*</span>
                     </label>
                     <div className="relative">
+                      <Mail className="w-3.5 h-3.5 text-[#D98A00] absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                       <input
                         id="contact-email"
                         type="email"
@@ -637,31 +441,35 @@ export const ContactSection: React.FC = () => {
                           setFormData({ ...formData, email: e.target.value });
                           if (errors.email) setErrors({ ...errors, email: undefined });
                         }}
-                        className={`w-full px-4 py-2.5 sm:py-3 bg-[#FFFDF8] rounded-2xl text-xs sm:text-sm text-[#10264B] placeholder-[#25334A]/40 border transition-all duration-200 outline-none ${
+                        className={`w-full pl-8 pr-2.5 py-1.5 bg-[#FAF6EE] border rounded-lg text-xs text-[#10264B] placeholder-[#9CA3AF] focus:outline-none transition-colors ${
                           errors.email
-                            ? 'border-[#E02424] ring-2 ring-[#E02424]/20'
-                            : 'border-[#F2A000]/30 focus:border-[#F2A000] focus:ring-3 focus:ring-[#F2A000]/20'
+                            ? 'border-[#E02424] ring-1 ring-[#E02424]'
+                            : 'border-[#E5D7BE] focus:border-[#D98A00]'
                         }`}
                       />
-                      <Mail className="w-4 h-4 text-[#F2A000]/60 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
                     {errors.email && (
-                      <p className="text-[11px] font-semibold text-[#E02424] mt-1 flex items-center space-x-1">
-                        <AlertCircle className="w-3 h-3" />
-                        <span>{errors.email}</span>
+                      <p className="text-[10px] font-semibold text-[#E02424] mt-0.5">
+                        {errors.email}
                       </p>
                     )}
                   </div>
 
+                </div>
+
+                {/* Row 2: Phone Number & Inquiry Type */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  
                   {/* Field 3: Phone Number */}
                   <div>
                     <label
                       htmlFor="contact-phone"
-                      className="block text-xs font-extrabold uppercase tracking-wider text-[#10264B] mb-1.5"
+                      className="block text-[11px] font-bold text-[#10264B] mb-0.5"
                     >
                       Phone Number <span className="text-[#E02424]">*</span>
                     </label>
                     <div className="relative">
+                      <Phone className="w-3.5 h-3.5 text-[#D98A00] absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                       <input
                         id="contact-phone"
                         type="tel"
@@ -671,114 +479,186 @@ export const ContactSection: React.FC = () => {
                           setFormData({ ...formData, phone: e.target.value });
                           if (errors.phone) setErrors({ ...errors, phone: undefined });
                         }}
-                        className={`w-full px-4 py-2.5 sm:py-3 bg-[#FFFDF8] rounded-2xl text-xs sm:text-sm text-[#10264B] placeholder-[#25334A]/40 border transition-all duration-200 outline-none ${
+                        className={`w-full pl-8 pr-2.5 py-1.5 bg-[#FAF6EE] border rounded-lg text-xs text-[#10264B] placeholder-[#9CA3AF] focus:outline-none transition-colors ${
                           errors.phone
-                            ? 'border-[#E02424] ring-2 ring-[#E02424]/20'
-                            : 'border-[#F2A000]/30 focus:border-[#F2A000] focus:ring-3 focus:ring-[#F2A000]/20'
+                            ? 'border-[#E02424] ring-1 ring-[#E02424]'
+                            : 'border-[#E5D7BE] focus:border-[#D98A00]'
                         }`}
                       />
-                      <Phone className="w-4 h-4 text-[#F2A000]/60 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
                     {errors.phone && (
-                      <p className="text-[11px] font-semibold text-[#E02424] mt-1 flex items-center space-x-1">
-                        <AlertCircle className="w-3 h-3" />
-                        <span>{errors.phone}</span>
+                      <p className="text-[10px] font-semibold text-[#E02424] mt-0.5">
+                        {errors.phone}
                       </p>
                     )}
                   </div>
 
-                </div>
-
-                {/* Field 4: Enquiry Type */}
-                <div>
-                  <label
-                    htmlFor="contact-enquiry-type"
-                    className="block text-xs font-extrabold uppercase tracking-wider text-[#10264B] mb-1.5"
-                  >
-                    Enquiry Type
-                  </label>
-                  <div className="relative">
-                    <select
-                      id="contact-enquiry-type"
-                      value={formData.enquiryType}
-                      onChange={(e) =>
-                        setFormData({ ...formData, enquiryType: e.target.value })
-                      }
-                      className="w-full px-4 py-2.5 sm:py-3 bg-[#FFFDF8] rounded-2xl text-xs sm:text-sm text-[#10264B] border border-[#F2A000]/30 focus:border-[#F2A000] focus:ring-3 focus:ring-[#F2A000]/20 transition-all duration-200 outline-none appearance-none font-medium"
+                  {/* Field 4: Inquiry Type */}
+                  <div>
+                    <label
+                      htmlFor="contact-inquiry-type"
+                      className="block text-[11px] font-bold text-[#10264B] mb-0.5"
                     >
-                      <option value="Admissions">Admissions (New Student Enrollment)</option>
-                      <option value="Chess Coaching">Chess Coaching (1-on-1 or Batch Inquiry)</option>
-                      <option value="Tournaments">Tournaments & Grandmaster Seminars</option>
-                      <option value="General Enquiry">General Enquiry & Campus Visit</option>
-                    </select>
-                    <HelpCircle className="w-4 h-4 text-[#F2A000]/60 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      Inquiry Type <span className="text-[#E02424]">*</span>
+                    </label>
+                    <div className="relative">
+                      <HelpCircle className="w-3.5 h-3.5 text-[#D98A00] absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      <select
+                        id="contact-inquiry-type"
+                        value={formData.inquiryType}
+                        onChange={(e) =>
+                          setFormData({ ...formData, inquiryType: e.target.value })
+                        }
+                        className="w-full pl-8 pr-7 py-1.5 bg-[#FAF6EE] border border-[#E5D7BE] rounded-lg text-xs text-[#10264B] focus:outline-none focus:border-[#D98A00] appearance-none font-medium cursor-pointer"
+                      >
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Admissions">Admissions (New Student Enrollment)</option>
+                        <option value="Coaching Programs">Coaching Programs</option>
+                        <option value="Tournament Registration">Tournament Registration</option>
+                      </select>
+                      <ChevronDown className="w-3.5 h-3.5 text-[#10264B]/60 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    </div>
                   </div>
+
                 </div>
 
-                {/* Field 5: Message */}
+                {/* Field 5: Your Message */}
                 <div>
                   <label
                     htmlFor="contact-message"
-                    className="block text-xs font-extrabold uppercase tracking-wider text-[#10264B] mb-1.5"
+                    className="block text-[11px] font-bold text-[#10264B] mb-0.5"
                   >
                     Your Message <span className="text-[#E02424]">*</span>
                   </label>
-                  <textarea
-                    id="contact-message"
-                    rows={4}
-                    placeholder="Tell us about the student's age, chess experience (beginner / rated), or any questions you have..."
-                    value={formData.message}
-                    onChange={(e) => {
-                      setFormData({ ...formData, message: e.target.value });
-                      if (errors.message) setErrors({ ...errors, message: undefined });
-                    }}
-                    className={`w-full px-4 py-2.5 sm:py-3 bg-[#FFFDF8] rounded-2xl text-xs sm:text-sm text-[#10264B] placeholder-[#25334A]/40 border transition-all duration-200 outline-none resize-y ${
-                      errors.message
-                        ? 'border-[#E02424] ring-2 ring-[#E02424]/20'
-                        : 'border-[#F2A000]/30 focus:border-[#F2A000] focus:ring-3 focus:ring-[#F2A000]/20'
-                    }`}
-                  />
+                  <div className="relative">
+                    <Edit3 className="w-3.5 h-3.5 text-[#D98A00] absolute left-2.5 top-2.5 pointer-events-none" />
+                    <textarea
+                      id="contact-message"
+                      rows={2}
+                      placeholder="Tell us about your child's age, chess experience, or goals..."
+                      value={formData.message}
+                      onChange={(e) => {
+                        setFormData({ ...formData, message: e.target.value });
+                        if (errors.message) setErrors({ ...errors, message: undefined });
+                      }}
+                      className={`w-full pl-8 pr-2.5 py-1.5 bg-[#FAF6EE] border rounded-lg text-xs text-[#10264B] placeholder-[#9CA3AF] focus:outline-none transition-colors resize-y ${
+                        errors.message
+                          ? 'border-[#E02424] ring-1 ring-[#E02424]'
+                          : 'border-[#E5D7BE] focus:border-[#D98A00]'
+                      }`}
+                    />
+                  </div>
                   {errors.message && (
-                    <p className="text-[11px] font-semibold text-[#E02424] mt-1 flex items-center space-x-1">
-                      <AlertCircle className="w-3 h-3" />
-                      <span>{errors.message}</span>
+                    <p className="text-[10px] font-semibold text-[#E02424] mt-0.5">
+                      {errors.message}
                     </p>
                   )}
                 </div>
 
-                {/* Submit Button */}
-                <div className="pt-1 sm:pt-2">
+                {/* Submit Button with Gold Airplane & Arrow */}
+                <div className="pt-0.5">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#FFE8AB] via-[#F2A000] to-[#E59400] text-[#10264B] font-serif font-extrabold text-sm sm:text-base tracking-wide shadow-md hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 flex items-center justify-center space-x-2 border border-[#F2A000]/40 disabled:opacity-60 cursor-pointer"
+                    className="w-full py-2.5 bg-[#10264B] hover:bg-[#07172E] text-white rounded-full font-serif font-bold text-xs sm:text-[13px] tracking-wide shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center space-x-2 border border-[#EBD7B2]/40 cursor-pointer disabled:opacity-60 group/btn"
                   >
-                    <span>{isSubmitting ? 'Preparing Enquiry...' : 'Send Message'}</span>
-                    <Send className="w-4 h-4 text-[#10264B]" />
+                    <Send className="w-3.5 h-3.5 text-[#E5A51B] group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                    <span>{isSubmitting ? 'Sending Message...' : 'Send Your Message'}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#E5A51B] group-hover/btn:translate-x-1 transition-transform ml-0.5" />
                   </button>
                 </div>
 
-                {/* Reassurance Note */}
-                <div className="flex items-center justify-center space-x-2 text-[11px] text-[#25334A]/70 pt-1 text-center font-medium">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#F2A000]" />
-                  <span>
-                    Your details are confidential. We will never share your contact information.
-                  </span>
-                </div>
-
               </form>
-
-              {/* Bottom Decorative Chess Strip */}
-              <div className="grid grid-cols-8 h-3.5 w-full border-t border-[#F2A000]/30 rounded-b-xl overflow-hidden -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 lg:-mx-7 lg:-mb-7 mt-5">
-                {[...Array(8)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={i % 2 === 0 ? 'bg-[#FFFDF8]' : 'bg-[#FFE8AB]'}
-                  />
-                ))}
-              </div>
-
             </div>
+
+          </div>
+
+        </div>
+
+        {/* =====================================================================
+            4. ACADEMY LOCATION SECTION (WIDE 3-COLUMN PANORAMIC CARD)
+               Compact, fully visible directly beneath the two contact cards.
+           ===================================================================== */}
+        <div className="bg-[#FFFDF9] rounded-[24px] p-3.5 sm:p-4 px-5 sm:px-6 border border-[#EBD7B2] shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-4 items-center text-left">
+          
+          {/* Column 1 — Our Location */}
+          <div className="lg:col-span-3 space-y-1">
+            <div className="flex items-center space-x-2">
+              <h3 className="font-serif font-bold text-lg sm:text-xl text-[#10264B]">Our Location</h3>
+              <span className="w-8 h-[1.5px] bg-[#D98A00] rounded-full" />
+            </div>
+            <p className="text-[11px] text-[#4A5568] leading-tight">
+              Easy to reach, right in the heart of the city.
+            </p>
+            <div className="pt-1">
+              <a
+                href={ACADEMY_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1 bg-[#FAF6EE] hover:bg-[#F2EAD8] text-[#10264B] border border-[#EBD7B2] rounded-full text-[11px] font-semibold inline-flex items-center space-x-1.5 transition shadow-2xs group"
+              >
+                <Compass className="w-3.5 h-3.5 text-[#D98A00] group-hover:rotate-45 transition-transform" />
+                <span>View on Google Maps</span>
+                <ArrowRight className="w-3 h-3 text-[#D98A00] group-hover:translate-x-0.5 transition-transform ml-0.5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Column 2 — Interactive Map Container */}
+          <div className="lg:col-span-4 h-24 sm:h-26 rounded-xl overflow-hidden border border-[#EBD7B2] relative shadow-inner bg-slate-100 group">
+            <iframe
+              title="Velocity Chess Academy Hyderabad Location"
+              src={ACADEMY_MAPS_EMBED_URL}
+              className="w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            {/* Floating Marker Badge matching Image 2 */}
+            <div className="absolute top-2 left-2 bg-white/95 backdrop-blur-md px-2 py-0.5 rounded-lg border border-[#EBD7B2] shadow-2xs flex items-center space-x-1.5 pointer-events-none">
+              <MapPin className="w-3 h-3 text-red-600 fill-current" />
+              <span className="text-[9.5px] font-sans font-bold text-[#10264B]">
+                Velocity Chess Academy · Hyderabad
+              </span>
+            </div>
+          </div>
+
+          {/* Column 3 — Academy Highlights (Convenient Access, Meet Our Team, Experience Facilities) */}
+          <div className="lg:col-span-5 grid grid-cols-3 gap-2 text-left border-t lg:border-t-0 lg:border-l border-[#EBD7B2]/40 pt-2 lg:pt-0 lg:pl-4">
+            
+            {/* Highlight 1: Convenient Access */}
+            <div className="space-y-0.5">
+              <div className="w-7 h-7 rounded-full bg-[#FAF0D9] text-[#D98A00] flex items-center justify-center border border-[#EBD7B2] shadow-2xs mb-1">
+                <Car className="w-3.5 h-3.5" />
+              </div>
+              <h5 className="font-serif font-bold text-[11px] text-[#10264B] leading-tight">Convenient Access</h5>
+              <p className="text-[9.5px] text-[#4A5568] leading-tight">
+                Located with ample parking and public transport access.
+              </p>
+            </div>
+
+            {/* Highlight 2: Meet Our Team */}
+            <div className="space-y-0.5">
+              <div className="w-7 h-7 rounded-full bg-[#FAF0D9] text-[#D98A00] flex items-center justify-center border border-[#EBD7B2] shadow-2xs mb-1">
+                <Users className="w-3.5 h-3.5" />
+              </div>
+              <h5 className="font-serif font-bold text-[11px] text-[#10264B] leading-tight">Meet Our Team</h5>
+              <p className="text-[9.5px] text-[#4A5568] leading-tight">
+                Visit and discuss the best program for your child.
+              </p>
+            </div>
+
+            {/* Highlight 3: Experience Our Facilities */}
+            <div className="space-y-0.5">
+              <div className="w-7 h-7 rounded-full bg-[#FAF0D9] text-[#D98A00] flex items-center justify-center border border-[#EBD7B2] shadow-2xs mb-1">
+                <Trophy className="w-3.5 h-3.5" />
+              </div>
+              <h5 className="font-serif font-bold text-[11px] text-[#10264B] leading-tight">Experience Our Facilities</h5>
+              <p className="text-[9.5px] text-[#4A5568] leading-tight">
+                State-of-the-art training halls and interactive learning spaces.
+              </p>
+            </div>
+
           </div>
 
         </div>

@@ -299,30 +299,32 @@ export const AchievementsSection: React.FC = () => {
                   className="bg-white/95 rounded-3xl overflow-hidden border-2 border-[#F2A000]/35 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group text-left cursor-pointer"
                 >
                   {/* Photo Section with Object-Cover and Precise Focal Point Positioning */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#10264B]/10">
-                    <img
-                      src={card.imageUrl}
-                      alt={card.altText}
-                      className={`w-full h-full object-cover ${card.objectPosition} group-hover:scale-105 transition-transform duration-500`}
-                    />
-                    {/* Gradient vignette */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15 pointer-events-none" />
+                  <div className="relative aspect-[4/3] w-full bg-[#10264B]/10 z-10">
+                    <div className="w-full h-full overflow-hidden relative">
+                      <img
+                        src={card.imageUrl}
+                        alt={card.altText}
+                        className={`w-full h-full object-cover ${card.objectPosition} group-hover:scale-105 transition-transform duration-500`}
+                      />
+                      {/* Gradient vignette */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15 pointer-events-none" />
 
-                    {/* Corner Badge */}
-                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#10264B]/90 backdrop-blur-md border border-[#F2A000]/60 shadow-sm flex items-center space-x-1">
-                      <span className="text-[10px] font-sans font-extrabold uppercase tracking-wider text-[#FFE8AB]">
-                        {card.badgeLabel}
-                      </span>
+                      {/* Corner Badge */}
+                      <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#10264B]/90 backdrop-blur-md border border-[#F2A000]/60 shadow-sm flex items-center space-x-1">
+                        <span className="text-[10px] font-sans font-extrabold uppercase tracking-wider text-[#FFE8AB]">
+                          {card.badgeLabel}
+                        </span>
+                      </div>
+
+                      {/* Quick Enlarge Indicator on Hover */}
+                      <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-xs text-white p-1 rounded-lg text-[10px] flex items-center space-x-1">
+                        <ZoomIn className="w-3 h-3 text-[#F2A000]" />
+                        <span>Zoom</span>
+                      </div>
                     </div>
 
-                    {/* Quick Enlarge Indicator on Hover */}
-                    <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-xs text-white p-1 rounded-lg text-[10px] flex items-center space-x-1">
-                      <ZoomIn className="w-3 h-3 text-[#F2A000]" />
-                      <span>Zoom</span>
-                    </div>
-
-                    {/* Overlapping Bottom Circular Badge */}
-                    <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] border-2 border-white shadow-md flex items-center justify-center z-20">
+                    {/* Overlapping Bottom Circular Badge - fully visible over photo and card body */}
+                    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] border-2 border-white shadow-md flex items-center justify-center z-20 pointer-events-none">
                       {card.badgeIcon}
                     </div>
                   </div>

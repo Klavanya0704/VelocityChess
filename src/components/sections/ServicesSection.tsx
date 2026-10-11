@@ -83,15 +83,17 @@ export const ServicesSection: React.FC = () => {
               className="bg-white rounded-3xl overflow-hidden border border-[#F2A000]/25 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative group flex flex-col justify-between cursor-pointer"
             >
               {/* Top Image & Overlapping Icon */}
-              <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-                <img
-                  src={service.imageUrl}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+              <div className="relative aspect-[4/3] bg-slate-100 z-10">
+                <div className="w-full h-full overflow-hidden relative">
+                  <img
+                    src={service.imageUrl}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 
                 {/* Overlapping Badge Icon at Boundary */}
-                <div className="absolute -bottom-5 left-5 w-11 h-11 rounded-full bg-[#FFF5E5] text-[#D98A00] flex items-center justify-center border-2 border-white shadow-md z-10 group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute -bottom-5 left-5 w-11 h-11 rounded-full bg-[#FFF5E5] text-[#D98A00] flex items-center justify-center border-2 border-white shadow-md z-20 group-hover:scale-110 transition-transform duration-300 pointer-events-none">
                   {getServiceIcon(service.iconName)}
                 </div>
               </div>
