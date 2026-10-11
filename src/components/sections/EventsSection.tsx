@@ -25,7 +25,7 @@ export const EventsSection: React.FC = () => {
       id: 'workshops',
       title: 'Workshops & Training Camps',
       description: 'Learn from expert coaches through structured workshops and training.',
-      image: '/assets/ref_hero_bg.jpg',
+      image: '/assets/event_2_card.jpg',
       icon: <Users className="w-4 h-4 text-[#10264B]" />,
       isNavy: true,
       rotationClass: 'rotate-0 md:scale-[1.03] hover:scale-105 z-20',
@@ -104,13 +104,14 @@ export const EventsSection: React.FC = () => {
           {eventPanels.map((panel) => (
             <div
               key={panel.id}
-              className={`relative flex flex-col justify-between transition-all duration-300 transform group min-h-[350px] sm:min-h-[365px] ${panel.rotationClass}`}
+              className={`relative flex flex-col justify-between transition-all duration-300 transform group min-h-[380px] sm:min-h-[395px] ${panel.rotationClass}`}
             >
               
               {/* INTEGRATED CUSTOM EVENT CARD SVG (Background Fill, Slanted Wave Image Clip & Double Gold Borders) */}
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
                 viewBox="0 0 340 370"
+                preserveAspectRatio="none"
                 fill="none"
               >
                 <defs>
@@ -164,21 +165,21 @@ export const EventsSection: React.FC = () => {
               </svg>
 
               {/* CIRCULAR NAVY & GOLD ICON BADGE OVERLAPPING IMAGE BOUNDARY */}
-              <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-8.5 h-8.5 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] border-2 border-white shadow-md flex items-center justify-center text-[#10264B] z-30">
+              <div className="absolute top-[32%] sm:top-[32.5%] left-1/2 -translate-x-1/2 w-8.5 h-8.5 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] border-2 border-white shadow-md flex items-center justify-center text-[#10264B] z-30 pointer-events-none">
                 {panel.icon}
               </div>
 
               {/* CARD HTML CONTENT LAYER */}
               <div
-                className={`relative flex flex-col justify-between h-full pt-[43%] px-4 sm:px-4.5 pb-4 z-20 ${
+                className={`relative flex flex-col justify-between h-full pt-[47%] sm:pt-[48%] px-4 sm:px-5 pb-4 sm:pb-5 z-20 ${
                   panel.isNavy ? 'text-white' : 'text-[#10264B]'
                 }`}
               >
                 <div>
                   {/* Card Title */}
-                  <div className="text-center pt-0.5">
+                  <div className="text-center pt-1 mb-1">
                     <h3
-                      className={`font-serif font-extrabold text-sm sm:text-base leading-tight mb-0.5 ${
+                      className={`font-serif font-extrabold text-sm sm:text-base leading-tight mb-1 ${
                         panel.isNavy ? 'text-[#FFE29A]' : 'text-[#10264B]'
                       }`}
                     >
@@ -186,7 +187,7 @@ export const EventsSection: React.FC = () => {
                     </h3>
 
                     {/* Thin Gold Decorative Divider with Diamond */}
-                    <div className="flex items-center justify-center my-1">
+                    <div className="flex items-center justify-center my-1.5 sm:my-2">
                       <div className="w-5 h-[1.5px] bg-[#F2A000]" />
                       <div className="w-1.2 h-1.2 rotate-45 bg-[#F2A000] mx-1" />
                       <div className="w-5 h-[1.5px] bg-[#F2A000]" />
@@ -194,7 +195,7 @@ export const EventsSection: React.FC = () => {
 
                     {/* Short Description */}
                     <p
-                      className={`text-[10.5px] sm:text-[11px] font-medium leading-tight px-0.5 mb-2 ${
+                      className={`text-[10.5px] sm:text-[11px] font-medium leading-snug px-0.5 mb-2.5 sm:mb-3 ${
                         panel.isNavy ? 'text-gray-300' : 'text-[#25334A]/80'
                       }`}
                     >
@@ -203,10 +204,10 @@ export const EventsSection: React.FC = () => {
                   </div>
 
                   {/* Four Checklist Highlights */}
-                  <div className="space-y-0.5 border-t border-current/15 pt-1.5 mb-2.5">
+                  <div className="space-y-1.5 border-t border-current/15 pt-2 sm:pt-2.5 mb-3 sm:mb-4">
                     {panel.highlights.map((highlight, idx) => (
-                      <div key={idx} className="flex items-center space-x-1.5 text-[10px] sm:text-[10.5px] font-semibold leading-tight">
-                        <CheckCircle2 className="w-3 h-3 text-[#F2A000] shrink-0" />
+                      <div key={idx} className="flex items-center space-x-1.5 text-[10px] sm:text-[10.5px] font-semibold leading-normal">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#F2A000] shrink-0" />
                         <span className={panel.isNavy ? 'text-gray-200' : 'text-[#10264B]'}>
                           {highlight}
                         </span>
@@ -216,10 +217,10 @@ export const EventsSection: React.FC = () => {
                 </div>
 
                 {/* Full-width Navy View Events Button */}
-                <div className="pt-0.5">
+                <div className="pt-1">
                   <button
                     onClick={() => navigate('/events')}
-                    className={`w-full py-2 rounded-full font-bold text-[11px] sm:text-xs flex items-center justify-center space-x-1.5 shadow-md hover:shadow-lg transition-all duration-300 ${
+                    className={`w-full py-2.5 rounded-full font-bold text-[11px] sm:text-xs flex items-center justify-center space-x-1.5 shadow-md hover:shadow-lg transition-all duration-300 ${
                       panel.isNavy
                         ? 'bg-gradient-to-r from-[#FFE29A] via-[#F2A000] to-[#FFE29A] text-[#10264B] hover:scale-102'
                         : 'bg-[#10264B] hover:bg-[#071A38] text-white hover:scale-102 border border-[#F2A000]/40'

@@ -12,14 +12,11 @@ export const ResourcesSection: React.FC = () => {
       title: 'Chess Guides & Tactics',
       description: 'Opening strategies, tactical puzzles, endgame guides, and expert chess tips to improve your game.',
       image: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=800',
+      path: '/resources/guides',
       rotationClass: 'rotate-[-2deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10',
-      // Card 1 SVG Silhouette: Top edge slopes up right, wave divider dips in center
-      outerPath: "M 15 45 C 15 25, 35 20, 60 15 L 280 5 C 300 2, 325 8, 325 28 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
-      innerBorderPath: "M 18 47 C 18 29, 36 23, 61 18 L 278 8 C 297 5, 321 11, 321 29 L 321 347 C 321 362, 305 372, 288 372 L 52 372 C 35 372, 18 362, 18 347 Z",
-      imageClipPath: "M 15 45 C 15 25, 35 20, 60 15 L 280 5 C 300 2, 325 8, 325 28 L 325 180 C 265 205, 215 210, 170 210 C 125 210, 75 195, 15 175 Z",
-      creamPanelPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
-      dividerPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180",
-      badgeLeft: "top-[2px] left-[6px]"
+      // Card 1: Wave divider dips gently in center
+      waveStrokePath: 'M 0 10 C 75 14, 125 24, 170 24 C 215 24, 265 14, 340 10',
+      waveFillPath: 'M 0 10 C 75 14, 125 24, 170 24 C 215 24, 265 14, 340 10 L 340 32 L 0 32 Z'
     },
     {
       id: 'res-2',
@@ -27,14 +24,11 @@ export const ResourcesSection: React.FC = () => {
       title: 'Study Materials',
       description: 'Practice worksheets, chess notation, downloadable notes, and structured learning resources.',
       image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?auto=format&fit=crop&q=80&w=800',
+      path: '/resources/materials',
       rotationClass: 'rotate-0 md:scale-[1.02] hover:scale-[1.04] transition-all duration-300 z-20',
-      // Card 2 SVG Silhouette: Arch top crown, symmetrical center U-dip wave
-      outerPath: "M 15 30 C 15 15, 45 8, 170 4 C 295 8, 325 15, 325 30 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
-      innerBorderPath: "M 18 32 C 18 18, 47 11, 170 7 C 292 11, 321 18, 321 32 L 321 347 C 321 362, 305 372, 288 372 L 52 372 C 35 372, 18 362, 18 347 Z",
-      imageClipPath: "M 15 30 C 15 15, 45 8, 170 4 C 295 8, 325 15, 325 30 L 325 170 C 265 175, 220 210, 170 210 C 120 210, 75 175, 15 170 Z",
-      creamPanelPath: "M 15 170 C 75 175, 120 210, 170 210 C 220 210, 265 175, 325 170 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
-      dividerPath: "M 15 170 C 75 175, 120 210, 170 210 C 220 210, 265 175, 325 170",
-      badgeLeft: "top-[0px] left-[6px]"
+      // Card 2: Symmetrical arch wave
+      waveStrokePath: 'M 0 16 C 65 10, 115 25, 170 25 C 225 25, 275 10, 340 16',
+      waveFillPath: 'M 0 16 C 65 10, 115 25, 170 25 C 225 25, 275 10, 340 16 L 340 32 L 0 32 Z'
     },
     {
       id: 'res-3',
@@ -42,14 +36,11 @@ export const ResourcesSection: React.FC = () => {
       title: 'Videos & Game Analysis',
       description: 'Chess lessons, recorded games, strategy explanations, and in-depth analysis from experts.',
       image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?auto=format&fit=crop&q=80&w=800',
+      path: '/resources/videos',
       rotationClass: 'rotate-[2deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10',
-      // Card 3 SVG Silhouette: Top edge slopes down right, wave divider slopes up right
-      outerPath: "M 15 10 C 15 2, 40 2, 60 5 L 280 22 C 300 26, 325 32, 325 48 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
-      innerBorderPath: "M 18 12 C 18 5, 41 4, 61 7 L 278 24 C 297 28, 321 34, 321 49 L 321 347 C 321 362, 305 372, 288 372 L 52 372 C 35 372, 18 362, 18 347 Z",
-      imageClipPath: "M 15 10 C 15 2, 40 2, 60 5 L 280 22 C 300 26, 325 32, 325 48 L 325 180 C 265 205, 215 210, 170 210 C 125 210, 75 195, 15 175 Z",
-      creamPanelPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180 L 325 350 C 325 366, 308 376, 290 376 L 50 376 C 32 376, 15 366, 15 350 Z",
-      dividerPath: "M 15 175 C 75 195, 125 210, 170 210 C 215 210, 265 205, 325 180",
-      badgeLeft: "top-[4px] left-[6px]"
+      // Card 3: Dynamic sloping wave
+      waveStrokePath: 'M 0 12 C 85 18, 130 25, 170 25 C 210 25, 265 16, 340 8',
+      waveFillPath: 'M 0 12 C 85 18, 130 25, 170 25 C 210 25, 265 16, 340 8 L 340 32 L 0 32 Z'
     }
   ];
 
@@ -81,10 +72,10 @@ export const ResourcesSection: React.FC = () => {
             <span className="w-8 h-[2px] bg-[#F2A000] rounded-full" />
           </div>
 
-          {/* Main Heading: Learn. Practice. Grow. */}
+          {/* Main Heading: Learn. Practice. Master. */}
           <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-[42px] leading-[1.1] tracking-tight">
             <span className="text-[#10264B]">Learn. Practice. </span>
-            <span className="text-[#E99A00] font-serif">Grow.</span>
+            <span className="text-[#E99A00] font-serif">Master.</span>
           </h2>
 
           {/* Subtitle */}
@@ -99,108 +90,74 @@ export const ResourcesSection: React.FC = () => {
           {resourceCards.map((card) => (
             <div
               key={card.id}
-              className={`relative flex flex-col justify-between w-full max-w-[340px] mx-auto aspect-[340/380] min-h-[370px] sm:min-h-[380px] group ${card.rotationClass}`}
+              className={`relative flex flex-col justify-between w-full max-w-[340px] mx-auto h-[420px] bg-[#FFFDF8] rounded-[28px] border-2 border-[#F2A000]/70 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group ${card.rotationClass}`}
+              style={{
+                boxShadow: '0 12px 30px -6px rgba(242, 160, 0, 0.16), 0 8px 16px -4px rgba(16, 38, 75, 0.08)'
+              }}
             >
-              
-              {/* GOLD CIRCULAR NUMBER BADGE (01, 02, 03) MOUNTED TOP-LEFT OVERLAY */}
-              <div className={`absolute ${card.badgeLeft} w-8.5 h-8.5 rounded-full bg-gradient-to-br from-[#FFEED4] via-[#FFE29A] to-[#F2A000] text-[#10264B] font-serif font-extrabold text-xs sm:text-sm flex items-center justify-center border-2 border-white shadow-md z-30`}>
-                {card.number}
+              {/* Inner Light Gold Decorative Border */}
+              <div className="absolute inset-0 rounded-[26px] border border-[#FFE8AB]/60 pointer-events-none z-30" />
+
+              {/* 1. UPPER REGION: IMAGE WITH SCULPTED GOLD WAVE BOTTOM */}
+              <div className="relative w-full h-[175px] shrink-0 overflow-hidden bg-[#10264B]">
+                {/* Photographic Asset */}
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+
+                {/* Soft gradient shadow over bottom of image */}
+                <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-black/25 to-transparent pointer-events-none" />
+
+                {/* Sculpted Wave Divider at bottom of image */}
+                <div className="absolute -bottom-[1px] left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+                  <svg
+                    viewBox="0 0 340 32"
+                    preserveAspectRatio="none"
+                    className="w-full h-8 block text-[#FFFDF8]"
+                  >
+                    <defs>
+                      <linearGradient id={`gold-wave-${card.id}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#FFE8AB" />
+                        <stop offset="35%" stopColor="#F2A000" />
+                        <stop offset="70%" stopColor="#D48F00" />
+                        <stop offset="100%" stopColor="#8A5A00" />
+                      </linearGradient>
+                    </defs>
+
+                    {/* Cream Panel Fill (seamlessly connects to content panel below) */}
+                    <path
+                      d={card.waveFillPath}
+                      fill="currentColor"
+                    />
+
+                    {/* Gold Sculpted Wave Stroke */}
+                    <path
+                      d={card.waveStrokePath}
+                      fill="none"
+                      stroke={`url(#gold-wave-${card.id})`}
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                {/* GOLD CIRCULAR NUMBER BADGE (01, 02, 03) MOUNTED TOP-LEFT OVERLAY */}
+                <div className="absolute top-3 left-3 w-8 h-8 rounded-full bg-gradient-to-br from-[#FFEED4] via-[#FFE29A] to-[#F2A000] text-[#10264B] font-serif font-extrabold text-xs sm:text-sm flex items-center justify-center border-2 border-white shadow-md z-20">
+                  {card.number}
+                </div>
               </div>
 
-              {/* INTEGRATED CUSTOM SVG SILHOUETTE LAYER */}
-              <svg
-                className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
-                viewBox="0 0 340 380"
-                preserveAspectRatio="none"
-                fill="none"
-              >
-                <defs>
-                  {/* Gold Gradient for Outer Border */}
-                  <linearGradient id={`gold-stroke-${card.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FFE8AB" />
-                    <stop offset="35%" stopColor="#F2A000" />
-                    <stop offset="70%" stopColor="#D48F00" />
-                    <stop offset="100%" stopColor="#8A5A00" />
-                  </linearGradient>
-
-                  {/* Inner Light Gold Accent Line */}
-                  <linearGradient id={`gold-inner-${card.id}`} x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#FFF2D4" stopOpacity="0.9" />
-                    <stop offset="100%" stopColor="#FFE29A" stopOpacity="0.6" />
-                  </linearGradient>
-
-                  {/* Upper Image ClipPath */}
-                  <clipPath id={`upper-res-clip-${card.id}`}>
-                    <path d={card.imageClipPath} />
-                  </clipPath>
-
-                  {/* Checkerboard Pattern for Bottom-Right Corner Accent */}
-                  <pattern id={`checker-${card.id}`} width="12" height="12" patternUnits="userSpaceOnUse">
-                    <rect width="6" height="6" fill="#F2A000" fillOpacity="0.16" />
-                    <rect x="6" y="6" width="6" height="6" fill="#F2A000" fillOpacity="0.16" />
-                  </pattern>
-                </defs>
-
-                {/* 1. Photographic Upper Section */}
-                <g clipPath={`url(#upper-res-clip-${card.id})`}>
-                  <image
-                    href={card.image}
-                    x="0"
-                    y="0"
-                    width="340"
-                    height="220"
-                    preserveAspectRatio="xMidYMid slice"
-                  />
-                  {/* Subtle soft gradient over image bottom */}
-                  <rect x="0" y="140" width="340" height="80" fill="url(#image-fade)" fillOpacity="0.15" />
-                </g>
-
-                {/* 2. Warm Ivory/Cream Lower Content Panel (No dark navy fill) */}
-                <path
-                  d={card.creamPanelPath}
-                  fill="#FFFDF8"
-                  className="drop-shadow-xl"
-                />
-
-                {/* Bottom Right Chess Checkered Accent overlay inside Cream panel */}
-                <g>
-                  <rect x="230" y="300" width="95" height="76" fill={`url(#checker-${card.id})`} />
-                </g>
-
-                {/* 3. Gold Sculpted Wave Divider Line */}
-                <path
-                  d={card.dividerPath}
-                  stroke={`url(#gold-stroke-${card.id})`}
-                  strokeWidth="3.5"
-                  fill="none"
-                />
-
-                {/* 4. Outer Gold Border Line (Tracing Custom Silhouette) */}
-                <path
-                  d={card.outerPath}
-                  fill="none"
-                  stroke={`url(#gold-stroke-${card.id})`}
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-
-                {/* Inner Light Gold Glow Accent Stroke */}
-                <path
-                  d={card.innerBorderPath}
-                  fill="none"
-                  stroke={`url(#gold-inner-${card.id})`}
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-
-              {/* WARM CREAM PANEL CONTENT AREA (LIGHT THEME) */}
-              <div className="relative z-20 flex flex-col justify-between h-full pt-[58%] px-5 pb-5 text-center text-[#10264B]">
-                <div className="flex-1 flex flex-col justify-center space-y-2 mb-3">
+              {/* 2. LOWER REGION: NORMAL DOM FLOW FOR CONTENT (GUARANTEED NO OVERLAP) */}
+              <div className="flex-1 flex flex-col justify-between p-5 pt-3.5 pb-5 text-center text-[#10264B] z-20">
+                
+                {/* Title & Description Group */}
+                <div className="space-y-2">
                   
                   {/* Title in Dark Navy Serif */}
-                  <h3 className="font-serif font-extrabold text-base sm:text-lg lg:text-xl text-[#10264B] leading-tight">
+                  <h3 className="font-serif font-extrabold text-base sm:text-lg lg:text-[19px] text-[#10264B] leading-snug px-1">
                     {card.title}
                   </h3>
 
@@ -211,21 +168,21 @@ export const ResourcesSection: React.FC = () => {
                     <div className="w-5 h-[1.5px] bg-[#F2A000]" />
                   </div>
 
-                  {/* Description in Dark Slate Navy (14px desktop, 1.5 line-height) */}
-                  <p className="text-xs sm:text-[14px] font-medium text-[#25334A]/85 leading-[1.5] px-1">
+                  {/* Description in Dark Slate Navy */}
+                  <p className="text-xs sm:text-[13px] font-medium text-[#25334A]/85 leading-relaxed px-1">
                     {card.description}
                   </p>
 
                 </div>
 
-                {/* Gold Gradient Pill Button */}
-                <div className="pt-1">
+                {/* Gold Gradient Pill Button (Anchored to card bottom, no chessboard decoration) */}
+                <div className="pt-3">
                   <button
-                    onClick={() => navigate('/resources')}
-                    className="w-full py-2.5 px-4 rounded-full bg-gradient-to-r from-[#FFE8AB] via-[#F2A000] to-[#E59400] text-[#10264B] font-extrabold text-xs sm:text-sm flex items-center justify-center space-x-2 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300 border border-white/60"
+                    onClick={() => navigate(card.path)}
+                    className="w-full py-2.5 px-4 rounded-full bg-gradient-to-r from-[#FFE8AB] via-[#F2A000] to-[#E59400] text-[#10264B] font-extrabold text-xs sm:text-sm flex items-center justify-center space-x-2 shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-[0.99] transition-all duration-300 border border-white/60 group/btn cursor-pointer"
                   >
                     <span>Explore Resources</span>
-                    <ArrowRight className="w-4 h-4 text-[#10264B]" />
+                    <ArrowRight className="w-4 h-4 text-[#10264B] group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>
 

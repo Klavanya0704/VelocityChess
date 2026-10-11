@@ -261,21 +261,23 @@ export const AchievementsPage: React.FC = () => {
                 className="bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden border-2 border-[#E5A51B]/35 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer text-left"
               >
                 {/* Photo Container */}
-                <div className="relative aspect-[4/3] w-full bg-[#10264B]/5 overflow-hidden">
-                  <img
-                    src={item.imageUrl}
-                    alt={item.altText}
-                    className={`w-full h-full object-cover ${item.objectPosition} group-hover:scale-105 transition-transform duration-500`}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                <div className="relative aspect-[4/3] w-full bg-[#10264B]/5 z-10">
+                  <div className="w-full h-full overflow-hidden relative">
+                    <img
+                      src={item.imageUrl}
+                      alt={item.altText}
+                      className={`w-full h-full object-cover ${item.objectPosition} group-hover:scale-105 transition-transform duration-500`}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-                  {/* Top Corner Badge */}
-                  <span className="absolute top-3 right-3 px-2.5 py-1 bg-[#10264A]/90 backdrop-blur-md text-[#FFE8AB] text-[10px] font-extrabold uppercase rounded-full shadow border border-[#E5A51B]/60 flex items-center space-x-1">
-                    <span>{item.badge}</span>
-                  </span>
+                    {/* Top Corner Badge */}
+                    <span className="absolute top-3 right-3 px-2.5 py-1 bg-[#10264A]/90 backdrop-blur-md text-[#FFE8AB] text-[10px] font-extrabold uppercase rounded-full shadow border border-[#E5A51B]/60 flex items-center space-x-1">
+                      <span>{item.badge}</span>
+                    </span>
+                  </div>
 
-                  {/* Overlapping Badge Icon */}
-                  <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] border-2 border-white shadow-md flex items-center justify-center z-20">
+                  {/* Overlapping Badge Icon - fully visible over photo and card body */}
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] border-2 border-white shadow-md flex items-center justify-center z-20 pointer-events-none">
                     {item.badgeIcon}
                   </div>
                 </div>

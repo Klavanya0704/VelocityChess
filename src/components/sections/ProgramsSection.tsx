@@ -10,7 +10,7 @@ export const ProgramsSection: React.FC = () => {
       id: 'online',
       title: 'Online\nChess Classes',
       description: 'Interactive online classes with expert coaching from the comfort of your home.',
-      image: '/assets/classroom_hero_bg.jpg',
+      image: '/assets/program_online_coaching.jpg',
       isNavy: true,
       benefits: [
         'Live interactive sessions',
@@ -23,7 +23,7 @@ export const ProgramsSection: React.FC = () => {
       id: 'group',
       title: 'Group\nChess Classes',
       description: 'Learn and grow with friends in small group batches with a structured learning path.',
-      image: '/assets/ref_hero_bg.jpg',
+      image: '/assets/program_group_coaching.jpg',
       isNavy: false,
       benefits: [
         'Small batch sizes',
