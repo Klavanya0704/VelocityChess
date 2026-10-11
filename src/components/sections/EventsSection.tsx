@@ -13,7 +13,7 @@ export const EventsSection: React.FC = () => {
       image: '/assets/events_tournaments.jpg',
       icon: <Trophy className="w-4 h-4 text-[#10264B]" />,
       isNavy: false,
-      rotationClass: 'rotate-[-2deg] hover:rotate-0 hover:scale-105 z-10',
+      rotationClass: 'md:rotate-[-2deg] md:hover:rotate-0 hover:scale-105 z-10',
       highlights: [
         'Inter-school & open tournaments',
         'Tournament highlights & results',
@@ -43,7 +43,7 @@ export const EventsSection: React.FC = () => {
       image: '/assets/events_special.jpg',
       icon: <Star className="w-4 h-4 text-[#10264B]" />,
       isNavy: false,
-      rotationClass: 'rotate-[2deg] hover:rotate-0 hover:scale-105 z-10',
+      rotationClass: 'md:rotate-[2deg] md:hover:rotate-0 hover:scale-105 z-10',
       highlights: [
         'Award ceremonies',
         'Simultaneous chess events',
@@ -104,7 +104,7 @@ export const EventsSection: React.FC = () => {
           {eventPanels.map((panel) => (
             <div
               key={panel.id}
-              className={`relative flex flex-col justify-between transition-all duration-300 transform group min-h-[380px] sm:min-h-[395px] ${panel.rotationClass}`}
+              className={`relative flex flex-col justify-between transition-all duration-300 transform group min-h-[380px] sm:min-h-[395px] w-full max-w-[320px] xs:max-w-[340px] md:max-w-none mx-auto ${panel.rotationClass}`}
             >
               
               {/* INTEGRATED CUSTOM EVENT CARD SVG (Background Fill, Slanted Wave Image Clip & Double Gold Borders) */}

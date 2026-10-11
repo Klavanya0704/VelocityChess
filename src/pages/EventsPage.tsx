@@ -68,7 +68,7 @@ export const EventsPage: React.FC = () => {
             <span>TOURNAMENTS & WORKSHOPS CALENDAR</span>
           </div>
 
-          <h1 className="font-serif font-extrabold text-4xl sm:text-5xl md:text-6xl text-[#10264A] mb-2">
+          <h1 className="font-serif font-extrabold text-3xl sm:text-5xl md:text-6xl text-[#10264A] mb-2">
             Upcoming Events <span className="text-[#E5A51B] font-serif font-normal">&amp;</span> Championships
           </h1>
 
@@ -102,7 +102,7 @@ export const EventsPage: React.FC = () => {
                   
                   {/* CHESS IMAGE VISUAL AREA */}
                   <div
-                    className={`relative w-full h-56 lg:h-auto overflow-hidden ${
+                    className={`relative w-full h-44 sm:h-52 lg:h-auto overflow-hidden ${
                       isImageLeft
                         ? 'lg:col-span-3 order-1 lg:order-1'
                         : 'lg:col-span-3 order-1 lg:order-2'
@@ -138,7 +138,7 @@ export const EventsPage: React.FC = () => {
 
                   {/* CENTER EVENT DETAILS (Type, Status, Fee, Title, Description, Meta Pills) */}
                   <div
-                    className={`p-6 sm:p-8 flex flex-col justify-center space-y-3.5 ${
+                    className={`p-4.5 sm:p-8 flex flex-col justify-center space-y-3 sm:space-y-3.5 ${
                       isImageLeft
                         ? 'lg:col-span-5 order-2 lg:order-2'
                         : 'lg:col-span-5 order-2 lg:order-1'

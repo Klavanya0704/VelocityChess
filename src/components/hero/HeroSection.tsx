@@ -16,11 +16,11 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* 2. Top Center Main Editorial Headline & Tagline Slogan Glass Panel (Viewport Centered) */}
-      <div className="relative z-10 w-full max-w-3xl mx-auto px-4 text-center pt-1 sm:pt-2">
-        <div className="relative inline-block w-full px-5 py-3.5 sm:px-8 sm:py-4.5 lg:px-10 lg:py-5 rounded-2xl sm:rounded-3xl bg-[rgba(255,250,240,0.82)] backdrop-blur-md border border-[#F2A000]/30 shadow-[0_8px_30px_rgb(0,0,0,0.06)] space-y-1 sm:space-y-1.5 transition-all">
+      <div className="relative z-10 w-full max-w-3xl mx-auto px-3 sm:px-4 text-center pt-1 sm:pt-2">
+        <div className="relative inline-block w-full px-3.5 py-3 sm:px-8 sm:py-4.5 lg:px-10 lg:py-5 rounded-2xl sm:rounded-3xl bg-[rgba(255,250,240,0.85)] backdrop-blur-md border border-[#F2A000]/30 shadow-[0_8px_30px_rgb(0,0,0,0.06)] space-y-1 sm:space-y-1.5 transition-all">
           
           {/* Eyebrow Tagline Pill */}
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-0.5 sm:px-4 sm:py-1 rounded-full bg-[#FFEED4]/95 border border-[#F2A000]/40 shadow-sm text-[9px] sm:text-[11px] lg:text-xs font-sans font-extrabold uppercase tracking-widest text-[#10294F]">
+          <div className="inline-flex flex-wrap justify-center items-center gap-1 sm:gap-2 px-2.5 py-0.5 sm:px-4 sm:py-1 rounded-full bg-[#FFEED4]/95 border border-[#F2A000]/40 shadow-sm text-[8.5px] xs:text-[9.5px] sm:text-[11px] lg:text-xs font-sans font-extrabold uppercase tracking-wider sm:tracking-widest text-[#10294F]">
             <span>DISCIPLINE</span>
             <span className="text-[#F2A000]">·</span>
             <span>STRATEGY</span>
@@ -31,20 +31,20 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Main Editorial Headline */}
-          <h1 className="font-serif font-extrabold text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] text-[#10294F] tracking-tight leading-[1.12]">
+          <h1 className="font-serif font-extrabold text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] text-[#10294F] tracking-tight leading-[1.12]">
             <span>Every Move Builds a</span>
             <br className="hidden sm:inline" />{' '}
             <span className="relative inline-block font-serif italic font-normal text-[#D98A00] mt-0.5 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
               Brighter Tomorrow
               {/* Refined Gold Underline Stroke */}
-              <svg className="w-full h-2.5 text-[#F2A000] absolute -bottom-2 left-0" viewBox="0 0 200 20" fill="none">
+              <svg className="w-full h-2 sm:h-2.5 text-[#F2A000] absolute -bottom-1.5 sm:-bottom-2 left-0" viewBox="0 0 200 20" fill="none">
                 <path d="M5 12 C 60 4, 140 18, 195 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               </svg>
             </span>
           </h1>
 
           {/* Supporting Text */}
-          <p className="text-xs sm:text-sm text-[#10294F]/90 font-sans font-semibold max-w-xl mx-auto leading-relaxed pt-0.5">
+          <p className="text-[11px] sm:text-sm text-[#10294F]/90 font-sans font-semibold max-w-xl mx-auto leading-relaxed pt-0.5">
             Nurturing confident, creative and strategic thinkers through the power of chess.
           </p>
 

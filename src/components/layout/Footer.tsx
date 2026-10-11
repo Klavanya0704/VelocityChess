@@ -5,13 +5,13 @@ import { Mail, Phone, MapPin, Globe, ChevronRight, Crown, Image, BookOpen, Video
 export const Footer: React.FC = () => {
   return (
     <footer
-      className="relative text-[#25334A] pt-14 pb-8 select-none z-10 overflow-hidden border-t-2 border-[#F2A000]/40 bg-cover bg-center bg-no-repeat"
+      className="relative text-[#25334A] pt-8 sm:pt-14 pb-6 sm:pb-8 select-none z-10 overflow-hidden border-t-2 border-[#F2A000]/40 bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/assets/footer_bg.png')" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* 1. MAIN FOOTER FOUR COLUMNS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-8 sm:pb-10">
           
           {/* COL 1: OFFICIAL LOGO, ACADEMY DESCRIPTION & SOCIAL BADGES (4 cols on lg) */}
           <div className="lg:col-span-4 space-y-4 text-left">
@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
               <img
                 src="/assets/velocity_logo_tight_transparent.png"
                 alt="Velocity Chess Academy Official Logo"
-                className="h-16 sm:h-20 w-auto object-contain"
+                className="h-14 sm:h-20 w-auto object-contain"
               />
             </Link>
 
@@ -202,11 +202,11 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* 2. DECORATIVE CENTER GOLD CROWN EMBLEM & CHECKERBOARD STRIP DIVIDER */}
-        <div className="relative flex items-center justify-center my-6">
+        <div className="relative flex items-center justify-center my-5 sm:my-6">
           {/* Left Gold Line with Checkerboard Tiles */}
           <div className="flex-1 flex items-center justify-end">
             <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#F2A000]/60 to-[#F2A000]" />
-            <div className="grid grid-cols-6 h-3.5 w-24 shrink-0 border border-[#F2A000]/40 rounded-xs overflow-hidden ml-2">
+            <div className="hidden xs:grid grid-cols-6 h-3.5 w-16 sm:w-24 shrink-0 border border-[#F2A000]/40 rounded-xs overflow-hidden ml-1 sm:ml-2">
               {[...Array(6)].map((_, i) => (
                 <div key={i} className={i % 2 === 0 ? 'bg-[#FFE8AB]' : 'bg-[#FFFDF8]'} />
               ))}
@@ -214,13 +214,13 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Center Gold Crown Emblem */}
-          <div className="mx-4 w-9 h-9 rounded-full bg-[#FFEED4] border-2 border-[#F2A000] flex items-center justify-center text-[#D98A00] shadow-md shrink-0">
-            <Crown className="w-5 h-5 fill-[#F2A000]/30" />
+          <div className="mx-2 sm:mx-4 w-8 sm:w-9 h-8 sm:h-9 rounded-full bg-[#FFEED4] border-2 border-[#F2A000] flex items-center justify-center text-[#D98A00] shadow-md shrink-0">
+            <Crown className="w-4 sm:w-5 h-4 sm:h-5 fill-[#F2A000]/30" />
           </div>
 
           {/* Right Gold Line with Checkerboard Tiles */}
           <div className="flex-1 flex items-center justify-start">
-            <div className="grid grid-cols-6 h-3.5 w-24 shrink-0 border border-[#F2A000]/40 rounded-xs overflow-hidden mr-2">
+            <div className="hidden xs:grid grid-cols-6 h-3.5 w-16 sm:w-24 shrink-0 border border-[#F2A000]/40 rounded-xs overflow-hidden mr-1 sm:ml-2">
               {[...Array(6)].map((_, i) => (
                 <div key={i} className={i % 2 === 0 ? 'bg-[#FFFDF8]' : 'bg-[#FFE8AB]'} />
               ))}
@@ -230,9 +230,9 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* 3. BOTTOM COPYRIGHT & LEGAL TERMS ROW */}
-        <div className="flex flex-col sm:flex-row items-center justify-between text-xs font-semibold text-[#10264B] space-y-3 sm:space-y-0 pt-2">
+        <div className="flex flex-col sm:flex-row items-center justify-between text-xs font-semibold text-[#10264B] space-y-3 sm:space-y-0 pt-2 text-center sm:text-left">
           <p>© {new Date().getFullYear()} Velocity Chess Academy. All rights reserved.</p>
-          <div className="flex items-center space-x-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-1">
             <a href="#privacy" className="hover:text-[#D98A00] transition-colors">Privacy Policy</a>
             <span className="text-[#F2A000]/60">|</span>
             <a href="#terms" className="hover:text-[#D98A00] transition-colors">Terms of Service</a>

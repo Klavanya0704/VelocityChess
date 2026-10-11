@@ -55,7 +55,7 @@ export const ProgramsPage: React.FC = () => {
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#E5A51B] bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-full border border-[#E5A51B]/40 shadow-sm inline-block mb-3">
             — OUR PROGRAMS —
           </span>
-          <h1 className="font-serif font-extrabold text-4xl sm:text-5xl md:text-6xl text-[#10264A] mb-4 drop-shadow-xs">
+          <h1 className="font-serif font-extrabold text-3xl sm:text-5xl md:text-6xl text-[#10264A] mb-4 drop-shadow-xs">
             Coaching Programs for <span className="text-[#E5A51B]">Every Stage</span>
           </h1>
           <p className="text-base sm:text-lg text-[#25334A]/85 max-w-3xl mx-auto leading-relaxed font-medium">
@@ -78,7 +78,7 @@ export const ProgramsPage: React.FC = () => {
                   
                   {/* CHESS IMAGE VISUAL AREA */}
                   <div
-                    className={`relative w-full h-56 lg:h-auto overflow-hidden ${
+                    className={`relative w-full h-44 sm:h-52 lg:h-auto overflow-hidden ${
                       isImageLeft
                         ? 'lg:col-span-3 order-1 lg:order-1'
                         : 'lg:col-span-3 order-1 lg:order-3'
@@ -119,7 +119,7 @@ export const ProgramsPage: React.FC = () => {
 
                   {/* CENTER PROGRAM INFO (Level, Title, Description, Meta Pills) */}
                   <div
-                    className={`p-6 sm:p-8 flex flex-col justify-center space-y-3.5 ${
+                    className={`p-4.5 sm:p-8 flex flex-col justify-center space-y-3 sm:space-y-3.5 ${
                       isImageLeft
                         ? 'lg:col-span-4 order-2 lg:order-2'
                         : 'lg:col-span-4 order-2 lg:order-2'
