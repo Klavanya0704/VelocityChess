@@ -5,7 +5,8 @@ import { achievementsData } from '../../data/mockData';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const AchievementCard: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const defaultIndex = Math.max(0, achievementsData.findIndex((a) => a.featured));
+  const [currentIndex, setCurrentIndex] = useState(defaultIndex >= 0 ? defaultIndex : 0);
   const [isHovered, setIsHovered] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const navigate = useNavigate();
@@ -84,7 +85,7 @@ export const AchievementCard: React.FC = () => {
       </div>
 
       {/* 2. Achievement Info */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={currentAchievement.id}
           initial={{ opacity: 0, y: 3 }}
@@ -115,8 +116,8 @@ export const AchievementCard: React.FC = () => {
       </AnimatePresence>
 
       {/* 3. Main Featured Carousel Image */}
-      <div className="relative h-[140px] sm:h-[155px] lg:h-[165px] xl:h-[175px] w-full rounded-2xl overflow-hidden mb-1.5 sm:mb-2 bg-slate-900 border border-white/70 shadow-sm group/img">
-        <AnimatePresence mode="wait">
+      <div className="relative h-[140px] sm:h-[155px] lg:h-[165px] xl:h-[175px] w-full rounded-2xl overflow-hidden mb-1.5 sm:mb-2 bg-[#FFEED4] border border-white/70 shadow-sm group/img">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.img
             key={currentAchievement.imageUrl}
             src={currentAchievement.imageUrl}
