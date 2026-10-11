@@ -11,7 +11,6 @@ export const achievementsData: Achievement[] = [
     imageUrl: '/assets/student-achievement-01.jpg',
     description: 'Celebrating tournament triumph, strategic discipline, and championship honors on the competitive stage.',
     year: 2025,
-    featured: true,
     objectPosition: 'object-[center_18%]'
   },
   {
@@ -24,6 +23,7 @@ export const achievementsData: Achievement[] = [
     imageUrl: '/assets/student-achievement-02.jpg',
     description: 'Deep positional calculation and unwavering mental stamina in high-stakes tournament conditions.',
     year: 2025,
+    featured: true,
     objectPosition: 'object-[center_22%]'
   },
   {
