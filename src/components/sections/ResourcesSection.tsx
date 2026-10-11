@@ -90,7 +90,7 @@ export const ResourcesSection: React.FC = () => {
           {resourceCards.map((card) => (
             <div
               key={card.id}
-              className={`relative flex flex-col justify-between w-full max-w-[300px] xs:max-w-[320px] sm:max-w-[340px] mx-auto min-h-[390px] sm:h-[420px] bg-[#FFFDF8] rounded-[28px] border-2 border-[#F2A000]/70 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group ${card.rotationClass}`}
+              className={`relative flex flex-col justify-between w-full max-w-[290px] xs:max-w-[310px] sm:max-w-[340px] mx-auto min-h-[350px] xs:min-h-[370px] sm:h-[420px] bg-[#FFFDF8] rounded-[28px] border-2 border-[#F2A000]/70 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group ${card.rotationClass}`}
               style={{
                 boxShadow: '0 12px 30px -6px rgba(242, 160, 0, 0.16), 0 8px 16px -4px rgba(16, 38, 75, 0.08)'
               }}
@@ -99,7 +99,7 @@ export const ResourcesSection: React.FC = () => {
               <div className="absolute inset-0 rounded-[26px] border border-[#FFE8AB]/60 pointer-events-none z-30" />
 
               {/* 1. UPPER REGION: IMAGE WITH SCULPTED GOLD WAVE BOTTOM */}
-              <div className="relative w-full h-[150px] sm:h-[175px] shrink-0 overflow-hidden bg-[#10264B]">
+              <div className="relative w-full h-[125px] xs:h-[135px] sm:h-[175px] shrink-0 overflow-hidden bg-[#10264B]">
                 {/* Photographic Asset */}
                 <img
                   src={card.image}

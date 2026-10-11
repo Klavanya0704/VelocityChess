@@ -203,7 +203,7 @@ export const AchievementsPage: React.FC = () => {
                 {/* Photo frame with gold border */}
                 <div
                   onClick={() => setActivePhotoIndex(0)}
-                  className="rounded-2xl overflow-hidden border-2 border-[#E5A51B] shadow-xl w-full aspect-[4/3] max-h-[300px] cursor-pointer group/photo relative"
+                  className="rounded-2xl overflow-hidden border-2 border-[#E5A51B] shadow-xl w-full h-[180px] xs:h-[220px] sm:h-auto sm:aspect-[4/3] max-h-[300px] cursor-pointer group/photo relative"
                 >
                   <img
                     src={spotlightAchievement.imageUrl}
@@ -261,7 +261,7 @@ export const AchievementsPage: React.FC = () => {
                 className="bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden border-2 border-[#E5A51B]/35 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer text-left w-full max-w-[320px] xs:max-w-[340px] sm:max-w-none mx-auto"
               >
                 {/* Photo Container */}
-                <div className="relative aspect-[16/11] sm:aspect-[4/3] w-full bg-[#10264B]/5 z-10">
+                <div className="relative h-[150px] xs:h-[165px] sm:h-auto sm:aspect-[4/3] w-full bg-[#10264B]/5 z-10">
                   <div className="w-full h-full overflow-hidden relative">
                     <img
                       src={item.imageUrl}

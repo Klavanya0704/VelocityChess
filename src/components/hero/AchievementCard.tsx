@@ -59,7 +59,7 @@ export const AchievementCard: React.FC = () => {
       onMouseLeave={() => setIsHovered(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className="glass-card rounded-2xl sm:rounded-3xl p-2.5 xs:p-3 sm:p-3.5 lg:p-4 xl:p-4.5 w-full max-w-[320px] xs:max-w-[340px] sm:max-w-[370px] lg:max-w-[395px] xl:max-w-[420px] relative z-20 transition-all duration-300 hover:shadow-2xl border border-white/90 shadow-xl"
+      className="glass-card rounded-2xl sm:rounded-3xl p-2.5 xs:p-3 sm:p-3 lg:p-3.5 xl:p-4 w-full max-w-[320px] xs:max-w-[340px] sm:max-w-[360px] lg:max-w-[360px] xl:max-w-[380px] relative z-20 transition-all duration-300 hover:shadow-2xl border border-white/90 shadow-xl"
     >
       {/* 1. Header Row */}
       <div className="flex items-center justify-between mb-1.5 sm:mb-2 border-b border-[#F2A000]/25 pb-1.5 sm:pb-2">
@@ -116,7 +116,7 @@ export const AchievementCard: React.FC = () => {
       </AnimatePresence>
 
       {/* 3. Main Featured Carousel Image */}
-      <div className="relative h-[125px] xs:h-[140px] sm:h-[155px] lg:h-[165px] xl:h-[175px] w-full rounded-2xl overflow-hidden mb-1.5 sm:mb-2 bg-[#FFEED4] border border-white/70 shadow-sm group/img">
+      <div className="relative h-[110px] xs:h-[120px] sm:h-[135px] lg:h-[135px] xl:h-[145px] w-full rounded-2xl overflow-hidden mb-1.5 sm:mb-2 bg-[#FFEED4] border border-white/70 shadow-sm group/img">
         <AnimatePresence mode="wait" initial={false}>
           <motion.img
             key={currentAchievement.imageUrl}
@@ -134,19 +134,19 @@ export const AchievementCard: React.FC = () => {
         <button
           type="button"
           onClick={handlePrev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 text-[#10264B] hover:bg-[#10264B] hover:text-white flex items-center justify-center transition shadow-md z-10 border border-[#F2A000]/30 cursor-pointer"
+          className="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/90 text-[#10264B] hover:bg-[#10264B] hover:text-white flex items-center justify-center transition shadow-md z-10 border border-[#F2A000]/30 cursor-pointer"
           aria-label="Previous achievement"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="w-3.5 h-3.5" />
         </button>
 
         <button
           type="button"
           onClick={handleNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 text-[#10264B] hover:bg-[#10264B] hover:text-white flex items-center justify-center transition shadow-md z-10 border border-[#F2A000]/30 cursor-pointer"
+          className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/90 text-[#10264B] hover:bg-[#10264B] hover:text-white flex items-center justify-center transition shadow-md z-10 border border-[#F2A000]/30 cursor-pointer"
           aria-label="Next achievement"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="w-3.5 h-3.5" />
         </button>
       </div>
 
@@ -162,7 +162,7 @@ export const AchievementCard: React.FC = () => {
                 e.stopPropagation();
                 setCurrentIndex(idx);
               }}
-              className={`relative h-[36px] xs:h-[40px] sm:h-[44px] lg:h-[48px] xl:h-[52px] w-full rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
+              className={`relative h-[32px] xs:h-[36px] sm:h-[38px] lg:h-[38px] xl:h-[42px] w-full rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
                 isSelected
                   ? 'border-[#F2A000] ring-2 ring-[#F2A000]/40 scale-[1.03] shadow-md opacity-100'
                   : 'border-white/60 opacity-70 hover:opacity-100 hover:scale-[1.01]'

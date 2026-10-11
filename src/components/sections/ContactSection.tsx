@@ -186,8 +186,10 @@ export const ContactSection: React.FC = () => {
           alt="Velocity Chess Academy Reception and Training Interior"
           className="w-full h-full object-cover object-[15%_center] sm:object-center select-none"
         />
+        {/* Soft translucent warm cream overlay ensuring optimal legibility */}
+        <div className="absolute inset-0 bg-[#FFF9EF]/35 pointer-events-none" />
         {/* Localized subtle warm gradient glow strictly behind the heading area on the right */}
-        <div className="hidden md:block absolute top-0 right-0 w-3/5 h-64 bg-gradient-to-b from-[#FFFDF8]/30 via-[#FFFDF8]/10 to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute top-0 right-0 w-3/5 h-64 bg-gradient-to-b from-[#FFFDF8]/40 via-[#FFFDF8]/20 to-transparent pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -202,8 +204,8 @@ export const ContactSection: React.FC = () => {
           {/* Empty left spacer on desktop (columns 1 to 6) leaving academy logo, desk & glass doors clear */}
           <div className="hidden lg:block lg:col-span-6 pointer-events-none" />
 
-          {/* Heading content positioned in the right 6 columns (columns 7 to 12) directly above the Send Us a Message card */}
-          <div className="lg:col-span-6 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 text-left">
+          {/* Heading content positioned in the right 6 columns with an elegant ivory translucent glass panel */}
+          <div className="lg:col-span-6 bg-[rgba(255,250,240,0.88)] backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-5.5 border border-[#F2A000]/35 shadow-[0_8px_30px_rgba(16,38,75,0.06)] flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 text-left">
             
             {/* Main Heading Group */}
             <div className="space-y-1 max-w-sm">
@@ -317,7 +319,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Right Sub-Column: Real Academy Student Photograph (Full Height, Matching Reference) */}
-            <div className="sm:col-span-5 relative min-h-[160px] sm:min-h-full overflow-hidden bg-slate-900">
+            <div className="sm:col-span-5 relative h-[135px] xs:h-[150px] sm:h-auto sm:min-h-full overflow-hidden bg-slate-900">
               <img
                 src="/assets/contact_student_learning.jpg"
                 alt="Velocity Chess Academy Student in Training"

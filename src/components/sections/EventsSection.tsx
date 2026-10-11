@@ -104,7 +104,7 @@ export const EventsSection: React.FC = () => {
           {eventPanels.map((panel) => (
             <div
               key={panel.id}
-              className={`relative flex flex-col justify-between transition-all duration-300 transform group min-h-[380px] sm:min-h-[395px] w-full max-w-[320px] xs:max-w-[340px] md:max-w-none mx-auto ${panel.rotationClass}`}
+              className={`relative flex flex-col justify-between transition-all duration-300 transform group min-h-[350px] sm:min-h-[395px] w-full max-w-[310px] xs:max-w-[330px] md:max-w-none mx-auto ${panel.rotationClass}`}
             >
               
               {/* INTEGRATED CUSTOM EVENT CARD SVG (Background Fill, Slanted Wave Image Clip & Double Gold Borders) */}
@@ -171,7 +171,7 @@ export const EventsSection: React.FC = () => {
 
               {/* CARD HTML CONTENT LAYER */}
               <div
-                className={`relative flex flex-col justify-between h-full pt-[47%] sm:pt-[48%] px-4 sm:px-5 pb-4 sm:pb-5 z-20 ${
+                className={`relative flex flex-col justify-between h-full pt-[44%] sm:pt-[48%] px-3.5 sm:px-5 pb-3.5 sm:pb-5 z-20 ${
                   panel.isNavy ? 'text-white' : 'text-[#10264B]'
                 }`}
               >

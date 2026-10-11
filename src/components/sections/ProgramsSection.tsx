@@ -113,7 +113,7 @@ export const ProgramsSection: React.FC = () => {
           {programCards.map((card) => (
             <div
               key={card.id}
-              className="relative w-full max-w-[280px] xs:max-w-[310px] sm:max-w-none mx-auto aspect-[310/530] transition-all duration-300 hover:-translate-y-2 group"
+              className="relative w-full max-w-[260px] xs:max-w-[280px] sm:max-w-none mx-auto aspect-[310/530] transition-all duration-300 hover:-translate-y-2 group"
             >
               {/* VECTOR SVG CHESS ROOK (CASTLE PIECE) SILHOUETTE & BORDER FRAME */}
               <svg

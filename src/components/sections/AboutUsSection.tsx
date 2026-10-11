@@ -140,7 +140,7 @@ export const AboutUsSection: React.FC = () => {
 
           {/* RIGHT COLUMN: Coach Photo in Official Crown-Shaped Composition */}
           <div className="lg:col-span-6 relative flex justify-center items-center py-2 lg:py-4">
-            <div className="relative w-full max-w-[280px] xs:max-w-[340px] sm:max-w-[460px] lg:max-w-[620px] mx-auto group transition-transform duration-500 hover:scale-[1.02]">
+            <div className="relative w-full max-w-[210px] xs:max-w-[250px] sm:max-w-[420px] lg:max-w-[620px] mx-auto group transition-transform duration-500 hover:scale-[1.02]">
               <img
                 src="/assets/about-coach-crown.png"
                 alt="Velocity Chess Academy - International Master Krishna Teja in King Crown Composition"
