@@ -83,9 +83,9 @@ export const GalleryPage: React.FC = () => {
               <div
                 key={item.id}
                 onClick={() => setActiveLightboxIndex(index)}
-                className="bg-white rounded-2xl overflow-hidden border border-[#E5A51B]/35 shadow-lg hover:shadow-xl hover:border-[#E5A51B] transition-all duration-300 group cursor-pointer flex flex-col"
+                className="bg-white rounded-2xl overflow-hidden border border-[#E5A51B]/35 shadow-lg hover:shadow-xl hover:border-[#E5A51B] transition-all duration-300 group cursor-pointer flex flex-col w-full max-w-[320px] xs:max-w-[340px] sm:max-w-none mx-auto"
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-black/5">
+                <div className="relative h-[155px] xs:h-[175px] sm:h-auto sm:aspect-[16/10] overflow-hidden bg-black/5">
                   <img
                     src={item.imageUrl}
                     alt={item.title}

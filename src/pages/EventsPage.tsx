@@ -102,7 +102,7 @@ export const EventsPage: React.FC = () => {
                   
                   {/* CHESS IMAGE VISUAL AREA */}
                   <div
-                    className={`relative w-full h-44 sm:h-52 lg:h-auto overflow-hidden ${
+                    className={`relative w-full h-36 xs:h-40 sm:h-52 lg:h-auto overflow-hidden ${
                       isImageLeft
                         ? 'lg:col-span-3 order-1 lg:order-1'
                         : 'lg:col-span-3 order-1 lg:order-2'

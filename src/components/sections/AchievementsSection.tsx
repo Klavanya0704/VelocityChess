@@ -299,7 +299,7 @@ export const AchievementsSection: React.FC = () => {
                   className="bg-white/95 rounded-3xl overflow-hidden border-2 border-[#F2A000]/35 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group text-left cursor-pointer w-full max-w-[320px] xs:max-w-[340px] sm:max-w-none mx-auto"
                 >
                   {/* Photo Section with Object-Cover and Precise Focal Point Positioning */}
-                  <div className="relative aspect-[16/11] sm:aspect-[4/3] w-full bg-[#10264B]/10 z-10">
+                  <div className="relative h-[140px] xs:h-[155px] sm:h-auto sm:aspect-[4/3] w-full bg-[#10264B]/10 z-10">
                     <div className="w-full h-full overflow-hidden relative">
                       <img
                         src={card.imageUrl}

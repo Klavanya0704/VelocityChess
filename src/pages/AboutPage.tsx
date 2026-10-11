@@ -600,7 +600,7 @@ export const AboutPage: React.FC = () => {
                     <div className="absolute inset-0 rounded-[22px] border border-[#FFE29A] pointer-events-none z-20 opacity-80" />
 
                     {/* UPPER VISUAL AREA WITH EXACT REFERENCE ARTWORK HEADER */}
-                    <div className="relative h-44 sm:h-48 overflow-hidden rounded-t-[22px]">
+                    <div className="relative h-28 xs:h-32 sm:h-44 lg:h-48 overflow-hidden rounded-t-[22px]">
                       <img
                         src={card.headerImage}
                         alt={card.title}
@@ -821,7 +821,7 @@ export const AboutPage: React.FC = () => {
                   <img
                     src="/assets/player_hero_bg.jpg"
                     alt="International Master Krishna Teja Portrait"
-                    className="w-full h-[360px] object-cover object-top group-hover:scale-103 transition-transform duration-500"
+                    className="w-full h-[220px] xs:h-[260px] sm:h-[360px] object-cover object-top group-hover:scale-103 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#10264B]/80 via-transparent to-transparent opacity-70" />
                   <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-3 rounded-xl border border-[#F2A000]/40 text-center shadow-md">
