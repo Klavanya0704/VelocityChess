@@ -13,21 +13,21 @@ interface EventConfig {
 
 const eventConfigs: Record<string, EventConfig> = {
   'evt-1': {
-    image: '/assets/event_1_card.jpg',
+    image: '/assets/events_tournaments.jpg',
     panelIcon: <Trophy className="w-8 h-8 text-[#E5A51B] mx-auto" />,
     panelTitle: 'Reserve Your Slot',
     panelText: 'Limited slots available to ensure optimal board pairing and referee supervision.',
     buttonText: 'Register For Event',
   },
   'evt-2': {
-    image: '/assets/event_2_card.jpg',
+    image: '/assets/events_workshops.jpg',
     panelIcon: <Users className="w-8 h-8 text-[#E5A51B] mx-auto" />,
     panelTitle: 'Limited Attendance',
     panelText: 'Interact, ask questions, and get personalized feedback from the Grandmaster.',
     buttonText: 'Register Now',
   },
   'evt-3': {
-    image: '/assets/event_3_card.jpg',
+    image: '/assets/events_special.jpg',
     panelIcon: <Zap className="w-8 h-8 text-[#E5A51B] mx-auto" />,
     panelTitle: 'Join the Action',
     panelText: 'Weekly rankings, prizes, and certificates for top performers.',
