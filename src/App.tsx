@@ -12,6 +12,8 @@ import { ResourcesPage } from './pages/ResourcesPage';
 import { ContactPage } from './pages/ContactPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
+import { LogoIntro } from './components/common/LogoIntro';
+
 // Scroll to top automatically on route navigation (or smooth scroll to hash anchor)
 const ScrollToTop: React.FC = () => {
   const { pathname, hash } = useLocation();
@@ -34,6 +36,7 @@ const ScrollToTop: React.FC = () => {
 export const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col justify-between bg-[#FFF9EF] font-sans antialiased text-[#25334A]">
+      <LogoIntro />
       <ScrollToTop />
       <div>
         <Navbar />
