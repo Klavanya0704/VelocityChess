@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export const LogoIntro: React.FC = () => {
-  const [stage, setStage] = useState<'entering' | 'filling' | 'complete' | 'exiting' | 'done'>('entering');
+  const [stage, setStage] = useState<'faint' | 'white' | 'filling' | 'complete' | 'exiting' | 'done'>('faint');
 
   useEffect(() => {
     // 1. Accessibility: Check for prefers-reduced-motion
@@ -13,29 +13,35 @@ export const LogoIntro: React.FC = () => {
       return () => clearTimeout(quickTimer);
     }
 
-    // 2. Animation sequence timeline:
-    // T = 0ms: Initial subtle outline logo display
-    // T = 250ms: Begin smooth left-to-right color-fill animation
+    // 2. Cinematic 4-frame animation timeline (Total ~2.9s):
+    // Frame 1 (0ms - 500ms): Faint dark-grey silhouette on pure black (#000000)
+    // Frame 2 (500ms - 1100ms): Transitions to crisp bright white (#FFFFFF)
+    const whiteTimer = setTimeout(() => {
+      setStage('white');
+    }, 500);
+
+    // Frame 3 (1100ms - 2300ms): Vertical bottom-to-top red color fill (#DC3627)
     const fillTimer = setTimeout(() => {
       setStage('filling');
-    }, 250);
+    }, 1100);
 
-    // T = 1450ms: Color fill completes (1200ms sweep)
+    // Color fill completes at 2300ms (1200ms sweep)
     const completeTimer = setTimeout(() => {
       setStage('complete');
-    }, 1450);
+    }, 2300);
 
-    // T = 1750ms: Hold full logo for 300ms, then begin fluid fade-out transition
+    // Frame 4 (2550ms - 2950ms): Hold red logo for 250ms, then smoothly fade out black overlay
     const exitTimer = setTimeout(() => {
       setStage('exiting');
-    }, 1750);
+    }, 2550);
 
-    // T = 2150ms: Transition finishes, remove overlay from DOM
+    // Intro complete (2950ms): Unmount from DOM completely
     const doneTimer = setTimeout(() => {
       setStage('done');
-    }, 2150);
+    }, 2950);
 
     return () => {
+      clearTimeout(whiteTimer);
       clearTimeout(fillTimer);
       clearTimeout(completeTimer);
       clearTimeout(exitTimer);
@@ -43,7 +49,7 @@ export const LogoIntro: React.FC = () => {
     };
   }, []);
 
-  // Allow user to dismiss on click or Escape key if desired
+  // Allow user to dismiss on click or Escape/Space/Enter key
   const handleDismiss = () => {
     setStage('done');
   };
@@ -63,15 +69,17 @@ export const LogoIntro: React.FC = () => {
   }
 
   const isExiting = stage === 'exiting';
-  const isFillingOrComplete = stage === 'filling' || stage === 'complete' || stage === 'exiting';
+  const isWhiteOrLater = stage === 'white' || stage === 'filling' || stage === 'complete' || stage === 'exiting';
+  const isFilling = stage === 'filling';
+  const isCompleteOrExiting = stage === 'complete' || stage === 'exiting';
 
   return (
     <div
       role="status"
       aria-label="Velocity Chess Academy loading intro"
       onClick={handleDismiss}
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#F5E913] transition-all duration-400 select-none ${
-        isExiting ? 'opacity-0 scale-[1.03] pointer-events-none' : 'opacity-100 scale-100'
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#000000] select-none ${
+        isExiting ? 'opacity-0 scale-[1.02] pointer-events-none' : 'opacity-100 scale-100'
       }`}
       style={{
         transitionProperty: 'opacity, transform',
@@ -81,70 +89,136 @@ export const LogoIntro: React.FC = () => {
     >
       {/* Centered Logo Presentation Container */}
       <div className="relative w-full max-w-[280px] xs:max-w-[340px] sm:max-w-[460px] md:max-w-[540px] lg:max-w-[620px] px-4">
-        {/* Aspect Ratio Box matching the authentic logo dimensions (656x357 ≈ 1.838) */}
+        {/* Aspect Ratio Box matching authentic logo dimensions (656x357 ≈ 1.838) */}
         <div className="relative aspect-[656/357] w-full flex items-center justify-center">
-          
-          {/* Layer 1: Base low-opacity faint silhouette artwork */}
+
+          {/* Layer 1: White/Grey Base Silhouette Layer */}
+          {/* Frame 1: Opacity 0.22 (subtle dark grey on black) */}
+          {/* Frame 2: Opacity 1.0 (crisp bright white on black) */}
           <img
             src="/assets/velocity_logo_tight_transparent.png"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-contain opacity-20 filter contrast-125 transition-opacity duration-300"
+            className="absolute inset-0 w-full h-full object-contain"
+            style={{
+              filter: 'brightness(0) invert(1)',
+              opacity: isWhiteOrLater ? 1 : 0.22,
+              transition: 'opacity 500ms ease-in-out',
+            }}
             loading="eager"
             decoding="sync"
           />
 
-          {/* Layer 2: Animated Color-Fill Artwork Layer */}
+          {/* Layer 2: Brand Red (#DC3627) Color-Fill Layer (Vertical Bottom-to-Top) */}
+          {/* Frame 3: Progressively fills from bottom edge upward to top edge */}
           <div
             className="absolute inset-0 w-full h-full overflow-hidden"
             style={{
-              clipPath: isFillingOrComplete ? 'inset(0 0% 0 0)' : 'inset(0 100% 0 0)',
-              transition: isFillingOrComplete && stage === 'filling'
-                ? 'clip-path 1200ms cubic-bezier(0.25, 1, 0.5, 1)'
-                : isFillingOrComplete
-                ? 'none'
-                : 'none',
-              WebkitClipPath: isFillingOrComplete ? 'inset(0 0% 0 0)' : 'inset(0 100% 0 0)',
+              clipPath: isCompleteOrExiting
+                ? 'inset(0% 0 0 0)'
+                : isFilling
+                ? undefined
+                : 'inset(100% 0 0 0)',
+              WebkitClipPath: isCompleteOrExiting
+                ? 'inset(0% 0 0 0)'
+                : isFilling
+                ? undefined
+                : 'inset(100% 0 0 0)',
+              animation: isFilling ? 'riseFill 1200ms cubic-bezier(0.25, 1, 0.5, 1) forwards' : undefined,
+              WebkitAnimation: isFilling ? 'riseFill 1200ms cubic-bezier(0.25, 1, 0.5, 1) forwards' : undefined,
             }}
           >
             <img
               src="/assets/velocity_logo_tight_transparent.png"
               alt="Velocity Chess Academy"
-              className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(220,54,39,0.18)]"
+              className="w-full h-full object-contain filter drop-shadow-[0_2px_12px_rgba(220,54,39,0.35)]"
               loading="eager"
               decoding="sync"
             />
           </div>
 
-          {/* Layer 3: Soft subtle leading shimmer sweep (active during filling phase) */}
-          {stage === 'filling' && (
+          {/* Layer 3: Rising Subtle Boundary Highlight (Active during vertical fill) */}
+          {isFilling && (
             <div
-              className="absolute inset-y-0 w-12 pointer-events-none opacity-40 blur-[4px]"
+              className="absolute inset-0 pointer-events-none"
               style={{
-                background: 'linear-gradient(to right, transparent, rgba(255, 255, 255, 0.65), transparent)',
-                animation: 'introSweep 1200ms cubic-bezier(0.25, 1, 0.5, 1) forwards',
+                WebkitMaskImage: 'url(/assets/velocity_logo_tight_transparent.png)',
+                maskImage: 'url(/assets/velocity_logo_tight_transparent.png)',
+                WebkitMaskSize: 'contain',
+                maskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                maskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                maskPosition: 'center',
               }}
-            />
+            >
+              <div
+                className="absolute left-0 right-0 h-[3px]"
+                style={{
+                  transform: 'translateY(-50%)',
+                  background: 'linear-gradient(90deg, transparent 5%, rgba(255, 140, 120, 0.6) 20%, rgba(255, 245, 220, 0.95) 50%, rgba(255, 140, 120, 0.6) 80%, transparent 95%)',
+                  boxShadow: '0 0 8px 1px rgba(255, 230, 160, 0.6), 0 0 14px 2px rgba(220, 54, 39, 0.45)',
+                  animation: 'riseBoundary 1200ms cubic-bezier(0.25, 1, 0.5, 1) forwards',
+                  WebkitAnimation: 'riseBoundary 1200ms cubic-bezier(0.25, 1, 0.5, 1) forwards',
+                }}
+              />
+            </div>
           )}
 
         </div>
       </div>
 
-      {/* Global CSS for the subtle leading shimmer sweep */}
+      {/* Embedded CSS Keyframes for Bottom-to-Top Fill and Rising Boundary Line */}
       <style>{`
-        @keyframes introSweep {
+        @keyframes riseFill {
           0% {
-            left: 0%;
-            opacity: 0;
-          }
-          15% {
-            opacity: 0.5;
-          }
-          85% {
-            opacity: 0.5;
+            clip-path: inset(100% 0 0 0);
+            -webkit-clip-path: inset(100% 0 0 0);
           }
           100% {
-            left: 100%;
+            clip-path: inset(0% 0 0 0);
+            -webkit-clip-path: inset(0% 0 0 0);
+          }
+        }
+        @-webkit-keyframes riseFill {
+          0% {
+            -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+          }
+          100% {
+            -webkit-clip-path: inset(0% 0 0 0);
+            clip-path: inset(0% 0 0 0);
+          }
+        }
+        @keyframes riseBoundary {
+          0% {
+            top: 100%;
+            opacity: 0;
+          }
+          8% {
+            opacity: 1;
+          }
+          92% {
+            opacity: 1;
+          }
+          100% {
+            top: 0%;
+            opacity: 0;
+          }
+        }
+        @-webkit-keyframes riseBoundary {
+          0% {
+            top: 100%;
+            opacity: 0;
+          }
+          8% {
+            opacity: 1;
+          }
+          92% {
+            opacity: 1;
+          }
+          100% {
+            top: 0%;
             opacity: 0;
           }
         }
