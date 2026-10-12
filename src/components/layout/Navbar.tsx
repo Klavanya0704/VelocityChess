@@ -102,11 +102,7 @@ export const Navbar: React.FC = () => {
             className="pointer-events-auto group shrink-0 hidden sm:block transition-transform hover:scale-[1.02]"
           >
             <div
-              className={`backdrop-blur-md rounded-full h-[46px] sm:h-[50px] lg:h-[52px] w-[150px] sm:w-[170px] lg:w-[185px] flex items-center justify-center px-3.5 py-1.5 transition-all duration-300 ${
-                isScrolled
-                  ? 'bg-[#FFF9EF]/95 border border-[#F2A000]/40 shadow-lg'
-                  : 'bg-white/60 border border-white/85 shadow-md hover:shadow-lg'
-              }`}
+              className="bg-[#F5E913] rounded-full h-[46px] sm:h-[50px] lg:h-[52px] w-[150px] sm:w-[170px] lg:w-[185px] flex items-center justify-center px-3.5 py-1.5 shadow-md border border-[#E0D410] transition-all duration-300 hover:shadow-lg"
             >
               <img
                 src="/assets/velocity_logo_tight_transparent.png"
@@ -131,11 +127,7 @@ export const Navbar: React.FC = () => {
             className="sm:hidden pointer-events-auto inline-block shrink-0"
           >
             <div
-              className={`backdrop-blur-md rounded-full px-2.5 py-1 flex items-center h-[38px] transition-all duration-300 ${
-                isScrolled
-                  ? 'bg-[#FFF9EF]/95 border border-[#F2A000]/40 shadow-md'
-                  : 'bg-white/60 border border-white/85 shadow-sm'
-              }`}
+              className="bg-[#F5E913] rounded-full px-2.5 py-1 flex items-center h-[38px] shadow-sm border border-[#E0D410] transition-all duration-300"
             >
               <img
                 src="/assets/velocity_logo_tight_transparent.png"
@@ -237,11 +229,13 @@ export const Navbar: React.FC = () => {
                 aria-label="Velocity Chess Academy Homepage"
                 className="inline-block transition-transform hover:scale-105"
               >
-                <img
-                  src="/assets/velocity_logo_tight_transparent.png"
-                  alt="Velocity Chess Academy"
-                  className="h-8 xs:h-9 w-auto object-contain mx-auto"
-                />
+                <div className="bg-[#F5E913] px-3.5 py-1 rounded-full shadow-sm border border-[#E0D410] flex items-center justify-center">
+                  <img
+                    src="/assets/velocity_logo_tight_transparent.png"
+                    alt="Velocity Chess Academy"
+                    className="h-7 xs:h-8 w-auto object-contain mx-auto"
+                  />
+                </div>
               </Link>
             </div>
 
