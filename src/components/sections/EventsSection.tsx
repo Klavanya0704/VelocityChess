@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Trophy, Users, Star, CheckCircle2, ArrowRight, Calendar } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Calendar } from 'lucide-react';
 
 export const EventsSection: React.FC = () => {
   const navigate = useNavigate();
@@ -11,7 +11,6 @@ export const EventsSection: React.FC = () => {
       title: 'Chess Tournaments',
       description: 'Participate in exciting tournaments and experience competitive chess.',
       image: '/assets/events_tournaments.jpg',
-      icon: <Trophy className="w-4 h-4 text-[#10264B]" />,
       isNavy: false,
       rotationClass: 'md:rotate-[-2deg] md:hover:rotate-0 hover:scale-105 z-10',
       highlights: [
@@ -26,7 +25,6 @@ export const EventsSection: React.FC = () => {
       title: 'Workshops & Training Camps',
       description: 'Learn from expert coaches through structured workshops and training.',
       image: '/assets/events_workshops.jpg',
-      icon: <Users className="w-4 h-4 text-[#10264B]" />,
       isNavy: true,
       rotationClass: 'rotate-0 md:scale-[1.03] hover:scale-105 z-20',
       highlights: [
@@ -41,7 +39,6 @@ export const EventsSection: React.FC = () => {
       title: 'Special Events',
       description: 'Beyond tournaments, we host unique events building confidence.',
       image: '/assets/events_special.jpg',
-      icon: <Star className="w-4 h-4 text-[#10264B]" />,
       isNavy: false,
       rotationClass: 'md:rotate-[2deg] md:hover:rotate-0 hover:scale-105 z-10',
       highlights: [
@@ -163,11 +160,6 @@ export const EventsSection: React.FC = () => {
                   strokeOpacity="0.85"
                 />
               </svg>
-
-              {/* CIRCULAR NAVY & GOLD ICON BADGE OVERLAPPING IMAGE BOUNDARY */}
-              <div className="absolute top-[32%] sm:top-[32.5%] left-1/2 -translate-x-1/2 w-8.5 h-8.5 rounded-full bg-gradient-to-br from-[#FFF3D6] via-[#FFE29A] to-[#E99A00] border-2 border-white shadow-md flex items-center justify-center text-[#10264B] z-30 pointer-events-none">
-                {panel.icon}
-              </div>
 
               {/* CARD HTML CONTENT LAYER */}
               <div
