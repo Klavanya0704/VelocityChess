@@ -1,57 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <defs>
-    <linearGradient id="gold-metal" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFDF0"/>
-      <stop offset="30%" stop-color="#FFE585"/>
-      <stop offset="70%" stop-color="#F2A000"/>
-      <stop offset="100%" stop-color="#B87300"/>
-    </linearGradient>
-    <linearGradient id="navy-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#152C5B"/>
-      <stop offset="100%" stop-color="#081830"/>
-    </linearGradient>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#000" flood-opacity="0.35"/>
-    </filter>
-  </defs>
-
-  <!-- Navy Rounded Emblem Base -->
-  <rect width="64" height="64" rx="16" fill="url(#navy-bg)"/>
-  
-  <!-- Outer Gold Border -->
-  <rect x="2.5" y="2.5" width="59" height="59" rx="13.5" fill="none" stroke="url(#gold-metal)" stroke-width="2"/>
-  <rect x="4.5" y="4.5" width="55" height="55" rx="11.5" fill="none" stroke="#FFE8AB" stroke-width="0.75" stroke-opacity="0.4"/>
-
-  <!-- Velocity Chess Academy Crown & Knight Icon -->
-  <g filter="url(#shadow)">
-    <!-- Crown Coronet atop Knight -->
-    <path d="M 22 13 L 26 20 L 32 14 L 38 20 L 42 13 L 40 22 L 24 22 Z" fill="url(#gold-metal)"/>
-    <circle cx="22" cy="12" r="1.5" fill="#FFE8AB"/>
-    <circle cx="32" cy="13" r="1.5" fill="#FFE8AB"/>
-    <circle cx="42" cy="12" r="1.5" fill="#FFE8AB"/>
-
-    <!-- Chess Knight Profile -->
-    <path d="M 37 23 
-             C 32 23, 26 27, 22 34 
-             C 19 39, 18 42, 23 42 
-             C 27 42, 29 38, 32 38 
-             C 35 38, 36 41, 33 46 
-             C 27 49, 22 54, 19 56 
-             L 45 56 
-             C 45 47, 44 38, 41 31 
-             C 40 26, 39 23, 37 23 Z" 
-          fill="url(#gold-metal)"/>
-
-    <!-- Eye & Details -->
-    <circle cx="29" cy="31" r="1.5" fill="#081830"/>
-    <circle cx="28.6" cy="30.6" r="0.6" fill="#FFFDF0"/>
-
-    <!-- Mane Ridges -->
-    <path d="M 39 28 L 44 33" stroke="#FFE585" stroke-width="1.2" stroke-linecap="round"/>
-    <path d="M 40 35 L 45 40" stroke="#FFE585" stroke-width="1.2" stroke-linecap="round"/>
-    <path d="M 41 42 L 45 47" stroke="#FFE585" stroke-width="1.2" stroke-linecap="round"/>
-
-    <!-- Pedestal Base Plate -->
-    <path d="M 16 55 L 48 55 L 47 58 L 17 58 Z" fill="url(#gold-metal)"/>
-  </g>
+  <!-- Velocity Chess Academy Brand Favicon -->
+  <!-- Background: Bright Yellow (#F5E913 / #FFEB00) -->
+  <rect width="64" height="64" rx="14" fill="#F5E913"/>
+  <!-- Subtle border to define emblem edges -->
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#DC3627" stroke-width="1.5" stroke-opacity="0.4"/>
+  <!-- Red Knight Emblem Artwork (#DC3627 / #E7472F) -->
+  <image href="data:image/png;base64,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" x="0" y="0" width="64" height="64" preserveAspectRatio="xMidYMid meet"/>
 </svg>
