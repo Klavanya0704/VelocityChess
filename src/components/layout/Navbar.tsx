@@ -111,7 +111,7 @@ export const Navbar: React.FC = () => {
               <img
                 src="/assets/velocity_logo_tight_transparent.png"
                 alt="Velocity Chess Academy"
-                className="w-full h-full object-contain filter brightness-[0.95]"
+                className="w-full h-full object-contain"
                 loading="eager"
                 decoding="async"
               />
@@ -229,6 +229,22 @@ export const Navbar: React.FC = () => {
             id="mobile-nav-drawer"
             className="lg:hidden mt-2 p-3.5 sm:p-5 bg-[#FFF9EF]/98 backdrop-blur-2xl rounded-2xl space-y-2.5 sm:space-y-3 border border-[#F2A000]/35 shadow-2xl animate-in fade-in slide-in-from-top-3 duration-300 pointer-events-auto w-full max-w-[calc(100vw-24px)] sm:max-w-sm mx-auto z-50 relative"
           >
+            {/* Mobile Drawer Brand Logo Header */}
+            <div className="flex items-center justify-center pb-2.5 border-b border-[#F2A000]/20">
+              <Link
+                to="/"
+                onClick={(e) => handleLinkClick('/', e)}
+                aria-label="Velocity Chess Academy Homepage"
+                className="inline-block transition-transform hover:scale-105"
+              >
+                <img
+                  src="/assets/velocity_logo_tight_transparent.png"
+                  alt="Velocity Chess Academy"
+                  className="h-8 xs:h-9 w-auto object-contain mx-auto"
+                />
+              </Link>
+            </div>
+
             <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
               {navLinks.map((link) => (
                 <NavLink
