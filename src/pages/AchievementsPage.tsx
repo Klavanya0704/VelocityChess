@@ -288,7 +288,7 @@ export const AchievementsPage: React.FC = () => {
                     <span className="text-[11px] font-bold text-[#E5A51B] uppercase tracking-wider block mb-1">
                       {item.category}
                     </span>
-                    <h4 className="font-serif font-extrabold text-lg text-[#10264A] mb-2 leading-tight">
+                    <h4 className="font-serif font-extrabold text-lg text-[#10264A] mb-2 leading-tight lining-nums">
                       {item.title}
                     </h4>
                     <p className="text-xs text-[#25334A]/80 font-medium leading-relaxed font-sans">
@@ -378,7 +378,7 @@ export const AchievementsPage: React.FC = () => {
               <div className="text-xs font-extrabold uppercase tracking-wider text-[#E5A51B]">
                 {achievementsList[activePhotoIndex].category} · {achievementsList[activePhotoIndex].badge} · Photo {activePhotoIndex + 1} of {achievementsList.length}
               </div>
-              <h4 className="font-serif font-extrabold text-xl text-[#10264A]">
+              <h4 className="font-serif font-extrabold text-xl text-[#10264A] lining-nums">
                 {achievementsList[activePhotoIndex].title}
               </h4>
               <p className="text-xs sm:text-sm text-[#25334A]/85 max-w-xl mx-auto font-medium">
