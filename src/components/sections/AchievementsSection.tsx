@@ -7,6 +7,22 @@ export const AchievementsSection: React.FC = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
 
+  const renderTitle = (title: string) => {
+    const parts = title.split(/(\d+(?:st|nd|rd|th))/i);
+    return parts.map((part, index) => {
+      const match = part.match(/^(\d+)(st|nd|rd|th)$/i);
+      if (match) {
+        return (
+          <span key={index} className="inline-block">
+            {match[1]}
+            <sup className="text-[0.65em] font-bold align-super ml-[1px]">{match[2]}</sup>
+          </span>
+        );
+      }
+      return part;
+    });
+  };
+
   // All seven real student achievement photographs
   const achievementCards = [
     {
@@ -335,8 +351,8 @@ export const AchievementsSection: React.FC = () => {
                       <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#D98A00] block mb-1">
                         {card.category}
                       </span>
-                      <h3 className="font-serif font-extrabold text-base sm:text-lg text-[#10264B] leading-tight mb-2 lining-nums">
-                        {card.title}
+                      <h3 className="font-sans font-bold text-base sm:text-lg text-[#10264B] leading-tight mb-2">
+                        {renderTitle(card.title)}
                       </h3>
                       <p className="text-xs text-[#25334A]/80 font-medium leading-relaxed">
                         {card.description}
@@ -435,8 +451,8 @@ export const AchievementsSection: React.FC = () => {
                 <div className="text-xs font-extrabold uppercase tracking-wider text-[#D98A00]">
                   {achievementCards[activeModalIndex].category} · {achievementCards[activeModalIndex].badgeLabel} · Photo {activeModalIndex + 1} of {achievementCards.length}
                 </div>
-                <h4 className="font-serif font-extrabold text-xl text-[#10264A] lining-nums">
-                  {achievementCards[activeModalIndex].title}
+                <h4 className="font-sans font-bold text-xl text-[#10264A]">
+                  {renderTitle(achievementCards[activeModalIndex].title)}
                 </h4>
                 <p className="text-xs sm:text-sm text-[#25334A]/85 max-w-xl mx-auto font-medium">
                   {achievementCards[activeModalIndex].description}

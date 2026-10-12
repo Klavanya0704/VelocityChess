@@ -40,11 +40,15 @@
     font-feature-settings: "lnum" 1;
   }
   
-  h1, h2, h3, h4, h5, h6, .font-serif, .font-serif-title {
+  h1, h2, .font-serif, .font-serif-title {
     font-family: var(--font-serif);
-    font-variant-numeric: lining-nums tabular-nums;
-    -moz-font-feature-settings: "lnum" 1;
-    -webkit-font-feature-settings: "lnum" 1;
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum" 1;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-variant-numeric: lining-nums;
     font-feature-settings: "lnum" 1;
   }
 }
