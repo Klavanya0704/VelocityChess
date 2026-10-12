@@ -252,7 +252,7 @@ export const ProgramsSection: React.FC = () => {
                 </div>
 
                 {/* 3. LOWER BODY DESCRIPTION & FEATURES (y = 280 to y = 456) */}
-                <div className="h-[34%] px-4 pt-1 flex flex-col justify-start text-center">
+                <div className="h-[34%] px-4 pt-1 flex flex-col justify-center text-center">
                   
                   {/* Description */}
                   <p
@@ -263,16 +263,18 @@ export const ProgramsSection: React.FC = () => {
                     {card.description}
                   </p>
 
-                  {/* Features Checklist */}
-                  <div className="space-y-1.5 text-left pt-1 border-t border-current/15">
-                    {card.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-center space-x-2 text-[10px] sm:text-[11px] font-semibold leading-none">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#F2A000] shrink-0 fill-[#F2A000]/20" />
-                        <span className={card.isNavy ? 'text-gray-100' : 'text-[#10264B]'}>
-                          {benefit}
-                        </span>
-                      </div>
-                    ))}
+                  {/* Features Checklist - Centered in the middle */}
+                  <div className="w-full max-w-[220px] mx-auto pt-1.5 border-t border-current/15 flex justify-center">
+                    <div className="space-y-1.5 text-left w-fit mx-auto">
+                      {card.benefits.map((benefit, idx) => (
+                        <div key={idx} className="flex items-center space-x-2 text-[10px] sm:text-[11px] font-semibold leading-none">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#F2A000] shrink-0 fill-[#F2A000]/20" />
+                          <span className={card.isNavy ? 'text-gray-100' : 'text-[#10264B]'}>
+                            {benefit}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                 </div>
