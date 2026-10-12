@@ -492,51 +492,50 @@ export const AboutPage: React.FC = () => {
         {/* SECTION 1: ABOUT US HERO / STORY SECTION */}
         <AboutUsSection />
 
-        {/* SECTION 2: MISSION & VISION */}
-        <section className="relative py-12 sm:py-16 border-t border-[#F2A000]/20">
+        {/* SECTION 2: MISSION & VISION (MATCHING REFERENCE media_1791799638187_3e35a51b.png) */}
+        <section className="relative py-8 sm:py-12 border-t border-[#F2A000]/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-              <div className="inline-flex items-center space-x-2">
-                <span className="w-6 h-[2px] bg-[#F2A000]" />
-                <span className="text-[#D98A00] font-sans font-extrabold text-xs uppercase tracking-[0.2em]">
-                  CORE VALUES & PURPOSE
-                </span>
-                <span className="w-6 h-[2px] bg-[#F2A000]" />
-              </div>
-              <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#10264B]">
-                Our Mission & Vision
-              </h2>
+            {/* Desktop & Tablet: Full high-res banner with background, ribbon curves, headings, and cards */}
+            <div className="hidden md:block relative rounded-3xl overflow-hidden border-2 border-[#F2A000]/40 shadow-2xl">
+              <img
+                src="/assets/mission_vision_banner.png"
+                alt="Velocity Chess Academy - Our Mission & Vision"
+                className="w-full h-auto object-cover block"
+              />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-              
-              {/* Mission Card */}
-              <div className="bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border-2 border-[#F2A000]/30 shadow-xl gold-glow-hover hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-2xl bg-[#FFF5E5] border border-[#F2A000]/40 flex items-center justify-center text-[#D98A00] mb-4 shadow-sm">
-                  <Target className="w-6 h-6" />
+            {/* Mobile: Dedicated responsive view with section heading and stacked cards */}
+            <div className="md:hidden space-y-6">
+              <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
+                <div className="inline-flex items-center space-x-2">
+                  <span className="w-6 h-[2px] bg-[#F2A000]" />
+                  <span className="text-[#D98A00] font-sans font-extrabold text-xs uppercase tracking-[0.2em]">
+                    CORE VALUES & PURPOSE
+                  </span>
+                  <span className="w-6 h-[2px] bg-[#F2A000]" />
                 </div>
-                <h3 className="font-serif font-bold text-2xl text-[#10264B] mb-3">
-                  Our Mission
-                </h3>
-                <p className="text-xs sm:text-sm text-[#25334A]/85 leading-relaxed font-sans">
-                  To empower young minds with critical thinking, resilience, and strategic clarity through structured master-level chess education. We strive to nurture not just tournament champions, but lifelong strategic thinkers.
-                </p>
+                <h2 className="font-serif font-extrabold text-2xl text-[#10264B]">
+                  Our Mission <span className="text-[#E99A00]">&</span> Vision
+                </h2>
               </div>
 
-              {/* Vision Card */}
-              <div className="bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border-2 border-[#F2A000]/30 shadow-xl gold-glow-hover hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-2xl bg-[#FFF5E5] border border-[#F2A000]/40 flex items-center justify-center text-[#D98A00] mb-4 shadow-sm">
-                  <Sparkles className="w-6 h-6" />
+              <div className="space-y-5">
+                <div className="relative rounded-2xl overflow-hidden border-2 border-[#F2A000]/40 shadow-lg">
+                  <img
+                    src="/assets/mission_card.png"
+                    alt="Our Mission"
+                    className="w-full h-auto object-cover block"
+                  />
                 </div>
-                <h3 className="font-serif font-bold text-2xl text-[#10264B] mb-3">
-                  Our Vision
-                </h3>
-                <p className="text-xs sm:text-sm text-[#25334A]/85 leading-relaxed font-sans">
-                  To become India’s premier chess academy, setting the gold standard for youth chess training, FIDE rating development, and producing International Masters and Grandmasters who inspire the next generation.
-                </p>
+                <div className="relative rounded-2xl overflow-hidden border-2 border-[#F2A000]/40 shadow-lg">
+                  <img
+                    src="/assets/vision_card.png"
+                    alt="Our Vision"
+                    className="w-full h-auto object-cover block"
+                  />
+                </div>
               </div>
-
             </div>
 
           </div>
