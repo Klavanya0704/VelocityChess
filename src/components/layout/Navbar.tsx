@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile drawer on route changes or resize
+  // Close mobile drawer on route changes, resize, or Escape key
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
@@ -34,6 +34,16 @@ export const Navbar: React.FC = () => {
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   const navLinks = [
@@ -62,6 +72,15 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* Mobile Drawer Backdrop Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/45 backdrop-blur-xs z-40 lg:hidden pointer-events-auto transition-opacity"
+          onClick={() => setIsMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       <header
         className={`fixed top-0 left-0 right-0 z-50 w-full pointer-events-none px-3 sm:px-6 lg:px-8 transition-all duration-300 ${
           isScrolled ? 'pt-2 sm:pt-3' : 'pt-3 sm:pt-4'
@@ -79,6 +98,7 @@ export const Navbar: React.FC = () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
+            aria-label="Velocity Chess Academy Homepage"
             className="pointer-events-auto group shrink-0 hidden sm:block transition-transform hover:scale-[1.02]"
           >
             <div
@@ -92,6 +112,8 @@ export const Navbar: React.FC = () => {
                 src="/assets/velocity_logo_tight_transparent.png"
                 alt="Velocity Chess Academy"
                 className="w-full h-full object-contain filter brightness-[0.95]"
+                loading="eager"
+                decoding="async"
               />
             </div>
           </Link>
@@ -105,6 +127,7 @@ export const Navbar: React.FC = () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
+            aria-label="Velocity Chess Academy Homepage"
             className="sm:hidden pointer-events-auto inline-block shrink-0"
           >
             <div
@@ -118,6 +141,8 @@ export const Navbar: React.FC = () => {
                 src="/assets/velocity_logo_tight_transparent.png"
                 alt="Velocity Chess Academy"
                 className="h-full max-h-[26px] w-auto object-contain"
+                loading="eager"
+                decoding="async"
               />
             </div>
           </Link>
@@ -133,7 +158,7 @@ export const Navbar: React.FC = () => {
             >
               
               {/* CENTER: Navigation Links */}
-              <nav className="hidden lg:flex items-center space-x-2.5 xl:space-x-5.5 mx-auto">
+              <nav className="hidden lg:flex items-center space-x-2.5 xl:space-x-5.5 mx-auto" aria-label="Main Navigation">
                 {navLinks.map((link) => {
                   const isActive =
                     location.pathname === link.path &&
@@ -166,7 +191,7 @@ export const Navbar: React.FC = () => {
                 {/* Search Button */}
                 <button
                   onClick={() => setIsSearchOpen(true)}
-                  className="w-7.5 h-7.5 sm:w-8.5 sm:h-8.5 rounded-full glass-btn-ivory text-[#10264B] flex items-center justify-center transition hover:scale-105"
+                  className="w-7.5 h-7.5 sm:w-8.5 sm:h-8.5 rounded-full glass-btn-ivory text-[#10264B] flex items-center justify-center transition hover:scale-105 cursor-pointer"
                   aria-label="Search site"
                 >
                   <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10264B]" />
@@ -175,7 +200,7 @@ export const Navbar: React.FC = () => {
                 {/* Enroll Now Button */}
                 <button
                   onClick={() => setIsEnrollOpen(true)}
-                  className="hidden sm:inline-flex items-center space-x-1.5 px-4 py-2 glass-btn-navy text-white rounded-full text-xs font-bold tracking-wide shadow-sm hover:shadow-md transition hover:scale-103"
+                  className="hidden sm:inline-flex items-center space-x-1.5 px-4 py-2 glass-btn-navy text-white rounded-full text-xs font-bold tracking-wide shadow-sm hover:shadow-md transition hover:scale-103 cursor-pointer"
                 >
                   <span>Enroll Now</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#F2A000]" />
@@ -184,9 +209,10 @@ export const Navbar: React.FC = () => {
                 {/* Mobile Menu Toggle Button */}
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="lg:hidden p-1.5 sm:p-2 rounded-xl text-[#10264B] glass-btn-ivory transition hover:scale-105"
+                  className="lg:hidden p-1.5 sm:p-2 rounded-xl text-[#10264B] glass-btn-ivory transition hover:scale-105 cursor-pointer"
                   aria-label="Toggle navigation menu"
                   aria-expanded={isMobileMenuOpen}
+                  aria-controls="mobile-nav-drawer"
                 >
                   {isMobileMenuOpen ? <X className="w-4.5 h-4.5 sm:w-5 sm:h-5" /> : <Menu className="w-4.5 h-4.5 sm:w-5 sm:h-5" />}
                 </button>
@@ -199,7 +225,10 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-2 p-3.5 sm:p-5 bg-[#FFF9EF]/98 backdrop-blur-2xl rounded-2xl space-y-2.5 sm:space-y-3 border border-[#F2A000]/35 shadow-2xl animate-in fade-in slide-in-from-top-3 duration-300 pointer-events-auto w-full max-w-sm mx-auto">
+          <div
+            id="mobile-nav-drawer"
+            className="lg:hidden mt-2 p-3.5 sm:p-5 bg-[#FFF9EF]/98 backdrop-blur-2xl rounded-2xl space-y-2.5 sm:space-y-3 border border-[#F2A000]/35 shadow-2xl animate-in fade-in slide-in-from-top-3 duration-300 pointer-events-auto w-full max-w-[calc(100vw-24px)] sm:max-w-sm mx-auto z-50 relative"
+          >
             <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
               {navLinks.map((link) => (
                 <NavLink
@@ -225,7 +254,7 @@ export const Navbar: React.FC = () => {
                   setIsMobileMenuOpen(false);
                   setIsEnrollOpen(true);
                 }}
-                className="w-full py-2 sm:py-2.5 glass-btn-navy text-white rounded-full font-bold text-xs flex items-center justify-center space-x-1.5 shadow-md hover:scale-[1.01] transition"
+                className="w-full py-2 sm:py-2.5 glass-btn-navy text-white rounded-full font-bold text-xs flex items-center justify-center space-x-1.5 shadow-md hover:scale-[1.01] transition cursor-pointer"
               >
                 <span>Enroll Now</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#F2A000]" />

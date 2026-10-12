@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Trophy, Award, Medal, Crown, Sparkles, X, ZoomIn, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { CtaSection } from '../components/sections/CtaSection';
+import { SEO } from '../components/common/SEO';
 
 export const AchievementsPage: React.FC = () => {
   const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
@@ -149,12 +150,19 @@ export const AchievementsPage: React.FC = () => {
 
   return (
     <div className="relative min-h-screen text-[#25334A] select-none bg-[#FFF9EF] pt-28 sm:pt-32 pb-20 overflow-x-hidden">
+      <SEO
+        title="Student Achievements & Hall of Fame | Velocity Chess Academy"
+        description="Celebrating tournament champions, FIDE rated masters, and medalists trained at Velocity Chess Academy in Hyderabad across state, national, and international events."
+        canonicalPath="/achievements"
+      />
       
       {/* 1. FULL-WIDTH PAGE BACKGROUND IMAGE LAYER */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="/assets/achievements_full_bg.jpg"
           alt="Velocity Chess Academy Achievements Background"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-center opacity-40 blur-[1px]"
         />
         {/* Soft cream translucent overlay for readability & contrast */}
@@ -224,6 +232,8 @@ export const AchievementsPage: React.FC = () => {
                   <img
                     src={spotlightAchievement.imageUrl}
                     alt={spotlightAchievement.altText}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-[center_18%] group-hover/photo:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover/photo:opacity-100 transition-opacity flex items-end p-4">
@@ -282,6 +292,8 @@ export const AchievementsPage: React.FC = () => {
                     <img
                       src={item.imageUrl}
                       alt={item.altText}
+                      loading="lazy"
+                      decoding="async"
                       className={`w-full h-full object-cover ${item.objectPosition} group-hover:scale-105 transition-transform duration-500`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />

@@ -69,6 +69,8 @@ export const ProgramsSection: React.FC = () => {
           src="/assets/programs_bg.png"
           alt="Velocity Chess Academy Programs Background"
           className="w-full h-full object-cover object-center opacity-40 filter brightness-105"
+          loading="lazy"
+          decoding="async"
         />
         {/* Soft translucent warm cream overlay */}
         <div className="absolute inset-0 bg-[#FFF9EF]/45 pointer-events-none" />
@@ -247,6 +249,8 @@ export const ProgramsSection: React.FC = () => {
                       src={card.image}
                       alt={card.title.replace('\n', ' ')}
                       className="w-full h-full object-cover object-center filter brightness-[1.02] group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>

@@ -18,6 +18,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { resourcesData } from '../data/mockData';
+import { SEO } from '../components/common/SEO';
 
 // Extended study materials data
 const studyMaterialsData = [
@@ -232,6 +233,74 @@ export const ResourcesPage: React.FC = () => {
   const activeResource = resourcesData.find((r) => r.id === activeResId) || resourcesData[0];
 
   const handleDownload = (id: string) => {
+    // Determine content to download
+    let filename = 'VelocityChess_Study_Resource.txt';
+    let fileContent = '';
+
+    if (activeTab === 'guides') {
+      filename = `VelocityChess_${activeResource.title.replace(/[^a-zA-Z0-9]/g, '_')}.txt`;
+      fileContent = `========================================================================
+VELOCITY CHESS ACADEMY — OFFICIAL STUDY GUIDE
+========================================================================
+Title: ${activeResource.title}
+Track: ${activeResource.difficulty} Level | Estimated Read Time: ${activeResource.readTime}
+Category: ${activeResource.category}
+
+OVERVIEW:
+${activeResource.summary}
+
+DETAILED GUIDE:
+${activeResource.content}
+
+------------------------------------------------------------------------
+Velocity Chess Academy — Hyderabad, Telangana, India
+Admissions Helpline: +91 98765 43210
+Email: admissions@velocitychess.edu
+Website: https://velocity-chess-academy.vercel.app
+========================================================================`;
+    } else {
+      const item = studyMaterialsData.find((m) => m.id === id);
+      if (item) {
+        filename = `VelocityChess_${item.title.replace(/[^a-zA-Z0-9]/g, '_')}.txt`;
+        fileContent = `========================================================================
+VELOCITY CHESS ACADEMY — OFFICIAL STUDY MATERIAL
+========================================================================
+Document: ${item.title}
+Category: ${item.category} | Format: ${item.format}
+Length: ${item.pages} | Recommended Level: ${item.difficulty}
+
+DESCRIPTION:
+${item.description}
+
+CORE CURRICULUM HIGHLIGHTS:
+${item.previewPoints.map((p, idx) => `  [${idx + 1}] ${p}`).join('\n')}
+
+INSTRUCTIONS:
+1. Print on standard A4 paper for official match play or academy homework.
+2. Complete all tactical problems without board manipulation.
+3. Bring signed score sheets to your coach for tournament game analysis.
+
+------------------------------------------------------------------------
+Velocity Chess Academy — Kukatpally Campus, Hyderabad
+Admissions Helpline: +91 98765 43210
+Email: admissions@velocitychess.edu
+Website: https://velocity-chess-academy.vercel.app
+========================================================================`;
+      }
+    }
+
+    if (fileContent) {
+      const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+
     setDownloadedItem(id);
     setTimeout(() => setDownloadedItem(null), 3000);
   };
@@ -263,8 +332,28 @@ export const ResourcesPage: React.FC = () => {
     }
   ];
 
+  const tabSEO = {
+    guides: {
+      title: 'Chess Guides, Tactics & Repertoires | Velocity Chess Academy',
+      description: 'Master fundamental chess tactics, opening repertoires like the Italian Game, and King & Pawn endgames with guides from Velocity Chess Academy.'
+    },
+    materials: {
+      title: 'Downloadable Study Materials & Worksheets | Velocity Chess Academy',
+      description: 'Download printable official FIDE tournament scoresheets, checkmate-in-2 worksheets, algebraic notation drills, and tournament prep checklists.'
+    },
+    videos: {
+      title: 'Grandmaster Video Lessons & Game Analysis | Velocity Chess Academy',
+      description: 'Watch masterclass video analyses of legendary world championship games and tactical calculation masterclasses by Velocity Chess Grandmasters.'
+    }
+  };
+
   return (
     <div className="bg-[#FFF9EF] pt-24 sm:pt-28 pb-16 min-h-screen">
+      <SEO
+        title={tabSEO[activeTab].title}
+        description={tabSEO[activeTab].description}
+        canonicalPath={`/resources/${activeTab}`}
+      />
       
       {/* 1. PAGE HEADER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-4 text-center">

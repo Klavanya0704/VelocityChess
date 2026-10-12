@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Crown, Zap, Trophy, Target, CheckCircle2, ArrowRight, Clock, Users } from 'lucide-react';
 import { programsData } from '../data/mockData';
 import { EnrollmentModal } from '../components/common/EnrollmentModal';
+import { SEO } from '../components/common/SEO';
 
 const programImages: Record<string, string> = {
   'prog-1': '/assets/program_pawn_card.jpg',
@@ -35,12 +36,19 @@ export const ProgramsPage: React.FC = () => {
 
   return (
     <div className="relative min-h-screen text-[#25334A] select-none bg-[#FFF9EF] pt-24 sm:pt-28 pb-16">
+      <SEO
+        title="Coaching Programs | Velocity Chess Academy — Foundations to Master Track"
+        description="Explore structured chess coaching programs for kids and competitive players: Pawn to King Foundations, Strategic Mastery, Grandmaster Blueprint, and Tournament Prep."
+        canonicalPath="/programs"
+      />
       
       {/* 1. FULL-WIDTH PAGE BACKGROUND IMAGE LAYER */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="/assets/programs_full_bg.jpg"
           alt="Velocity Chess Academy Programs Background"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-center"
         />
         {/* Subtle cream translucent overlay for text & card contrast */}
@@ -87,6 +95,8 @@ export const ProgramsPage: React.FC = () => {
                     <img
                       src={pieceImg}
                       alt={prog.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
 

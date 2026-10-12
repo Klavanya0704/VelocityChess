@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface LogoProps {
   className?: string;
@@ -14,12 +15,18 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'lg' }) => {
   };
 
   return (
-    <div className={`inline-flex items-center rounded-2xl overflow-hidden transition-transform hover:scale-105 ${className}`}>
+    <Link
+      to="/"
+      aria-label="Velocity Chess Academy Home"
+      className={`inline-flex items-center rounded-2xl overflow-hidden transition-transform hover:scale-105 cursor-pointer ${className}`}
+    >
       <img
         src="/assets/velocity_logo.png"
         alt="Velocity Chess Academy"
         className={`${heightClasses[size]} w-auto object-contain rounded-2xl filter brightness-[1.02]`}
       />
-    </div>
+    </Link>
   );
 };
+
+export default Logo;

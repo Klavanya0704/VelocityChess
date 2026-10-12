@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { ContactSection } from '../components/sections/ContactSection';
+import { SEO } from '../components/common/SEO';
 
 export const ContactPage: React.FC = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -26,6 +27,11 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="min-h-screen text-[#25334A] select-none bg-[#FFF9EF] pt-14 sm:pt-16 pb-16 overflow-x-hidden">
+      <SEO
+        title="Contact & Admissions | Velocity Chess Academy — Kukatpally, Hyderabad"
+        description="Contact Velocity Chess Academy in Kukatpally, Hyderabad. Schedule a free evaluation session, inquire about offline and online batches, or call +91 98765 43210."
+        canonicalPath="/contact"
+      />
       {/* 1. Main Contact Section matching Image 2 */}
       <ContactSection />
 

@@ -12,6 +12,8 @@ export const HeroSection: React.FC = () => {
           src="/assets/hero_bg_seated_player.jpg"
           alt="Velocity Chess Academy Student Player Background"
           className="w-full h-full object-cover object-center filter brightness-[1.01] contrast-[1.01]"
+          loading="eager"
+          decoding="async"
         />
       </div>
 
