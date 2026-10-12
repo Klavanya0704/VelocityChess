@@ -20,13 +20,15 @@ export const Footer: React.FC = () => {
             {/* COL 1: OFFICIAL LOGO, ACADEMY DESCRIPTION & SOCIAL BADGES (4 cols on lg) */}
             <div className="lg:col-span-4 space-y-4 text-left">
               <Link to="/" className="inline-block transition-transform hover:scale-103" aria-label="Velocity Chess Academy Homepage">
-                <img
-                  src="/assets/velocity_logo_tight_transparent.png"
-                  alt="Velocity Chess Academy Official Logo"
-                  className="h-14 sm:h-20 w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <div className="bg-[#F5E913] px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl shadow-md border border-[#E0D410] inline-block">
+                  <img
+                    src="/assets/velocity_logo_tight_transparent.png"
+                    alt="Velocity Chess Academy Official Logo"
+                    className="h-10 sm:h-13 w-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </Link>
 
               <p className="text-xs sm:text-sm text-[#25334A]/90 font-medium leading-relaxed max-w-sm">
