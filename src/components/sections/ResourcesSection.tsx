@@ -53,6 +53,8 @@ export const ResourcesSection: React.FC = () => {
           src="/assets/resources-bg.jpg"
           alt="Velocity Chess Academy Resources Background"
           className="w-full h-full object-cover object-center opacity-35"
+          loading="lazy"
+          decoding="async"
         />
         {/* Translucent cream overlay */}
         <div className="absolute inset-0 bg-[#FFF9EF]/55 pointer-events-none" />
@@ -105,6 +107,8 @@ export const ResourcesSection: React.FC = () => {
                   src={card.image}
                   alt={card.title}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 {/* Soft gradient shadow over bottom of image */}

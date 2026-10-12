@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, Clock, MapPin, Trophy, Users, Zap, Crown } from 'lucide-react';
 import { eventsData } from '../data/mockData';
 import { EnrollmentModal } from '../components/common/EnrollmentModal';
+import { SEO } from '../components/common/SEO';
 
 interface EventConfig {
   image: string;
@@ -46,12 +47,19 @@ export const EventsPage: React.FC = () => {
 
   return (
     <div className="relative min-h-screen text-[#25334A] select-none bg-[#FFF9EF] pt-24 sm:pt-28 pb-16">
+      <SEO
+        title="Upcoming Tournaments & Events Calendar | Velocity Chess Academy"
+        description="Register for upcoming FIDE rapid tournaments, Grandmaster masterclasses, and weekly blitz arenas organized by Velocity Chess Academy in Hyderabad."
+        canonicalPath="/events"
+      />
       
       {/* 1. FULL-WIDTH PAGE BACKGROUND IMAGE LAYER */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="/assets/events_full_bg.jpg"
           alt="Velocity Chess Academy Events Background"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-center"
         />
         {/* Subtle cream translucent overlay for text & card contrast */}
@@ -111,6 +119,8 @@ export const EventsPage: React.FC = () => {
                     <img
                       src={config.image}
                       alt={evt.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
 

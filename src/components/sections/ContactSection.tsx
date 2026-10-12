@@ -185,6 +185,8 @@ export const ContactSection: React.FC = () => {
           src="/assets/contact_full_bg.jpg"
           alt="Velocity Chess Academy Reception and Training Interior"
           className="w-full h-full object-cover object-[15%_center] sm:object-center select-none"
+          loading="lazy"
+          decoding="async"
         />
         {/* Soft translucent warm cream overlay ensuring optimal legibility */}
         <div className="absolute inset-0 bg-[#FFF9EF]/35 pointer-events-none" />
@@ -324,6 +326,8 @@ export const ContactSection: React.FC = () => {
                 src="/assets/contact_student_learning.jpg"
                 alt="Velocity Chess Academy Student in Training"
                 className="w-full h-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 

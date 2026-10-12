@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { galleryData } from '../data/mockData';
 import { GalleryItem } from '../types';
+import { SEO } from '../components/common/SEO';
 
 export const GalleryPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
@@ -31,12 +32,19 @@ export const GalleryPage: React.FC = () => {
 
   return (
     <div className="relative min-h-screen text-[#25334A] select-none bg-[#FFF9EF] pt-24 sm:pt-28 pb-16">
+      <SEO
+        title="Academy Gallery & Campus Life | Velocity Chess Academy"
+        description="Explore photos of student tournament victories, training classroom sessions, simultaneous exhibitions, and academy events at Velocity Chess Academy in Hyderabad."
+        canonicalPath="/gallery"
+      />
       
       {/* 1. FULL-WIDTH PAGE BACKGROUND IMAGE LAYER */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="/assets/gallery_full_bg.jpg"
           alt="Velocity Chess Academy Gallery Background"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-center opacity-30 blur-[1px]"
         />
         {/* Soft cream translucent overlay for elegant contrast & subtle background */}
@@ -89,6 +97,8 @@ export const GalleryPage: React.FC = () => {
                   <img
                     src={item.imageUrl}
                     alt={item.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

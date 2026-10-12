@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AboutUsSection } from '../components/sections/AboutUsSection';
 import { CtaSection } from '../components/sections/CtaSection';
+import { SEO } from '../components/common/SEO';
 import {
   Trophy,
   Award,
@@ -474,6 +475,11 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="relative min-h-screen text-[#25334A] select-none overflow-x-hidden bg-[#FFF9EF]">
+      <SEO
+        title="About Us | Velocity Chess Academy — Master Coaching by IM Krishna Teja"
+        description="Learn about Velocity Chess Academy, founded by International Master Krishna Teja (FIDE 2384). Discover our coaching philosophy, curriculum, and Hyderabad campus."
+        canonicalPath="/about"
+      />
       
       {/* FULL ABOUT US PAGE BACKGROUND (COVERING ALL SECTIONS FROM TOP TO BOTTOM) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -502,6 +508,8 @@ export const AboutPage: React.FC = () => {
                 src="/assets/mission_vision_banner.png"
                 alt="Velocity Chess Academy - Our Mission & Vision"
                 className="w-full h-auto object-cover block"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -526,6 +534,8 @@ export const AboutPage: React.FC = () => {
                     src="/assets/mission_card.png"
                     alt="Our Mission"
                     className="w-full h-auto object-cover block"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="relative rounded-2xl overflow-hidden border-2 border-[#F2A000]/40 shadow-lg">
@@ -533,6 +543,8 @@ export const AboutPage: React.FC = () => {
                     src="/assets/vision_card.png"
                     alt="Our Vision"
                     className="w-full h-auto object-cover block"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

@@ -165,6 +165,8 @@ export const AchievementsSection: React.FC = () => {
           src="/assets/achievements-bg.png"
           alt="Velocity Chess Academy Achievements Background"
           className="w-full h-full object-cover object-center opacity-35"
+          loading="lazy"
+          decoding="async"
         />
         {/* Soft translucent warm cream overlay ensuring optimal legibility for text & cards */}
         <div className="absolute inset-0 bg-[#FFF9EF]/55 pointer-events-none" />
@@ -321,6 +323,8 @@ export const AchievementsSection: React.FC = () => {
                         src={card.imageUrl}
                         alt={card.altText}
                         className={`w-full h-full object-cover ${card.objectPosition} group-hover:scale-105 transition-transform duration-500`}
+                        loading="lazy"
+                        decoding="async"
                       />
                       {/* Gradient vignette */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15 pointer-events-none" />
@@ -443,6 +447,8 @@ export const AchievementsSection: React.FC = () => {
                   src={achievementCards[activeModalIndex].imageUrl}
                   alt={achievementCards[activeModalIndex].altText}
                   className="max-h-[65vh] w-auto max-w-full object-contain mx-auto rounded-xl drop-shadow-lg"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 

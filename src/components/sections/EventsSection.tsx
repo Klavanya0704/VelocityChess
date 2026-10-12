@@ -59,6 +59,8 @@ export const EventsSection: React.FC = () => {
           src="/assets/events-bg.jpg"
           alt="Velocity Chess Academy Events Background"
           className="w-full h-full object-cover object-center opacity-35"
+          loading="lazy"
+          decoding="async"
         />
         {/* Soft translucent warm cream overlay ensuring optimal legibility */}
         <div className="absolute inset-0 bg-[#FFF9EF]/55 pointer-events-none" />

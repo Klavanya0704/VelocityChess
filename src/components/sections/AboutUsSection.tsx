@@ -14,6 +14,8 @@ export const AboutUsSection: React.FC = () => {
           src="/assets/about_us_full_bg.png"
           alt="Velocity Chess Academy Background"
           className="w-full h-full object-cover object-center"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
@@ -145,6 +147,8 @@ export const AboutUsSection: React.FC = () => {
                 src="/assets/about-coach-crown.png"
                 alt="Velocity Chess Academy - International Master Krishna Teja in King Crown Composition"
                 className="w-full h-auto object-contain filter drop-shadow-[0_12px_32px_rgba(242,160,0,0.35)]"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
