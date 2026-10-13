@@ -498,55 +498,44 @@ export const AboutPage: React.FC = () => {
         {/* SECTION 1: ABOUT US HERO / STORY SECTION */}
         <AboutUsSection />
 
-        {/* SECTION 2: MISSION & VISION (MATCHING REFERENCE media_1791799638187_3e35a51b.png) */}
-        <section className="relative py-8 sm:py-12 border-t border-[#F2A000]/20">
+        {/* SECTION 2: MISSION & VISION */}
+        <section className="relative py-12 sm:py-16 border-t border-[#F2A000]/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            {/* Desktop & Tablet: Full high-res banner with background, ribbon curves, headings, and cards */}
-            <div className="hidden md:block relative rounded-3xl overflow-hidden border-2 border-[#F2A000]/40 shadow-2xl">
-              <img
-                src="/assets/mission_vision_banner.png"
-                alt="Velocity Chess Academy - Our Mission & Vision"
-                className="w-full h-auto object-cover block"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
+              <div className="inline-flex items-center space-x-2">
+                <span className="w-6 h-[2px] bg-[#F2A000]" />
+                <span className="text-[#D98A00] font-sans font-extrabold text-xs uppercase tracking-[0.2em]">
+                  CORE VALUES & PURPOSE
+                </span>
+                <span className="w-6 h-[2px] bg-[#F2A000]" />
+              </div>
+              <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#10264B]">
+                Our Mission <span className="text-[#E99A00]">&</span> Vision
+              </h2>
             </div>
 
-            {/* Mobile: Dedicated responsive view with section heading and stacked cards */}
-            <div className="md:hidden space-y-6">
-              <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
-                <div className="inline-flex items-center space-x-2">
-                  <span className="w-6 h-[2px] bg-[#F2A000]" />
-                  <span className="text-[#D98A00] font-sans font-extrabold text-xs uppercase tracking-[0.2em]">
-                    CORE VALUES & PURPOSE
-                  </span>
-                  <span className="w-6 h-[2px] bg-[#F2A000]" />
-                </div>
-                <h2 className="font-serif font-extrabold text-2xl text-[#10264B]">
-                  Our Mission <span className="text-[#E99A00]">&</span> Vision
-                </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+              {/* Mission Card */}
+              <div className="relative rounded-3xl overflow-hidden border-2 border-[#F2A000]/30 shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <img
+                  src="/assets/mission_card.png"
+                  alt="Velocity Chess Academy - Our Mission"
+                  className="w-full h-auto object-cover block"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
-              <div className="space-y-5">
-                <div className="relative rounded-2xl overflow-hidden border-2 border-[#F2A000]/40 shadow-lg">
-                  <img
-                    src="/assets/mission_card.png"
-                    alt="Our Mission"
-                    className="w-full h-auto object-cover block"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="relative rounded-2xl overflow-hidden border-2 border-[#F2A000]/40 shadow-lg">
-                  <img
-                    src="/assets/vision_card.png"
-                    alt="Our Vision"
-                    className="w-full h-auto object-cover block"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
+              {/* Vision Card */}
+              <div className="relative rounded-3xl overflow-hidden border-2 border-[#F2A000]/30 shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <img
+                  src="/assets/vision_card.png"
+                  alt="Velocity Chess Academy - Our Vision"
+                  className="w-full h-auto object-cover block"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
 
