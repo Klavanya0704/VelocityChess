@@ -124,59 +124,148 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
     >
       {/* MAIN MODAL CONTAINER (STRICTLY CLIPPED WITH OVERFLOW HIDDEN) */}
       <div
-        className="relative w-full max-w-lg sm:max-w-xl md:max-w-2xl my-auto bg-gradient-to-b from-[#FFFDF9] via-[#FFFBF2] to-[#FFF6E5] rounded-3xl sm:rounded-[32px] border-2 border-[#F2A000]/70 shadow-[0_25px_60px_-15px_rgba(7,26,56,0.6),0_0_35px_rgba(242,160,0,0.2)] overflow-hidden flex flex-col max-h-[90vh]"
+        className="relative w-full max-w-lg sm:max-w-xl md:max-w-2xl my-auto bg-gradient-to-b from-[#FFFDF9] via-[#FFFBF2] to-[#FFF6E5] rounded-[32px] sm:rounded-[36px] border-[2.5px] border-[#F2A000]/80 shadow-[0_25px_60px_-15px_rgba(7,26,56,0.6),0_0_35px_rgba(242,160,0,0.25)] overflow-hidden flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* 1. BACKGROUND DECORATIVE LAYER (BEHIND CONTENT, ZERO OVERFLOW, MUTED) */}
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* 1. BACKGROUND DECORATIVE LAYER (STRICTLY CLIPPED INSIDE MODAL, BEHIND CONTENT) */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
           {/* Inner Golden Bevel Highlight Border */}
-          <div className="absolute inset-0 rounded-3xl sm:rounded-[32px] border border-[#FFE8AB]/60" />
+          <div className="absolute inset-0 rounded-[30px] sm:rounded-[34px] border border-[#FFE8AB]/60 pointer-events-none" />
 
-          {/* Top-Left Subtle 3D Golden Chess Watermark */}
-          <div className="absolute -top-3 -left-3 w-20 sm:w-24 opacity-15 select-none filter drop-shadow-xs">
+          {/* TOP-LEFT CORNER: RICH 3D GOLDEN CHESS PIECES & RIBBON CURVES */}
+          <div className="absolute top-0 left-0 w-44 sm:w-56 h-36 sm:h-44">
+            {/* Elegant curved gold lines */}
+            <svg className="absolute -top-3 -left-3 w-48 sm:w-60 h-36 sm:h-44 text-[#F2A000]" viewBox="0 0 240 180" fill="none">
+              <path
+                d="M 0 140 C 40 120, 95 80, 155 35 C 190 12, 220 5, 240 0"
+                stroke="url(#modalGoldCurveTL1)"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+              />
+              <path
+                d="M 0 160 C 50 140, 110 95, 175 50 C 210 25, 230 12, 240 8"
+                stroke="url(#modalGoldCurveTL2)"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                opacity="0.75"
+              />
+              <defs>
+                <linearGradient id="modalGoldCurveTL1" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#E99A00" />
+                  <stop offset="50%" stopColor="#F2BD48" />
+                  <stop offset="100%" stopColor="#FFE8AB" />
+                </linearGradient>
+                <linearGradient id="modalGoldCurveTL2" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#D98A00" />
+                  <stop offset="100%" stopColor="#F2A000" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            {/* Rich Golden King */}
             <img
               src="/assets/3d_gold_king.png"
               alt=""
-              className="w-full h-auto object-contain"
+              className="absolute -top-2 left-2 sm:left-3 w-16 sm:w-22 h-auto object-contain opacity-85 filter drop-shadow-[0_6px_14px_rgba(242,160,0,0.35)]"
             />
-          </div>
-
-          {/* Bottom-Right Subtle 3D Golden Chess Watermark */}
-          <div className="absolute -bottom-4 -right-3 w-20 sm:w-24 opacity-15 select-none filter drop-shadow-xs">
+            {/* Rich Golden Pawn beside King */}
             <img
               src="/assets/3d_gold_pawn.png"
               alt=""
-              className="w-full h-auto object-contain"
+              className="absolute top-5 left-14 sm:left-20 w-11 sm:w-15 h-auto object-contain opacity-85 filter drop-shadow-[0_4px_10px_rgba(242,160,0,0.3)]"
             />
           </div>
 
-          {/* Top-Right Faint Gold Ribbon Curve */}
-          <div className="absolute top-0 right-0 w-36 sm:w-44 h-28 sm:h-36 opacity-10 overflow-hidden">
-            <svg className="w-full h-full text-[#F2A000]" viewBox="0 0 200 160" fill="none">
-              <path d="M 40 0 C 95 20, 150 70, 200 145" stroke="#F2A000" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 65 0 C 115 25, 165 75, 200 120" stroke="#F2A000" strokeWidth="1.5" strokeLinecap="round" />
+          {/* BOTTOM-RIGHT CORNER: RICH 3D GOLDEN CHESS PIECES & RIBBON CURVES */}
+          <div className="absolute bottom-0 right-0 w-44 sm:w-56 h-36 sm:h-44">
+            {/* Elegant curved gold lines */}
+            <svg className="absolute -bottom-3 -right-3 w-48 sm:w-60 h-36 sm:h-44 text-[#F2A000]" viewBox="0 0 240 180" fill="none">
+              <path
+                d="M 240 40 C 200 60, 145 100, 85 145 C 50 168, 20 175, 0 180"
+                stroke="url(#modalGoldCurveBR1)"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+              />
+              <path
+                d="M 240 20 C 190 40, 130 85, 65 130 C 30 155, 10 168, 0 172"
+                stroke="url(#modalGoldCurveBR2)"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                opacity="0.75"
+              />
+              <defs>
+                <linearGradient id="modalGoldCurveBR1" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#FFE8AB" />
+                  <stop offset="50%" stopColor="#F2BD48" />
+                  <stop offset="100%" stopColor="#E99A00" />
+                </linearGradient>
+                <linearGradient id="modalGoldCurveBR2" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#F2A000" />
+                  <stop offset="100%" stopColor="#D98A00" />
+                </linearGradient>
+              </defs>
             </svg>
+
+            {/* Rich Golden King */}
+            <img
+              src="/assets/3d_gold_king.png"
+              alt=""
+              className="absolute -bottom-2 right-2 sm:right-3 w-16 sm:w-22 h-auto object-contain opacity-85 filter drop-shadow-[0_6px_14px_rgba(242,160,0,0.35)]"
+            />
+            {/* Rich Golden Pawn beside King */}
+            <img
+              src="/assets/3d_gold_pawn.png"
+              alt=""
+              className="absolute bottom-2 right-14 sm:right-20 w-11 sm:w-15 h-auto object-contain opacity-85 filter drop-shadow-[0_4px_10px_rgba(242,160,0,0.3)]"
+            />
           </div>
 
-          {/* Bottom-Left Faint Gold Ribbon Curve */}
-          <div className="absolute bottom-0 left-0 w-32 sm:w-40 h-24 sm:h-32 opacity-10 overflow-hidden">
-            <svg className="w-full h-full text-[#F2A000]" viewBox="0 0 160 120" fill="none">
-              <path d="M 0 110 C 60 100, 110 65, 150 10" stroke="#F2A000" strokeWidth="2.5" strokeLinecap="round" />
+          {/* TOP-RIGHT CORNER: ELEGANT GOLD RIBBON & SPARKLE */}
+          <div className="absolute top-0 right-0 w-36 sm:w-48 h-28 sm:h-36 overflow-hidden">
+            <svg className="w-full h-full text-[#F2A000]" viewBox="0 0 180 140" fill="none">
+              <path
+                d="M 20 0 C 70 15, 120 50, 180 110"
+                stroke="#F2A000"
+                strokeWidth="2"
+                strokeLinecap="round"
+                opacity="0.5"
+              />
+              <path
+                d="M 50 0 C 95 18, 140 50, 180 90"
+                stroke="#FFE29A"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                opacity="0.6"
+              />
+            </svg>
+            <span className="absolute top-8 right-12 text-[#E99A00] text-sm animate-pulse">✦</span>
+          </div>
+
+          {/* BOTTOM-LEFT CORNER: ELEGANT GOLD RIBBON */}
+          <div className="absolute bottom-0 left-0 w-36 sm:w-48 h-28 sm:h-36 overflow-hidden">
+            <svg className="w-full h-full text-[#F2A000]" viewBox="0 0 180 140" fill="none">
+              <path
+                d="M 0 120 C 50 110, 100 75, 150 15"
+                stroke="#F2A000"
+                strokeWidth="2"
+                strokeLinecap="round"
+                opacity="0.5"
+              />
             </svg>
           </div>
         </div>
 
-        {/* 2. CIRCULAR CLOSE BUTTON (X) - PROPER SPACING & HIGHEST Z-INDEX */}
+        {/* 2. CIRCULAR CLOSE BUTTON (X) - CLEAN CLEARANCE & ELEVATED Z-INDEX */}
         <button
           onClick={handleReset}
-          className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/95 border border-[#F2A000]/40 shadow-xs flex items-center justify-center text-[#10264B] hover:text-[#D98A00] hover:scale-105 hover:border-[#D98A00] transition-all cursor-pointer"
+          className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-40 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/95 border border-[#F2A000]/40 shadow-xs flex items-center justify-center text-[#10264B] hover:text-[#D98A00] hover:scale-105 hover:border-[#D98A00] transition-all cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.2]" />
         </button>
 
-        {/* 3. MODAL HEADER - PROPER PADDING & CLEARANCE */}
-        <div className="text-center pt-6 sm:pt-7 pb-2 px-6 sm:px-14 relative z-10 shrink-0">
+        {/* 3. MODAL HEADER - PROPER PADDING SO IT NEVER TOUCHES CORNERS */}
+        <div className="text-center pt-6 sm:pt-7 pb-2 px-8 sm:px-20 relative z-10 shrink-0">
           {/* Center Crown with gold horizontal lines */}
           <div className="flex items-center justify-center space-x-2.5 mb-1.5">
             <span className="w-6 sm:w-10 h-[1.5px] bg-gradient-to-r from-transparent to-[#F2A000]" />
@@ -199,7 +288,7 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
           </p>
         </div>
 
-        {/* 4. MODAL SCROLLABLE BODY - ALL FORM CONTROLS IN HIGH STACKING LAYER */}
+        {/* 4. MODAL SCROLLABLE BODY - SOLID OPAQUE INPUT SURFACES IN HIGH STACKING LAYER */}
         <div className="overflow-y-auto px-5 sm:px-8 md:px-10 pb-6 sm:pb-7 pt-2 relative z-10 flex-1">
           {submitted ? (
             <div role="status" aria-live="polite" className="py-6 text-center space-y-4">
@@ -244,7 +333,7 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
                     id="modal-program"
                     value={selectedProgram}
                     onChange={(e) => setSelectedProgram(e.target.value)}
-                    className="w-full pl-10 pr-9 py-2.5 bg-[#FFFDF9] border border-[#F2A000]/70 rounded-xl text-xs sm:text-sm text-[#10264A] font-medium shadow-2xs focus:outline-none focus:border-[#E5A51B] focus:ring-1 focus:ring-[#E5A51B] transition appearance-none cursor-pointer"
+                    className="w-full pl-10 pr-9 py-2.5 bg-[#FFFDF9]/95 backdrop-blur-xs border border-[#F2A000]/70 rounded-xl text-xs sm:text-sm text-[#10264A] font-medium shadow-2xs focus:outline-none focus:border-[#E5A51B] focus:ring-1 focus:ring-[#E5A51B] transition appearance-none cursor-pointer"
                   >
                     {programsData.map((p) => (
                       <option key={p.id} value={p.id}>
@@ -277,7 +366,7 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
                         setStudentName(e.target.value);
                         if (errors.studentName) setErrors({ ...errors, studentName: undefined });
                       }}
-                      className={`w-full pl-10 pr-3.5 py-2.5 bg-[#FFFDF9] border rounded-xl text-xs sm:text-sm text-[#10264A] placeholder-[#8A99AD] shadow-2xs focus:outline-none transition ${
+                      className={`w-full pl-10 pr-3.5 py-2.5 bg-[#FFFDF9]/95 backdrop-blur-xs border rounded-xl text-xs sm:text-sm text-[#10264A] placeholder-[#8A99AD] shadow-2xs focus:outline-none transition ${
                         errors.studentName
                           ? 'border-red-500 ring-1 ring-red-500'
                           : 'border-[#F2A000]/70 focus:border-[#E5A51B] focus:ring-1 focus:ring-[#E5A51B]'
@@ -306,7 +395,7 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
                         setParentName(e.target.value);
                         if (errors.parentName) setErrors({ ...errors, parentName: undefined });
                       }}
-                      className={`w-full pl-10 pr-3.5 py-2.5 bg-[#FFFDF9] border rounded-xl text-xs sm:text-sm text-[#10264A] placeholder-[#8A99AD] shadow-2xs focus:outline-none transition ${
+                      className={`w-full pl-10 pr-3.5 py-2.5 bg-[#FFFDF9]/95 backdrop-blur-xs border rounded-xl text-xs sm:text-sm text-[#10264A] placeholder-[#8A99AD] shadow-2xs focus:outline-none transition ${
                         errors.parentName
                           ? 'border-red-500 ring-1 ring-red-500'
                           : 'border-[#F2A000]/70 focus:border-[#E5A51B] focus:ring-1 focus:ring-[#E5A51B]'
@@ -338,7 +427,7 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
                         setEmail(e.target.value);
                         if (errors.email) setErrors({ ...errors, email: undefined });
                       }}
-                      className={`w-full pl-10 pr-3.5 py-2.5 bg-[#FFFDF9] border rounded-xl text-xs sm:text-sm text-[#10264A] placeholder-[#8A99AD] shadow-2xs focus:outline-none transition ${
+                      className={`w-full pl-10 pr-3.5 py-2.5 bg-[#FFFDF9]/95 backdrop-blur-xs border rounded-xl text-xs sm:text-sm text-[#10264A] placeholder-[#8A99AD] shadow-2xs focus:outline-none transition ${
                         errors.email
                           ? 'border-red-500 ring-1 ring-red-500'
                           : 'border-[#F2A000]/70 focus:border-[#E5A51B] focus:ring-1 focus:ring-[#E5A51B]'
@@ -367,7 +456,7 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
                         setPhone(e.target.value);
                         if (errors.phone) setErrors({ ...errors, phone: undefined });
                       }}
-                      className={`w-full pl-10 pr-3.5 py-2.5 bg-[#FFFDF9] border rounded-xl text-xs sm:text-sm text-[#10264A] placeholder-[#8A99AD] shadow-2xs focus:outline-none transition ${
+                      className={`w-full pl-10 pr-3.5 py-2.5 bg-[#FFFDF9]/95 backdrop-blur-xs border rounded-xl text-xs sm:text-sm text-[#10264A] placeholder-[#8A99AD] shadow-2xs focus:outline-none transition ${
                         errors.phone
                           ? 'border-red-500 ring-1 ring-red-500'
                           : 'border-[#F2A000]/70 focus:border-[#E5A51B] focus:ring-1 focus:ring-[#E5A51B]'
