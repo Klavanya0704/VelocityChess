@@ -516,27 +516,67 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-              {/* Mission Card */}
-              <div className="relative rounded-3xl overflow-hidden border-2 border-[#F2A000]/30 shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <img
-                  src="/assets/mission_card.png"
-                  alt="Velocity Chess Academy - Our Mission"
-                  className="w-full h-auto object-cover block"
-                  loading="lazy"
-                  decoding="async"
-                />
+              
+              {/* Mission Card (Real React / JSX Component) */}
+              <div className="relative bg-gradient-to-br from-white/95 via-[#FFFDF9]/95 to-[#FFF8ED]/95 backdrop-blur-md p-6 sm:p-8 rounded-3xl border-2 border-[#F2A000]/35 shadow-xl hover:shadow-2xl hover:border-[#F2A000]/60 hover:-translate-y-1 transition-all duration-300 overflow-hidden group flex flex-col justify-between">
+                {/* Inner subtle gold highlight border */}
+                <div className="absolute inset-0 rounded-[22px] border border-[#FFE8AB]/40 pointer-events-none" />
+
+                {/* Subtle faint gold watermark in background */}
+                <div className="absolute -right-5 -bottom-5 w-36 h-36 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity pointer-events-none text-[#D98A00]">
+                  <Target className="w-full h-full" />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFF5E5] to-[#FFE8C2] border border-[#F2A000]/40 flex items-center justify-center text-[#D98A00] mb-4 shadow-sm group-hover:scale-105 transition-transform">
+                    <Target className="w-6 h-6 stroke-[2.2]" />
+                  </div>
+                  <h3 className="font-serif font-bold text-2xl text-[#10264B] mb-3">
+                    Our Mission
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#25334A]/85 leading-relaxed font-sans font-medium">
+                    To empower young minds with critical thinking, resilience, and strategic clarity through structured master-level chess education. We strive to nurture not just tournament champions, but lifelong strategic thinkers.
+                  </p>
+                </div>
+
+                {/* Bottom subtle gold accent strip */}
+                <div className="mt-5 pt-3 border-t border-[#F2A000]/20 flex items-center justify-between text-[11px] font-semibold text-[#D98A00] relative z-10">
+                  <span className="uppercase tracking-wider text-[10px] font-extrabold">Strategic Discipline</span>
+                  <span className="text-[#E99A00]">✦</span>
+                </div>
               </div>
 
-              {/* Vision Card */}
-              <div className="relative rounded-3xl overflow-hidden border-2 border-[#F2A000]/30 shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <img
-                  src="/assets/vision_card.png"
-                  alt="Velocity Chess Academy - Our Vision"
-                  className="w-full h-auto object-cover block"
-                  loading="lazy"
-                  decoding="async"
-                />
+              {/* Vision Card (Real React / JSX Component) */}
+              <div className="relative bg-gradient-to-br from-white/95 via-[#FFFDF9]/95 to-[#FFF8ED]/95 backdrop-blur-md p-6 sm:p-8 rounded-3xl border-2 border-[#F2A000]/35 shadow-xl hover:shadow-2xl hover:border-[#F2A000]/60 hover:-translate-y-1 transition-all duration-300 overflow-hidden group flex flex-col justify-between">
+                {/* Inner subtle gold highlight border */}
+                <div className="absolute inset-0 rounded-[22px] border border-[#FFE8AB]/40 pointer-events-none" />
+
+                {/* Subtle faint gold watermark in background */}
+                <div className="absolute -right-5 -bottom-5 w-36 h-36 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity pointer-events-none text-[#D98A00]">
+                  <Sparkles className="w-full h-full" />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFF5E5] to-[#FFE8C2] border border-[#F2A000]/40 flex items-center justify-center text-[#D98A00] mb-4 shadow-sm group-hover:scale-105 transition-transform">
+                    <Sparkles className="w-6 h-6 stroke-[2.2]" />
+                  </div>
+                  <h3 className="font-serif font-bold text-2xl text-[#10264B] mb-3">
+                    Our Vision
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#25334A]/85 leading-relaxed font-sans font-medium">
+                    To become India’s premier chess academy, setting the gold standard for youth chess training, FIDE rating development, and producing International Masters and Grandmasters who inspire the next generation.
+                  </p>
+                </div>
+
+                {/* Bottom subtle gold accent strip */}
+                <div className="mt-5 pt-3 border-t border-[#F2A000]/20 flex items-center justify-between text-[11px] font-semibold text-[#D98A00] relative z-10">
+                  <span className="uppercase tracking-wider text-[10px] font-extrabold">Master Coaching</span>
+                  <span className="text-[#E99A00]">✦</span>
+                </div>
               </div>
+
             </div>
 
           </div>
